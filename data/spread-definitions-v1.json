@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "onoko-arcana-spreads-v1",
+  "defaultSpreadId": "one_card",
+  "firstExecutableMultiCardSpreadId": "three_card_past_present_future",
+  "spreads": [
+    {
+      "spreadId": "one_card",
+      "displayName": "一枚引き",
+      "description": "ひとつの問いに対して、今見るべき視点を一枚で読む。",
+      "layoutType": "single",
+      "phase4RuntimeStatus": "already-executable",
+      "slots": [
+        {
+          "positionKey": "present",
+          "displayLabel": "一枚引き",
+          "revealOrder": 1,
+          "guidePrompt": "問い全体の焦点として読む。",
+          "tableLocationCm": [0, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": true
+        }
+      ]
+    },
+    {
+      "spreadId": "three_card_past_present_future",
+      "displayName": "過去・現在・未来",
+      "description": "状況の流れを三段階で読み、変化の筋道を確認する。",
+      "layoutType": "linear",
+      "phase4RuntimeStatus": "first-target",
+      "slots": [
+        {
+          "positionKey": "past",
+          "displayLabel": "過去",
+          "revealOrder": 1,
+          "guidePrompt": "現在に影響している背景や前提を見る。",
+          "tableLocationCm": [0, -120, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "present",
+          "displayLabel": "現在",
+          "revealOrder": 2,
+          "guidePrompt": "今の中心課題や意識すべき状態を見る。",
+          "tableLocationCm": [0, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": true
+        },
+        {
+          "positionKey": "future",
+          "displayLabel": "未来",
+          "revealOrder": 3,
+          "guidePrompt": "この流れの先に出やすい可能性を見る。",
+          "tableLocationCm": [0, 120, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        }
+      ]
+    },
+    {
+      "spreadId": "five_card_cross",
+      "displayName": "五枚クロス",
+      "description": "中心課題、支え、障害、上位視点、根底を十字に読む。",
+      "layoutType": "cross",
+      "phase4RuntimeStatus": "metadata-only",
+      "slots": [
+        {
+          "positionKey": "center",
+          "displayLabel": "中心",
+          "revealOrder": 1,
+          "guidePrompt": "問いの中心にある主題を見る。",
+          "tableLocationCm": [0, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": true
+        },
+        {
+          "positionKey": "support",
+          "displayLabel": "支え",
+          "revealOrder": 2,
+          "guidePrompt": "助けになる資質や味方を見る。",
+          "tableLocationCm": [0, -120, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "challenge",
+          "displayLabel": "障害",
+          "revealOrder": 3,
+          "guidePrompt": "妨げや誤解されやすい点を見る。",
+          "tableLocationCm": [0, 120, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "higher_view",
+          "displayLabel": "上位視点",
+          "revealOrder": 4,
+          "guidePrompt": "一段高い視点から意味を読む。",
+          "tableLocationCm": [120, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "root",
+          "displayLabel": "根底",
+          "revealOrder": 5,
+          "guidePrompt": "根底にある動機や未整理の感情を見る。",
+          "tableLocationCm": [-120, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        }
+      ]
+    },
+    {
+      "spreadId": "seven_card_horseshoe",
+      "displayName": "七枚ホースシュー",
+      "description": "過去から助言までを弧状に並べ、流れと選択肢を読む。",
+      "layoutType": "horseshoe",
+      "phase4RuntimeStatus": "metadata-only",
+      "slots": [
+        {
+          "positionKey": "past",
+          "displayLabel": "過去",
+          "revealOrder": 1,
+          "guidePrompt": "この問いに至った過去の流れを見る。",
+          "tableLocationCm": [70, -180, 2],
+          "tableYawDegrees": -25,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "present",
+          "displayLabel": "現在",
+          "revealOrder": 2,
+          "guidePrompt": "現在の状況と課題を見る。",
+          "tableLocationCm": [120, -90, 2],
+          "tableYawDegrees": -10,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "hidden_influence",
+          "displayLabel": "隠れた影響",
+          "revealOrder": 3,
+          "guidePrompt": "見落としている影響や前提を見る。",
+          "tableLocationCm": [120, 90, 2],
+          "tableYawDegrees": 10,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "obstacle",
+          "displayLabel": "障害",
+          "revealOrder": 4,
+          "guidePrompt": "進行を妨げる要因を見る。",
+          "tableLocationCm": [70, 180, 2],
+          "tableYawDegrees": 25,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "outside",
+          "displayLabel": "周囲",
+          "revealOrder": 5,
+          "guidePrompt": "周囲の反応や環境を見る。",
+          "tableLocationCm": [-70, 180, 2],
+          "tableYawDegrees": -25,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "action",
+          "displayLabel": "行動",
+          "revealOrder": 6,
+          "guidePrompt": "次に取るべき行動の方向を見る。",
+          "tableLocationCm": [-120, 90, 2],
+          "tableYawDegrees": -10,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "outcome",
+          "displayLabel": "結果",
+          "revealOrder": 7,
+          "guidePrompt": "このまま進んだ時の着地点を見る。",
+          "tableLocationCm": [-120, -90, 2],
+          "tableYawDegrees": 10,
+          "defaultSelected": true
+        }
+      ]
+    },
+    {
+      "spreadId": "celtic_cross",
+      "displayName": "ケルト十字",
+      "description": "問題の核心、内外の影響、希望、結果までを広く読む十枚展開。",
+      "layoutType": "celtic_cross",
+      "phase4RuntimeStatus": "metadata-only",
+      "slots": [
+        {
+          "positionKey": "present",
+          "displayLabel": "現状",
+          "revealOrder": 1,
+          "guidePrompt": "問いの現在地を見る。",
+          "tableLocationCm": [0, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": true
+        },
+        {
+          "positionKey": "crossing",
+          "displayLabel": "交差",
+          "revealOrder": 2,
+          "guidePrompt": "現状に交差する課題や力を見る。",
+          "tableLocationCm": [0, 0, 3],
+          "tableYawDegrees": 90,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "root",
+          "displayLabel": "根底",
+          "revealOrder": 3,
+          "guidePrompt": "根にある原因や無意識を見る。",
+          "tableLocationCm": [-120, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "past",
+          "displayLabel": "過去",
+          "revealOrder": 4,
+          "guidePrompt": "過ぎた影響を見る。",
+          "tableLocationCm": [0, -130, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "crown",
+          "displayLabel": "意識",
+          "revealOrder": 5,
+          "guidePrompt": "表層の意識や目標を見る。",
+          "tableLocationCm": [120, 0, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "near_future",
+          "displayLabel": "近未来",
+          "revealOrder": 6,
+          "guidePrompt": "近い未来の展開を見る。",
+          "tableLocationCm": [0, 130, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "self",
+          "displayLabel": "自分",
+          "revealOrder": 7,
+          "guidePrompt": "自分自身の姿勢を見る。",
+          "tableLocationCm": [-160, 260, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "environment",
+          "displayLabel": "環境",
+          "revealOrder": 8,
+          "guidePrompt": "周囲や外部環境を見る。",
+          "tableLocationCm": [-50, 260, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "hopes_fears",
+          "displayLabel": "希望と不安",
+          "revealOrder": 9,
+          "guidePrompt": "期待と恐れの両面を見る。",
+          "tableLocationCm": [60, 260, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "outcome",
+          "displayLabel": "結果",
+          "revealOrder": 10,
+          "guidePrompt": "総合的な着地点を見る。",
+          "tableLocationCm": [170, 260, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        }
+      ]
+    },
+    {
+      "spreadId": "relationship_line",
+      "displayName": "関係性ライン",
+      "description": "二者の状態、接点、課題、可能性を横並びに読む。",
+      "layoutType": "relationship",
+      "phase4RuntimeStatus": "metadata-only",
+      "slots": [
+        {
+          "positionKey": "self",
+          "displayLabel": "自分",
+          "revealOrder": 1,
+          "guidePrompt": "自分側の状態を見る。",
+          "tableLocationCm": [0, -250, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "other",
+          "displayLabel": "相手",
+          "revealOrder": 2,
+          "guidePrompt": "相手側の状態を見る。",
+          "tableLocationCm": [0, -150, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "bridge",
+          "displayLabel": "接点",
+          "revealOrder": 3,
+          "guidePrompt": "二者をつなぐものを見る。",
+          "tableLocationCm": [0, -50, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": true
+        },
+        {
+          "positionKey": "challenge",
+          "displayLabel": "課題",
+          "revealOrder": 4,
+          "guidePrompt": "関係性の課題を見る。",
+          "tableLocationCm": [0, 50, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "advice",
+          "displayLabel": "助言",
+          "revealOrder": 5,
+          "guidePrompt": "関係性を扱う助言を見る。",
+          "tableLocationCm": [0, 150, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        },
+        {
+          "positionKey": "potential",
+          "displayLabel": "可能性",
+          "revealOrder": 6,
+          "guidePrompt": "関係性の可能性を見る。",
+          "tableLocationCm": [0, 250, 2],
+          "tableYawDegrees": 0,
+          "defaultSelected": false
+        }
+      ]
+    }
+  ]
+}

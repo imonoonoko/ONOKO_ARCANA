@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "app": "web-app\\index.html",
+  "requiredIds": 14,
+  "spreads": [
+    "one_card",
+    "three_card_past_present_future",
+    "five_card_cross",
+    "seven_card_horseshoe",
+    "celtic_cross",
+    "relationship_line"
+  ],
+  "cardAssets": 23,
+  "electronShell": "web-app\\electron\\main.cjs",
+  "checkedAt": "2026-06-02T05:08:41"
+}

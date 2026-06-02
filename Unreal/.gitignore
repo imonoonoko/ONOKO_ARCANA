@@ -1,0 +1,18 @@
+# Unreal Engine generated state
+*/Binaries/
+*/DerivedDataCache/
+*/Intermediate/
+*/Saved/
+*/.vs/
+*/Build/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+
+# Keep source assets, Config, Content source placeholders, and project files.
+!*/Config/
+!*/Content/
+!*/ImportStaging/
+!*.uproject

@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONOKO ARCANA Web MVP</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03070c;
+      --panel: rgba(7, 16, 26, 0.88);
+      --panel-strong: rgba(10, 22, 34, 0.96);
+      --panel-soft: rgba(67, 168, 255, 0.08);
+      --line: rgba(216, 180, 107, 0.36);
+      --line-blue: rgba(67, 168, 255, 0.42);
+      --gold: #d8b46b;
+      --blue: #43a8ff;
+      --blue-soft: #90cdfd;
+      --text: #eaf6ff;
+      --muted: #9cb3c5;
+      --danger: #ff8a7a;
+      --ok: #9ce6b8;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+      --radius: 8px;
+      --card-w: 156px;
+      font-family: "Yu Gothic UI", "Meiryo", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 48% 18%, rgba(67, 168, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 75% 76%, rgba(216, 180, 107, 0.10), transparent 34%),
+        linear-gradient(135deg, #02040a 0%, #06101a 44%, #02050a 100%);
+      overflow-x: hidden;
+    }
+
+    button,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) minmax(620px, 1fr) minmax(300px, 380px);
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .panel {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(67, 168, 255, 0.08), transparent 34%),
+        var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .side,
+    .inspector {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .brand {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(216, 180, 107, 0.24);
+    }
+
+    .sigil {
+      width: 46px;
+      aspect-ratio: 1;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      background:
+        radial-gradient(circle, rgba(67, 168, 255, 0.28), transparent 62%),
+        rgba(4, 10, 16, 0.82);
+      box-shadow: 0 0 28px rgba(67, 168, 255, 0.25), inset 0 0 18px rgba(216, 180, 107, 0.16);
+      font-family: Georgia, serif;
+      font-size: 22px;
+    }
+
+    .brand h1,
+    .section-title,
+    .selected-copy h2 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .section {
+      display: grid;
+      gap: 8px;
+    }
+
+    .section-title {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .question-box,
+    .note-box {
+      width: 100%;
+      min-height: 86px;
+      resize: vertical;
+      border: 1px solid rgba(67, 168, 255, 0.32);
+      border-radius: var(--radius);
+      padding: 10px;
+      color: var(--text);
+      background: rgba(3, 7, 12, 0.74);
+      outline: none;
+    }
+
+    .question-box:focus,
+    .note-box:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(67, 168, 255, 0.16);
+    }
+
+    .spread-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .spread-choice {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid rgba(216, 180, 107, 0.22);
+      border-radius: var(--radius);
+      padding: 9px 10px;
+      background: rgba(4, 10, 16, 0.64);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .spread-choice:hover {
+      border-color: rgba(67, 168, 255, 0.58);
+    }
+
+    .spread-choice.is-active {
+      border-color: var(--blue);
+      background: linear-gradient(90deg, rgba(67, 168, 255, 0.24), rgba(216, 180, 107, 0.08));
+      box-shadow: inset 3px 0 0 var(--blue);
+    }
+
+    .spread-choice strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .spread-choice span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .spread-choice em {
+      color: var(--gold);
+      font-size: 12px;
+      font-style: normal;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .stat {
+      min-width: 0;
+      border: 1px solid rgba(67, 168, 255, 0.24);
+      border-radius: var(--radius);
+      padding: 8px;
+      background: rgba(67, 168, 255, 0.08);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .table-shell {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto minmax(520px, 1fr) auto;
+      gap: 12px;
+    }
+
+    .topbar,
+    .command-bar {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(4, 10, 16, 0.78);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+    }
+
+    .spread-heading {
+      min-width: 0;
+    }
+
+    .spread-heading h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .spread-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .commands {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      min-height: 34px;
+      border: 1px solid rgba(216, 180, 107, 0.42);
+      border-radius: var(--radius);
+      padding: 7px 11px;
+      color: var(--gold);
+      background: rgba(6, 13, 20, 0.86);
+      cursor: pointer;
+    }
+
+    .button:hover:not(:disabled) {
+      border-color: var(--blue);
+      color: var(--text);
+      box-shadow: 0 0 18px rgba(67, 168, 255, 0.18);
+    }
+
+    .button.primary {
+      color: #03101a;
+      border-color: var(--blue);
+      background: linear-gradient(180deg, #8fd4ff, #43a8ff);
+      font-weight: 700;
+    }
+
+    .button:disabled {
+      color: rgba(156, 179, 197, 0.44);
+      border-color: rgba(156, 179, 197, 0.20);
+      background: rgba(6, 13, 20, 0.38);
+      cursor: not-allowed;
+    }
+
+    .table-panel {
+      position: relative;
+      min-width: 0;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid rgba(67, 168, 255, 0.30);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(67, 168, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(67, 168, 255, 0.045) 1px, transparent 1px),
+        radial-gradient(circle at 50% 45%, rgba(67, 168, 255, 0.18), transparent 34%),
+        radial-gradient(circle at 50% 55%, rgba(216, 180, 107, 0.13), transparent 48%),
+        rgba(2, 8, 14, 0.94);
+      background-size: auto, 28px 28px, auto, auto, auto;
+      box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.72), var(--shadow);
+    }
+
+    .table-panel::before,
+    .table-panel::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(216, 180, 107, 0.18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .table-panel::after {
+      inset: 18%;
+      border-color: rgba(67, 168, 255, 0.18);
+      box-shadow: 0 0 70px rgba(67, 168, 255, 0.13);
+    }
+
+    .spread-board {
+      position: absolute;
+      inset: 18px;
+      z-index: 1;
+      min-height: 0;
+    }
+
+    .slot {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--card-w);
+      transform: translate(-50%, -50%) rotate(var(--rot));
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+    }
+
+    .slot-label {
+      min-width: 62px;
+      max-width: 130px;
+      padding: 4px 7px;
+      border: 1px solid rgba(216, 180, 107, 0.32);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(2, 6, 10, 0.82);
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.30);
+      font-size: 11px;
+      line-height: 1.2;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .arcana-card {
+      position: relative;
+      width: var(--card-w);
+      aspect-ratio: 2 / 3;
+      border: 1px solid rgba(216, 180, 107, 0.26);
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(67, 168, 255, 0.12), rgba(3, 7, 12, 0.88));
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.55), 0 0 28px rgba(67, 168, 255, 0.12);
+      cursor: pointer;
+    }
+
+    .arcana-card.is-empty {
+      cursor: default;
+      border-style: dashed;
+      background: rgba(67, 168, 255, 0.05);
+      box-shadow: inset 0 0 40px rgba(67, 168, 255, 0.09);
+    }
+
+    .arcana-card.is-hidden {
+      border-color: rgba(67, 168, 255, 0.34);
+    }
+
+    .arcana-card.is-selected {
+      border-color: var(--blue);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.58), 0 0 38px rgba(67, 168, 255, 0.52);
+    }
+
+    .arcana-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px;
+      filter: drop-shadow(0 0 15px rgba(67, 168, 255, 0.22));
+    }
+
+    .arcana-card img.reversed {
+      transform: rotate(180deg);
+    }
+
+    .empty-mark {
+      position: absolute;
+      inset: 18%;
+      border: 1px solid rgba(216, 180, 107, 0.18);
+      border-radius: 50%;
+    }
+
+    .card-chip {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      background: rgba(3, 7, 12, 0.76);
+      color: var(--text);
+      font-size: 10px;
+      line-height: 1.2;
+      backdrop-filter: blur(8px);
+    }
+
+    .card-chip.top {
+      top: 6px;
+    }
+
+    .card-chip.bottom {
+      bottom: 6px;
+      color: var(--gold);
+    }
+
+    .arcana-card.is-hidden .card-chip.bottom {
+      color: var(--blue-soft);
+      justify-content: center;
+    }
+
+    .layout-one_card {
+      --card-w: clamp(170px, 20vw, 230px);
+    }
+
+    .layout-three_card_past_present_future {
+      --card-w: clamp(132px, 13vw, 178px);
+    }
+
+    .layout-five_card_cross {
+      --card-w: clamp(116px, 11vw, 150px);
+    }
+
+    .layout-seven_card_horseshoe {
+      --card-w: clamp(96px, 9.2vw, 126px);
+    }
+
+    .layout-celtic_cross {
+      --card-w: clamp(80px, 7.2vw, 106px);
+    }
+
+    .command-bar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px;
+    }
+
+    .progress-track {
+      min-width: 0;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .progress-dot {
+      flex: 0 0 auto;
+      border: 1px solid rgba(216, 180, 107, 0.30);
+      border-radius: 999px;
+      padding: 5px 8px;
+      color: var(--muted);
+      background: rgba(3, 7, 12, 0.70);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .progress-dot.is-revealed {
+      color: var(--text);
+      border-color: rgba(67, 168, 255, 0.62);
+    }
+
+    .progress-dot.is-selected {
+      color: #03101a;
+      border-color: var(--blue);
+      background: var(--blue);
+      font-weight: 700;
+    }
+
+    .status-line {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .selected-card {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .selected-card img {
+      width: 96px;
+      aspect-ratio: 2 / 3;
+      object-fit: contain;
+      border: 1px solid rgba(216, 180, 107, 0.30);
+      border-radius: var(--radius);
+      background: rgba(3, 7, 12, 0.74);
+      padding: 4px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.36);
+    }
+
+    .selected-card img.reversed {
+      transform: rotate(180deg);
+    }
+
+    .selected-copy h2 {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .selected-copy p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      border: 1px solid rgba(67, 168, 255, 0.30);
+      border-radius: 999px;
+      padding: 4px 7px;
+      color: var(--blue-soft);
+      background: rgba(67, 168, 255, 0.10);
+      font-size: 11px;
+      line-height: 1.2;
+    }
+
+    .badge.gold {
+      color: var(--gold);
+      border-color: rgba(216, 180, 107, 0.42);
+      background: rgba(216, 180, 107, 0.10);
+    }
+
+    .guide-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .guide-row {
+      border-left: 2px solid rgba(216, 180, 107, 0.58);
+      padding: 8px 10px;
+      background: rgba(3, 7, 12, 0.56);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .guide-row b {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .guide-row span {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .note-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .micro-status {
+      min-width: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 7px;
+      overflow: auto;
+      padding-right: 2px;
+      max-height: 220px;
+    }
+
+    .history-item {
+      width: 100%;
+      border: 1px solid rgba(67, 168, 255, 0.22);
+      border-radius: var(--radius);
+      padding: 8px;
+      color: var(--text);
+      background: rgba(3, 7, 12, 0.58);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .history-item:hover {
+      border-color: var(--blue);
+    }
+
+    .history-item b,
+    .history-item span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .history-item b {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .history-item span {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .empty {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1180px) {
+      .app {
+        grid-template-columns: 280px minmax(520px, 1fr);
+      }
+
+      .inspector {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .app {
+        grid-template-columns: 1fr;
+        padding: 8px;
+      }
+
+      .table-shell {
+        grid-template-rows: auto minmax(500px, 70vh) auto;
+      }
+
+      .topbar,
+      .command-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .commands {
+        justify-content: stretch;
+      }
+
+      .commands .button {
+        flex: 1 1 130px;
+      }
+
+      .inspector {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="panel side">
+      <div class="brand">
+        <div class="sigil">O</div>
+        <div>
+          <h1>ONOKO ARCANA</h1>
+          <p>Web MVP / local reading table</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Question</h2>
+        <textarea id="questionInput" class="question-box" placeholder="今読む問いを入力"></textarea>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Spread</h2>
+        <div id="spreadControls" class="spread-list"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Reading State</h2>
+        <div class="stat-grid">
+          <div class="stat"><b id="statCards">0</b><span>cards</span></div>
+          <div class="stat"><b id="statRevealed">0</b><span>revealed</span></div>
+          <div class="stat"><b id="statSaved">0</b><span>saved</span></div>
+        </div>
+      </section>
+    </aside>
+
+    <main class="table-shell">
+      <header class="topbar">
+        <div class="spread-heading">
+          <h2 id="spreadTitle">一枚引き</h2>
+          <p id="spreadDescription">ひとつの問いに対して、今見るべき視点を一枚で読む。</p>
+        </div>
+        <div class="commands">
+          <button id="drawButton" class="button primary" type="button">ドロー</button>
+          <button id="revealButton" class="button" type="button" disabled>めくる</button>
+          <button id="saveReadingButton" class="button" type="button" disabled>保存</button>
+          <button id="resetButton" class="button" type="button">リセット</button>
+        </div>
+      </header>
+
+      <section class="table-panel" aria-label="ONOKO tarot table">
+        <div id="spreadBoard" class="spread-board layout-one_card"></div>
+      </section>
+
+      <footer class="command-bar">
+        <div id="progressTrack" class="progress-track"></div>
+        <div id="statusLine" class="status-line">Ready</div>
+      </footer>
+    </main>
+
+    <aside class="panel inspector">
+      <section class="section">
+        <h2 class="section-title">Selected Card</h2>
+        <div id="selectedCard" class="selected-card"></div>
+      </section>
+
+      <section class="section">
+        <div class="note-actions">
+          <h2 class="section-title">Reader Note</h2>
+          <span id="noteStatus" class="micro-status"></span>
+        </div>
+        <textarea id="noteInput" class="note-box" placeholder="自分の読みを記録" disabled></textarea>
+      </section>
+
+      <section class="section">
+        <div class="note-actions">
+          <h2 class="section-title">Guide</h2>
+          <button id="toggleGuideButton" class="button" type="button" disabled>ガイド表示</button>
+        </div>
+        <div id="guidePanel" class="guide-grid"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">History</h2>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </aside>
+  </div>
+
+  <script>
+    const ASSET_ROOT = "../assets/generated/card-production-v5-full/alpha/";
+    const CARD_BACK = `${ASSET_ROOT}card-back-onoko-v5-alpha.png`;
+
+    const CARD_ROWS = [
+      ["00", "fool", "愚者", "The Fool", ["始まり", "自由", "可能性", "冒険"], ["無計画", "軽率", "迷走", "準備不足"], "まだ形になっていない可能性を、恐れすぎず観測し始める。"],
+      ["01", "magician", "魔術師", "The Magician", ["意志", "起動", "技術", "具現化"], ["空回り", "未熟", "操作", "集中不足"], "手元にある道具を把握し、意志を行動へ変換する。"],
+      ["02", "high-priestess", "女教皇", "The High Priestess", ["直感", "記録", "沈黙", "深層"], ["閉鎖", "不信", "見落とし", "秘密過多"], "すぐ結論を出さず、静かな違和感や内側の記録を読む。"],
+      ["03", "empress", "女帝", "The Empress", ["創造", "豊かさ", "育成", "美"], ["過保護", "停滞", "浪費", "消耗"], "育てる対象、環境、身体感覚が十分に満たされているかを見る。"],
+      ["04", "emperor", "皇帝", "The Emperor", ["構造", "責任", "統率", "境界"], ["支配", "硬直", "独断", "無責任"], "守るべき枠組みと、硬くなりすぎている枠組みを分ける。"],
+      ["05", "hierophant", "教皇", "The Hierophant", ["学び", "伝統", "助言", "約束"], ["形式主義", "反発", "盲信", "孤立"], "独学では見えない基準、師、共同体の知恵を確認する。"],
+      ["06", "lovers", "恋人", "The Lovers", ["選択", "調和", "価値観", "結びつき"], ["不一致", "依存", "迷い", "不誠実"], "惹かれるものと、本当に選びたい価値が一致しているかを見る。"],
+      ["07", "chariot", "戦車", "The Chariot", ["前進", "制御", "勝利", "集中"], ["暴走", "分散", "停滞", "強引"], "勢いを止めず、進む方向と制御方法を同時に確認する。"],
+      ["08", "strength", "力", "Strength", ["勇気", "忍耐", "優しさ", "自制"], ["萎縮", "怒り", "不安", "自信不足"], "力で押し切る場面か、落ち着いて手なずける場面かを見極める。"],
+      ["09", "hermit", "隠者", "The Hermit", ["内省", "探求", "孤独", "導き"], ["孤立", "閉じこもり", "迷子", "拒絶"], "周囲の声を一度静めて、自分の中の灯りを探す。"],
+      ["10", "wheel-of-fortune", "運命の輪", "Wheel of Fortune", ["転機", "循環", "流れ", "好機"], ["停滞", "抵抗", "不運", "周期の読み違い"], "今は押す時か、流れが変わるのを読む時かを観測する。"],
+      ["11", "justice", "正義", "Justice", ["公平", "判断", "真実", "結果"], ["偏り", "不正", "責任回避", "誤判定"], "感情と事実を分け、選択の結果を正面から見る。"],
+      ["12", "hanged-man", "吊された男", "The Hanged Man", ["停止", "視点転換", "受容", "保留"], ["無駄な我慢", "停滞", "被害者意識", "先延ばし"], "動けない時間を、見方を変えるための観測時間にする。"],
+      ["13", "death", "死神", "Death", ["終了", "変容", "手放し", "再生"], ["執着", "変化拒否", "未完了", "停滞"], "何を終わらせることで、次の形が始まるのかを見る。"],
+      ["14", "temperance", "節制", "Temperance", ["調整", "統合", "癒し", "中庸"], ["偏り", "不調和", "過剰", "混乱"], "混ぜるべきもの、分けるべきもの、整える速度を観察する。"],
+      ["15", "devil", "悪魔", "The Devil", ["執着", "誘惑", "影", "依存"], ["解放", "自覚", "鎖を外す", "回復"], "外から縛られているのか、自分で握りしめているのかを見る。"],
+      ["16", "tower", "塔", "The Tower", ["崩壊", "衝撃", "露見", "リセット"], ["崩壊回避", "遅延", "抵抗", "小さな警告"], "壊れたものではなく、壊れる前提が何だったかを読む。"],
+      ["17", "star", "星", "The Star", ["希望", "回復", "信頼", "導き"], ["失望", "疑い", "疲労", "見失い"], "すぐ届く結果ではなく、長く頼れる光を見つける。"],
+      ["18", "moon", "月", "The Moon", ["夢", "不安", "幻想", "無意識"], ["霧が晴れる", "誤解", "混乱の減少", "現実確認"], "不安そのものより、不安が映し出している影を読む。"],
+      ["19", "sun", "太陽", "The Sun", ["成功", "喜び", "明快", "活力"], ["過信", "陰り", "遅れ", "素直さ不足"], "隠さず見えるもの、まっすぐ喜べるものを確認する。"],
+      ["20", "judgement", "審判", "Judgement", ["覚醒", "呼びかけ", "再評価", "復活"], ["先送り", "自己否定", "聞き逃し", "未決"], "過去の結果を責めるのではなく、次に応答すべき声を探す。"],
+      ["21", "world", "世界", "The World", ["完成", "統合", "到達", "循環完了"], ["未完成", "閉じきれない", "停滞", "次への不安"], "ここまでで完了したことと、次の循環へ持ち越すものを分ける。"]
+    ];
+
+    const cards = CARD_ROWS.map(([number, slug, japaneseName, englishName, uprightKeywords, reversedKeywords, studyFocus]) => ({
+      id: `major-${number}-${slug}`,
+      number,
+      slug,
+      japaneseName,
+      englishName,
+      uprightKeywords,
+      reversedKeywords,
+      studyFocus,
+      image: `${ASSET_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`
+    }));
+
+    const spreads = [
+      {
+        id: "one_card",
+        label: "一枚引き",
+        countLabel: "1",
+        description: "ひとつの問いに対して、今見るべき視点を一枚で読む。",
+        slots: [
+          { key: "present", label: "観測", x: 50, y: 50, rot: 0, prompt: "問い全体の焦点として読む。" }
+        ]
+      },
+      {
+        id: "three_card_past_present_future",
+        label: "過去・現在・未来",
+        countLabel: "3",
+        description: "状況の流れを三段階で読み、変化の筋道を確認する。",
+        slots: [
+          { key: "past", label: "過去", x: 29, y: 52, rot: -6, prompt: "現在に影響している背景や前提を見る。" },
+          { key: "present", label: "現在", x: 50, y: 48, rot: 0, prompt: "今の中心課題や意識すべき状態を見る。" },
+          { key: "future", label: "未来", x: 71, y: 52, rot: 6, prompt: "この流れの先に出やすい可能性を見る。" }
+        ]
+      },
+      {
+        id: "five_card_cross",
+        label: "五枚クロス",
+        countLabel: "5",
+        description: "中心課題、支え、障害、上位視点、根底を十字に読む。",
+        slots: [
+          { key: "center", label: "中心", x: 50, y: 50, rot: 0, prompt: "問いの中心にある主題を見る。" },
+          { key: "support", label: "支え", x: 32, y: 50, rot: -7, prompt: "助けになる資質や味方を見る。" },
+          { key: "challenge", label: "障害", x: 68, y: 50, rot: 7, prompt: "妨げや誤解されやすい点を見る。" },
+          { key: "higher_view", label: "上位視点", x: 50, y: 25, rot: 0, prompt: "一段高い視点から意味を読む。" },
+          { key: "root", label: "根底", x: 50, y: 75, rot: 0, prompt: "根底にある動機や未整理の感情を見る。" }
+        ]
+      },
+      {
+        id: "seven_card_horseshoe",
+        label: "七枚ホースシュー",
+        countLabel: "7",
+        description: "過去から助言までを弧状に並べ、流れと選択肢を読む。",
+        slots: [
+          { key: "past", label: "過去", x: 22, y: 70, rot: -18, prompt: "この問いに至った過去の流れを見る。" },
+          { key: "present", label: "現在", x: 30, y: 45, rot: -10, prompt: "現在の状況と課題を見る。" },
+          { key: "hidden_influence", label: "隠れた影響", x: 40, y: 28, rot: -4, prompt: "見落としている影響や前提を見る。" },
+          { key: "obstacle", label: "障害", x: 50, y: 22, rot: 0, prompt: "進行を妨げる要因を見る。" },
+          { key: "outside", label: "周囲", x: 60, y: 28, rot: 4, prompt: "周囲の反応や環境を見る。" },
+          { key: "action", label: "行動", x: 70, y: 45, rot: 10, prompt: "次に取るべき行動の方向を見る。" },
+          { key: "outcome", label: "結果", x: 78, y: 70, rot: 18, prompt: "このまま進んだ時の着地点を見る。" }
+        ]
+      },
+      {
+        id: "celtic_cross",
+        label: "ケルト十字",
+        countLabel: "10",
+        description: "問題の核心、内外の影響、希望、結果までを広く読む十枚展開。",
+        slots: [
+          { key: "present", label: "現状", x: 39, y: 50, rot: 0, prompt: "問いの現在地を見る。" },
+          { key: "crossing", label: "交差", x: 39, y: 50, rot: 90, prompt: "現状に交差する課題や力を見る。" },
+          { key: "root", label: "根底", x: 39, y: 76, rot: 0, prompt: "根にある原因や無意識を見る。" },
+          { key: "past", label: "過去", x: 21, y: 50, rot: -4, prompt: "過ぎた影響や離れつつある力を見る。" },
+          { key: "crown", label: "顕在", x: 39, y: 24, rot: 0, prompt: "意識上にある願望や認識を見る。" },
+          { key: "future", label: "近未来", x: 57, y: 50, rot: 4, prompt: "近く現れやすい流れを見る。" },
+          { key: "self", label: "自分", x: 76, y: 78, rot: 0, prompt: "自分自身の姿勢や関わり方を見る。" },
+          { key: "environment", label: "環境", x: 76, y: 58, rot: 0, prompt: "周囲や環境から来る影響を見る。" },
+          { key: "hopes_fears", label: "望み/恐れ", x: 76, y: 38, rot: 0, prompt: "期待と不安が重なる場所を見る。" },
+          { key: "outcome", label: "結果", x: 76, y: 18, rot: 0, prompt: "この流れの着地点を見る。" }
+        ]
+      }
+    ];
+
+    const historyKey = "onoko-arcana:web-mvp:history:v1";
+
+    const state = {
+      spreadId: "one_card",
+      drawn: [],
+      revealedCount: 0,
+      selectedIndex: -1,
+      notes: {},
+      guideVisible: false,
+      restoredAt: null
+    };
+
+    const els = {
+      questionInput: document.getElementById("questionInput"),
+      spreadControls: document.getElementById("spreadControls"),
+      spreadTitle: document.getElementById("spreadTitle"),
+      spreadDescription: document.getElementById("spreadDescription"),
+      spreadBoard: document.getElementById("spreadBoard"),
+      drawButton: document.getElementById("drawButton"),
+      revealButton: document.getElementById("revealButton"),
+      saveReadingButton: document.getElementById("saveReadingButton"),
+      resetButton: document.getElementById("resetButton"),
+      progressTrack: document.getElementById("progressTrack"),
+      statusLine: document.getElementById("statusLine"),
+      selectedCard: document.getElementById("selectedCard"),
+      noteInput: document.getElementById("noteInput"),
+      noteStatus: document.getElementById("noteStatus"),
+      toggleGuideButton: document.getElementById("toggleGuideButton"),
+      guidePanel: document.getElementById("guidePanel"),
+      historyList: document.getElementById("historyList"),
+      statCards: document.getElementById("statCards"),
+      statRevealed: document.getElementById("statRevealed"),
+      statSaved: document.getElementById("statSaved")
+    };
+
+    function currentSpread() {
+      return spreads.find((spread) => spread.id === state.spreadId) || spreads[0];
+    }
+
+    function readHistory() {
+      try {
+        return JSON.parse(localStorage.getItem(historyKey) || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function writeHistory(history) {
+      localStorage.setItem(historyKey, JSON.stringify(history.slice(0, 24)));
+    }
+
+    function shuffleDeck() {
+      const pool = [...cards];
+      for (let index = pool.length - 1; index > 0; index -= 1) {
+        const swap = Math.floor(Math.random() * (index + 1));
+        [pool[index], pool[swap]] = [pool[swap], pool[index]];
+      }
+      return pool;
+    }
+
+    function drawSpread() {
+      const spread = currentSpread();
+      state.drawn = shuffleDeck()
+        .slice(0, spread.slots.length)
+        .map((card) => ({
+          ...card,
+          reversed: Math.random() < 0.32
+        }));
+      state.revealedCount = 0;
+      state.selectedIndex = -1;
+      state.notes = {};
+      state.guideVisible = false;
+      state.restoredAt = null;
+      els.noteStatus.textContent = "";
+      render();
+    }
+
+    function revealNext() {
+      if (!state.drawn.length) {
+        drawSpread();
+      }
+      if (state.revealedCount >= state.drawn.length) return;
+      state.revealedCount += 1;
+      state.selectedIndex = state.revealedCount - 1;
+      state.guideVisible = false;
+      render();
+    }
+
+    function resetTable() {
+      state.drawn = [];
+      state.revealedCount = 0;
+      state.selectedIndex = -1;
+      state.notes = {};
+      state.guideVisible = false;
+      state.restoredAt = null;
+      els.noteStatus.textContent = "";
+      render();
+    }
+
+    function slotIsRevealed(index) {
+      return index >= 0 && index < state.revealedCount;
+    }
+
+    function selectedSlot() {
+      const spread = currentSpread();
+      if (!slotIsRevealed(state.selectedIndex)) return null;
+      return {
+        index: state.selectedIndex,
+        slot: spread.slots[state.selectedIndex],
+        card: state.drawn[state.selectedIndex]
+      };
+    }
+
+    function keywordLine(card) {
+      const list = card.reversed ? card.reversedKeywords : card.uprightKeywords;
+      return list.slice(0, 3).join(" / ");
+    }
+
+    function renderSpreadControls() {
+      els.spreadControls.innerHTML = spreads.map((spread) => `
+        <button class="spread-choice ${spread.id === state.spreadId ? "is-active" : ""}" type="button" data-spread-id="${spread.id}">
+          <span>
+            <strong>${spread.label}</strong>
+            <span>${spread.description}</span>
+          </span>
+          <em>${spread.countLabel}</em>
+        </button>
+      `).join("");
+
+      els.spreadControls.querySelectorAll("[data-spread-id]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (state.spreadId === button.dataset.spreadId) return;
+          state.spreadId = button.dataset.spreadId;
+          resetTable();
+        });
+      });
+    }
+
+    function renderBoard() {
+      const spread = currentSpread();
+      els.spreadBoard.className = `spread-board layout-${spread.id}`;
+      els.spreadBoard.innerHTML = spread.slots.map((slot, index) => {
+        const card = state.drawn[index];
+        const revealed = slotIsRevealed(index);
+        const selected = revealed && index === state.selectedIndex;
+        const image = card && revealed ? card.image : CARD_BACK;
+        const classes = [
+          "arcana-card",
+          !card ? "is-empty" : "",
+          card && !revealed ? "is-hidden" : "",
+          selected ? "is-selected" : ""
+        ].filter(Boolean).join(" ");
+        const topLabel = card && revealed ? `${card.number} ${card.japaneseName}` : "ONOKO ARCANA";
+        const bottomLabel = card && revealed ? keywordLine(card) : card ? `Reveal ${index + 1}` : "waiting";
+        const orientation = card && revealed ? (card.reversed ? "逆" : "正") : "";
+        return `
+          <div class="slot" style="--x:${slot.x}%; --y:${slot.y}%; --rot:${slot.rot}deg;">
+            <div class="slot-label">${index + 1}. ${slot.label}</div>
+            <button class="${classes}" type="button" data-slot-index="${index}" ${!revealed ? "aria-disabled='true'" : ""}>
+              ${card ? `<img class="${card.reversed && revealed ? "reversed" : ""}" src="${image}" alt="${topLabel}">` : "<span class='empty-mark'></span>"}
+              <span class="card-chip top"><span>${topLabel}</span><span>${orientation}</span></span>
+              <span class="card-chip bottom">${bottomLabel}</span>
+            </button>
+          </div>
+        `;
+      }).join("");
+
+      els.spreadBoard.querySelectorAll("[data-slot-index]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.slotIndex);
+          if (!slotIsRevealed(index)) return;
+          state.selectedIndex = index;
+          state.guideVisible = false;
+          render();
+        });
+      });
+    }
+
+    function renderProgress() {
+      const spread = currentSpread();
+      els.progressTrack.innerHTML = spread.slots.map((slot, index) => {
+        const revealed = slotIsRevealed(index);
+        const selected = revealed && index === state.selectedIndex;
+        return `
+          <button class="progress-dot ${revealed ? "is-revealed" : ""} ${selected ? "is-selected" : ""}" type="button" data-progress-index="${index}">
+            ${index + 1}. ${slot.label}
+          </button>
+        `;
+      }).join("");
+
+      els.progressTrack.querySelectorAll("[data-progress-index]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.progressIndex);
+          if (!slotIsRevealed(index)) return;
+          state.selectedIndex = index;
+          state.guideVisible = false;
+          render();
+        });
+      });
+    }
+
+    function renderInspector() {
+      const selected = selectedSlot();
+      if (!selected) {
+        els.selectedCard.innerHTML = `
+          <img src="${CARD_BACK}" alt="カード裏面">
+          <div class="selected-copy">
+            <h2>未選択</h2>
+            <p>カードをめくると、ここに選択中の読みが表示されます。</p>
+            <div class="badge-row">
+              <span class="badge gold">${currentSpread().label}</span>
+            </div>
+          </div>
+        `;
+        els.noteInput.value = "";
+        els.noteInput.disabled = true;
+        els.toggleGuideButton.disabled = true;
+        els.toggleGuideButton.textContent = "ガイド表示";
+        els.guidePanel.innerHTML = `<p class="empty">まだ表示するカードがありません。</p>`;
+        return;
+      }
+
+      const { index, slot, card } = selected;
+      const orientationText = card.reversed ? "逆位置" : "正位置";
+      const activeKeywords = card.reversed ? card.reversedKeywords : card.uprightKeywords;
+      els.selectedCard.innerHTML = `
+        <img class="${card.reversed ? "reversed" : ""}" src="${card.image}" alt="${card.number} ${card.japaneseName}">
+        <div class="selected-copy">
+          <h2>${card.japaneseName}</h2>
+          <p>${card.englishName}</p>
+          <div class="badge-row">
+            <span class="badge gold">${index + 1}. ${slot.label}</span>
+            <span class="badge">${card.number}</span>
+            <span class="badge">${orientationText}</span>
+          </div>
+        </div>
+      `;
+      els.noteInput.disabled = false;
+      els.noteInput.value = state.notes[slot.key] || "";
+      els.toggleGuideButton.disabled = false;
+      els.toggleGuideButton.textContent = state.guideVisible ? "ガイド非表示" : "ガイド表示";
+
+      if (!state.guideVisible) {
+        els.guidePanel.innerHTML = `<p class="empty">自分の読みを先に書き、必要な時だけガイドを開きます。</p>`;
+        return;
+      }
+
+      els.guidePanel.innerHTML = `
+        <div class="guide-row"><b>${slot.label}</b><span>${slot.prompt}</span></div>
+        <div class="guide-row"><b>${orientationText}</b><span>${activeKeywords.join(" / ")}</span></div>
+        <div class="guide-row"><b>学習観点</b><span>${card.studyFocus}</span></div>
+      `;
+    }
+
+    function renderHistory() {
+      const history = readHistory();
+      els.statSaved.textContent = String(history.length);
+      if (!history.length) {
+        els.historyList.innerHTML = `<p class="empty">保存済みのリーディングはありません。</p>`;
+        return;
+      }
+
+      els.historyList.innerHTML = history.map((item, index) => `
+        <button class="history-item" type="button" data-history-index="${index}">
+          <b>${item.spreadLabel} / ${item.savedAt}</b>
+          <span>${item.summary}${item.question ? ` | ${item.question}` : ""}</span>
+        </button>
+      `).join("");
+
+      els.historyList.querySelectorAll("[data-history-index]").forEach((button) => {
+        button.addEventListener("click", () => restoreHistory(Number(button.dataset.historyIndex)));
+      });
+    }
+
+    function renderStatus() {
+      const spread = currentSpread();
+      els.spreadTitle.textContent = spread.label;
+      els.spreadDescription.textContent = spread.description;
+      els.statCards.textContent = String(spread.slots.length);
+      els.statRevealed.textContent = String(state.revealedCount);
+      els.revealButton.disabled = !state.drawn.length || state.revealedCount >= state.drawn.length;
+      els.saveReadingButton.disabled = state.revealedCount === 0;
+      const total = state.drawn.length || spread.slots.length;
+      const status = state.revealedCount
+        ? `${state.revealedCount} / ${total} revealed`
+        : state.drawn.length
+          ? "Spread drawn"
+          : "Ready";
+      els.statusLine.textContent = state.restoredAt ? `${status} / restored ${state.restoredAt}` : status;
+    }
+
+    function render() {
+      renderSpreadControls();
+      renderBoard();
+      renderProgress();
+      renderInspector();
+      renderHistory();
+      renderStatus();
+    }
+
+    function updateCurrentNote() {
+      const selected = selectedSlot();
+      if (!selected) return;
+      state.notes[selected.slot.key] = els.noteInput.value;
+      els.noteStatus.textContent = "記録中";
+    }
+
+    function saveReading() {
+      const spread = currentSpread();
+      if (!state.revealedCount) return;
+      const revealedCards = state.drawn.slice(0, state.revealedCount).map((card, index) => ({
+        cardId: card.id,
+        number: card.number,
+        japaneseName: card.japaneseName,
+        englishName: card.englishName,
+        reversed: card.reversed,
+        slotKey: spread.slots[index].key,
+        slotLabel: spread.slots[index].label,
+        note: state.notes[spread.slots[index].key] || ""
+      }));
+      const item = {
+        savedAt: new Date().toLocaleString("ja-JP"),
+        question: els.questionInput.value.trim(),
+        spreadId: spread.id,
+        spreadLabel: spread.label,
+        revealedCount: state.revealedCount,
+        notes: state.notes,
+        cards: revealedCards,
+        summary: revealedCards.map((card) => `${card.slotLabel}:${card.number}${card.reversed ? "逆" : "正"}`).join(" / ")
+      };
+      const history = readHistory();
+      history.unshift(item);
+      writeHistory(history);
+      els.noteStatus.textContent = "保存しました";
+      renderHistory();
+      renderStatus();
+    }
+
+    function restoreHistory(index) {
+      const item = readHistory()[index];
+      if (!item) return;
+      const spread = spreads.find((candidate) => candidate.id === item.spreadId);
+      if (!spread) return;
+      state.spreadId = spread.id;
+      state.drawn = item.cards.map((entry) => {
+        const card = cards.find((candidate) => candidate.id === entry.cardId);
+        return {
+          ...card,
+          reversed: entry.reversed
+        };
+      }).filter(Boolean);
+      state.revealedCount = state.drawn.length;
+      state.selectedIndex = state.drawn.length ? 0 : -1;
+      state.notes = item.notes || {};
+      state.guideVisible = false;
+      state.restoredAt = item.savedAt;
+      els.questionInput.value = item.question || "";
+      els.noteStatus.textContent = "履歴を復元";
+      render();
+    }
+
+    els.drawButton.addEventListener("click", drawSpread);
+    els.revealButton.addEventListener("click", revealNext);
+    els.resetButton.addEventListener("click", resetTable);
+    els.saveReadingButton.addEventListener("click", saveReading);
+    els.noteInput.addEventListener("input", updateCurrentNote);
+    els.toggleGuideButton.addEventListener("click", () => {
+      state.guideVisible = !state.guideVisible;
+      renderInspector();
+    });
+
+    render();
+  </script>
+</body>
+</html>

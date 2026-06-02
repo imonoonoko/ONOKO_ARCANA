@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: ONOKO ARCANA Unreal Engine tarot card texture
+Primary request: Create card 07, The Chariot, as a new complete ONOKO tarot card front.
+Tarot motif: sleek blue-black arcane vehicle or armored platform, reins of light, controlled forward motion.
+Subject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.
+Style/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.
+Color palette: black, deep navy, electric blue, antique gold, parchment ivory panels.
+Constraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.
+Avoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow.

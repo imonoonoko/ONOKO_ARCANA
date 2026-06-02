@@ -1,0 +1,170 @@
+{
+  "ok": true,
+  "generatedAtUtc": "2026-06-01T19:06:14.105966+00:00",
+  "workspace": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA",
+  "failCount": 0,
+  "latestScreenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-hud-generated-overlay-printwindow-20260602-040336.png",
+  "checks": [
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableController.h",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableController.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaPlayerController.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableHudWidget.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase4ThreeCardSpreadSessionTestResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase1HudReflectionSurfaceTestResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase1RuntimeMaterialsResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase4HudTextureImportResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Scripts/import_phase4_hud_textures.py",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/ImportStaging/HUD/onoko-hud-overlay-v1-alpha.png",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Content/ONOKOArcana/UI/HUD/Textures/T_HUD_ONOKO_Overlay_V1.uasset",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_SPREAD_PLAY_SURFACE.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_SPREAD_SLOT_HUD.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_CARD_VISIBILITY_LABELS.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_RICH_NATIVE_UI.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_HUD_GENERATED_OVERLAY.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:PRODUCT.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:DESIGN.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "result:Phase4ThreeCardSpreadSessionTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "result:Phase1HudReflectionSurfaceTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "result:Phase1RuntimeMaterialsResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "result:Phase4HudTextureImportResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "three-card demo screenshot",
+      "status": "pass",
+      "detail": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-hud-generated-overlay-printwindow-20260602-040336.png"
+    },
+    {
+      "name": "runtime card material unlit",
+      "status": "pass",
+      "detail": "blend=<BlendMode.BLEND_MASKED: 1> shading=<MaterialShadingModel.MSM_UNLIT: 0>"
+    },
+    {
+      "name": "spread view model routed",
+      "status": "pass",
+      "detail": "controller spread helpers present"
+    },
+    {
+      "name": "spread slot selection routed",
+      "status": "pass",
+      "detail": "controller slot selection helpers present"
+    },
+    {
+      "name": "spread table labels routed",
+      "status": "pass",
+      "detail": "table label helpers present"
+    },
+    {
+      "name": "auto demo flag referenced",
+      "status": "pass",
+      "detail": "command-line demo flag present"
+    },
+    {
+      "name": "native slot hud controls",
+      "status": "pass",
+      "detail": "native fallback slot controls present"
+    },
+    {
+      "name": "rich native hud layout",
+      "status": "pass",
+      "detail": "left/right panels, bottom bar, and dark input styling present"
+    },
+    {
+      "name": "generated hud overlay applied",
+      "status": "pass",
+      "detail": "imagegen transparent HUD overlay texture is loaded and applied"
+    },
+    {
+      "name": "compact spread spacing for side panels",
+      "status": "pass",
+      "detail": "three-card spread fits between richer side panels"
+    }
+  ],
+  "nextTask": "Promote the rich native fallback HUD into a designed WBP_TableHUD and add direct table-card selection."
+}

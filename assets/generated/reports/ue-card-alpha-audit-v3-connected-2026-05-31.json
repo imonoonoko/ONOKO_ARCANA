@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "count": 4,
+  "results": [
+    {
+      "path": "assets\\generated\\card-fronts\\ue-v3-alpha\\major-00-fool-onoko-ue-v3-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        54,
+        32,
+        970,
+        1514
+      ],
+      "alphaBboxOk": true,
+      "alphaIsBinary": true,
+      "alphaValueCount": 2,
+      "visibleMagentaPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "ok": true
+    },
+    {
+      "path": "assets\\generated\\card-fronts\\ue-v3-alpha\\major-01-magician-onoko-ue-v3-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        54,
+        32,
+        970,
+        1514
+      ],
+      "alphaBboxOk": true,
+      "alphaIsBinary": true,
+      "alphaValueCount": 2,
+      "visibleMagentaPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "ok": true
+    },
+    {
+      "path": "assets\\generated\\card-fronts\\ue-v3-alpha\\major-02-high-priestess-onoko-ue-v3-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        54,
+        32,
+        970,
+        1514
+      ],
+      "alphaBboxOk": true,
+      "alphaIsBinary": true,
+      "alphaValueCount": 2,
+      "visibleMagentaPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "ok": true
+    },
+    {
+      "path": "assets\\generated\\card-backs\\card-back-onoko-production-v3-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        54,
+        32,
+        970,
+        1514
+      ],
+      "alphaBboxOk": true,
+      "alphaIsBinary": true,
+      "alphaValueCount": 2,
+      "visibleMagentaPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "ok": true
+    }
+  ]
+}

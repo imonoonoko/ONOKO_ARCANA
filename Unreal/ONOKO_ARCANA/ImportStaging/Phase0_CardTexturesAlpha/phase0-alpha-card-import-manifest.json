@@ -1,0 +1,37 @@
+{
+  "project": "ONOKO_ARCANA",
+  "phase": "Phase 0 alpha correction",
+  "created": "2026-05-31",
+  "policy": {
+    "cardPixelSize": "1024x1536",
+    "cardAspectRatio": "2:3",
+    "alphaPolicy": "Transparent alpha outside the rounded card silhouette. Materials must use the texture alpha as opacity mask."
+  },
+  "targetContentRoot": "/Game/ONOKOArcana/Cards/Textures",
+  "items": [
+    {
+      "id": "card_back_onoko_production_v2_alpha",
+      "kind": "cardBack",
+      "stagedRelative": "card-back-onoko-production-v2-transparent.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_CardBack_ONOKO_Production_V2_Alpha"
+    },
+    {
+      "id": "major_00_fool_v1_alpha",
+      "kind": "majorArcanaFront",
+      "stagedRelative": "major-00-fool-onoko-concept-v1-alpha.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_00_Fool_V1_Alpha"
+    },
+    {
+      "id": "major_01_magician_v1_alpha",
+      "kind": "majorArcanaFront",
+      "stagedRelative": "major-01-magician-onoko-concept-v1-alpha.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_01_Magician_V1_Alpha"
+    },
+    {
+      "id": "major_07_chariot_v2_alpha",
+      "kind": "majorArcanaFront",
+      "stagedRelative": "major-07-chariot-onoko-concept-v2-alpha.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_07_Chariot_V2_Alpha"
+    }
+  ]
+}

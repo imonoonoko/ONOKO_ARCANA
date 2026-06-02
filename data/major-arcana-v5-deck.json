@@ -1,0 +1,562 @@
+{
+  "version": "v5-full-major-arcana-candidate-2026-06-01",
+  "deckId": "onoko-arcana-major-v5",
+  "scope": "Major Arcana 00-21 plus card back",
+  "status": "candidate",
+  "promotionPolicy": {
+    "requiresAlphaAuditOk": true,
+    "requiresVisualQaAdopted": true,
+    "minorArcanaBlockedUntilMajorRuntimeStable": true
+  },
+  "evidence": {
+    "alphaAudit": "../assets/generated/card-production-v5-full/reports/v5-alpha-audit.json",
+    "visualQa": "../assets/generated/card-production-v5-full/reports/v5-major-arcana-visual-qa.json",
+    "contactSheet": "../assets/generated/card-production-v5-full/reports/v5-alpha-contact-sheet-major-00-21-back.png",
+    "characterCropSheet": "../assets/generated/card-production-v5-full/reports/v5-character-crop-report-major-00-21.png",
+    "ueImportResult": "../Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/v5-full-import-result.json",
+    "ueAlphaQaMapResult": "../Unreal/ONOKO_ARCANA/Saved/V5FullAlphaQAMapResult.json"
+  },
+  "back": {
+    "id": "card-back",
+    "rawImage": "../assets/generated/card-production-v5-full/raw/card-back-onoko-v5-source.png",
+    "alphaImage": "../assets/generated/card-production-v5-full/alpha/card-back-onoko-v5-alpha.png",
+    "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Card_Back_ONOKO_V5_Alpha.T_Card_Back_ONOKO_V5_Alpha",
+    "qaStatus": "Adopted"
+  },
+  "cards": [
+    {
+      "id": "major-00-fool",
+      "number": "00",
+      "slug": "fool",
+      "englishName": "The Fool",
+      "japaneseName": "愚者",
+      "uprightKeywords": [
+        "始まり",
+        "自由",
+        "可能性",
+        "冒険"
+      ],
+      "reversedKeywords": [
+        "無計画",
+        "軽率",
+        "迷走",
+        "準備不足"
+      ],
+      "studyFocus": "まだ形になっていない可能性を、恐れすぎず観測し始める。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-00-fool-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-00-fool-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_00_Fool_ONOKO_V5_Alpha.T_Major_00_Fool_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-01-magician",
+      "number": "01",
+      "slug": "magician",
+      "englishName": "The Magician",
+      "japaneseName": "魔術師",
+      "uprightKeywords": [
+        "意志",
+        "起動",
+        "技術",
+        "具現化"
+      ],
+      "reversedKeywords": [
+        "空回り",
+        "未熟",
+        "操作",
+        "集中不足"
+      ],
+      "studyFocus": "手元にある道具を把握し、意志を行動へ変換する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-01-magician-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-01-magician-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_01_Magician_ONOKO_V5_Alpha.T_Major_01_Magician_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-02-high-priestess",
+      "number": "02",
+      "slug": "high-priestess",
+      "englishName": "The High Priestess",
+      "japaneseName": "女教皇",
+      "uprightKeywords": [
+        "直感",
+        "記録",
+        "沈黙",
+        "深層"
+      ],
+      "reversedKeywords": [
+        "閉鎖",
+        "不信",
+        "見落とし",
+        "秘密過多"
+      ],
+      "studyFocus": "すぐ結論を出さず、静かな違和感や内側の記録を読む。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-02-high-priestess-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-02-high-priestess-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_02_High_Priestess_ONOKO_V5_Alpha.T_Major_02_High_Priestess_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-03-empress",
+      "number": "03",
+      "slug": "empress",
+      "englishName": "The Empress",
+      "japaneseName": "女帝",
+      "uprightKeywords": [
+        "創造",
+        "豊かさ",
+        "育成",
+        "美"
+      ],
+      "reversedKeywords": [
+        "過保護",
+        "停滞",
+        "浪費",
+        "消耗"
+      ],
+      "studyFocus": "育てる対象、環境、身体感覚が十分に満たされているかを見る。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-03-empress-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-03-empress-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_03_Empress_ONOKO_V5_Alpha.T_Major_03_Empress_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-04-emperor",
+      "number": "04",
+      "slug": "emperor",
+      "englishName": "The Emperor",
+      "japaneseName": "皇帝",
+      "uprightKeywords": [
+        "構造",
+        "責任",
+        "統率",
+        "境界"
+      ],
+      "reversedKeywords": [
+        "支配",
+        "硬直",
+        "独断",
+        "無責任"
+      ],
+      "studyFocus": "守るべき枠組みと、硬くなりすぎている枠組みを分ける。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-04-emperor-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-04-emperor-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_04_Emperor_ONOKO_V5_Alpha.T_Major_04_Emperor_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-05-hierophant",
+      "number": "05",
+      "slug": "hierophant",
+      "englishName": "The Hierophant",
+      "japaneseName": "教皇",
+      "uprightKeywords": [
+        "学び",
+        "伝統",
+        "助言",
+        "約束"
+      ],
+      "reversedKeywords": [
+        "形式主義",
+        "反発",
+        "盲信",
+        "孤立"
+      ],
+      "studyFocus": "独学では見えない基準、師、共同体の知恵を確認する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-05-hierophant-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-05-hierophant-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_05_Hierophant_ONOKO_V5_Alpha.T_Major_05_Hierophant_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-06-lovers",
+      "number": "06",
+      "slug": "lovers",
+      "englishName": "The Lovers",
+      "japaneseName": "恋人",
+      "uprightKeywords": [
+        "選択",
+        "調和",
+        "価値観",
+        "結びつき"
+      ],
+      "reversedKeywords": [
+        "不一致",
+        "依存",
+        "迷い",
+        "不誠実"
+      ],
+      "studyFocus": "惹かれるものと、本当に選びたい価値が一致しているかを見る。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-06-lovers-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-06-lovers-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_06_Lovers_ONOKO_V5_Alpha.T_Major_06_Lovers_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-07-chariot",
+      "number": "07",
+      "slug": "chariot",
+      "englishName": "The Chariot",
+      "japaneseName": "戦車",
+      "uprightKeywords": [
+        "前進",
+        "制御",
+        "勝利",
+        "集中"
+      ],
+      "reversedKeywords": [
+        "暴走",
+        "分散",
+        "停滞",
+        "強引"
+      ],
+      "studyFocus": "勢いを止めず、進む方向と制御方法を同時に確認する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-07-chariot-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-07-chariot-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_07_Chariot_ONOKO_V5_Alpha.T_Major_07_Chariot_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-08-strength",
+      "number": "08",
+      "slug": "strength",
+      "englishName": "Strength",
+      "japaneseName": "力",
+      "uprightKeywords": [
+        "勇気",
+        "忍耐",
+        "優しさ",
+        "自制"
+      ],
+      "reversedKeywords": [
+        "萎縮",
+        "怒り",
+        "不安",
+        "自信不足"
+      ],
+      "studyFocus": "力で押し切る場面か、落ち着いて手なずける場面かを見極める。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-08-strength-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-08-strength-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_08_Strength_ONOKO_V5_Alpha.T_Major_08_Strength_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-09-hermit",
+      "number": "09",
+      "slug": "hermit",
+      "englishName": "The Hermit",
+      "japaneseName": "隠者",
+      "uprightKeywords": [
+        "内省",
+        "探求",
+        "孤独",
+        "導き"
+      ],
+      "reversedKeywords": [
+        "孤立",
+        "閉じこもり",
+        "迷子",
+        "拒絶"
+      ],
+      "studyFocus": "周囲の声を一度静めて、自分の中の灯りを探す。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-09-hermit-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-09-hermit-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_09_Hermit_ONOKO_V5_Alpha.T_Major_09_Hermit_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-10-wheel-of-fortune",
+      "number": "10",
+      "slug": "wheel-of-fortune",
+      "englishName": "Wheel of Fortune",
+      "japaneseName": "運命の輪",
+      "uprightKeywords": [
+        "転機",
+        "循環",
+        "流れ",
+        "好機"
+      ],
+      "reversedKeywords": [
+        "停滞",
+        "抵抗",
+        "不運",
+        "周期の読み違い"
+      ],
+      "studyFocus": "今は押す時か、流れが変わるのを読む時かを観測する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-10-wheel-of-fortune-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_10_Wheel_Of_Fortune_ONOKO_V5_Alpha.T_Major_10_Wheel_Of_Fortune_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-11-justice",
+      "number": "11",
+      "slug": "justice",
+      "englishName": "Justice",
+      "japaneseName": "正義",
+      "uprightKeywords": [
+        "公平",
+        "判断",
+        "真実",
+        "結果"
+      ],
+      "reversedKeywords": [
+        "偏り",
+        "不正",
+        "責任回避",
+        "誤判定"
+      ],
+      "studyFocus": "感情と事実を分け、選択の結果を正面から見る。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-11-justice-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-11-justice-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_11_Justice_ONOKO_V5_Alpha.T_Major_11_Justice_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-12-hanged-man",
+      "number": "12",
+      "slug": "hanged-man",
+      "englishName": "The Hanged Man",
+      "japaneseName": "吊された男",
+      "uprightKeywords": [
+        "停止",
+        "視点転換",
+        "受容",
+        "保留"
+      ],
+      "reversedKeywords": [
+        "無駄な我慢",
+        "停滞",
+        "被害者意識",
+        "先延ばし"
+      ],
+      "studyFocus": "動けない時間を、見方を変えるための観測時間にする。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-12-hanged-man-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-12-hanged-man-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_12_Hanged_Man_ONOKO_V5_Alpha.T_Major_12_Hanged_Man_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-13-death",
+      "number": "13",
+      "slug": "death",
+      "englishName": "Death",
+      "japaneseName": "死神",
+      "uprightKeywords": [
+        "終了",
+        "変容",
+        "手放し",
+        "再生"
+      ],
+      "reversedKeywords": [
+        "執着",
+        "変化拒否",
+        "未完了",
+        "停滞"
+      ],
+      "studyFocus": "何を終わらせることで、次の形が始まるのかを見る。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-13-death-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-13-death-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_13_Death_ONOKO_V5_Alpha.T_Major_13_Death_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-14-temperance",
+      "number": "14",
+      "slug": "temperance",
+      "englishName": "Temperance",
+      "japaneseName": "節制",
+      "uprightKeywords": [
+        "調整",
+        "統合",
+        "癒し",
+        "中庸"
+      ],
+      "reversedKeywords": [
+        "偏り",
+        "不調和",
+        "過剰",
+        "混乱"
+      ],
+      "studyFocus": "混ぜるべきもの、分けるべきもの、整える速度を観察する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-14-temperance-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-14-temperance-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_14_Temperance_ONOKO_V5_Alpha.T_Major_14_Temperance_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-15-devil",
+      "number": "15",
+      "slug": "devil",
+      "englishName": "The Devil",
+      "japaneseName": "悪魔",
+      "uprightKeywords": [
+        "執着",
+        "誘惑",
+        "影",
+        "依存"
+      ],
+      "reversedKeywords": [
+        "解放",
+        "自覚",
+        "鎖を外す",
+        "回復"
+      ],
+      "studyFocus": "外から縛られているのか、自分で握りしめているのかを見る。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-15-devil-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-15-devil-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_15_Devil_ONOKO_V5_Alpha.T_Major_15_Devil_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-16-tower",
+      "number": "16",
+      "slug": "tower",
+      "englishName": "The Tower",
+      "japaneseName": "塔",
+      "uprightKeywords": [
+        "崩壊",
+        "衝撃",
+        "露見",
+        "リセット"
+      ],
+      "reversedKeywords": [
+        "崩壊回避",
+        "遅延",
+        "抵抗",
+        "小さな警告"
+      ],
+      "studyFocus": "壊れたものではなく、壊れる前提が何だったかを読む。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-16-tower-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-16-tower-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_16_Tower_ONOKO_V5_Alpha.T_Major_16_Tower_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-17-star",
+      "number": "17",
+      "slug": "star",
+      "englishName": "The Star",
+      "japaneseName": "星",
+      "uprightKeywords": [
+        "希望",
+        "回復",
+        "信頼",
+        "導き"
+      ],
+      "reversedKeywords": [
+        "失望",
+        "疑い",
+        "疲労",
+        "見失い"
+      ],
+      "studyFocus": "すぐ届く結果ではなく、長く頼れる光を見つける。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-17-star-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-17-star-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_17_Star_ONOKO_V5_Alpha.T_Major_17_Star_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-18-moon",
+      "number": "18",
+      "slug": "moon",
+      "englishName": "The Moon",
+      "japaneseName": "月",
+      "uprightKeywords": [
+        "夢",
+        "不安",
+        "幻想",
+        "無意識"
+      ],
+      "reversedKeywords": [
+        "霧が晴れる",
+        "誤解",
+        "混乱の減少",
+        "現実確認"
+      ],
+      "studyFocus": "不安そのものより、不安が映し出している影を読む。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-18-moon-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-18-moon-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_18_Moon_ONOKO_V5_Alpha.T_Major_18_Moon_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-19-sun",
+      "number": "19",
+      "slug": "sun",
+      "englishName": "The Sun",
+      "japaneseName": "太陽",
+      "uprightKeywords": [
+        "成功",
+        "喜び",
+        "明快",
+        "活力"
+      ],
+      "reversedKeywords": [
+        "過信",
+        "陰り",
+        "遅れ",
+        "素直さ不足"
+      ],
+      "studyFocus": "隠さず見えるもの、まっすぐ喜べるものを確認する。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-19-sun-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-19-sun-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_19_Sun_ONOKO_V5_Alpha.T_Major_19_Sun_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-20-judgement",
+      "number": "20",
+      "slug": "judgement",
+      "englishName": "Judgement",
+      "japaneseName": "審判",
+      "uprightKeywords": [
+        "覚醒",
+        "呼びかけ",
+        "再評価",
+        "復活"
+      ],
+      "reversedKeywords": [
+        "先送り",
+        "自己否定",
+        "聞き逃し",
+        "未決"
+      ],
+      "studyFocus": "過去の結果を責めるのではなく、次に応答すべき声を探す。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-20-judgement-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-20-judgement-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_20_Judgement_ONOKO_V5_Alpha.T_Major_20_Judgement_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    },
+    {
+      "id": "major-21-world",
+      "number": "21",
+      "slug": "world",
+      "englishName": "The World",
+      "japaneseName": "世界",
+      "uprightKeywords": [
+        "完成",
+        "統合",
+        "到達",
+        "循環完了"
+      ],
+      "reversedKeywords": [
+        "未完成",
+        "閉じきれない",
+        "停滞",
+        "次への不安"
+      ],
+      "studyFocus": "ここまでで完了したことと、次の循環へ持ち越すものを分ける。",
+      "rawImage": "../assets/generated/card-production-v5-full/raw/major-21-world-onoko-v5-source.png",
+      "alphaImage": "../assets/generated/card-production-v5-full/alpha/major-21-world-onoko-v5-alpha.png",
+      "unrealTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_21_World_ONOKO_V5_Alpha.T_Major_21_World_ONOKO_V5_Alpha",
+      "qaStatus": "Adopted"
+    }
+  ],
+  "summary": {
+    "cardCount": 22,
+    "assetCountIncludingBack": 23,
+    "notAdopted": [],
+    "readyForPhase1DataImport": true
+  }
+}

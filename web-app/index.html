@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONOKO ARCANA</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <div class="app" data-app>
+    <aside class="panel side-panel" aria-label="リーディング設定">
+      <header class="brand-block">
+        <div class="sigil" aria-hidden="true">O</div>
+        <div>
+          <h1>ONOKO ARCANA</h1>
+          <p>local desktop reading table</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">問い</h2>
+        <textarea id="questionInput" class="text-field question-field" rows="4" placeholder="今読む問いを入力"></textarea>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">スプレッド</h2>
+        <div id="spreadControls" class="spread-list"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">状態</h2>
+        <div class="stat-grid">
+          <div class="stat"><b id="statCards">0</b><span>配置</span></div>
+          <div class="stat"><b id="statRevealed">0</b><span>開示</span></div>
+          <div class="stat"><b id="statSaved">0</b><span>保存</span></div>
+        </div>
+      </section>
+    </aside>
+
+    <main class="table-shell" aria-label="占い卓">
+      <header class="topbar panel">
+        <div class="spread-heading">
+          <h2 id="spreadTitle">一枚引き</h2>
+          <p id="spreadDescription">ひとつの問いに対して、今見るべき視点を一枚で読む。</p>
+        </div>
+        <div class="command-group">
+          <button id="drawButton" class="button primary" type="button">ドロー</button>
+          <button id="revealButton" class="button" type="button" disabled>めくる</button>
+          <button id="saveReadingButton" class="button" type="button" disabled>保存</button>
+          <button id="resetButton" class="button quiet" type="button">リセット</button>
+        </div>
+      </header>
+
+      <section class="table-panel" aria-label="カード配置">
+        <div id="spreadBoard" class="spread-board layout-one_card"></div>
+      </section>
+
+      <footer class="command-bar panel">
+        <div id="progressTrack" class="progress-track"></div>
+        <div id="statusLine" class="status-line">Ready</div>
+      </footer>
+    </main>
+
+    <aside class="panel inspector" aria-label="カード詳細と履歴">
+      <section class="section">
+        <h2 class="section-title">選択カード</h2>
+        <div id="selectedCard" class="selected-card"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-row">
+          <h2 class="section-title">自分の読み</h2>
+          <span id="noteStatus" class="micro-status"></span>
+        </div>
+        <textarea id="noteInput" class="text-field note-field" rows="5" placeholder="先に自分の解釈を書く" disabled></textarea>
+      </section>
+
+      <section class="section">
+        <div class="section-row action-row">
+          <h2 class="section-title">ガイド</h2>
+          <button id="toggleGuideButton" class="button compact" type="button" disabled>ガイド表示</button>
+        </div>
+        <div id="guidePanel" class="guide-grid"></div>
+      </section>
+
+      <section class="section history-section">
+        <div class="section-row action-row">
+          <h2 class="section-title">履歴</h2>
+          <button id="exportHistoryButton" class="button compact" type="button" disabled>書き出し</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </aside>
+  </div>
+
+  <script src="./src/data.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>

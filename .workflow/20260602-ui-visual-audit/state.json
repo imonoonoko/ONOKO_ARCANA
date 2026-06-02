@@ -1,0 +1,12 @@
+{
+  "slug": "20260602-ui-visual-audit",
+  "status": "complete",
+  "createdAt": "2026-06-02T21:00:00+09:00",
+  "verification": {
+    "auditScript": "scripts/audit_web_ui_visual.cjs",
+    "screenshots": "reports/ui-visual-audit-20260602-210323/",
+    "manualReview": "desktop-one-card, desktop-seven-horseshoe, compact-celtic-cross, desktop-relationship-line, mobile-seven-horseshoe, mobile-relationship-line",
+    "report": ".workflow/20260602-ui-visual-audit/final-report.md"
+  },
+  "completedAt": "2026-06-02T21:00:00+09:00"
+}

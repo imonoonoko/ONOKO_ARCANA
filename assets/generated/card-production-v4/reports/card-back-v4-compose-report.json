@@ -1,0 +1,39 @@
+{
+  "mode": "back",
+  "canvasSize": [
+    1024,
+    1536
+  ],
+  "cardAlphaRect": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "cornerRadius": 52,
+  "centralArtRect": [
+    154,
+    324,
+    870,
+    1132
+  ],
+  "frameCutoutRect": [
+    210,
+    320,
+    814,
+    1136
+  ],
+  "template": "assets\\generated\\card-production-v4\\templates\\card-frame-front-v4-photos-cutout-source.png",
+  "centralArt": null,
+  "backSource": "assets\\generated\\card-backs\\card-back-onoko-production-v3-alpha.png",
+  "cardMaskSource": "assets\\generated\\card-production-v4\\templates\\card-frame-front-v4-photos-cutout-source.png",
+  "finalAlphaBbox": [
+    111,
+    77,
+    914,
+    1456
+  ],
+  "outComposed": "assets\\generated\\card-production-v4\\composed\\card-back-onoko-v4-composed.png",
+  "outAlpha": "assets\\generated\\card-production-v4\\ue-alpha\\card-back-onoko-v4-alpha.png",
+  "stagingOut": "Unreal\\ONOKO_ARCANA\\ImportStaging\\MajorArcana_V4\\card-back-onoko-v4-alpha.png"
+}

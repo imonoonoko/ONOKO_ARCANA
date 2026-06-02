@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "id": "major-01-magician-v5-clean",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5/T_Major_01_Magician_ONOKO_V5_Clean_Alpha.T_Major_01_Magician_ONOKO_V5_Clean_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "qa-checkerboard",
+      "assetPath": "/Game/ONOKOArcana/QA/Textures/T_QA_Checkerboard_V1.T_QA_Checkerboard_V1",
+      "width": 1024,
+      "height": 1024,
+      "expectedSize": [
+        1024,
+        1024
+      ],
+      "sizeOk": true
+    }
+  ]
+}

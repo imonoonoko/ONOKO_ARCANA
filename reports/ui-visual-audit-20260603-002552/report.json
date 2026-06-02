@@ -1,0 +1,375 @@
+{
+  "ok": true,
+  "app": "web-app\\index.html",
+  "runDir": "reports\\ui-visual-audit-20260603-002552",
+  "cases": [
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "three_card_past_present_future",
+        "spreadLabel": "three-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-three-card.png"
+      },
+      "title": "過去・現在・未来",
+      "cardCount": 3,
+      "inscriptionCount": 6,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 505.99,
+            "top": 490.66,
+            "right": 621.1,
+            "bottom": 646.62,
+            "width": 115.11,
+            "height": 155.96
+          },
+          "bRect": {
+            "left": 613.86,
+            "top": 338.67,
+            "right": 719.67,
+            "bottom": 489.02,
+            "width": 105.81,
+            "height": 150.35
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 5,
+          "bSlot": 6,
+          "aRect": {
+            "left": 820.31,
+            "top": 338.67,
+            "right": 926.12,
+            "bottom": 489.02,
+            "width": 105.81,
+            "height": 150.35
+          },
+          "bRect": {
+            "left": 918.88,
+            "top": 490.66,
+            "right": 1033.99,
+            "bottom": 646.62,
+            "width": 115.11,
+            "height": 155.96
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\compact-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\compact-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\compact-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\compact-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\mobile-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2388
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\mobile-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2421
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-002552\\mobile-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2421
+      },
+      "issues": [],
+      "consoleErrors": []
+    }
+  ],
+  "issues": [
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 505.99,
+        "top": 490.66,
+        "right": 621.1,
+        "bottom": 646.62,
+        "width": 115.11,
+        "height": 155.96
+      },
+      "bRect": {
+        "left": 613.86,
+        "top": 338.67,
+        "right": 719.67,
+        "bottom": 489.02,
+        "width": 105.81,
+        "height": 150.35
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260603-002552\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 5,
+      "bSlot": 6,
+      "aRect": {
+        "left": 820.31,
+        "top": 338.67,
+        "right": 926.12,
+        "bottom": 489.02,
+        "width": 105.81,
+        "height": 150.35
+      },
+      "bRect": {
+        "left": 918.88,
+        "top": 490.66,
+        "right": 1033.99,
+        "bottom": 646.62,
+        "width": 115.11,
+        "height": 155.96
+      }
+    }
+  ],
+  "counts": {
+    "P3": 2,
+    "P3:card-card-overlap": 2
+  },
+  "checkedAt": "2026-06-02T15:26:08.827Z"
+}

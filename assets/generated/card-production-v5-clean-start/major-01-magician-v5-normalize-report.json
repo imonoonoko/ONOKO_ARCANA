@@ -1,0 +1,26 @@
+{
+  "input": "assets\\generated\\card-production-v5-clean-start\\major-01-magician-onoko-v5-clean-alpha.png",
+  "out": "assets\\generated\\card-production-v5-clean-start\\major-01-magician-onoko-v5-clean-alpha-normalized.png",
+  "canvasSize": [
+    1024,
+    1536
+  ],
+  "sourceAlphaBbox": [
+    103,
+    35,
+    921,
+    1504
+  ],
+  "targetAlphaBbox": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "outputAlphaBbox": [
+    54,
+    32,
+    970,
+    1514
+  ]
+}

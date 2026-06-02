@@ -1,0 +1,260 @@
+{
+  "version": "v5-full-major-arcana",
+  "scope": "major arcana 22 fronts plus one card back",
+  "root": "assets\\generated\\card-production-v5-full",
+  "items": [
+    {
+      "id": "major-00-fool",
+      "number": "00",
+      "slug": "fool",
+      "englishName": "The Fool",
+      "japaneseName": "愚者",
+      "raw": "raw/major-00-fool-onoko-v5-source.png",
+      "alpha": "alpha/major-00-fool-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-00-fool-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 00, The Fool, as a new complete ONOKO tarot card front.\nTarot motif: first step, luminous path into the night city, small cat guide, open sky, beginning of observation.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-01-magician",
+      "number": "01",
+      "slug": "magician",
+      "englishName": "The Magician",
+      "japaneseName": "魔術師",
+      "raw": "raw/major-01-magician-onoko-v5-source.png",
+      "alpha": "alpha/major-01-magician-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-01-magician-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 01, The Magician, as a new complete ONOKO tarot card front.\nTarot motif: one hand raised and one hand reaching toward a glowing magic circle table, wand, cup, sword, pentacle-like disc.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-02-high-priestess",
+      "number": "02",
+      "slug": "high-priestess",
+      "englishName": "The High Priestess",
+      "japaneseName": "女教皇",
+      "raw": "raw/major-02-high-priestess-onoko-v5-source.png",
+      "alpha": "alpha/major-02-high-priestess-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-02-high-priestess-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 02, The High Priestess, as a new complete ONOKO tarot card front.\nTarot motif: moonlit archive, glowing blue book, veil, twin columns, quiet intuition and hidden records.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-03-empress",
+      "number": "03",
+      "slug": "empress",
+      "englishName": "The Empress",
+      "japaneseName": "女帝",
+      "raw": "raw/major-03-empress-onoko-v5-source.png",
+      "alpha": "alpha/major-03-empress-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-03-empress-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 03, The Empress, as a new complete ONOKO tarot card front.\nTarot motif: lush cyber botanical garden, blue luminous flowers, creative abundance, gentle sovereign presence.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-04-emperor",
+      "number": "04",
+      "slug": "emperor",
+      "englishName": "The Emperor",
+      "japaneseName": "皇帝",
+      "raw": "raw/major-04-emperor-onoko-v5-source.png",
+      "alpha": "alpha/major-04-emperor-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-04-emperor-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 04, The Emperor, as a new complete ONOKO tarot card front.\nTarot motif: black-gold command throne, architectural grid, protective boundary, disciplined structure.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-05-hierophant",
+      "number": "05",
+      "slug": "hierophant",
+      "englishName": "The Hierophant",
+      "japaneseName": "教皇",
+      "raw": "raw/major-05-hierophant-onoko-v5-source.png",
+      "alpha": "alpha/major-05-hierophant-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-05-hierophant-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 05, The Hierophant, as a new complete ONOKO tarot card front.\nTarot motif: ritual classroom, glowing doctrine tablets, mentor-like guidance, sacred learning hall.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-06-lovers",
+      "number": "06",
+      "slug": "lovers",
+      "englishName": "The Lovers",
+      "japaneseName": "恋人",
+      "raw": "raw/major-06-lovers-onoko-v5-source.png",
+      "alpha": "alpha/major-06-lovers-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-06-lovers-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 06, The Lovers, as a new complete ONOKO tarot card front.\nTarot motif: two luminous paths crossing, twin silhouettes or mirrored panels, values choice, harmonious bond.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-07-chariot",
+      "number": "07",
+      "slug": "chariot",
+      "englishName": "The Chariot",
+      "japaneseName": "戦車",
+      "raw": "raw/major-07-chariot-onoko-v5-source.png",
+      "alpha": "alpha/major-07-chariot-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-07-chariot-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 07, The Chariot, as a new complete ONOKO tarot card front.\nTarot motif: sleek blue-black arcane vehicle or armored platform, reins of light, controlled forward motion.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-08-strength",
+      "number": "08",
+      "slug": "strength",
+      "englishName": "Strength",
+      "japaneseName": "力",
+      "raw": "raw/major-08-strength-onoko-v5-source.png",
+      "alpha": "alpha/major-08-strength-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-08-strength-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 08, Strength, as a new complete ONOKO tarot card front.\nTarot motif: calmly taming a luminous mechanical lion, soft courage, restraint over force.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-09-hermit",
+      "number": "09",
+      "slug": "hermit",
+      "englishName": "The Hermit",
+      "japaneseName": "隠者",
+      "raw": "raw/major-09-hermit-onoko-v5-source.png",
+      "alpha": "alpha/major-09-hermit-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-09-hermit-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 09, The Hermit, as a new complete ONOKO tarot card front.\nTarot motif: solitary lantern on a high cyber tower, inner light, quiet search, distant stars.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-10-wheel-of-fortune",
+      "number": "10",
+      "slug": "wheel-of-fortune",
+      "englishName": "Wheel of Fortune",
+      "japaneseName": "運命の輪",
+      "raw": "raw/major-10-wheel-of-fortune-onoko-v5-source.png",
+      "alpha": "alpha/major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 10, Wheel of Fortune, as a new complete ONOKO tarot card front.\nTarot motif: large rotating astral wheel, clockwork rings, changing cycles, blue-gold fate mechanism.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-11-justice",
+      "number": "11",
+      "slug": "justice",
+      "englishName": "Justice",
+      "japaneseName": "正義",
+      "raw": "raw/major-11-justice-onoko-v5-source.png",
+      "alpha": "alpha/major-11-justice-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-11-justice-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 11, Justice, as a new complete ONOKO tarot card front.\nTarot motif: balanced scales, luminous sword, clear judgment grid, symmetry and accountability.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-12-hanged-man",
+      "number": "12",
+      "slug": "hanged-man",
+      "englishName": "The Hanged Man",
+      "japaneseName": "吊された男",
+      "raw": "raw/major-12-hanged-man-onoko-v5-source.png",
+      "alpha": "alpha/major-12-hanged-man-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-12-hanged-man-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 12, The Hanged Man, as a new complete ONOKO tarot card front.\nTarot motif: voluntary suspension in a glowing observation harness, inverted perspective, serene pause.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-13-death",
+      "number": "13",
+      "slug": "death",
+      "englishName": "Death",
+      "japaneseName": "死神",
+      "raw": "raw/major-13-death-onoko-v5-source.png",
+      "alpha": "alpha/major-13-death-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-13-death-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 13, Death, as a new complete ONOKO tarot card front.\nTarot motif: black-blue transformation gate, fading old mask, white flower, ending and rebirth.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-14-temperance",
+      "number": "14",
+      "slug": "temperance",
+      "englishName": "Temperance",
+      "japaneseName": "節制",
+      "raw": "raw/major-14-temperance-onoko-v5-source.png",
+      "alpha": "alpha/major-14-temperance-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-14-temperance-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 14, Temperance, as a new complete ONOKO tarot card front.\nTarot motif: mixing two streams of blue light between vessels, careful balance, healing integration.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-15-devil",
+      "number": "15",
+      "slug": "devil",
+      "englishName": "The Devil",
+      "japaneseName": "悪魔",
+      "raw": "raw/major-15-devil-onoko-v5-source.png",
+      "alpha": "alpha/major-15-devil-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-15-devil-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 15, The Devil, as a new complete ONOKO tarot card front.\nTarot motif: shadow chains made of neon, temptation screen, self-made binding, dark glamour without horror.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-16-tower",
+      "number": "16",
+      "slug": "tower",
+      "englishName": "The Tower",
+      "japaneseName": "塔",
+      "raw": "raw/major-16-tower-onoko-v5-source.png",
+      "alpha": "alpha/major-16-tower-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-16-tower-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 16, The Tower, as a new complete ONOKO tarot card front.\nTarot motif: black tower struck by blue lightning, shattered false structure, dramatic reset.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-17-star",
+      "number": "17",
+      "slug": "star",
+      "englishName": "The Star",
+      "japaneseName": "星",
+      "raw": "raw/major-17-star-onoko-v5-source.png",
+      "alpha": "alpha/major-17-star-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-17-star-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 17, The Star, as a new complete ONOKO tarot card front.\nTarot motif: starlight pool, pouring luminous water, hope and recovery, clear night sky.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-18-moon",
+      "number": "18",
+      "slug": "moon",
+      "englishName": "The Moon",
+      "japaneseName": "月",
+      "raw": "raw/major-18-moon-onoko-v5-source.png",
+      "alpha": "alpha/major-18-moon-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-18-moon-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 18, The Moon, as a new complete ONOKO tarot card front.\nTarot motif: large crescent moon, reflective water, uncertainty, dreamlike path, two watcher towers.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-19-sun",
+      "number": "19",
+      "slug": "sun",
+      "englishName": "The Sun",
+      "japaneseName": "太陽",
+      "raw": "raw/major-19-sun-onoko-v5-source.png",
+      "alpha": "alpha/major-19-sun-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-19-sun-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 19, The Sun, as a new complete ONOKO tarot card front.\nTarot motif: brilliant blue-white sun disc, joyful clarity, open courtyard, warm victory glow.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-20-judgement",
+      "number": "20",
+      "slug": "judgement",
+      "englishName": "Judgement",
+      "japaneseName": "審判",
+      "raw": "raw/major-20-judgement-onoko-v5-source.png",
+      "alpha": "alpha/major-20-judgement-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-20-judgement-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 20, Judgement, as a new complete ONOKO tarot card front.\nTarot motif: resonant blue trumpet or signal beam, awakening figures as light silhouettes, response to calling.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    },
+    {
+      "id": "major-21-world",
+      "number": "21",
+      "slug": "world",
+      "englishName": "The World",
+      "japaneseName": "世界",
+      "raw": "raw/major-21-world-onoko-v5-source.png",
+      "alpha": "alpha/major-21-world-onoko-v5-alpha.png",
+      "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/major-21-world-onoko-v5-alpha.png",
+      "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card texture\nPrimary request: Create card 21, The World, as a new complete ONOKO tarot card front.\nTarot motif: completed celestial ring, integrated city and stars, full cycle, elegant cosmic completion.\nSubject: ONOKO-style anime girl, black-blue hair, luminous blue eyes, black futuristic outfit with white and electric-blue accents, calm observational expression. Face and hands must be sharp and high quality.\nStyle/medium: ONOKO ARCANA premium tarot card, full card object, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry, subtle cat emblem motif, empty parchment top nameplate and empty parchment bottom description plate, no readable text.\nColor palette: black, deep navy, electric blue, antique gold, parchment ivory panels.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: pseudo text, readable glyphs, low-resolution face, broken fingers, old card frame fragments, green spill, cast shadow, contact shadow."
+    }
+  ],
+  "back": {
+    "id": "card-back",
+    "number": null,
+    "slug": "card-back",
+    "englishName": "Card Back",
+    "japaneseName": "カード裏面",
+    "raw": "raw/card-back-onoko-v5-source.png",
+    "alpha": "alpha/card-back-onoko-v5-alpha.png",
+    "staging": "Unreal/ONOKO_ARCANA/ImportStaging/MajorArcana_V5_Full/card-back-onoko-v5-alpha.png",
+    "prompt": "Use case: stylized-concept\nAsset type: ONOKO ARCANA Unreal Engine tarot card back texture\nPrimary request: Create a new complete ONOKO tarot card back design, matching the V5 front card silhouette.\nSubject: symmetrical card back with no character, central blue crystal, concentric astral rings, cat emblem motif at top and bottom, black and deep navy gothic-cyber frame, antique gold trim, electric blue star circuitry.\nComposition/framing: vertical 2:3 portrait, slender tarot-card silhouette, centered, clean outer padding, same premium ONOKO ARCANA style as the front cards.\nConstraints: Generate a vertical 2:3 portrait card at 1024x1536 composition. The card itself should have a slender tarot-card silhouette and fill most of the image, centered, with clean outer padding. The central illustration must be integrated inside the artwork window and must not overlap or hide under the side rails, top nameplate, bottom plate, corner ornaments, or arrow ornaments. Background outside the card only must be perfectly flat solid #00ff00 chroma-key green for removal, with no shadows, gradients, texture, reflections, or floor plane. Do not use #00ff00 anywhere on the card. No text, no letters, no numbers, no watermark, no logo, no cropped card edges, no horizontal distortion.\nAvoid: text, letters, numbers, watermark, logo, face, hands, green on the card, cast shadow, contact shadow."
+  }
+}

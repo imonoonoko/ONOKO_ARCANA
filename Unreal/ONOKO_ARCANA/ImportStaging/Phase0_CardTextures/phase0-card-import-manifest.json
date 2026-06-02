@@ -1,0 +1,46 @@
+{
+  "project": "ONOKO_ARCANA",
+  "phase": "Phase 0",
+  "created": "2026-05-31",
+  "engine": {
+    "association": "5.7",
+    "installPath": "C:/Program Files/Epic Games/UE_5.7",
+    "detectedVersion": "5.7.4-51494982+++UE5+Release-5.7-Windows"
+  },
+  "policy": {
+    "cardPixelSize": "1024x1536",
+    "cardAspectRatio": "2:3",
+    "textPolicy": "Do not bake card names, numbers, upright keywords, reversed keywords, or guide text into card textures. Render them in Unreal UI."
+  },
+  "targetContentRoot": "/Game/ONOKOArcana/Cards/Textures",
+  "items": [
+    {
+      "id": "card_back_b_production_v1",
+      "kind": "cardBack",
+      "sourceRelative": "../../../../assets/generated/card-backs/card-back-b-production-v1.png",
+      "stagedRelative": "card-back-b-production-v1.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_CardBack_B_Production_V1"
+    },
+    {
+      "id": "major_00_fool_v1",
+      "kind": "majorArcanaFront",
+      "sourceRelative": "../../../../assets/generated/card-fronts/major-00-fool-onoko-concept-v1.png",
+      "stagedRelative": "major-00-fool-onoko-concept-v1.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_00_Fool_V1"
+    },
+    {
+      "id": "major_01_magician_v1",
+      "kind": "majorArcanaFront",
+      "sourceRelative": "../../../../assets/generated/card-fronts/major-01-magician-onoko-concept-v1.png",
+      "stagedRelative": "major-01-magician-onoko-concept-v1.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_01_Magician_V1"
+    },
+    {
+      "id": "major_07_chariot_v2",
+      "kind": "majorArcanaFront",
+      "sourceRelative": "../../../../assets/generated/card-fronts/major-07-chariot-onoko-concept-v2.png",
+      "stagedRelative": "major-07-chariot-onoko-concept-v2.png",
+      "targetObjectPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_07_Chariot_V2"
+    }
+  ]
+}

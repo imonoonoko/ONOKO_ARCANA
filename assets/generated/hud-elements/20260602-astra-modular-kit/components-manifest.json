@@ -1,0 +1,1286 @@
+{
+  "generated_at": "2026-06-02",
+  "style": "Astra Nocturne modular HUD kit",
+  "source_sheets": {
+    "panels": "astra-modular-panels-alpha-v1.png",
+    "controls": "astra-micro-controls-alpha-v1.png",
+    "card-slots": "astra-card-slots-alpha-v1.png"
+  },
+  "components": [
+    {
+      "group": "panels",
+      "name": "panel-01",
+      "path": "components/panels/panel-01.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        403,
+        11,
+        864,
+        235
+      ],
+      "padded_size": [
+        888,
+        258
+      ],
+      "area_px": 91008
+    },
+    {
+      "group": "panels",
+      "name": "panel-02",
+      "path": "components/panels/panel-02.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        27,
+        120,
+        340,
+        646
+      ],
+      "padded_size": [
+        364,
+        670
+      ],
+      "area_px": 157044
+    },
+    {
+      "group": "panels",
+      "name": "panel-03",
+      "path": "components/panels/panel-03.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1279,
+        186,
+        137,
+        144
+      ],
+      "padded_size": [
+        161,
+        168
+      ],
+      "area_px": 9544
+    },
+    {
+      "group": "panels",
+      "name": "panel-04",
+      "path": "components/panels/panel-04.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1467,
+        186,
+        137,
+        144
+      ],
+      "padded_size": [
+        161,
+        168
+      ],
+      "area_px": 9543
+    },
+    {
+      "group": "panels",
+      "name": "panel-05",
+      "path": "components/panels/panel-05.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        421,
+        252,
+        351,
+        273
+      ],
+      "padded_size": [
+        375,
+        297
+      ],
+      "area_px": 86059
+    },
+    {
+      "group": "panels",
+      "name": "panel-06",
+      "path": "components/panels/panel-06.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        844,
+        259,
+        377,
+        99
+      ],
+      "padded_size": [
+        401,
+        123
+      ],
+      "area_px": 26313
+    },
+    {
+      "group": "panels",
+      "name": "panel-07",
+      "path": "components/panels/panel-07.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        844,
+        395,
+        376,
+        129
+      ],
+      "padded_size": [
+        400,
+        153
+      ],
+      "area_px": 26936
+    },
+    {
+      "group": "panels",
+      "name": "panel-08",
+      "path": "components/panels/panel-08.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1279,
+        370,
+        137,
+        139
+      ],
+      "padded_size": [
+        161,
+        163
+      ],
+      "area_px": 9278
+    },
+    {
+      "group": "panels",
+      "name": "panel-09",
+      "path": "components/panels/panel-09.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1467,
+        370,
+        137,
+        139
+      ],
+      "padded_size": [
+        161,
+        163
+      ],
+      "area_px": 9240
+    },
+    {
+      "group": "panels",
+      "name": "panel-10",
+      "path": "components/panels/panel-10.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        400,
+        554,
+        830,
+        59
+      ],
+      "padded_size": [
+        854,
+        83
+      ],
+      "area_px": 8740
+    },
+    {
+      "group": "panels",
+      "name": "panel-11",
+      "path": "components/panels/panel-11.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        393,
+        627,
+        845,
+        102
+      ],
+      "padded_size": [
+        869,
+        126
+      ],
+      "area_px": 14854
+    },
+    {
+      "group": "panels",
+      "name": "panel-12",
+      "path": "components/panels/panel-12.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1293,
+        616,
+        296,
+        114
+      ],
+      "padded_size": [
+        320,
+        138
+      ],
+      "area_px": 27916
+    },
+    {
+      "group": "panels",
+      "name": "panel-13",
+      "path": "components/panels/panel-13.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        48,
+        727,
+        1191,
+        193
+      ],
+      "padded_size": [
+        1215,
+        217
+      ],
+      "area_px": 138936
+    },
+    {
+      "group": "panels",
+      "name": "panel-14",
+      "path": "components/panels/panel-14.png",
+      "source_sheet": "astra-modular-panels-alpha-v1.png",
+      "bbox": [
+        1289,
+        752,
+        304,
+        141
+      ],
+      "padded_size": [
+        328,
+        165
+      ],
+      "area_px": 36191
+    },
+    {
+      "group": "controls",
+      "name": "control-01",
+      "path": "components/controls/control-01.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        32,
+        24,
+        227,
+        230
+      ],
+      "padded_size": [
+        251,
+        254
+      ],
+      "area_px": 16049
+    },
+    {
+      "group": "controls",
+      "name": "control-02",
+      "path": "components/controls/control-02.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        281,
+        24,
+        228,
+        230
+      ],
+      "padded_size": [
+        252,
+        254
+      ],
+      "area_px": 16329
+    },
+    {
+      "group": "controls",
+      "name": "control-03",
+      "path": "components/controls/control-03.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        532,
+        24,
+        228,
+        230
+      ],
+      "padded_size": [
+        252,
+        254
+      ],
+      "area_px": 16376
+    },
+    {
+      "group": "controls",
+      "name": "control-04",
+      "path": "components/controls/control-04.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        790,
+        24,
+        227,
+        230
+      ],
+      "padded_size": [
+        251,
+        254
+      ],
+      "area_px": 16175
+    },
+    {
+      "group": "controls",
+      "name": "control-05",
+      "path": "components/controls/control-05.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1047,
+        24,
+        228,
+        230
+      ],
+      "padded_size": [
+        252,
+        254
+      ],
+      "area_px": 15887
+    },
+    {
+      "group": "controls",
+      "name": "control-06",
+      "path": "components/controls/control-06.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1304,
+        24,
+        228,
+        230
+      ],
+      "padded_size": [
+        252,
+        254
+      ],
+      "area_px": 15783
+    },
+    {
+      "group": "controls",
+      "name": "control-07",
+      "path": "components/controls/control-07.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        56,
+        302,
+        61,
+        90
+      ],
+      "padded_size": [
+        85,
+        114
+      ],
+      "area_px": 2312
+    },
+    {
+      "group": "controls",
+      "name": "control-08",
+      "path": "components/controls/control-08.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        168,
+        302,
+        59,
+        90
+      ],
+      "padded_size": [
+        83,
+        114
+      ],
+      "area_px": 2280
+    },
+    {
+      "group": "controls",
+      "name": "control-09",
+      "path": "components/controls/control-09.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        276,
+        304,
+        58,
+        85
+      ],
+      "padded_size": [
+        82,
+        109
+      ],
+      "area_px": 2138
+    },
+    {
+      "group": "controls",
+      "name": "control-10",
+      "path": "components/controls/control-10.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        381,
+        303,
+        59,
+        88
+      ],
+      "padded_size": [
+        83,
+        112
+      ],
+      "area_px": 2249
+    },
+    {
+      "group": "controls",
+      "name": "control-11",
+      "path": "components/controls/control-11.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        487,
+        304,
+        66,
+        86
+      ],
+      "padded_size": [
+        90,
+        110
+      ],
+      "area_px": 2656
+    },
+    {
+      "group": "controls",
+      "name": "control-12",
+      "path": "components/controls/control-12.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        696,
+        290,
+        219,
+        96
+      ],
+      "padded_size": [
+        243,
+        120
+      ],
+      "area_px": 12634
+    },
+    {
+      "group": "controls",
+      "name": "control-13",
+      "path": "components/controls/control-13.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        948,
+        282,
+        205,
+        104
+      ],
+      "padded_size": [
+        229,
+        128
+      ],
+      "area_px": 12906
+    },
+    {
+      "group": "controls",
+      "name": "control-14",
+      "path": "components/controls/control-14.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1187,
+        290,
+        202,
+        96
+      ],
+      "padded_size": [
+        226,
+        120
+      ],
+      "area_px": 12556
+    },
+    {
+      "group": "controls",
+      "name": "control-15",
+      "path": "components/controls/control-15.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1422,
+        290,
+        206,
+        95
+      ],
+      "padded_size": [
+        230,
+        119
+      ],
+      "area_px": 12405
+    },
+    {
+      "group": "controls",
+      "name": "control-16",
+      "path": "components/controls/control-16.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        55,
+        469,
+        73,
+        74
+      ],
+      "padded_size": [
+        97,
+        98
+      ],
+      "area_px": 2860
+    },
+    {
+      "group": "controls",
+      "name": "control-17",
+      "path": "components/controls/control-17.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        190,
+        468,
+        73,
+        75
+      ],
+      "padded_size": [
+        97,
+        99
+      ],
+      "area_px": 2859
+    },
+    {
+      "group": "controls",
+      "name": "control-18",
+      "path": "components/controls/control-18.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        325,
+        468,
+        75,
+        75
+      ],
+      "padded_size": [
+        99,
+        99
+      ],
+      "area_px": 3066
+    },
+    {
+      "group": "controls",
+      "name": "control-19",
+      "path": "components/controls/control-19.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        455,
+        467,
+        76,
+        77
+      ],
+      "padded_size": [
+        100,
+        101
+      ],
+      "area_px": 3221
+    },
+    {
+      "group": "controls",
+      "name": "control-20",
+      "path": "components/controls/control-20.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        608,
+        470,
+        300,
+        78
+      ],
+      "padded_size": [
+        324,
+        102
+      ],
+      "area_px": 12357
+    },
+    {
+      "group": "controls",
+      "name": "control-21",
+      "path": "components/controls/control-21.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        964,
+        471,
+        296,
+        77
+      ],
+      "padded_size": [
+        320,
+        101
+      ],
+      "area_px": 12014
+    },
+    {
+      "group": "controls",
+      "name": "control-22",
+      "path": "components/controls/control-22.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1317,
+        470,
+        310,
+        78
+      ],
+      "padded_size": [
+        334,
+        102
+      ],
+      "area_px": 12637
+    },
+    {
+      "group": "controls",
+      "name": "control-23",
+      "path": "components/controls/control-23.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        48,
+        619,
+        441,
+        64
+      ],
+      "padded_size": [
+        465,
+        88
+      ],
+      "area_px": 13306
+    },
+    {
+      "group": "controls",
+      "name": "control-24",
+      "path": "components/controls/control-24.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        537,
+        625,
+        473,
+        54
+      ],
+      "padded_size": [
+        497,
+        78
+      ],
+      "area_px": 13475
+    },
+    {
+      "group": "controls",
+      "name": "control-25",
+      "path": "components/controls/control-25.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1060,
+        629,
+        353,
+        46
+      ],
+      "padded_size": [
+        377,
+        70
+      ],
+      "area_px": 9040
+    },
+    {
+      "group": "controls",
+      "name": "control-26",
+      "path": "components/controls/control-26.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1500,
+        591,
+        41,
+        310
+      ],
+      "padded_size": [
+        65,
+        334
+      ],
+      "area_px": 8043
+    },
+    {
+      "group": "controls",
+      "name": "control-27",
+      "path": "components/controls/control-27.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1568,
+        591,
+        41,
+        310
+      ],
+      "padded_size": [
+        65,
+        334
+      ],
+      "area_px": 8251
+    },
+    {
+      "group": "controls",
+      "name": "control-28",
+      "path": "components/controls/control-28.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        52,
+        766,
+        91,
+        90
+      ],
+      "padded_size": [
+        115,
+        114
+      ],
+      "area_px": 4616
+    },
+    {
+      "group": "controls",
+      "name": "control-29",
+      "path": "components/controls/control-29.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        203,
+        756,
+        86,
+        100
+      ],
+      "padded_size": [
+        110,
+        124
+      ],
+      "area_px": 4642
+    },
+    {
+      "group": "controls",
+      "name": "control-30",
+      "path": "components/controls/control-30.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        340,
+        764,
+        89,
+        91
+      ],
+      "padded_size": [
+        113,
+        115
+      ],
+      "area_px": 4437
+    },
+    {
+      "group": "controls",
+      "name": "control-31",
+      "path": "components/controls/control-31.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        481,
+        772,
+        90,
+        84
+      ],
+      "padded_size": [
+        114,
+        108
+      ],
+      "area_px": 3962
+    },
+    {
+      "group": "controls",
+      "name": "control-32",
+      "path": "components/controls/control-32.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        642,
+        763,
+        57,
+        116
+      ],
+      "padded_size": [
+        81,
+        140
+      ],
+      "area_px": 2335
+    },
+    {
+      "group": "controls",
+      "name": "control-33",
+      "path": "components/controls/control-33.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        747,
+        788,
+        58,
+        65
+      ],
+      "padded_size": [
+        82,
+        89
+      ],
+      "area_px": 1439
+    },
+    {
+      "group": "controls",
+      "name": "control-34",
+      "path": "components/controls/control-34.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        844,
+        783,
+        57,
+        74
+      ],
+      "padded_size": [
+        81,
+        98
+      ],
+      "area_px": 1619
+    },
+    {
+      "group": "controls",
+      "name": "control-35",
+      "path": "components/controls/control-35.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        939,
+        771,
+        76,
+        94
+      ],
+      "padded_size": [
+        100,
+        118
+      ],
+      "area_px": 2327
+    },
+    {
+      "group": "controls",
+      "name": "control-36",
+      "path": "components/controls/control-36.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1086,
+        728,
+        153,
+        158
+      ],
+      "padded_size": [
+        177,
+        182
+      ],
+      "area_px": 13512
+    },
+    {
+      "group": "controls",
+      "name": "control-37",
+      "path": "components/controls/control-37.png",
+      "source_sheet": "astra-micro-controls-alpha-v1.png",
+      "bbox": [
+        1274,
+        729,
+        154,
+        154
+      ],
+      "padded_size": [
+        178,
+        178
+      ],
+      "area_px": 14221
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-01",
+      "path": "components/card-slots/slot-01.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        16,
+        24,
+        245,
+        426
+      ],
+      "padded_size": [
+        269,
+        450
+      ],
+      "area_px": 30311
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-02",
+      "path": "components/card-slots/slot-02.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        283,
+        22,
+        213,
+        431
+      ],
+      "padded_size": [
+        237,
+        455
+      ],
+      "area_px": 75357
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-03",
+      "path": "components/card-slots/slot-03.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        529,
+        22,
+        219,
+        432
+      ],
+      "padded_size": [
+        243,
+        456
+      ],
+      "area_px": 76275
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-04",
+      "path": "components/card-slots/slot-04.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        855,
+        18,
+        674,
+        201
+      ],
+      "padded_size": [
+        698,
+        225
+      ],
+      "area_px": 99506
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-05",
+      "path": "components/card-slots/slot-05.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        859,
+        228,
+        667,
+        195
+      ],
+      "padded_size": [
+        691,
+        219
+      ],
+      "area_px": 103652
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-06",
+      "path": "components/card-slots/slot-06.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        487,
+        476,
+        235,
+        240
+      ],
+      "padded_size": [
+        259,
+        264
+      ],
+      "area_px": 14770
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-07",
+      "path": "components/card-slots/slot-07.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        790,
+        457,
+        93,
+        101
+      ],
+      "padded_size": [
+        117,
+        125
+      ],
+      "area_px": 2762
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-08",
+      "path": "components/card-slots/slot-08.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        907,
+        457,
+        91,
+        101
+      ],
+      "padded_size": [
+        115,
+        125
+      ],
+      "area_px": 3059
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-09",
+      "path": "components/card-slots/slot-09.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        1022,
+        457,
+        92,
+        101
+      ],
+      "padded_size": [
+        116,
+        125
+      ],
+      "area_px": 3209
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-10",
+      "path": "components/card-slots/slot-10.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        1139,
+        456,
+        92,
+        102
+      ],
+      "padded_size": [
+        116,
+        126
+      ],
+      "area_px": 3208
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-11",
+      "path": "components/card-slots/slot-11.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        21,
+        480,
+        231,
+        232
+      ],
+      "padded_size": [
+        255,
+        256
+      ],
+      "area_px": 10445
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-12",
+      "path": "components/card-slots/slot-12.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        257,
+        485,
+        220,
+        224
+      ],
+      "padded_size": [
+        244,
+        248
+      ],
+      "area_px": 14102
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-13",
+      "path": "components/card-slots/slot-13.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        1287,
+        516,
+        346,
+        346
+      ],
+      "padded_size": [
+        370,
+        370
+      ],
+      "area_px": 29554
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-14",
+      "path": "components/card-slots/slot-14.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        752,
+        577,
+        519,
+        119
+      ],
+      "padded_size": [
+        543,
+        143
+      ],
+      "area_px": 32960
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-15",
+      "path": "components/card-slots/slot-15.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        36,
+        753,
+        128,
+        124
+      ],
+      "padded_size": [
+        152,
+        148
+      ],
+      "area_px": 3360
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-16",
+      "path": "components/card-slots/slot-16.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        208,
+        755,
+        117,
+        119
+      ],
+      "padded_size": [
+        141,
+        143
+      ],
+      "area_px": 3216
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-17",
+      "path": "components/card-slots/slot-17.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        365,
+        779,
+        116,
+        95
+      ],
+      "padded_size": [
+        140,
+        119
+      ],
+      "area_px": 2524
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-18",
+      "path": "components/card-slots/slot-18.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        384,
+        756,
+        81,
+        32
+      ],
+      "padded_size": [
+        105,
+        56
+      ],
+      "area_px": 323
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-19",
+      "path": "components/card-slots/slot-19.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        531,
+        767,
+        85,
+        96
+      ],
+      "padded_size": [
+        109,
+        120
+      ],
+      "area_px": 3219
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-20",
+      "path": "components/card-slots/slot-20.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        681,
+        751,
+        237,
+        28
+      ],
+      "padded_size": [
+        261,
+        52
+      ],
+      "area_px": 1663
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-21",
+      "path": "components/card-slots/slot-21.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        963,
+        760,
+        308,
+        56
+      ],
+      "padded_size": [
+        332,
+        80
+      ],
+      "area_px": 15492
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-22",
+      "path": "components/card-slots/slot-22.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        680,
+        803,
+        239,
+        36
+      ],
+      "padded_size": [
+        263,
+        60
+      ],
+      "area_px": 2137
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-23",
+      "path": "components/card-slots/slot-23.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        680,
+        855,
+        239,
+        65
+      ],
+      "padded_size": [
+        263,
+        89
+      ],
+      "area_px": 2674
+    },
+    {
+      "group": "card-slots",
+      "name": "slot-24",
+      "path": "components/card-slots/slot-24.png",
+      "source_sheet": "astra-card-slots-alpha-v1.png",
+      "bbox": [
+        963,
+        847,
+        308,
+        56
+      ],
+      "padded_size": [
+        332,
+        80
+      ],
+      "area_px": 15721
+    }
+  ]
+}

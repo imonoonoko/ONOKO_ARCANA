@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "id": "major-00-fool",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V4/T_Major_00_Fool_ONOKO_V4_Alpha.T_Major_00_Fool_ONOKO_V4_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-01-magician",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V4/T_Major_01_Magician_ONOKO_V4_Alpha.T_Major_01_Magician_ONOKO_V4_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-02-high-priestess",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V4/T_Major_02_HighPriestess_ONOKO_V4_Alpha.T_Major_02_HighPriestess_ONOKO_V4_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "card-back",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V4/T_CardBack_ONOKO_V4_Alpha.T_CardBack_ONOKO_V4_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "qa-checkerboard",
+      "assetPath": "/Game/ONOKOArcana/QA/Textures/T_QA_Checkerboard_V1.T_QA_Checkerboard_V1",
+      "width": 1024,
+      "height": 1024,
+      "expectedSize": [
+        1024,
+        1024
+      ],
+      "sizeOk": true
+    }
+  ]
+}

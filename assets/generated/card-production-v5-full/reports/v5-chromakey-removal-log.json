@@ -1,0 +1,117 @@
+﻿[
+    {
+        "Source":  "card-back-onoko-v5-source.png",
+        "Alpha":  "card-back-onoko-v5-alpha.png",
+        "Log":  "Key color: #07f704 | Transparent pixels: 417340/1572864 | Partially transparent pixels: 4573/1572864"
+    },
+    {
+        "Source":  "major-00-fool-onoko-v5-source.png",
+        "Alpha":  "major-00-fool-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f702 | Transparent pixels: 375655/1572864 | Partially transparent pixels: 4426/1572864"
+    },
+    {
+        "Source":  "major-01-magician-onoko-v5-source.png",
+        "Alpha":  "major-01-magician-onoko-v5-alpha.png",
+        "Log":  "+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |     + CategoryInfo          : NotSpecified: (Error: Output a...e to overwrite):String) [], RemoteException |     + FullyQualifiedErrorId : NativeCommandError"
+    },
+    {
+        "Source":  "major-02-high-priestess-onoko-v5-source.png",
+        "Alpha":  "major-02-high-priestess-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f702 | Transparent pixels: 376231/1572864 | Partially transparent pixels: 4550/1572864"
+    },
+    {
+        "Source":  "major-03-empress-onoko-v5-source.png",
+        "Alpha":  "major-03-empress-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f102 | Transparent pixels: 377584/1572864 | Partially transparent pixels: 5540/1572864"
+    },
+    {
+        "Source":  "major-04-emperor-onoko-v5-source.png",
+        "Alpha":  "major-04-emperor-onoko-v5-alpha.png",
+        "Log":  "Key color: #02eb02 | Transparent pixels: 377816/1572864 | Partially transparent pixels: 3787/1572864"
+    },
+    {
+        "Source":  "major-05-hierophant-onoko-v5-source.png",
+        "Alpha":  "major-05-hierophant-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ee02 | Transparent pixels: 376957/1572864 | Partially transparent pixels: 4492/1572864"
+    },
+    {
+        "Source":  "major-06-lovers-onoko-v5-source.png",
+        "Alpha":  "major-06-lovers-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ef01 | Transparent pixels: 377280/1572864 | Partially transparent pixels: 4369/1572864"
+    },
+    {
+        "Source":  "major-07-chariot-onoko-v5-source.png",
+        "Alpha":  "major-07-chariot-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f602 | Transparent pixels: 376854/1572864 | Partially transparent pixels: 3206/1572864"
+    },
+    {
+        "Source":  "major-08-strength-onoko-v5-source.png",
+        "Alpha":  "major-08-strength-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f202 | Transparent pixels: 379132/1572864 | Partially transparent pixels: 3497/1572864"
+    },
+    {
+        "Source":  "major-09-hermit-onoko-v5-source.png",
+        "Alpha":  "major-09-hermit-onoko-v5-alpha.png",
+        "Log":  "Key color: #02f402 | Transparent pixels: 377772/1572864 | Partially transparent pixels: 4514/1572864"
+    },
+    {
+        "Source":  "major-10-wheel-of-fortune-onoko-v5-source.png",
+        "Alpha":  "major-10-wheel-of-fortune-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f202 | Transparent pixels: 376971/1572864 | Partially transparent pixels: 4577/1572864"
+    },
+    {
+        "Source":  "major-11-justice-onoko-v5-source.png",
+        "Alpha":  "major-11-justice-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f102 | Transparent pixels: 374067/1572864 | Partially transparent pixels: 4250/1572864"
+    },
+    {
+        "Source":  "major-12-hanged-man-onoko-v5-source.png",
+        "Alpha":  "major-12-hanged-man-onoko-v5-alpha.png",
+        "Log":  "Key color: #02f002 | Transparent pixels: 374644/1572864 | Partially transparent pixels: 3981/1572864"
+    },
+    {
+        "Source":  "major-13-death-onoko-v5-source.png",
+        "Alpha":  "major-13-death-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ed02 | Transparent pixels: 376250/1572864 | Partially transparent pixels: 4647/1572864"
+    },
+    {
+        "Source":  "major-14-temperance-onoko-v5-source.png",
+        "Alpha":  "major-14-temperance-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f302 | Transparent pixels: 376079/1572864 | Partially transparent pixels: 5070/1572864"
+    },
+    {
+        "Source":  "major-15-devil-onoko-v5-source.png",
+        "Alpha":  "major-15-devil-onoko-v5-alpha.png",
+        "Log":  "Key color: #01e801 | Transparent pixels: 377085/1572864 | Partially transparent pixels: 4499/1572864"
+    },
+    {
+        "Source":  "major-16-tower-onoko-v5-source.png",
+        "Alpha":  "major-16-tower-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ef01 | Transparent pixels: 376891/1572864 | Partially transparent pixels: 4508/1572864"
+    },
+    {
+        "Source":  "major-17-star-onoko-v5-source.png",
+        "Alpha":  "major-17-star-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ea01 | Transparent pixels: 372444/1572864 | Partially transparent pixels: 4722/1572864"
+    },
+    {
+        "Source":  "major-18-moon-onoko-v5-source.png",
+        "Alpha":  "major-18-moon-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ec01 | Transparent pixels: 376213/1572864 | Partially transparent pixels: 4512/1572864"
+    },
+    {
+        "Source":  "major-19-sun-onoko-v5-source.png",
+        "Alpha":  "major-19-sun-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ef02 | Transparent pixels: 377001/1572864 | Partially transparent pixels: 5323/1572864"
+    },
+    {
+        "Source":  "major-20-judgement-onoko-v5-source.png",
+        "Alpha":  "major-20-judgement-onoko-v5-alpha.png",
+        "Log":  "Key color: #01ea01 | Transparent pixels: 374053/1572864 | Partially transparent pixels: 4425/1572864"
+    },
+    {
+        "Source":  "major-21-world-onoko-v5-source.png",
+        "Alpha":  "major-21-world-onoko-v5-alpha.png",
+        "Log":  "Key color: #01f101 | Transparent pixels: 374848/1572864 | Partially transparent pixels: 4478/1572864"
+    }
+]

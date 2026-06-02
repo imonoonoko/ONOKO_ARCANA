@@ -1,0 +1,33 @@
+{
+  "input": "assets\\generated\\card-fronts\\ue-v3-source-chromakey\\major-02-high-priestess-onoko-ue-v3-source-chromakey.png",
+  "output": "assets\\generated\\card-fronts\\ue-v3-alpha\\major-02-high-priestess-onoko-ue-v3-alpha.png",
+  "stagingOutput": "Unreal\\ONOKO_ARCANA\\ImportStaging\\MajorArcana_V3\\major-02-high-priestess-onoko-ue-v3-alpha.png",
+  "canvasSize": [
+    1024,
+    1536
+  ],
+  "keyColor": [
+    241,
+    4,
+    229
+  ],
+  "sourceVisibleBbox": [
+    138,
+    82,
+    884,
+    1478
+  ],
+  "finalAlphaBbox": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "targetRect": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "cornerRadius": 52
+}

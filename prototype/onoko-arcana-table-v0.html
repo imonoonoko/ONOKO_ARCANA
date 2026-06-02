@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONOKO ARCANA 占いテーブル v0</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #05070c;
+      --ink-2: #090d14;
+      --walnut: #22170f;
+      --panel: rgba(9, 15, 24, .78);
+      --panel-strong: rgba(6, 10, 18, .92);
+      --line: rgba(111, 164, 213, .26);
+      --line-strong: rgba(121, 205, 255, .48);
+      --gold: #d0a85e;
+      --gold-soft: rgba(208, 168, 94, .34);
+      --blue: #34adff;
+      --blue-2: #8be2ff;
+      --paper: #eadfcd;
+      --paper-ink: #0d1320;
+      --text: #f5f8ff;
+      --muted: #9caec1;
+      --violet: #a28cff;
+      --rose: #d78aa7;
+      --green: #72c7ac;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .48);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(46, 171, 255, .28), transparent 34rem),
+        radial-gradient(circle at 92% 12%, rgba(162, 140, 255, .16), transparent 28rem),
+        linear-gradient(135deg, #03050a 0%, #07101b 38%, #120d0a 100%);
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url("../assets/design/onoko-arcana-design-kanban-v1-onoko.png");
+      background-size: cover;
+      background-position: center;
+      opacity: .16;
+      filter: blur(5px) saturate(1.15);
+      transform: scale(1.04);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .68), rgba(0, 0, 0, .12) 45%, rgba(0, 0, 0, .68)),
+        radial-gradient(circle at 50% 46%, transparent 0 18rem, rgba(3, 5, 9, .45) 44rem),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .018) 0 1px, transparent 1px 96px);
+    }
+
+    button,
+    textarea,
+    input {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(260px, 330px) minmax(440px, 1fr) minmax(300px, 380px);
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .rail,
+    .inspector {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(8, 13, 22, .88), rgba(5, 8, 14, .92));
+      box-shadow: var(--shadow);
+      min-height: calc(100vh - 36px);
+      backdrop-filter: blur(18px);
+    }
+
+    .rail {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+    }
+
+    .brand {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold-soft);
+      color: var(--gold);
+      background: #070b11;
+      border-radius: 50%;
+      box-shadow: 0 0 28px rgba(52, 173, 255, .24);
+    }
+
+    .brand h1 {
+      margin: 12px 0 2px;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: .02em;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .control-block,
+    .history-block,
+    .inspector-section {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .control-block h2,
+    .history-block h2,
+    .inspector-section h2 {
+      margin: 0 0 10px;
+      color: var(--paper);
+      font-size: 13px;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      background: rgba(4, 8, 14, .72);
+    }
+
+    .segmented button {
+      min-height: 38px;
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .segmented button:last-child {
+      border-right: 0;
+    }
+
+    .segmented button.is-active {
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(52, 173, 255, .22), rgba(52, 173, 255, .08));
+      box-shadow: inset 0 -2px 0 var(--blue);
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 84px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: rgba(3, 7, 13, .74);
+      color: var(--text);
+      padding: 11px 12px;
+      outline: none;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    textarea:focus {
+      border-color: var(--line-strong);
+      box-shadow: 0 0 0 3px rgba(52, 173, 255, .12);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .button {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: rgba(7, 12, 20, .82);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: rgba(13, 28, 43, .86);
+    }
+
+    .button.primary {
+      border-color: rgba(52, 173, 255, .55);
+      background: linear-gradient(180deg, rgba(34, 142, 255, .34), rgba(7, 22, 36, .92));
+      color: #f7fcff;
+    }
+
+    .button.ghost {
+      color: var(--muted);
+    }
+
+    .button svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
+    }
+
+    .deck-preview {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .deck-preview img {
+      width: 82px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border: 1px solid var(--gold-soft);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, .38);
+    }
+
+    .deck-preview strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .deck-preview span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 9px;
+      max-height: 28vh;
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .history-item {
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(3, 7, 12, .62);
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+
+    .history-item b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .history-item span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .stage {
+      min-height: calc(100vh - 36px);
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      border: 1px solid rgba(208, 168, 94, .32);
+      background:
+        radial-gradient(circle at center, rgba(52, 173, 255, .22), transparent 18rem),
+        linear-gradient(180deg, rgba(21, 15, 10, .68), rgba(5, 8, 13, .88));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 48%, transparent 0 9rem, rgba(52, 173, 255, .08) 9.1rem, transparent 9.3rem),
+        radial-gradient(circle at 50% 48%, transparent 0 15rem, rgba(208, 168, 94, .13) 15.1rem, transparent 15.25rem),
+        linear-gradient(90deg, transparent 49.9%, rgba(139, 226, 255, .18) 50%, transparent 50.1%),
+        linear-gradient(0deg, transparent 49.9%, rgba(139, 226, 255, .15) 50%, transparent 50.1%);
+      opacity: .82;
+      pointer-events: none;
+    }
+
+    .stage::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(208, 168, 94, .18);
+      pointer-events: none;
+    }
+
+    .stage-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px 0;
+    }
+
+    .stage-top h2 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: .04em;
+    }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .status {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: var(--muted);
+      padding: 0 10px;
+      font-size: 11px;
+      background: rgba(5, 8, 14, .62);
+    }
+
+    .table-field {
+      position: relative;
+      z-index: 1;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: 28px 30px 22px;
+    }
+
+    .spread {
+      width: min(100%, 920px);
+      display: grid;
+      grid-template-columns: repeat(var(--slot-count), minmax(170px, 220px));
+      justify-content: center;
+      align-items: end;
+      gap: clamp(18px, 3vw, 34px);
+    }
+
+    .spread[data-spread="one"] {
+      --slot-count: 1;
+    }
+
+    .spread[data-spread="three"] {
+      --slot-count: 3;
+    }
+
+    .slot {
+      display: grid;
+      gap: 9px;
+      justify-items: center;
+      transform: translateY(var(--slot-offset, 0));
+    }
+
+    .slot:nth-child(1) {
+      --slot-offset: 8px;
+    }
+
+    .slot:nth-child(2) {
+      --slot-offset: -12px;
+    }
+
+    .slot:nth-child(3) {
+      --slot-offset: 8px;
+    }
+
+    .slot-label {
+      min-width: 120px;
+      text-align: center;
+      border: 1px solid rgba(208, 168, 94, .28);
+      color: var(--paper);
+      background: rgba(7, 10, 16, .76);
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .28);
+    }
+
+    .table-card {
+      position: relative;
+      width: min(100%, 220px);
+      aspect-ratio: 2 / 3;
+      border: 1px solid var(--gold-soft);
+      background: #03050a;
+      box-shadow: 0 22px 45px rgba(0, 0, 0, .45), 0 0 28px rgba(52, 173, 255, .16);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .table-card:hover,
+    .table-card.is-selected {
+      transform: translateY(-4px);
+      border-color: rgba(139, 226, 255, .64);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .5), 0 0 38px rgba(52, 173, 255, .28);
+    }
+
+    .table-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .26s ease;
+    }
+
+    .table-card img.reversed {
+      transform: rotate(180deg);
+    }
+
+    .card-band {
+      position: absolute;
+      left: 10.5%;
+      right: 10.5%;
+      display: grid;
+      place-items: center;
+      color: var(--paper-ink);
+      text-align: center;
+      pointer-events: none;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .38);
+    }
+
+    .card-band.top {
+      top: 7.8%;
+      min-height: 8.5%;
+      font-size: clamp(10px, 1.05vw, 12px);
+      font-weight: 900;
+    }
+
+    .card-band.bottom {
+      bottom: 8.5%;
+      min-height: 11%;
+      padding: 0 8px;
+      font-size: clamp(9px, .9vw, 11px);
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .orientation {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(139, 226, 255, .5);
+      background: rgba(3, 7, 12, .74);
+      color: var(--blue-2);
+      font-size: 12px;
+      font-weight: 900;
+      pointer-events: none;
+    }
+
+    .table-bottom {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: end;
+      padding: 0 20px 18px;
+    }
+
+    .question-readout {
+      min-height: 58px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(5, 8, 14, .62);
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .question-readout b {
+      display: block;
+      color: var(--paper);
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .crystal {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(139, 226, 255, .42);
+      background: rgba(4, 8, 14, .82);
+      box-shadow: 0 0 34px rgba(52, 173, 255, .26);
+    }
+
+    .crystal svg {
+      width: 30px;
+      height: 30px;
+      color: var(--blue-2);
+    }
+
+    .inspector {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .selected-card {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .selected-card img {
+      width: 78px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border: 1px solid var(--gold-soft);
+      background: #03050a;
+    }
+
+    .selected-card h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      text-transform: none;
+    }
+
+    .selected-card .en {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .04);
+      color: var(--muted);
+      padding: 0 8px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .badge.upright {
+      color: var(--green);
+      border-color: rgba(114, 199, 172, .35);
+    }
+
+    .badge.reversed {
+      color: var(--rose);
+      border-color: rgba(215, 138, 167, .35);
+    }
+
+    .meaning-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meaning-box {
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(4, 8, 14, .62);
+      padding: 12px;
+    }
+
+    .meaning-box dt {
+      margin: 0 0 7px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .meaning-box dd {
+      margin: 0;
+      color: #dcecff;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .guide {
+      display: none;
+      margin-top: 12px;
+    }
+
+    .guide.is-visible {
+      display: grid;
+      gap: 12px;
+    }
+
+    .memo-status {
+      min-height: 20px;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .all-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+      gap: 7px;
+      max-height: 24vh;
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .mini-card {
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(3, 7, 12, .7);
+      padding: 4px;
+      cursor: pointer;
+      transition: border-color .16s ease, transform .16s ease;
+    }
+
+    .mini-card:hover,
+    .mini-card.is-selected {
+      transform: translateY(-1px);
+      border-color: rgba(139, 226, 255, .55);
+    }
+
+    .mini-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+    }
+
+    .mini-card span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .save-line {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .save-line .button {
+      flex: 1;
+      min-height: 34px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1120px) {
+      .app {
+        grid-template-columns: 280px minmax(420px, 1fr);
+      }
+
+      .inspector {
+        grid-column: 1 / -1;
+        min-height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .inspector .inspector-section:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .app {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .rail,
+      .stage,
+      .inspector {
+        min-height: auto;
+      }
+
+      .inspector {
+        grid-template-columns: 1fr;
+      }
+
+      .spread,
+      .spread[data-spread="three"] {
+        --slot-count: 1;
+        grid-template-columns: minmax(180px, 230px);
+      }
+
+      .slot {
+        transform: none;
+      }
+
+      .table-field {
+        min-height: 480px;
+        padding-inline: 18px;
+      }
+
+      .stage-top,
+      .table-bottom {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .status-strip {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="rail" aria-label="操作">
+      <section class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 10.2 8.2 6l2.6 3.8L13.2 6 16 10.2l3-1.2-1.4 6.7H6.4L5 9Z" stroke="currentColor" stroke-linejoin="round"/>
+            <path d="M9.1 13.4h.1m5.6 0h.1M10 16c1.2.8 2.8.8 4 0" stroke="currentColor" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h1>ONOKO ARCANA</h1>
+        <p>Cyber divination table / Major Arcana v2</p>
+      </section>
+
+      <section class="control-block">
+        <h2>Spread</h2>
+        <div class="segmented" role="group" aria-label="スプレッド">
+          <button class="is-active" type="button" data-spread="one">1枚引き</button>
+          <button type="button" data-spread="three">3枚引き</button>
+        </div>
+        <div class="field">
+          <label for="question">Question</label>
+          <textarea id="question" placeholder="今の問いを書く"></textarea>
+        </div>
+        <div class="actions">
+          <button class="button primary" type="button" id="drawButton">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17h11a5 5 0 0 0 0-10H8" stroke="currentColor" stroke-linecap="round"/><path d="m8 3-4 4 4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Draw
+          </button>
+          <button class="button ghost" type="button" id="resetButton">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.34-5.66" stroke="currentColor" stroke-linecap="round"/><path d="M4 4v6h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Reset
+          </button>
+        </div>
+        <div class="deck-preview">
+          <img src="../assets/generated/card-backs/card-back-b-production-v1.png" alt="カード裏面">
+          <div>
+            <strong>Major Arcana</strong>
+            <span>22 cards / upright and reversed / local practice memo</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-block">
+        <h2>History</h2>
+        <div class="history-list" id="historyList"></div>
+      </section>
+    </aside>
+
+    <section class="stage" aria-label="占いテーブル">
+      <div class="stage-top">
+        <h2 id="spreadTitle">Single Observation</h2>
+        <div class="status-strip">
+          <span class="status" id="statusQuestion">No question</span>
+          <span class="status" id="statusDraw">Deck ready</span>
+        </div>
+      </div>
+      <div class="table-field">
+        <div class="spread" id="spread" data-spread="one"></div>
+      </div>
+      <div class="table-bottom">
+        <div class="question-readout">
+          <b>Current Question</b>
+          <span id="questionReadout">未入力</span>
+        </div>
+        <div class="crystal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m12 2 6 7-6 13L6 9l6-7Z" stroke="currentColor" stroke-linejoin="round"/>
+            <path d="M6 9h12M12 2v20M8.5 9 12 22 15.5 9" stroke="currentColor" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <aside class="inspector" aria-label="カード詳細">
+      <section class="inspector-section">
+        <div class="selected-card" id="selectedCard"></div>
+      </section>
+
+      <section class="inspector-section">
+        <h2>Your Reading</h2>
+        <textarea id="memoInput" placeholder="カードを見て先に感じたことを書く"></textarea>
+        <div class="save-line">
+          <button class="button primary" type="button" id="saveMemoButton">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h12l2 2v14H5V4Z" stroke="currentColor" stroke-linejoin="round"/><path d="M8 4v6h8V4M8 17h8" stroke="currentColor" stroke-linecap="round"/></svg>
+            Save
+          </button>
+          <button class="button ghost" type="button" id="guideButton">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4 7l8 4 8-4-8-4ZM4 12l8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Guide
+          </button>
+        </div>
+        <div class="memo-status" id="memoStatus"></div>
+      </section>
+
+      <section class="inspector-section">
+        <h2>Card Meaning</h2>
+        <div class="guide" id="guidePanel"></div>
+      </section>
+
+      <section class="inspector-section">
+        <h2>Deck Index</h2>
+        <div class="all-cards" id="allCards"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script>
+    const CARD_BACK = "../assets/generated/card-backs/card-back-b-production-v1.png";
+    const cards = [
+      { number: "00", slug: "fool", englishName: "The Fool", japaneseName: "愚者", image: "../assets/generated/card-fronts/major-00-fool-onoko-concept-v1.png", uprightKeywords: ["始まり", "自由", "可能性", "冒険"], reversedKeywords: ["無計画", "軽率", "迷走", "準備不足"], studyFocus: "まだ形になっていない可能性を、恐れすぎず観測し始める。" },
+      { number: "01", slug: "magician", englishName: "The Magician", japaneseName: "魔術師", image: "../assets/generated/card-fronts/major-01-magician-onoko-concept-v1.png", uprightKeywords: ["意志", "起動", "技術", "具現化"], reversedKeywords: ["空回り", "未熟", "操作", "集中不足"], studyFocus: "手元にある道具を把握し、意志を行動へ変換する。" },
+      { number: "02", slug: "high-priestess", englishName: "The High Priestess", japaneseName: "女教皇", image: "../assets/generated/card-fronts/major-02-high-priestess-onoko-concept-v1.png", uprightKeywords: ["直感", "記録", "沈黙", "深層"], reversedKeywords: ["閉鎖", "不信", "見落とし", "秘密過多"], studyFocus: "すぐ結論を出さず、静かな違和感や内側の記録を読む。" },
+      { number: "03", slug: "empress", englishName: "The Empress", japaneseName: "女帝", image: "../assets/generated/card-fronts/major-03-empress-onoko-concept-v1.png", uprightKeywords: ["創造", "豊かさ", "育成", "美"], reversedKeywords: ["過保護", "停滞", "浪費", "消耗"], studyFocus: "育てる対象、環境、身体感覚が十分に満たされているかを見る。" },
+      { number: "04", slug: "emperor", englishName: "The Emperor", japaneseName: "皇帝", image: "../assets/generated/card-fronts/major-04-emperor-onoko-concept-v1.png", uprightKeywords: ["構造", "責任", "統率", "境界"], reversedKeywords: ["支配", "硬直", "独断", "無責任"], studyFocus: "守るべき枠組みと、硬くなりすぎている枠組みを分ける。" },
+      { number: "05", slug: "hierophant", englishName: "The Hierophant", japaneseName: "教皇", image: "../assets/generated/card-fronts/major-05-hierophant-onoko-concept-v1.png", uprightKeywords: ["学び", "伝統", "助言", "約束"], reversedKeywords: ["形式主義", "反発", "盲信", "孤立"], studyFocus: "独学では見えない基準、師、共同体の知恵を確認する。" },
+      { number: "06", slug: "lovers", englishName: "The Lovers", japaneseName: "恋人", image: "../assets/generated/card-fronts/major-06-lovers-onoko-concept-v1.png", uprightKeywords: ["選択", "調和", "価値観", "結びつき"], reversedKeywords: ["不一致", "依存", "迷い", "不誠実"], studyFocus: "惹かれるものと、本当に選びたい価値が一致しているかを見る。" },
+      { number: "07", slug: "chariot", englishName: "The Chariot", japaneseName: "戦車", image: "../assets/generated/card-fronts/major-07-chariot-onoko-concept-v2.png", uprightKeywords: ["前進", "制御", "勝利", "集中"], reversedKeywords: ["暴走", "分散", "停滞", "強引"], studyFocus: "勢いを止めず、進む方向と制御方法を同時に確認する。" },
+      { number: "08", slug: "strength", englishName: "Strength", japaneseName: "力", image: "../assets/generated/card-fronts/major-08-strength-onoko-concept-v1.png", uprightKeywords: ["勇気", "忍耐", "優しさ", "自制"], reversedKeywords: ["萎縮", "怒り", "不安", "自信不足"], studyFocus: "力で押し切る場面か、落ち着いて手なずける場面かを見極める。" },
+      { number: "09", slug: "hermit", englishName: "The Hermit", japaneseName: "隠者", image: "../assets/generated/card-fronts/major-09-hermit-onoko-concept-v1.png", uprightKeywords: ["内省", "探求", "孤独", "導き"], reversedKeywords: ["孤立", "閉じこもり", "迷子", "拒絶"], studyFocus: "周囲の声を一度静めて、自分の中の灯りを探す。" },
+      { number: "10", slug: "wheel-of-fortune", englishName: "Wheel of Fortune", japaneseName: "運命の輪", image: "../assets/generated/card-fronts/major-10-wheel-of-fortune-onoko-concept-v1.png", uprightKeywords: ["転機", "循環", "流れ", "好機"], reversedKeywords: ["停滞", "抵抗", "不運", "周期の読み違い"], studyFocus: "今は押す時か、流れが変わるのを読む時かを観測する。" },
+      { number: "11", slug: "justice", englishName: "Justice", japaneseName: "正義", image: "../assets/generated/card-fronts/major-11-justice-onoko-concept-v1.png", uprightKeywords: ["公平", "判断", "真実", "結果"], reversedKeywords: ["偏り", "不正", "責任回避", "誤判定"], studyFocus: "感情と事実を分け、選択の結果を正面から見る。" },
+      { number: "12", slug: "hanged-man", englishName: "The Hanged Man", japaneseName: "吊された男", image: "../assets/generated/card-fronts/major-12-hanged-man-onoko-concept-v2.png", uprightKeywords: ["停止", "視点転換", "受容", "保留"], reversedKeywords: ["無駄な我慢", "停滞", "被害者意識", "先延ばし"], studyFocus: "動けない時間を、見方を変えるための観測時間にする。" },
+      { number: "13", slug: "death", englishName: "Death", japaneseName: "死神", image: "../assets/generated/card-fronts/major-13-death-onoko-concept-v1.png", uprightKeywords: ["終了", "変容", "手放し", "再生"], reversedKeywords: ["執着", "変化拒否", "未完了", "停滞"], studyFocus: "何を終わらせることで、次の形が始まるのかを見る。" },
+      { number: "14", slug: "temperance", englishName: "Temperance", japaneseName: "節制", image: "../assets/generated/card-fronts/major-14-temperance-onoko-concept-v1.png", uprightKeywords: ["調整", "統合", "癒し", "中庸"], reversedKeywords: ["偏り", "不調和", "過剰", "混乱"], studyFocus: "混ぜるべきもの、分けるべきもの、整える速度を観察する。" },
+      { number: "15", slug: "devil", englishName: "The Devil", japaneseName: "悪魔", image: "../assets/generated/card-fronts/major-15-devil-onoko-concept-v2.png", uprightKeywords: ["執着", "誘惑", "影", "依存"], reversedKeywords: ["解放", "自覚", "鎖を外す", "回復"], studyFocus: "外から縛られているのか、自分で握りしめているのかを見る。" },
+      { number: "16", slug: "tower", englishName: "The Tower", japaneseName: "塔", image: "../assets/generated/card-fronts/major-16-tower-onoko-concept-v1.png", uprightKeywords: ["崩壊", "衝撃", "露見", "リセット"], reversedKeywords: ["崩壊回避", "遅延", "抵抗", "小さな警告"], studyFocus: "壊れたものではなく、壊れる前提が何だったかを読む。" },
+      { number: "17", slug: "star", englishName: "The Star", japaneseName: "星", image: "../assets/generated/card-fronts/major-17-star-onoko-concept-v1.png", uprightKeywords: ["希望", "回復", "信頼", "導き"], reversedKeywords: ["失望", "疑い", "疲労", "見失い"], studyFocus: "すぐ届く結果ではなく、長く頼れる光を見つける。" },
+      { number: "18", slug: "moon", englishName: "The Moon", japaneseName: "月", image: "../assets/generated/card-fronts/major-18-moon-onoko-concept-v1.png", uprightKeywords: ["夢", "不安", "幻想", "無意識"], reversedKeywords: ["霧が晴れる", "誤解", "混乱の減少", "現実確認"], studyFocus: "不安そのものより、不安が映し出している影を読む。" },
+      { number: "19", slug: "sun", englishName: "The Sun", japaneseName: "太陽", image: "../assets/generated/card-fronts/major-19-sun-onoko-concept-v1.png", uprightKeywords: ["成功", "喜び", "明快", "活力"], reversedKeywords: ["過信", "陰り", "遅れ", "素直さ不足"], studyFocus: "隠さず見えるもの、まっすぐ喜べるものを確認する。" },
+      { number: "20", slug: "judgement", englishName: "Judgement", japaneseName: "審判", image: "../assets/generated/card-fronts/major-20-judgement-onoko-concept-v2.png", uprightKeywords: ["覚醒", "呼びかけ", "再評価", "復活"], reversedKeywords: ["先送り", "自己否定", "聞き逃し", "未決"], studyFocus: "過去の結果を責めるのではなく、次に応答すべき声を探す。" },
+      { number: "21", slug: "world", englishName: "The World", japaneseName: "世界", image: "../assets/generated/card-fronts/major-21-world-onoko-concept-v1.png", uprightKeywords: ["完成", "統合", "到達", "循環完了"], reversedKeywords: ["未完成", "閉じきれない", "停滞", "次への不安"], studyFocus: "ここまでで完了したことと、次の循環へ持ち越すものを分ける。" }
+    ];
+
+    const spreads = {
+      one: [{ label: "観測", angle: 0 }],
+      three: [
+        { label: "過去", angle: -5 },
+        { label: "現在", angle: 0 },
+        { label: "未来", angle: 5 }
+      ]
+    };
+
+    const state = {
+      spread: "one",
+      drawn: [],
+      selectedIndex: 0,
+      guideVisible: false
+    };
+
+    const els = {
+      spread: document.getElementById("spread"),
+      spreadTitle: document.getElementById("spreadTitle"),
+      question: document.getElementById("question"),
+      questionReadout: document.getElementById("questionReadout"),
+      statusQuestion: document.getElementById("statusQuestion"),
+      statusDraw: document.getElementById("statusDraw"),
+      selectedCard: document.getElementById("selectedCard"),
+      memoInput: document.getElementById("memoInput"),
+      memoStatus: document.getElementById("memoStatus"),
+      guidePanel: document.getElementById("guidePanel"),
+      historyList: document.getElementById("historyList"),
+      allCards: document.getElementById("allCards"),
+      drawButton: document.getElementById("drawButton"),
+      resetButton: document.getElementById("resetButton"),
+      saveMemoButton: document.getElementById("saveMemoButton"),
+      guideButton: document.getElementById("guideButton")
+    };
+
+    const memoKey = (card) => `onoko-arcana:memo:${card.number}`;
+    const historyKey = "onoko-arcana:history:v0";
+
+    function pickCards(count) {
+      const pool = [...cards];
+      const result = [];
+      while (result.length < count && pool.length) {
+        const index = Math.floor(Math.random() * pool.length);
+        const [card] = pool.splice(index, 1);
+        result.push({
+          ...card,
+          reversed: Math.random() < 0.28
+        });
+      }
+      return result;
+    }
+
+    function draw() {
+      state.drawn = pickCards(spreads[state.spread].length);
+      state.selectedIndex = 0;
+      state.guideVisible = false;
+      addHistory();
+      render();
+    }
+
+    function reset() {
+      state.drawn = [];
+      state.selectedIndex = 0;
+      state.guideVisible = false;
+      els.memoStatus.textContent = "";
+      render();
+    }
+
+    function addHistory() {
+      const question = els.question.value.trim();
+      const history = readHistory();
+      history.unshift({
+        date: new Date().toLocaleString("ja-JP"),
+        spread: state.spread,
+        question,
+        cards: state.drawn.map(card => `${card.number} ${card.japaneseName}${card.reversed ? " 逆" : " 正"}`)
+      });
+      localStorage.setItem(historyKey, JSON.stringify(history.slice(0, 12)));
+    }
+
+    function readHistory() {
+      try {
+        return JSON.parse(localStorage.getItem(historyKey) || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function selected() {
+      return state.drawn[state.selectedIndex] || cards[0];
+    }
+
+    function renderSpread() {
+      const layout = spreads[state.spread];
+      els.spread.dataset.spread = state.spread;
+      els.spread.innerHTML = layout.map((slot, index) => {
+        const card = state.drawn[index];
+        const selectedClass = index === state.selectedIndex && card ? " is-selected" : "";
+        const image = card ? card.image : CARD_BACK;
+        const reversedClass = card && card.reversed ? " reversed" : "";
+        const orientation = card ? (card.reversed ? "逆" : "正") : "";
+        const top = card ? `${card.number} ${card.japaneseName}` : "ONOKO ARCANA";
+        const bottom = card ? keywordLine(card) : "shuffle / draw / observe";
+        return `
+          <div class="slot">
+            <div class="slot-label">${slot.label}</div>
+            <button class="table-card${selectedClass}" type="button" data-slot="${index}" style="rotate:${slot.angle}deg">
+              <img class="${reversedClass}" src="${image}" alt="${card ? `${card.number} ${card.japaneseName}` : "カード裏面"}">
+              <span class="card-band top">${top}</span>
+              <span class="card-band bottom">${bottom}</span>
+              ${orientation ? `<span class="orientation">${orientation}</span>` : ""}
+            </button>
+          </div>
+        `;
+      }).join("");
+
+      document.querySelectorAll("[data-slot]").forEach(button => {
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.slot);
+          if (state.drawn[index]) {
+            state.selectedIndex = index;
+            state.guideVisible = false;
+            render();
+          }
+        });
+      });
+    }
+
+    function keywordLine(card) {
+      const list = card.reversed ? card.reversedKeywords : card.uprightKeywords;
+      return list.slice(0, 3).join(" / ");
+    }
+
+    function renderInspector() {
+      const card = selected();
+      const hasDrawn = state.drawn.length > 0;
+      const orientationClass = hasDrawn && card.reversed ? "reversed" : "upright";
+      const orientationText = hasDrawn ? (card.reversed ? "逆位置" : "正位置") : "基準カード";
+      const savedMemo = localStorage.getItem(memoKey(card)) || "";
+
+      els.selectedCard.innerHTML = `
+        <img src="${hasDrawn ? card.image : CARD_BACK}" alt="${hasDrawn ? card.japaneseName : "カード裏面"}">
+        <div>
+          <h2>${hasDrawn ? card.japaneseName : "未ドロー"}<span class="en">${hasDrawn ? card.englishName : "Draw a card"}</span></h2>
+          <div class="badge-row">
+            <span class="badge ${orientationClass}">${orientationText}</span>
+            <span class="badge">Major ${hasDrawn ? card.number : "--"}</span>
+          </div>
+        </div>
+      `;
+
+      els.memoInput.value = hasDrawn ? savedMemo : "";
+      els.memoInput.disabled = !hasDrawn;
+      els.saveMemoButton.disabled = !hasDrawn;
+      els.guideButton.disabled = !hasDrawn;
+
+      if (!hasDrawn) {
+        els.guidePanel.classList.remove("is-visible");
+        els.guidePanel.innerHTML = `<p class="empty">カードを引くと表示されます。</p>`;
+        return;
+      }
+
+      els.guidePanel.classList.toggle("is-visible", state.guideVisible);
+      els.guidePanel.innerHTML = `
+        <dl class="meaning-grid">
+          <div class="meaning-box">
+            <dt>正位置</dt>
+            <dd>${card.uprightKeywords.join(" / ")}</dd>
+          </div>
+          <div class="meaning-box">
+            <dt>逆位置</dt>
+            <dd>${card.reversedKeywords.join(" / ")}</dd>
+          </div>
+          <div class="meaning-box">
+            <dt>学習観点</dt>
+            <dd>${card.studyFocus}</dd>
+          </div>
+        </dl>
+      `;
+      if (!state.guideVisible) {
+        els.guidePanel.classList.remove("is-visible");
+      }
+    }
+
+    function renderIndex() {
+      const selectedCard = selected();
+      els.allCards.innerHTML = cards.map(card => `
+        <button class="mini-card ${selectedCard.number === card.number ? "is-selected" : ""}" type="button" data-card="${card.number}">
+          <img src="${card.image}" alt="${card.number} ${card.japaneseName}">
+          <span>${card.number}</span>
+        </button>
+      `).join("");
+
+      document.querySelectorAll("[data-card]").forEach(button => {
+        button.addEventListener("click", () => {
+          const card = cards.find(item => item.number === button.dataset.card);
+          state.drawn = [{ ...card, reversed: false }];
+          state.spread = "one";
+          state.selectedIndex = 0;
+          state.guideVisible = true;
+          syncSpreadButtons();
+          render();
+        });
+      });
+    }
+
+    function renderHistory() {
+      const history = readHistory();
+      if (!history.length) {
+        els.historyList.innerHTML = `<p class="empty">まだ履歴はありません。</p>`;
+        return;
+      }
+
+      els.historyList.innerHTML = history.map((item, index) => `
+        <button class="history-item" type="button" data-history="${index}">
+          <b>${item.spread === "one" ? "1枚引き" : "3枚引き"} / ${item.date}</b>
+          <span>${item.cards.join(" / ")}${item.question ? ` | ${item.question}` : ""}</span>
+        </button>
+      `).join("");
+    }
+
+    function renderStatus() {
+      const question = els.question.value.trim();
+      els.questionReadout.textContent = question || "未入力";
+      els.statusQuestion.textContent = question ? "Question set" : "No question";
+      els.statusDraw.textContent = state.drawn.length
+        ? `${state.drawn.length} card${state.drawn.length > 1 ? "s" : ""} revealed`
+        : "Deck ready";
+      els.spreadTitle.textContent = state.spread === "one" ? "Single Observation" : "Past / Present / Future";
+    }
+
+    function render() {
+      renderStatus();
+      renderSpread();
+      renderInspector();
+      renderIndex();
+      renderHistory();
+    }
+
+    function saveMemo() {
+      const card = selected();
+      if (!state.drawn.length) return;
+      localStorage.setItem(memoKey(card), els.memoInput.value);
+      els.memoStatus.textContent = `${card.number} ${card.japaneseName} のメモを保存しました。`;
+    }
+
+    function syncSpreadButtons() {
+      document.querySelectorAll("[data-spread]").forEach(button => {
+        button.classList.toggle("is-active", button.dataset.spread === state.spread);
+      });
+    }
+
+    document.querySelectorAll("[data-spread]").forEach(button => {
+      button.addEventListener("click", () => {
+        state.spread = button.dataset.spread;
+        state.drawn = [];
+        state.selectedIndex = 0;
+        state.guideVisible = false;
+        syncSpreadButtons();
+        render();
+      });
+    });
+
+    els.drawButton.addEventListener("click", draw);
+    els.resetButton.addEventListener("click", reset);
+    els.saveMemoButton.addEventListener("click", saveMemo);
+    els.guideButton.addEventListener("click", () => {
+      state.guideVisible = !state.guideVisible;
+      renderInspector();
+    });
+    els.question.addEventListener("input", renderStatus);
+
+    syncSpreadButtons();
+    render();
+  </script>
+</body>
+</html>

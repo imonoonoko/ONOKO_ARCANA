@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "source": "assets\\generated\\card-backs\\card-back-onoko-production-v2-source.png",
+  "archivedRejectedWideAlpha": "assets\\generated\\card-backs\\card-back-onoko-production-v2-transparent-wide-rejected.png",
+  "output": "assets\\generated\\card-backs\\card-back-onoko-production-v2-transparent.png",
+  "stagingOutput": "Unreal\\ONOKO_ARCANA\\ImportStaging\\Phase0_CardTexturesAlpha\\card-back-onoko-production-v2-transparent.png",
+  "referenceAlpha": "assets\\generated\\card-fronts\\ue-alpha\\major-00-fool-onoko-concept-v1-alpha.png",
+  "referenceAlphaBBox": [
+    46,
+    12,
+    976,
+    1530
+  ],
+  "targetVisibleSize": [
+    930,
+    1518
+  ],
+  "policy": "Back art resized to the 00 Fool alpha bbox and masked with the 00 Fool alpha silhouette to match apparent card width and transparency."
+}

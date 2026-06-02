@@ -1,0 +1,14 @@
+{
+  "slug": "20260603-p3-card-overlap-zero",
+  "status": "complete",
+  "createdAt": "2026-06-03T00:30:16+09:00",
+  "scope": "Resolve all remaining P3 card-card-overlap records from the web UI visual audit.",
+  "verification": {
+    "static": "reports/web-app-check-20260603-002748.json",
+    "audit": "reports/ui-visual-audit-20260603-002707/report.json",
+    "webSmoke": "reports/web-app-smoke-20260603-002749.json",
+    "electronSmoke": "reports/electron-app-smoke-20260603-002749.json",
+    "visualReview": "desktop seven-horseshoe, desktop celtic-cross, compact five-cross, compact relationship-line, mobile seven-horseshoe, web celtic-cross, web mobile relationship-line, Electron relationship-line inspected"
+  },
+  "completedAt": "2026-06-03T00:30:16+09:00"
+}

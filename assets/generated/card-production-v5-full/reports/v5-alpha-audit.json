@@ -1,0 +1,701 @@
+{
+  "ok": true,
+  "count": 23,
+  "expectedSize": [
+    1024,
+    1536
+  ],
+  "policy": "V5 accepts a taller, slender visible card silhouette. Bbox is checked for plausibility, not exact equality.",
+  "results": [
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\card-back-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 250,
+      "borderAlphaZero": true,
+      "visiblePixels": 1196377,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-00-fool-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 188,
+      "borderAlphaZero": true,
+      "visiblePixels": 1197209,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-01-magician-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        35,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1469
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 172,
+      "borderAlphaZero": true,
+      "visiblePixels": 1199876,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-02-high-priestess-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1503
+      ],
+      "alphaBboxSize": [
+        818,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 180,
+      "borderAlphaZero": true,
+      "visiblePixels": 1196633,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-03-empress-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "alphaBboxSize": [
+        817,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 210,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195280,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-04-emperor-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "alphaBboxSize": [
+        817,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 169,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195048,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-05-hierophant-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1503
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 178,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195907,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-06-lovers-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 187,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195584,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-07-chariot-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 218,
+      "borderAlphaZero": true,
+      "visiblePixels": 1197481,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-08-strength-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        104,
+        38,
+        920,
+        1503
+      ],
+      "alphaBboxSize": [
+        816,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 154,
+      "borderAlphaZero": true,
+      "visiblePixels": 1193732,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-09-hermit-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "alphaBboxSize": [
+        817,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 178,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195092,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 186,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195893,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-11-justice-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        102,
+        37,
+        921,
+        1505
+      ],
+      "alphaBboxSize": [
+        819,
+        1468
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 165,
+      "borderAlphaZero": true,
+      "visiblePixels": 1198797,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-12-hanged-man-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1467
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 180,
+      "borderAlphaZero": true,
+      "visiblePixels": 1198220,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-13-death-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1503
+      ],
+      "alphaBboxSize": [
+        818,
+        1465
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 184,
+      "borderAlphaZero": true,
+      "visiblePixels": 1196614,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-14-temperance-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1467
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 203,
+      "borderAlphaZero": true,
+      "visiblePixels": 1196785,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-15-devil-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 162,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195779,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-16-tower-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 167,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195973,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-17-star-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        36,
+        921,
+        1506
+      ],
+      "alphaBboxSize": [
+        818,
+        1470
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 192,
+      "borderAlphaZero": true,
+      "visiblePixels": 1200420,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-18-moon-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1467
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 173,
+      "borderAlphaZero": true,
+      "visiblePixels": 1196651,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-19-sun-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "alphaBboxSize": [
+        817,
+        1466
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 208,
+      "borderAlphaZero": true,
+      "visiblePixels": 1195863,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-20-judgement-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1505
+      ],
+      "alphaBboxSize": [
+        818,
+        1468
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 151,
+      "borderAlphaZero": true,
+      "visiblePixels": 1198811,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    },
+    {
+      "path": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-production-v5-full\\alpha\\major-21-world-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "sizeOk": true,
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1504
+      ],
+      "alphaBboxSize": [
+        818,
+        1467
+      ],
+      "alphaBboxPlausible": true,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaValueCount": 181,
+      "borderAlphaZero": true,
+      "visiblePixels": 1198016,
+      "visibleGreenPixels": 0,
+      "visibleStrongKeyPixels": 0,
+      "greenOk": true,
+      "ok": true
+    }
+  ]
+}

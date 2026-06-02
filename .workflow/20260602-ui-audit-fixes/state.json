@@ -1,0 +1,13 @@
+{
+  "slug": "20260602-ui-audit-fixes",
+  "status": "complete",
+  "createdAt": "2026-06-02T21:14:46+09:00",
+  "verification": {
+    "static": "reports/web-app-check-20260602-214641.json",
+    "audit": "reports/ui-visual-audit-20260602-214512/report.json",
+    "webSmoke": "reports/web-app-smoke-20260602-214641.json",
+    "electronSmoke": "reports/electron-app-smoke-20260602-214739.json",
+    "visualReview": "desktop-seven-horseshoe, mobile-relationship-line, web Celtic cross, Electron relationship-line inspected"
+  },
+  "completedAt": "2026-06-02T21:47:41+09:00"
+}

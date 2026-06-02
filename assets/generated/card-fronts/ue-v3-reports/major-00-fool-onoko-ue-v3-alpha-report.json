@@ -1,0 +1,33 @@
+{
+  "input": "assets\\generated\\card-fronts\\ue-v3-source-chromakey\\major-00-fool-onoko-ue-v3-source-chromakey.png",
+  "output": "assets\\generated\\card-fronts\\ue-v3-alpha\\major-00-fool-onoko-ue-v3-alpha.png",
+  "stagingOutput": "Unreal\\ONOKO_ARCANA\\ImportStaging\\MajorArcana_V3\\major-00-fool-onoko-ue-v3-alpha.png",
+  "canvasSize": [
+    1024,
+    1536
+  ],
+  "keyColor": [
+    241,
+    3,
+    238
+  ],
+  "sourceVisibleBbox": [
+    140,
+    87,
+    882,
+    1450
+  ],
+  "finalAlphaBbox": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "targetRect": [
+    54,
+    32,
+    970,
+    1514
+  ],
+  "cornerRadius": 52
+}

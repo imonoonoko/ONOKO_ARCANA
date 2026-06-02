@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-06-02",
+  "source": "astra-nine-slice-source-sheet-alpha-v1.png",
+  "usage": "CSS border-image / 9-slice source frames",
+  "frames": [
+    {
+      "role": "command-button-frame",
+      "path": "nine-slice/command-button-frame-alpha-v1.png",
+      "sourceBbox": [
+        86,
+        637,
+        803,
+        167
+      ],
+      "paddedSize": [
+        831,
+        195
+      ],
+      "cssBorderImageSlice": [
+        92,
+        52,
+        92,
+        52
+      ],
+      "cssBorderImageRepeat": "stretch"
+    },
+    {
+      "role": "content-panel-frame",
+      "path": "nine-slice/content-panel-frame-alpha-v1.png",
+      "sourceBbox": [
+        67,
+        57,
+        843,
+        443
+      ],
+      "paddedSize": [
+        871,
+        471
+      ],
+      "cssBorderImageSlice": [
+        70,
+        70,
+        70,
+        70
+      ],
+      "cssBorderImageRepeat": "stretch"
+    },
+    {
+      "role": "tarot-slot-frame",
+      "path": "nine-slice/tarot-slot-frame-alpha-v1.png",
+      "sourceBbox": [
+        1094,
+        304,
+        394,
+        557
+      ],
+      "paddedSize": [
+        422,
+        585
+      ],
+      "cssBorderImageSlice": [
+        58,
+        78,
+        58,
+        78
+      ],
+      "cssBorderImageRepeat": "stretch"
+    },
+    {
+      "role": "title-plaque-frame",
+      "path": "nine-slice/title-plaque-frame-alpha-v1.png",
+      "sourceBbox": [
+        959,
+        53,
+        667,
+        189
+      ],
+      "paddedSize": [
+        695,
+        217
+      ],
+      "cssBorderImageSlice": [
+        82,
+        58,
+        82,
+        58
+      ],
+      "cssBorderImageRepeat": "stretch"
+    }
+  ]
+}

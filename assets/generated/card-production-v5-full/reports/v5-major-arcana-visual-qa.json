@@ -1,0 +1,488 @@
+{
+  "version": "v5-major-arcana-visual-qa-2026-06-01",
+  "total": 23,
+  "items": [
+    {
+      "id": "card-back",
+      "number": null,
+      "slug": "card-back",
+      "englishName": "Card Back",
+      "japaneseName": "カード裏面",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\card-back-onoko-v5-alpha.png",
+      "qa": {
+        "status": "Adopted",
+        "reason": "Back/front alpha bbox was corrected to match Major 00; no current size mismatch remains.",
+        "checks": {
+          "face": "not_applicable",
+          "hands": "not_applicable",
+          "motif": "pass",
+          "panel": "not_applicable",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-00-fool",
+      "number": "00",
+      "slug": "fool",
+      "englishName": "The Fool",
+      "japaneseName": "愚者",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-00-fool-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_00_Fool_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-01-magician",
+      "number": "01",
+      "slug": "magician",
+      "englishName": "The Magician",
+      "japaneseName": "魔術師",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-01-magician-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_01_Magician_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-02-high-priestess",
+      "number": "02",
+      "slug": "high-priestess",
+      "englishName": "The High Priestess",
+      "japaneseName": "女教皇",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-02-high-priestess-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_02_High_Priestess_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-03-empress",
+      "number": "03",
+      "slug": "empress",
+      "englishName": "The Empress",
+      "japaneseName": "女帝",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-03-empress-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_03_Empress_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-04-emperor",
+      "number": "04",
+      "slug": "emperor",
+      "englishName": "The Emperor",
+      "japaneseName": "皇帝",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-04-emperor-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_04_Emperor_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-05-hierophant",
+      "number": "05",
+      "slug": "hierophant",
+      "englishName": "The Hierophant",
+      "japaneseName": "教皇",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-05-hierophant-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_05_Hierophant_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-06-lovers",
+      "number": "06",
+      "slug": "lovers",
+      "englishName": "The Lovers",
+      "japaneseName": "恋人",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-06-lovers-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_06_Lovers_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-07-chariot",
+      "number": "07",
+      "slug": "chariot",
+      "englishName": "The Chariot",
+      "japaneseName": "戦車",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-07-chariot-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_07_Chariot_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "Regenerated after the first V5 Chariot read too close to a dual-beast Strength motif. The current version has a clear arcane vehicle, wheels, and reins of light.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-08-strength",
+      "number": "08",
+      "slug": "strength",
+      "englishName": "Strength",
+      "japaneseName": "力",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-08-strength-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_08_Strength_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-09-hermit",
+      "number": "09",
+      "slug": "hermit",
+      "englishName": "The Hermit",
+      "japaneseName": "隠者",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-09-hermit-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_09_Hermit_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-10-wheel-of-fortune",
+      "number": "10",
+      "slug": "wheel-of-fortune",
+      "englishName": "Wheel of Fortune",
+      "japaneseName": "運命の輪",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_10_Wheel_of_Fortune_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-11-justice",
+      "number": "11",
+      "slug": "justice",
+      "englishName": "Justice",
+      "japaneseName": "正義",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-11-justice-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_11_Justice_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-12-hanged-man",
+      "number": "12",
+      "slug": "hanged-man",
+      "englishName": "The Hanged Man",
+      "japaneseName": "吊された男",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-12-hanged-man-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_12_Hanged_Man_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-13-death",
+      "number": "13",
+      "slug": "death",
+      "englishName": "Death",
+      "japaneseName": "死神",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-13-death-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_13_Death_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-14-temperance",
+      "number": "14",
+      "slug": "temperance",
+      "englishName": "Temperance",
+      "japaneseName": "節制",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-14-temperance-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_14_Temperance_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-15-devil",
+      "number": "15",
+      "slug": "devil",
+      "englishName": "The Devil",
+      "japaneseName": "悪魔",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-15-devil-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_15_Devil_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-16-tower",
+      "number": "16",
+      "slug": "tower",
+      "englishName": "The Tower",
+      "japaneseName": "塔",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-16-tower-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_16_Tower_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-17-star",
+      "number": "17",
+      "slug": "star",
+      "englishName": "The Star",
+      "japaneseName": "星",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-17-star-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_17_Star_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-18-moon",
+      "number": "18",
+      "slug": "moon",
+      "englishName": "The Moon",
+      "japaneseName": "月",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-18-moon-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_18_Moon_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-19-sun",
+      "number": "19",
+      "slug": "sun",
+      "englishName": "The Sun",
+      "japaneseName": "太陽",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-19-sun-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_19_Sun_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-20-judgement",
+      "number": "20",
+      "slug": "judgement",
+      "englishName": "Judgement",
+      "japaneseName": "審判",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-20-judgement-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_20_Judgement_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    },
+    {
+      "id": "major-21-world",
+      "number": "21",
+      "slug": "world",
+      "englishName": "The World",
+      "japaneseName": "世界",
+      "alpha": "assets\\generated\\card-production-v5-full\\alpha\\major-21-world-onoko-v5-alpha.png",
+      "ueTexture": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_21_World_ONOKO_V5_Alpha",
+      "qa": {
+        "status": "Adopted",
+        "reason": "No hard blocker found in contact sheet, crop QA, alpha audit, or UE full-set QA at this pass.",
+        "checks": {
+          "face": "pass",
+          "hands": "pass",
+          "motif": "pass",
+          "panel": "pass",
+          "frame": "pass",
+          "ueSize": "pass"
+        }
+      }
+    }
+  ]
+}

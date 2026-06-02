@@ -1,0 +1,161 @@
+{
+  "ok": true,
+  "generatedAtUtc": "2026-06-01T18:11:28.750632+00:00",
+  "workspace": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA",
+  "uproject": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\Unreal\\ONOKO_ARCANA\\ONOKO_ARCANA.uproject",
+  "failCount": 0,
+  "warnCount": 1,
+  "checks": [
+    {
+      "name": "workspace",
+      "status": "pass",
+      "detail": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA"
+    },
+    {
+      "name": "git metadata",
+      "status": "warn",
+      "detail": "This project currently has no .git directory."
+    },
+    {
+      "name": "uproject",
+      "status": "pass",
+      "detail": "EngineAssociation=5.7"
+    },
+    {
+      "name": "engine association",
+      "status": "pass",
+      "detail": "expected 5.7, got '5.7'"
+    },
+    {
+      "name": "plugin:PythonScriptPlugin",
+      "status": "pass",
+      "detail": "enabled"
+    },
+    {
+      "name": "plugin:EditorScriptingUtilities",
+      "status": "pass",
+      "detail": "enabled"
+    },
+    {
+      "name": "plugin:CommonUI",
+      "status": "pass",
+      "detail": "enabled; keep optional for Phase 1 UUserWidget HUD"
+    },
+    {
+      "name": "engine dir",
+      "status": "pass",
+      "detail": "C:\\Program Files\\Epic Games\\UE_5.7"
+    },
+    {
+      "name": "UnrealEditor.exe",
+      "status": "pass",
+      "detail": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Binaries\\Win64\\UnrealEditor.exe"
+    },
+    {
+      "name": "UnrealEditor-Cmd.exe",
+      "status": "pass",
+      "detail": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Binaries\\Win64\\UnrealEditor-Cmd.exe"
+    },
+    {
+      "name": "source files",
+      "status": "pass",
+      "detail": "all present"
+    },
+    {
+      "name": "content files",
+      "status": "pass",
+      "detail": "all present"
+    },
+    {
+      "name": "docs files",
+      "status": "pass",
+      "detail": "all present"
+    },
+    {
+      "name": "ue_scripts files",
+      "status": "pass",
+      "detail": "all present"
+    },
+    {
+      "name": "v5 deck manifest",
+      "status": "pass",
+      "detail": "version=v5-full-major-arcana-candidate-2026-06-01"
+    },
+    {
+      "name": "v5 major count",
+      "status": "pass",
+      "detail": "cards=22"
+    },
+    {
+      "name": "v5 adopted count",
+      "status": "pass",
+      "detail": "adopted=22"
+    },
+    {
+      "name": "v5 card back",
+      "status": "pass",
+      "detail": "back qa=Adopted"
+    },
+    {
+      "name": "v5 texture uassets",
+      "status": "pass",
+      "detail": "uasset_count=23"
+    },
+    {
+      "name": "test result:Phase1DeckRuntimeTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase1HudReflectionSurfaceTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase1OneCardSessionTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase1OneCardViewModelTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase1NativeRuntimeDefaultsTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase2ReadingSaveGameTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase2ReadingHistoryViewModelTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase3SpreadRegistryTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "test result:Phase4ThreeCardSpreadSessionTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "known actor spawn crash noted",
+      "status": "pass",
+      "detail": "plan.md records Python map actor spawn crash"
+    },
+    {
+      "name": "manual editor gate",
+      "status": "pass",
+      "detail": "Next proof must be manual UE Editor/Blueprint wiring plus screenshot, not Python actor spawn."
+    }
+  ],
+  "nextTask": "Open UE Editor and manually wire AOnokoArcanaCardActor, AOnokoArcanaTableController, and WBP_TableHUD in L_Phase1_OneCard_Table."
+}

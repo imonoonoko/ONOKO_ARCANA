@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "id": "card_back_onoko_production_v2_alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/T_CardBack_ONOKO_Production_V2_Alpha.T_CardBack_ONOKO_Production_V2_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expected1024x1536": true
+    },
+    {
+      "id": "major_00_fool_v1_alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_00_Fool_V1_Alpha.T_Major_00_Fool_V1_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expected1024x1536": true
+    },
+    {
+      "id": "major_01_magician_v1_alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_01_Magician_V1_Alpha.T_Major_01_Magician_V1_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expected1024x1536": true
+    },
+    {
+      "id": "major_07_chariot_v2_alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/T_Major_07_Chariot_V2_Alpha.T_Major_07_Chariot_V2_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expected1024x1536": true
+    }
+  ]
+}

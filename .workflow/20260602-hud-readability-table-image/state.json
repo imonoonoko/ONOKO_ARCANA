@@ -1,0 +1,26 @@
+{
+  "slug": "20260602-hud-readability-table-image",
+  "status": "complete",
+  "createdAt": "2026-06-02T20:35:59+09:00",
+  "packets": [
+    {
+      "id": "ui-contract",
+      "status": "complete"
+    },
+    {
+      "id": "implementation",
+      "status": "complete"
+    },
+    {
+      "id": "qa-visual",
+      "status": "complete"
+    }
+  ],
+  "verification": {
+    "static": "reports/web-app-check-20260602-204212.json",
+    "browser": "reports/web-app-smoke-20260602-204247.json",
+    "electron": "reports/electron-app-smoke-20260602-204403.json",
+    "visualReview": "desktop, mobile, one-card, and Electron screenshots inspected"
+  },
+  "completedAt": "2026-06-02T20:44:05+09:00"
+}

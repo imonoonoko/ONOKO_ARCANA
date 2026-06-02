@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "app": "web-app\\electron\\main.cjs",
+  "screenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-electron-smoke-20260602-214739.png",
+  "guideDisabledBeforeNote": true,
+  "guideDisabledAfterNote": false,
+  "state": {
+    "spreadTitle": "関係性ライン",
+    "spreadChoices": 6,
+    "revealed": "6",
+    "saved": "1",
+    "cards": 6,
+    "guideRows": 3,
+    "historyItems": 1,
+    "title": "ONOKO ARCANA"
+  },
+  "consoleErrors": [],
+  "checkedAt": "2026-06-02T12:47:41.003Z"
+}

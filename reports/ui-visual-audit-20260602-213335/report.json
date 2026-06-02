@@ -1,0 +1,6081 @@
+{
+  "ok": true,
+  "app": "web-app\\index.html",
+  "runDir": "reports\\ui-visual-audit-20260602-213335",
+  "cases": [
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "three_card_past_present_future",
+        "spreadLabel": "three-card",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-three-card.png"
+      },
+      "title": "過去・現在・未来",
+      "cardCount": 3,
+      "inscriptionCount": 6,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 503.56,
+            "top": 398.85,
+            "right": 708.5,
+            "bottom": 682.99,
+            "width": 204.93,
+            "height": 284.14
+          },
+          "bRect": {
+            "left": 681,
+            "top": 376.59,
+            "right": 859,
+            "bottom": 643.59,
+            "width": 178,
+            "height": 267
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 681,
+            "top": 376.59,
+            "right": 859,
+            "bottom": 643.59,
+            "width": 178,
+            "height": 267
+          },
+          "bRect": {
+            "left": 831.49,
+            "top": 398.85,
+            "right": 1036.42,
+            "bottom": 682.99,
+            "width": 204.93,
+            "height": 284.14
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 1,
+          "cardSlot": 4,
+          "label": "1 中心",
+          "labelRect": {
+            "left": 754,
+            "top": 358.98,
+            "right": 786,
+            "bottom": 390.98,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 695,
+            "top": 220.48,
+            "right": 845,
+            "bottom": 445.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 5,
+          "cardSlot": 1,
+          "label": "5 根底",
+          "labelRect": {
+            "left": 754,
+            "top": 552.48,
+            "right": 786,
+            "bottom": 584.48,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 695,
+            "top": 413.98,
+            "right": 845,
+            "bottom": 638.98,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 695,
+            "top": 413.98,
+            "right": 845,
+            "bottom": 638.98,
+            "width": 150,
+            "height": 225
+          },
+          "bRect": {
+            "left": 542.28,
+            "top": 405.48,
+            "right": 718.58,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 3,
+          "aRect": {
+            "left": 695,
+            "top": 413.98,
+            "right": 845,
+            "bottom": 638.98,
+            "width": 150,
+            "height": 225
+          },
+          "bRect": {
+            "left": 821.4,
+            "top": 405.48,
+            "right": 997.71,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 4,
+          "aRect": {
+            "left": 695,
+            "top": 413.98,
+            "right": 845,
+            "bottom": 638.98,
+            "width": 150,
+            "height": 225
+          },
+          "bRect": {
+            "left": 695,
+            "top": 220.48,
+            "right": 845,
+            "bottom": 445.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 5,
+          "aRect": {
+            "left": 695,
+            "top": 413.98,
+            "right": 845,
+            "bottom": 638.98,
+            "width": 150,
+            "height": 225
+          },
+          "bRect": {
+            "left": 695,
+            "top": 607.48,
+            "right": 845,
+            "bottom": 832.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 4,
+          "aRect": {
+            "left": 542.28,
+            "top": 405.48,
+            "right": 718.58,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          },
+          "bRect": {
+            "left": 695,
+            "top": 220.48,
+            "right": 845,
+            "bottom": 445.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 5,
+          "aRect": {
+            "left": 542.28,
+            "top": 405.48,
+            "right": 718.58,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          },
+          "bRect": {
+            "left": 695,
+            "top": 607.48,
+            "right": 845,
+            "bottom": 832.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 821.4,
+            "top": 405.48,
+            "right": 997.71,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          },
+          "bRect": {
+            "left": 695,
+            "top": 220.48,
+            "right": 845,
+            "bottom": 445.48,
+            "width": 150,
+            "height": 225
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 5,
+          "aRect": {
+            "left": 821.4,
+            "top": 405.48,
+            "right": 997.71,
+            "bottom": 647.08,
+            "width": 176.3,
+            "height": 241.6
+          },
+          "bRect": {
+            "left": 695,
+            "top": 607.48,
+            "right": 845,
+            "bottom": 832.48,
+            "width": 150,
+            "height": 225
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 467.05,
+            "top": 570.59,
+            "right": 645.29,
+            "bottom": 789.28,
+            "width": 178.24,
+            "height": 218.69
+          },
+          "bRect": {
+            "left": 537.51,
+            "top": 383.36,
+            "right": 694.42,
+            "bottom": 591.37,
+            "width": 156.91,
+            "height": 208.01
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 537.51,
+            "top": 383.36,
+            "right": 694.42,
+            "bottom": 591.37,
+            "width": 156.91,
+            "height": 208.01
+          },
+          "bRect": {
+            "left": 623.07,
+            "top": 257.47,
+            "right": 761.95,
+            "bottom": 454.8,
+            "width": 138.88,
+            "height": 197.33
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 623.07,
+            "top": 257.47,
+            "right": 761.95,
+            "bottom": 454.8,
+            "width": 138.88,
+            "height": 197.33
+          },
+          "bRect": {
+            "left": 707,
+            "top": 215.27,
+            "right": 833,
+            "bottom": 404.27,
+            "width": 126,
+            "height": 189
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 4,
+          "bSlot": 5,
+          "aRect": {
+            "left": 707,
+            "top": 215.27,
+            "right": 833,
+            "bottom": 404.27,
+            "width": 126,
+            "height": 189
+          },
+          "bRect": {
+            "left": 778.03,
+            "top": 257.47,
+            "right": 916.91,
+            "bottom": 454.8,
+            "width": 138.88,
+            "height": 197.33
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 5,
+          "bSlot": 6,
+          "aRect": {
+            "left": 778.03,
+            "top": 257.47,
+            "right": 916.91,
+            "bottom": 454.8,
+            "width": 138.88,
+            "height": 197.33
+          },
+          "bRect": {
+            "left": 845.57,
+            "top": 383.36,
+            "right": 1002.47,
+            "bottom": 591.37,
+            "width": 156.91,
+            "height": 208.01
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 6,
+          "bSlot": 7,
+          "aRect": {
+            "left": 845.57,
+            "top": 383.36,
+            "right": 1002.47,
+            "bottom": 591.37,
+            "width": 156.91,
+            "height": 208.01
+          },
+          "bRect": {
+            "left": 894.7,
+            "top": 570.59,
+            "right": 1072.93,
+            "bottom": 789.28,
+            "width": 178.24,
+            "height": 218.69
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 1,
+          "cardSlot": 5,
+          "label": "1 現状",
+          "labelRect": {
+            "left": 666.66,
+            "top": 375.48,
+            "right": 698.66,
+            "bottom": 407.48,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 629.66,
+            "top": 237.83,
+            "right": 735.66,
+            "bottom": 396.83,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 2,
+          "cardSlot": 6,
+          "label": "2 交差",
+          "labelRect": {
+            "left": 757.66,
+            "top": 466.48,
+            "right": 789.66,
+            "bottom": 498.48,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 765.24,
+            "top": 426.91,
+            "right": 882.08,
+            "bottom": 592.92,
+            "width": 116.83,
+            "height": 166.01
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 3,
+          "cardSlot": 1,
+          "label": "3 根底",
+          "labelRect": {
+            "left": 666.66,
+            "top": 568.16,
+            "right": 698.66,
+            "bottom": 600.16,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 629.66,
+            "top": 430.48,
+            "right": 735.66,
+            "bottom": 589.48,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 7,
+          "cardSlot": 8,
+          "label": "7 自分",
+          "labelRect": {
+            "left": 960.44,
+            "top": 582.97,
+            "right": 992.44,
+            "bottom": 614.97,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 923.44,
+            "top": 489.77,
+            "right": 1029.44,
+            "bottom": 648.77,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 8,
+          "cardSlot": 9,
+          "label": "8 環境",
+          "labelRect": {
+            "left": 960.44,
+            "top": 434.77,
+            "right": 992.44,
+            "bottom": 466.77,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 923.44,
+            "top": 341.56,
+            "right": 1029.44,
+            "bottom": 500.56,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 9,
+          "cardSlot": 10,
+          "label": "9 希望と不安",
+          "labelRect": {
+            "left": 960.44,
+            "top": 286.56,
+            "right": 992.44,
+            "bottom": 318.56,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 923.44,
+            "top": 193.36,
+            "right": 1029.44,
+            "bottom": 352.36,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 629.66,
+            "top": 430.48,
+            "right": 735.66,
+            "bottom": 589.48,
+            "width": 106,
+            "height": 159
+          },
+          "bRect": {
+            "left": 575.66,
+            "top": 429.48,
+            "right": 734.66,
+            "bottom": 535.48,
+            "width": 159,
+            "height": 106
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 4,
+          "aRect": {
+            "left": 575.66,
+            "top": 429.48,
+            "right": 734.66,
+            "bottom": 535.48,
+            "width": 159,
+            "height": 106
+          },
+          "bRect": {
+            "left": 483.24,
+            "top": 426.91,
+            "right": 600.07,
+            "bottom": 592.92,
+            "width": 116.83,
+            "height": 166.01
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 7,
+          "bSlot": 8,
+          "aRect": {
+            "left": 923.44,
+            "top": 637.97,
+            "right": 1029.44,
+            "bottom": 796.97,
+            "width": 106,
+            "height": 159
+          },
+          "bRect": {
+            "left": 923.44,
+            "top": 489.77,
+            "right": 1029.44,
+            "bottom": 648.77,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 8,
+          "bSlot": 9,
+          "aRect": {
+            "left": 923.44,
+            "top": 489.77,
+            "right": 1029.44,
+            "bottom": 648.77,
+            "width": 106,
+            "height": 159
+          },
+          "bRect": {
+            "left": 923.44,
+            "top": 341.56,
+            "right": 1029.44,
+            "bottom": 500.56,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 9,
+          "bSlot": 10,
+          "aRect": {
+            "left": 923.44,
+            "top": 341.56,
+            "right": 1029.44,
+            "bottom": 500.56,
+            "width": 106,
+            "height": 159
+          },
+          "bRect": {
+            "left": 923.44,
+            "top": 193.36,
+            "right": 1029.44,
+            "bottom": 352.36,
+            "width": 106,
+            "height": 159
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 1,
+          "rect": {
+            "left": 629.66,
+            "top": 430.48,
+            "right": 735.66,
+            "bottom": 589.48,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 2,
+          "rect": {
+            "left": 575.66,
+            "top": 429.48,
+            "right": 734.66,
+            "bottom": 535.48,
+            "width": 159,
+            "height": 106
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 629.66,
+            "top": 623.16,
+            "right": 735.66,
+            "bottom": 782.16,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 4,
+          "rect": {
+            "left": 483.24,
+            "top": 426.91,
+            "right": 600.07,
+            "bottom": 592.92,
+            "width": 116.83,
+            "height": 166.01
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 5,
+          "rect": {
+            "left": 629.66,
+            "top": 237.83,
+            "right": 735.66,
+            "bottom": 396.83,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 765.24,
+            "top": 426.91,
+            "right": 882.08,
+            "bottom": 592.92,
+            "width": 116.83,
+            "height": 166.01
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 7,
+          "rect": {
+            "left": 923.44,
+            "top": 637.97,
+            "right": 1029.44,
+            "bottom": 796.97,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 8,
+          "rect": {
+            "left": 923.44,
+            "top": 489.77,
+            "right": 1029.44,
+            "bottom": 648.77,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 9,
+          "rect": {
+            "left": 923.44,
+            "top": 341.56,
+            "right": 1029.44,
+            "bottom": 500.56,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 10,
+          "rect": {
+            "left": 923.44,
+            "top": 193.36,
+            "right": 1029.44,
+            "bottom": 352.36,
+            "width": 106,
+            "height": 159
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 6,
+          "cardSlot": 3,
+          "label": "6 可能性",
+          "labelRect": {
+            "left": 754,
+            "top": 584.23,
+            "right": 786,
+            "bottom": 616.23,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 703.05,
+            "top": 461.2,
+            "right": 821.05,
+            "bottom": 638.2,
+            "width": 118,
+            "height": 177
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 441.05,
+            "top": 453.59,
+            "right": 582.54,
+            "bottom": 645.29,
+            "width": 141.49,
+            "height": 191.7
+          },
+          "bRect": {
+            "left": 572.9,
+            "top": 419.5,
+            "right": 700.01,
+            "bottom": 602.43,
+            "width": 127.1,
+            "height": 182.93
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 572.9,
+            "top": 419.5,
+            "right": 700.01,
+            "bottom": 602.43,
+            "width": 127.1,
+            "height": 182.93
+          },
+          "bRect": {
+            "left": 703.05,
+            "top": 461.2,
+            "right": 821.05,
+            "bottom": 638.2,
+            "width": 118,
+            "height": 177
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 703.05,
+            "top": 461.2,
+            "right": 821.05,
+            "bottom": 638.2,
+            "width": 118,
+            "height": 177
+          },
+          "bRect": {
+            "left": 824.1,
+            "top": 419.5,
+            "right": 951.21,
+            "bottom": 602.43,
+            "width": 127.1,
+            "height": 182.93
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 6,
+          "aRect": {
+            "left": 703.05,
+            "top": 461.2,
+            "right": 821.05,
+            "bottom": 638.2,
+            "width": 118,
+            "height": 177
+          },
+          "bRect": {
+            "left": 711,
+            "top": 639.23,
+            "right": 829,
+            "bottom": 816.23,
+            "width": 118,
+            "height": 177
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 4,
+          "bSlot": 5,
+          "aRect": {
+            "left": 824.1,
+            "top": 419.5,
+            "right": 951.21,
+            "bottom": 602.43,
+            "width": 127.1,
+            "height": 182.93
+          },
+          "bRect": {
+            "left": 941.56,
+            "top": 453.59,
+            "right": 1083.04,
+            "bottom": 645.29,
+            "width": 141.49,
+            "height": 191.7
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 703.05,
+            "top": 461.2,
+            "right": 821.05,
+            "bottom": 638.2,
+            "width": 118,
+            "height": 177
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 711,
+            "top": 639.23,
+            "right": 829,
+            "bottom": 816.23,
+            "width": 118,
+            "height": 177
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 1,
+          "cardSlot": 4,
+          "label": "1 中心",
+          "labelRect": {
+            "left": 603.99,
+            "top": 315.78,
+            "right": 635.99,
+            "bottom": 347.78,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 549.6,
+            "top": 202.33,
+            "right": 690.4,
+            "bottom": 413.52,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 5,
+          "cardSlot": 1,
+          "label": "5 根底",
+          "labelRect": {
+            "left": 603.99,
+            "top": 484.22,
+            "right": 635.99,
+            "bottom": 516.22,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 549.6,
+            "top": 370.78,
+            "right": 690.4,
+            "bottom": 581.97,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 549.6,
+            "top": 370.78,
+            "right": 690.4,
+            "bottom": 581.97,
+            "width": 140.8,
+            "height": 211.19
+          },
+          "bRect": {
+            "left": 430.44,
+            "top": 362.78,
+            "right": 595.92,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 3,
+          "aRect": {
+            "left": 549.6,
+            "top": 370.78,
+            "right": 690.4,
+            "bottom": 581.97,
+            "width": 140.8,
+            "height": 211.19
+          },
+          "bRect": {
+            "left": 644.06,
+            "top": 362.78,
+            "right": 809.55,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 4,
+          "aRect": {
+            "left": 549.6,
+            "top": 370.78,
+            "right": 690.4,
+            "bottom": 581.97,
+            "width": 140.8,
+            "height": 211.19
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 202.33,
+            "right": 690.4,
+            "bottom": 413.52,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 5,
+          "aRect": {
+            "left": 549.6,
+            "top": 370.78,
+            "right": 690.4,
+            "bottom": 581.97,
+            "width": 140.8,
+            "height": 211.19
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 539.22,
+            "right": 690.4,
+            "bottom": 750.41,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 4,
+          "aRect": {
+            "left": 430.44,
+            "top": 362.78,
+            "right": 595.92,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 202.33,
+            "right": 690.4,
+            "bottom": 413.52,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 5,
+          "aRect": {
+            "left": 430.44,
+            "top": 362.78,
+            "right": 595.92,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 539.22,
+            "right": 690.4,
+            "bottom": 750.41,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 644.06,
+            "top": 362.78,
+            "right": 809.55,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 202.33,
+            "right": 690.4,
+            "bottom": 413.52,
+            "width": 140.8,
+            "height": 211.19
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 5,
+          "aRect": {
+            "left": 644.06,
+            "top": 362.78,
+            "right": 809.55,
+            "bottom": 589.56,
+            "width": 165.48,
+            "height": 226.77
+          },
+          "bRect": {
+            "left": 549.6,
+            "top": 539.22,
+            "right": 690.4,
+            "bottom": 750.41,
+            "width": 140.8,
+            "height": 211.19
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 1,
+          "cardSlot": 5,
+          "label": "1 現状",
+          "labelRect": {
+            "left": 536.67,
+            "top": 335.76,
+            "right": 568.67,
+            "bottom": 367.76,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 506.59,
+            "top": 224.15,
+            "right": 598.75,
+            "bottom": 362.38,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 2,
+          "cardSlot": 6,
+          "label": "2 交差",
+          "labelRect": {
+            "left": 617.29,
+            "top": 416.38,
+            "right": 649.29,
+            "bottom": 448.38,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 610.12,
+            "top": 387.64,
+            "right": 711.7,
+            "bottom": 531.97,
+            "width": 101.57,
+            "height": 144.33
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 3,
+          "cardSlot": 1,
+          "label": "3 根底",
+          "labelRect": {
+            "left": 536.67,
+            "top": 502.35,
+            "right": 568.67,
+            "bottom": 534.35,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 506.59,
+            "top": 390.76,
+            "right": 598.75,
+            "bottom": 528.99,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 7,
+          "cardSlot": 8,
+          "label": "7 自分",
+          "labelRect": {
+            "left": 763.11,
+            "top": 515.16,
+            "right": 795.11,
+            "bottom": 547.16,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 733.03,
+            "top": 442.01,
+            "right": 825.19,
+            "bottom": 580.24,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 8,
+          "cardSlot": 9,
+          "label": "8 環境",
+          "labelRect": {
+            "left": 763.11,
+            "top": 387.01,
+            "right": 795.11,
+            "bottom": 419.01,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 733.03,
+            "top": 313.85,
+            "right": 825.19,
+            "bottom": 452.09,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 9,
+          "cardSlot": 10,
+          "label": "9 希望と不安",
+          "labelRect": {
+            "left": 763.11,
+            "top": 258.85,
+            "right": 795.11,
+            "bottom": 290.85,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 733.03,
+            "top": 185.7,
+            "right": 825.19,
+            "bottom": 323.93,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 506.59,
+            "top": 390.76,
+            "right": 598.75,
+            "bottom": 528.99,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "bRect": {
+            "left": 456.05,
+            "top": 386.3,
+            "right": 594.29,
+            "bottom": 478.45,
+            "width": 138.23,
+            "height": 92.16
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 4,
+          "aRect": {
+            "left": 456.05,
+            "top": 386.3,
+            "right": 594.29,
+            "bottom": 478.45,
+            "width": 138.23,
+            "height": 92.16
+          },
+          "bRect": {
+            "left": 393.65,
+            "top": 387.64,
+            "right": 495.22,
+            "bottom": 531.97,
+            "width": 101.57,
+            "height": 144.33
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 7,
+          "bSlot": 8,
+          "aRect": {
+            "left": 733.03,
+            "top": 570.16,
+            "right": 825.19,
+            "bottom": 708.4,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "bRect": {
+            "left": 733.03,
+            "top": 442.01,
+            "right": 825.19,
+            "bottom": 580.24,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 8,
+          "bSlot": 9,
+          "aRect": {
+            "left": 733.03,
+            "top": 442.01,
+            "right": 825.19,
+            "bottom": 580.24,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "bRect": {
+            "left": 733.03,
+            "top": 313.85,
+            "right": 825.19,
+            "bottom": 452.09,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 9,
+          "bSlot": 10,
+          "aRect": {
+            "left": 733.03,
+            "top": 313.85,
+            "right": 825.19,
+            "bottom": 452.09,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "bRect": {
+            "left": 733.03,
+            "top": 185.7,
+            "right": 825.19,
+            "bottom": 323.93,
+            "width": 92.16,
+            "height": 138.23
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 1,
+          "rect": {
+            "left": 506.59,
+            "top": 390.76,
+            "right": 598.75,
+            "bottom": 528.99,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 2,
+          "rect": {
+            "left": 456.05,
+            "top": 386.3,
+            "right": 594.29,
+            "bottom": 478.45,
+            "width": 138.23,
+            "height": 92.16
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 506.59,
+            "top": 557.35,
+            "right": 598.75,
+            "bottom": 695.59,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 4,
+          "rect": {
+            "left": 393.65,
+            "top": 387.64,
+            "right": 495.22,
+            "bottom": 531.97,
+            "width": 101.57,
+            "height": 144.33
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 5,
+          "rect": {
+            "left": 506.59,
+            "top": 224.15,
+            "right": 598.75,
+            "bottom": 362.38,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 610.12,
+            "top": 387.64,
+            "right": 711.7,
+            "bottom": 531.97,
+            "width": 101.57,
+            "height": 144.33
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 7,
+          "rect": {
+            "left": 733.03,
+            "top": 570.16,
+            "right": 825.19,
+            "bottom": 708.4,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 8,
+          "rect": {
+            "left": 733.03,
+            "top": 442.01,
+            "right": 825.19,
+            "bottom": 580.24,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 9,
+          "rect": {
+            "left": 733.03,
+            "top": 313.85,
+            "right": 825.19,
+            "bottom": 452.09,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 10,
+          "rect": {
+            "left": 733.03,
+            "top": 185.7,
+            "right": 825.19,
+            "bottom": 323.93,
+            "width": 92.16,
+            "height": 138.23
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 880
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 6,
+          "cardSlot": 3,
+          "label": "6 可能性",
+          "labelRect": {
+            "left": 603.99,
+            "top": 519.76,
+            "right": 635.99,
+            "bottom": 551.76,
+            "width": 32,
+            "height": 32
+          },
+          "cardRect": {
+            "left": 562.68,
+            "top": 419.79,
+            "right": 665.07,
+            "bottom": 573.37,
+            "width": 102.39,
+            "height": 153.58
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 360.47,
+            "top": 413.14,
+            "right": 483.24,
+            "bottom": 579.48,
+            "width": 122.77,
+            "height": 166.33
+          },
+          "bRect": {
+            "left": 462.25,
+            "top": 383.49,
+            "right": 572.54,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 462.25,
+            "top": 383.49,
+            "right": 572.54,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          },
+          "bRect": {
+            "left": 562.68,
+            "top": 419.79,
+            "right": 665.07,
+            "bottom": 573.37,
+            "width": 102.39,
+            "height": 153.58
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 562.68,
+            "top": 419.79,
+            "right": 665.07,
+            "bottom": 573.37,
+            "width": 102.39,
+            "height": 153.58
+          },
+          "bRect": {
+            "left": 655.21,
+            "top": 383.49,
+            "right": 765.5,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 6,
+          "aRect": {
+            "left": 562.68,
+            "top": 419.79,
+            "right": 665.07,
+            "bottom": 573.37,
+            "width": 102.39,
+            "height": 153.58
+          },
+          "bRect": {
+            "left": 568.8,
+            "top": 574.76,
+            "right": 671.2,
+            "bottom": 728.34,
+            "width": 102.39,
+            "height": 153.58
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 4,
+          "bSlot": 5,
+          "aRect": {
+            "left": 655.21,
+            "top": 383.49,
+            "right": 765.5,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          },
+          "bRect": {
+            "left": 744.51,
+            "top": 413.14,
+            "right": 867.28,
+            "bottom": 579.48,
+            "width": 122.77,
+            "height": 166.33
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 1,
+          "rect": {
+            "left": 360.47,
+            "top": 413.14,
+            "right": 483.24,
+            "bottom": 579.48,
+            "width": 122.77,
+            "height": 166.33
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 2,
+          "rect": {
+            "left": 462.25,
+            "top": 383.49,
+            "right": 572.54,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 562.68,
+            "top": 419.79,
+            "right": 665.07,
+            "bottom": 573.37,
+            "width": 102.39,
+            "height": 153.58
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 4,
+          "rect": {
+            "left": 655.21,
+            "top": 383.49,
+            "right": 765.5,
+            "bottom": 542.22,
+            "width": 110.29,
+            "height": 158.73
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 5,
+          "rect": {
+            "left": 744.51,
+            "top": 413.14,
+            "right": 867.28,
+            "bottom": 579.48,
+            "width": 122.77,
+            "height": 166.33
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 568.8,
+            "top": 574.76,
+            "right": 671.2,
+            "bottom": 728.34,
+            "width": 102.39,
+            "height": 153.58
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "inscriptionCount": 2,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2388
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2421
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 1,
+          "cardSlot": 2,
+          "label": "1 過去",
+          "labelRect": {
+            "left": 64.28,
+            "top": 1373.29,
+            "right": 94.28,
+            "bottom": 1403.29,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 83.83,
+            "top": 1250.57,
+            "right": 180.96,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 2,
+          "cardSlot": 3,
+          "label": "2 現在",
+          "labelRect": {
+            "left": 100.64,
+            "top": 1204.92,
+            "right": 130.64,
+            "bottom": 1234.92,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 3,
+          "cardSlot": 4,
+          "label": "3 隠れた影響",
+          "labelRect": {
+            "left": 141.51,
+            "top": 1091.14,
+            "right": 171.51,
+            "bottom": 1121.14,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 156,
+            "top": 1104.14,
+            "right": 234,
+            "bottom": 1221.14,
+            "width": 78,
+            "height": 117
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 5,
+          "cardSlot": 4,
+          "label": "5 周囲",
+          "labelRect": {
+            "left": 218.48,
+            "top": 1091.14,
+            "right": 248.48,
+            "bottom": 1121.14,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 156,
+            "top": 1104.14,
+            "right": 234,
+            "bottom": 1221.14,
+            "width": 78,
+            "height": 117
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 6,
+          "cardSlot": 5,
+          "label": "6 行動",
+          "labelRect": {
+            "left": 259.34,
+            "top": 1204.92,
+            "right": 289.34,
+            "bottom": 1234.92,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 7,
+          "cardSlot": 6,
+          "label": "7 結果",
+          "labelRect": {
+            "left": 295.71,
+            "top": 1373.29,
+            "right": 325.71,
+            "bottom": 1403.29,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 209.02,
+            "top": 1250.57,
+            "right": 306.15,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 83.83,
+            "top": 1250.57,
+            "right": 180.96,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          },
+          "bRect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 5,
+          "aRect": {
+            "left": 83.83,
+            "top": 1250.57,
+            "right": 180.96,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          },
+          "bRect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "bRect": {
+            "left": 156,
+            "top": 1104.14,
+            "right": 234,
+            "bottom": 1221.14,
+            "width": 78,
+            "height": 117
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 5,
+          "aRect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "bRect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 6,
+          "aRect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "bRect": {
+            "left": 209.02,
+            "top": 1250.57,
+            "right": 306.15,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 4,
+          "bSlot": 5,
+          "aRect": {
+            "left": 156,
+            "top": 1104.14,
+            "right": 234,
+            "bottom": 1221.14,
+            "width": 78,
+            "height": 117
+          },
+          "bRect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 5,
+          "bSlot": 6,
+          "aRect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "bRect": {
+            "left": 209.02,
+            "top": 1250.57,
+            "right": 306.15,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 1,
+          "rect": {
+            "left": 53.93,
+            "top": 1412.37,
+            "right": 164.26,
+            "bottom": 1547.75,
+            "width": 110.34,
+            "height": 135.38
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 2,
+          "rect": {
+            "left": 83.83,
+            "top": 1250.57,
+            "right": 180.96,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 120.25,
+            "top": 1141.33,
+            "right": 206.22,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 4,
+          "rect": {
+            "left": 156,
+            "top": 1104.14,
+            "right": 234,
+            "bottom": 1221.14,
+            "width": 78,
+            "height": 117
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 5,
+          "rect": {
+            "left": 183.76,
+            "top": 1141.33,
+            "right": 269.73,
+            "bottom": 1263.48,
+            "width": 85.97,
+            "height": 122.16
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 209.02,
+            "top": 1250.57,
+            "right": 306.15,
+            "bottom": 1379.34,
+            "width": 97.13,
+            "height": 128.77
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 7,
+          "rect": {
+            "left": 225.72,
+            "top": 1412.37,
+            "right": 336.06,
+            "bottom": 1547.75,
+            "width": 110.34,
+            "height": 135.38
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "inscriptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2421
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 3,
+          "cardSlot": 2,
+          "label": "3 接点",
+          "labelRect": {
+            "left": 176.63,
+            "top": 1256.97,
+            "right": 206.63,
+            "bottom": 1286.97,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 97.25,
+            "top": 1274.78,
+            "right": 181.27,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 3,
+          "cardSlot": 4,
+          "label": "3 接点",
+          "labelRect": {
+            "left": 176.63,
+            "top": 1256.97,
+            "right": 206.63,
+            "bottom": 1286.97,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 202,
+            "top": 1274.78,
+            "right": 286.01,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "slot-label-other-card-overlap",
+          "message": "slot label overlaps another card",
+          "labelSlot": 6,
+          "cardSlot": 3,
+          "label": "6 可能性",
+          "labelRect": {
+            "left": 180,
+            "top": 1409.69,
+            "right": 210,
+            "bottom": 1439.69,
+            "width": 30,
+            "height": 30
+          },
+          "cardRect": {
+            "left": 152.63,
+            "top": 1309.97,
+            "right": 230.63,
+            "bottom": 1426.97,
+            "width": 78,
+            "height": 117
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 1,
+          "bSlot": 2,
+          "aRect": {
+            "left": 41.04,
+            "top": 1304.85,
+            "right": 134.56,
+            "bottom": 1431.57,
+            "width": 93.52,
+            "height": 126.72
+          },
+          "bRect": {
+            "left": 97.25,
+            "top": 1274.78,
+            "right": 181.27,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 2,
+          "bSlot": 3,
+          "aRect": {
+            "left": 97.25,
+            "top": 1274.78,
+            "right": 181.27,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          },
+          "bRect": {
+            "left": 152.63,
+            "top": 1309.97,
+            "right": 230.63,
+            "bottom": 1426.97,
+            "width": 78,
+            "height": 117
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 3,
+          "bSlot": 4,
+          "aRect": {
+            "left": 152.63,
+            "top": 1309.97,
+            "right": 230.63,
+            "bottom": 1426.97,
+            "width": 78,
+            "height": 117
+          },
+          "bRect": {
+            "left": 202,
+            "top": 1274.78,
+            "right": 286.01,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          }
+        },
+        {
+          "severity": "P3",
+          "code": "card-card-overlap",
+          "message": "card rectangles overlap; verify whether this is intentional for the spread",
+          "aSlot": 4,
+          "bSlot": 5,
+          "aRect": {
+            "left": 202,
+            "top": 1274.78,
+            "right": 286.01,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          },
+          "bRect": {
+            "left": 248.71,
+            "top": 1304.85,
+            "right": 342.23,
+            "bottom": 1431.57,
+            "width": 93.52,
+            "height": 126.72
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 1,
+          "rect": {
+            "left": 41.04,
+            "top": 1304.85,
+            "right": 134.56,
+            "bottom": 1431.57,
+            "width": 93.52,
+            "height": 126.72
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 2,
+          "rect": {
+            "left": 97.25,
+            "top": 1274.78,
+            "right": 181.27,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 3,
+          "rect": {
+            "left": 152.63,
+            "top": 1309.97,
+            "right": 230.63,
+            "bottom": 1426.97,
+            "width": 78,
+            "height": 117
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 4,
+          "rect": {
+            "left": 202,
+            "top": 1274.78,
+            "right": 286.01,
+            "bottom": 1395.71,
+            "width": 84.02,
+            "height": 120.92
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 5,
+          "rect": {
+            "left": 248.71,
+            "top": 1304.85,
+            "right": 342.23,
+            "bottom": 1431.57,
+            "width": 93.52,
+            "height": 126.72
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        },
+        {
+          "severity": "P2",
+          "code": "card-rendered-small",
+          "message": "card image is rendered too small for in-card labels/details",
+          "slot": 6,
+          "rect": {
+            "left": 156,
+            "top": 1462.69,
+            "right": 234,
+            "bottom": 1579.69,
+            "width": 78,
+            "height": 117
+          },
+          "natural": {
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ],
+      "consoleErrors": []
+    }
+  ],
+  "issues": [
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-three-card.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 503.56,
+        "top": 398.85,
+        "right": 708.5,
+        "bottom": 682.99,
+        "width": 204.93,
+        "height": 284.14
+      },
+      "bRect": {
+        "left": 681,
+        "top": 376.59,
+        "right": 859,
+        "bottom": 643.59,
+        "width": 178,
+        "height": 267
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-three-card.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 681,
+        "top": 376.59,
+        "right": 859,
+        "bottom": 643.59,
+        "width": 178,
+        "height": 267
+      },
+      "bRect": {
+        "left": 831.49,
+        "top": 398.85,
+        "right": 1036.42,
+        "bottom": 682.99,
+        "width": 204.93,
+        "height": 284.14
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 1,
+      "cardSlot": 4,
+      "label": "1 中心",
+      "labelRect": {
+        "left": 754,
+        "top": 358.98,
+        "right": 786,
+        "bottom": 390.98,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 695,
+        "top": 220.48,
+        "right": 845,
+        "bottom": 445.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 5,
+      "cardSlot": 1,
+      "label": "5 根底",
+      "labelRect": {
+        "left": 754,
+        "top": 552.48,
+        "right": 786,
+        "bottom": 584.48,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 695,
+        "top": 413.98,
+        "right": 845,
+        "bottom": 638.98,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 695,
+        "top": 413.98,
+        "right": 845,
+        "bottom": 638.98,
+        "width": 150,
+        "height": 225
+      },
+      "bRect": {
+        "left": 542.28,
+        "top": 405.48,
+        "right": 718.58,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 3,
+      "aRect": {
+        "left": 695,
+        "top": 413.98,
+        "right": 845,
+        "bottom": 638.98,
+        "width": 150,
+        "height": 225
+      },
+      "bRect": {
+        "left": 821.4,
+        "top": 405.48,
+        "right": 997.71,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 4,
+      "aRect": {
+        "left": 695,
+        "top": 413.98,
+        "right": 845,
+        "bottom": 638.98,
+        "width": 150,
+        "height": 225
+      },
+      "bRect": {
+        "left": 695,
+        "top": 220.48,
+        "right": 845,
+        "bottom": 445.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 5,
+      "aRect": {
+        "left": 695,
+        "top": 413.98,
+        "right": 845,
+        "bottom": 638.98,
+        "width": 150,
+        "height": 225
+      },
+      "bRect": {
+        "left": 695,
+        "top": 607.48,
+        "right": 845,
+        "bottom": 832.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 4,
+      "aRect": {
+        "left": 542.28,
+        "top": 405.48,
+        "right": 718.58,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      },
+      "bRect": {
+        "left": 695,
+        "top": 220.48,
+        "right": 845,
+        "bottom": 445.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 5,
+      "aRect": {
+        "left": 542.28,
+        "top": 405.48,
+        "right": 718.58,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      },
+      "bRect": {
+        "left": 695,
+        "top": 607.48,
+        "right": 845,
+        "bottom": 832.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 821.4,
+        "top": 405.48,
+        "right": 997.71,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      },
+      "bRect": {
+        "left": 695,
+        "top": 220.48,
+        "right": 845,
+        "bottom": 445.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 5,
+      "aRect": {
+        "left": 821.4,
+        "top": 405.48,
+        "right": 997.71,
+        "bottom": 647.08,
+        "width": 176.3,
+        "height": 241.6
+      },
+      "bRect": {
+        "left": 695,
+        "top": 607.48,
+        "right": 845,
+        "bottom": 832.48,
+        "width": 150,
+        "height": 225
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 467.05,
+        "top": 570.59,
+        "right": 645.29,
+        "bottom": 789.28,
+        "width": 178.24,
+        "height": 218.69
+      },
+      "bRect": {
+        "left": 537.51,
+        "top": 383.36,
+        "right": 694.42,
+        "bottom": 591.37,
+        "width": 156.91,
+        "height": 208.01
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 537.51,
+        "top": 383.36,
+        "right": 694.42,
+        "bottom": 591.37,
+        "width": 156.91,
+        "height": 208.01
+      },
+      "bRect": {
+        "left": 623.07,
+        "top": 257.47,
+        "right": 761.95,
+        "bottom": 454.8,
+        "width": 138.88,
+        "height": 197.33
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 623.07,
+        "top": 257.47,
+        "right": 761.95,
+        "bottom": 454.8,
+        "width": 138.88,
+        "height": 197.33
+      },
+      "bRect": {
+        "left": 707,
+        "top": 215.27,
+        "right": 833,
+        "bottom": 404.27,
+        "width": 126,
+        "height": 189
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 4,
+      "bSlot": 5,
+      "aRect": {
+        "left": 707,
+        "top": 215.27,
+        "right": 833,
+        "bottom": 404.27,
+        "width": 126,
+        "height": 189
+      },
+      "bRect": {
+        "left": 778.03,
+        "top": 257.47,
+        "right": 916.91,
+        "bottom": 454.8,
+        "width": 138.88,
+        "height": 197.33
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 5,
+      "bSlot": 6,
+      "aRect": {
+        "left": 778.03,
+        "top": 257.47,
+        "right": 916.91,
+        "bottom": 454.8,
+        "width": 138.88,
+        "height": 197.33
+      },
+      "bRect": {
+        "left": 845.57,
+        "top": 383.36,
+        "right": 1002.47,
+        "bottom": 591.37,
+        "width": 156.91,
+        "height": 208.01
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 6,
+      "bSlot": 7,
+      "aRect": {
+        "left": 845.57,
+        "top": 383.36,
+        "right": 1002.47,
+        "bottom": 591.37,
+        "width": 156.91,
+        "height": 208.01
+      },
+      "bRect": {
+        "left": 894.7,
+        "top": 570.59,
+        "right": 1072.93,
+        "bottom": 789.28,
+        "width": 178.24,
+        "height": 218.69
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 1,
+      "cardSlot": 5,
+      "label": "1 現状",
+      "labelRect": {
+        "left": 666.66,
+        "top": 375.48,
+        "right": 698.66,
+        "bottom": 407.48,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 629.66,
+        "top": 237.83,
+        "right": 735.66,
+        "bottom": 396.83,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 2,
+      "cardSlot": 6,
+      "label": "2 交差",
+      "labelRect": {
+        "left": 757.66,
+        "top": 466.48,
+        "right": 789.66,
+        "bottom": 498.48,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 765.24,
+        "top": 426.91,
+        "right": 882.08,
+        "bottom": 592.92,
+        "width": 116.83,
+        "height": 166.01
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 3,
+      "cardSlot": 1,
+      "label": "3 根底",
+      "labelRect": {
+        "left": 666.66,
+        "top": 568.16,
+        "right": 698.66,
+        "bottom": 600.16,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 629.66,
+        "top": 430.48,
+        "right": 735.66,
+        "bottom": 589.48,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 7,
+      "cardSlot": 8,
+      "label": "7 自分",
+      "labelRect": {
+        "left": 960.44,
+        "top": 582.97,
+        "right": 992.44,
+        "bottom": 614.97,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 923.44,
+        "top": 489.77,
+        "right": 1029.44,
+        "bottom": 648.77,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 8,
+      "cardSlot": 9,
+      "label": "8 環境",
+      "labelRect": {
+        "left": 960.44,
+        "top": 434.77,
+        "right": 992.44,
+        "bottom": 466.77,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 923.44,
+        "top": 341.56,
+        "right": 1029.44,
+        "bottom": 500.56,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 9,
+      "cardSlot": 10,
+      "label": "9 希望と不安",
+      "labelRect": {
+        "left": 960.44,
+        "top": 286.56,
+        "right": 992.44,
+        "bottom": 318.56,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 923.44,
+        "top": 193.36,
+        "right": 1029.44,
+        "bottom": 352.36,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 629.66,
+        "top": 430.48,
+        "right": 735.66,
+        "bottom": 589.48,
+        "width": 106,
+        "height": 159
+      },
+      "bRect": {
+        "left": 575.66,
+        "top": 429.48,
+        "right": 734.66,
+        "bottom": 535.48,
+        "width": 159,
+        "height": 106
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 4,
+      "aRect": {
+        "left": 575.66,
+        "top": 429.48,
+        "right": 734.66,
+        "bottom": 535.48,
+        "width": 159,
+        "height": 106
+      },
+      "bRect": {
+        "left": 483.24,
+        "top": 426.91,
+        "right": 600.07,
+        "bottom": 592.92,
+        "width": 116.83,
+        "height": 166.01
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 7,
+      "bSlot": 8,
+      "aRect": {
+        "left": 923.44,
+        "top": 637.97,
+        "right": 1029.44,
+        "bottom": 796.97,
+        "width": 106,
+        "height": 159
+      },
+      "bRect": {
+        "left": 923.44,
+        "top": 489.77,
+        "right": 1029.44,
+        "bottom": 648.77,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 8,
+      "bSlot": 9,
+      "aRect": {
+        "left": 923.44,
+        "top": 489.77,
+        "right": 1029.44,
+        "bottom": 648.77,
+        "width": 106,
+        "height": 159
+      },
+      "bRect": {
+        "left": 923.44,
+        "top": 341.56,
+        "right": 1029.44,
+        "bottom": 500.56,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 9,
+      "bSlot": 10,
+      "aRect": {
+        "left": 923.44,
+        "top": 341.56,
+        "right": 1029.44,
+        "bottom": 500.56,
+        "width": 106,
+        "height": 159
+      },
+      "bRect": {
+        "left": 923.44,
+        "top": 193.36,
+        "right": 1029.44,
+        "bottom": 352.36,
+        "width": 106,
+        "height": 159
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 1,
+      "rect": {
+        "left": 629.66,
+        "top": 430.48,
+        "right": 735.66,
+        "bottom": 589.48,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 2,
+      "rect": {
+        "left": 575.66,
+        "top": 429.48,
+        "right": 734.66,
+        "bottom": 535.48,
+        "width": 159,
+        "height": 106
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 629.66,
+        "top": 623.16,
+        "right": 735.66,
+        "bottom": 782.16,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 4,
+      "rect": {
+        "left": 483.24,
+        "top": 426.91,
+        "right": 600.07,
+        "bottom": 592.92,
+        "width": 116.83,
+        "height": 166.01
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 5,
+      "rect": {
+        "left": 629.66,
+        "top": 237.83,
+        "right": 735.66,
+        "bottom": 396.83,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 765.24,
+        "top": 426.91,
+        "right": 882.08,
+        "bottom": 592.92,
+        "width": 116.83,
+        "height": 166.01
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 7,
+      "rect": {
+        "left": 923.44,
+        "top": 637.97,
+        "right": 1029.44,
+        "bottom": 796.97,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 8,
+      "rect": {
+        "left": 923.44,
+        "top": 489.77,
+        "right": 1029.44,
+        "bottom": 648.77,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 9,
+      "rect": {
+        "left": 923.44,
+        "top": 341.56,
+        "right": 1029.44,
+        "bottom": 500.56,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 10,
+      "rect": {
+        "left": 923.44,
+        "top": 193.36,
+        "right": 1029.44,
+        "bottom": 352.36,
+        "width": 106,
+        "height": 159
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 6,
+      "cardSlot": 3,
+      "label": "6 可能性",
+      "labelRect": {
+        "left": 754,
+        "top": 584.23,
+        "right": 786,
+        "bottom": 616.23,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 703.05,
+        "top": 461.2,
+        "right": 821.05,
+        "bottom": 638.2,
+        "width": 118,
+        "height": 177
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 441.05,
+        "top": 453.59,
+        "right": 582.54,
+        "bottom": 645.29,
+        "width": 141.49,
+        "height": 191.7
+      },
+      "bRect": {
+        "left": 572.9,
+        "top": 419.5,
+        "right": 700.01,
+        "bottom": 602.43,
+        "width": 127.1,
+        "height": 182.93
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 572.9,
+        "top": 419.5,
+        "right": 700.01,
+        "bottom": 602.43,
+        "width": 127.1,
+        "height": 182.93
+      },
+      "bRect": {
+        "left": 703.05,
+        "top": 461.2,
+        "right": 821.05,
+        "bottom": 638.2,
+        "width": 118,
+        "height": 177
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 703.05,
+        "top": 461.2,
+        "right": 821.05,
+        "bottom": 638.2,
+        "width": 118,
+        "height": 177
+      },
+      "bRect": {
+        "left": 824.1,
+        "top": 419.5,
+        "right": 951.21,
+        "bottom": 602.43,
+        "width": 127.1,
+        "height": 182.93
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 6,
+      "aRect": {
+        "left": 703.05,
+        "top": 461.2,
+        "right": 821.05,
+        "bottom": 638.2,
+        "width": 118,
+        "height": 177
+      },
+      "bRect": {
+        "left": 711,
+        "top": 639.23,
+        "right": 829,
+        "bottom": 816.23,
+        "width": 118,
+        "height": 177
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 4,
+      "bSlot": 5,
+      "aRect": {
+        "left": 824.1,
+        "top": 419.5,
+        "right": 951.21,
+        "bottom": 602.43,
+        "width": 127.1,
+        "height": 182.93
+      },
+      "bRect": {
+        "left": 941.56,
+        "top": 453.59,
+        "right": 1083.04,
+        "bottom": 645.29,
+        "width": 141.49,
+        "height": 191.7
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 703.05,
+        "top": 461.2,
+        "right": 821.05,
+        "bottom": 638.2,
+        "width": 118,
+        "height": 177
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\desktop-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 711,
+        "top": 639.23,
+        "right": 829,
+        "bottom": 816.23,
+        "width": 118,
+        "height": 177
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 1,
+      "cardSlot": 4,
+      "label": "1 中心",
+      "labelRect": {
+        "left": 603.99,
+        "top": 315.78,
+        "right": 635.99,
+        "bottom": 347.78,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 549.6,
+        "top": 202.33,
+        "right": 690.4,
+        "bottom": 413.52,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 5,
+      "cardSlot": 1,
+      "label": "5 根底",
+      "labelRect": {
+        "left": 603.99,
+        "top": 484.22,
+        "right": 635.99,
+        "bottom": 516.22,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 549.6,
+        "top": 370.78,
+        "right": 690.4,
+        "bottom": 581.97,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 549.6,
+        "top": 370.78,
+        "right": 690.4,
+        "bottom": 581.97,
+        "width": 140.8,
+        "height": 211.19
+      },
+      "bRect": {
+        "left": 430.44,
+        "top": 362.78,
+        "right": 595.92,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 3,
+      "aRect": {
+        "left": 549.6,
+        "top": 370.78,
+        "right": 690.4,
+        "bottom": 581.97,
+        "width": 140.8,
+        "height": 211.19
+      },
+      "bRect": {
+        "left": 644.06,
+        "top": 362.78,
+        "right": 809.55,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 4,
+      "aRect": {
+        "left": 549.6,
+        "top": 370.78,
+        "right": 690.4,
+        "bottom": 581.97,
+        "width": 140.8,
+        "height": 211.19
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 202.33,
+        "right": 690.4,
+        "bottom": 413.52,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 5,
+      "aRect": {
+        "left": 549.6,
+        "top": 370.78,
+        "right": 690.4,
+        "bottom": 581.97,
+        "width": 140.8,
+        "height": 211.19
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 539.22,
+        "right": 690.4,
+        "bottom": 750.41,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 4,
+      "aRect": {
+        "left": 430.44,
+        "top": 362.78,
+        "right": 595.92,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 202.33,
+        "right": 690.4,
+        "bottom": 413.52,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 5,
+      "aRect": {
+        "left": 430.44,
+        "top": 362.78,
+        "right": 595.92,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 539.22,
+        "right": 690.4,
+        "bottom": 750.41,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 644.06,
+        "top": 362.78,
+        "right": 809.55,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 202.33,
+        "right": 690.4,
+        "bottom": 413.52,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "five_card_cross",
+      "spreadLabel": "five-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-five-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 5,
+      "aRect": {
+        "left": 644.06,
+        "top": 362.78,
+        "right": 809.55,
+        "bottom": 589.56,
+        "width": 165.48,
+        "height": 226.77
+      },
+      "bRect": {
+        "left": 549.6,
+        "top": 539.22,
+        "right": 690.4,
+        "bottom": 750.41,
+        "width": 140.8,
+        "height": 211.19
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 1,
+      "cardSlot": 5,
+      "label": "1 現状",
+      "labelRect": {
+        "left": 536.67,
+        "top": 335.76,
+        "right": 568.67,
+        "bottom": 367.76,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 506.59,
+        "top": 224.15,
+        "right": 598.75,
+        "bottom": 362.38,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 2,
+      "cardSlot": 6,
+      "label": "2 交差",
+      "labelRect": {
+        "left": 617.29,
+        "top": 416.38,
+        "right": 649.29,
+        "bottom": 448.38,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 610.12,
+        "top": 387.64,
+        "right": 711.7,
+        "bottom": 531.97,
+        "width": 101.57,
+        "height": 144.33
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 3,
+      "cardSlot": 1,
+      "label": "3 根底",
+      "labelRect": {
+        "left": 536.67,
+        "top": 502.35,
+        "right": 568.67,
+        "bottom": 534.35,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 506.59,
+        "top": 390.76,
+        "right": 598.75,
+        "bottom": 528.99,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 7,
+      "cardSlot": 8,
+      "label": "7 自分",
+      "labelRect": {
+        "left": 763.11,
+        "top": 515.16,
+        "right": 795.11,
+        "bottom": 547.16,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 733.03,
+        "top": 442.01,
+        "right": 825.19,
+        "bottom": 580.24,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 8,
+      "cardSlot": 9,
+      "label": "8 環境",
+      "labelRect": {
+        "left": 763.11,
+        "top": 387.01,
+        "right": 795.11,
+        "bottom": 419.01,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 733.03,
+        "top": 313.85,
+        "right": 825.19,
+        "bottom": 452.09,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 9,
+      "cardSlot": 10,
+      "label": "9 希望と不安",
+      "labelRect": {
+        "left": 763.11,
+        "top": 258.85,
+        "right": 795.11,
+        "bottom": 290.85,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 733.03,
+        "top": 185.7,
+        "right": 825.19,
+        "bottom": 323.93,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 506.59,
+        "top": 390.76,
+        "right": 598.75,
+        "bottom": 528.99,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "bRect": {
+        "left": 456.05,
+        "top": 386.3,
+        "right": 594.29,
+        "bottom": 478.45,
+        "width": 138.23,
+        "height": 92.16
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 4,
+      "aRect": {
+        "left": 456.05,
+        "top": 386.3,
+        "right": 594.29,
+        "bottom": 478.45,
+        "width": 138.23,
+        "height": 92.16
+      },
+      "bRect": {
+        "left": 393.65,
+        "top": 387.64,
+        "right": 495.22,
+        "bottom": 531.97,
+        "width": 101.57,
+        "height": 144.33
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 7,
+      "bSlot": 8,
+      "aRect": {
+        "left": 733.03,
+        "top": 570.16,
+        "right": 825.19,
+        "bottom": 708.4,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "bRect": {
+        "left": 733.03,
+        "top": 442.01,
+        "right": 825.19,
+        "bottom": 580.24,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 8,
+      "bSlot": 9,
+      "aRect": {
+        "left": 733.03,
+        "top": 442.01,
+        "right": 825.19,
+        "bottom": 580.24,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "bRect": {
+        "left": 733.03,
+        "top": 313.85,
+        "right": 825.19,
+        "bottom": 452.09,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 9,
+      "bSlot": 10,
+      "aRect": {
+        "left": 733.03,
+        "top": 313.85,
+        "right": 825.19,
+        "bottom": 452.09,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "bRect": {
+        "left": 733.03,
+        "top": 185.7,
+        "right": 825.19,
+        "bottom": 323.93,
+        "width": 92.16,
+        "height": 138.23
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 1,
+      "rect": {
+        "left": 506.59,
+        "top": 390.76,
+        "right": 598.75,
+        "bottom": 528.99,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 2,
+      "rect": {
+        "left": 456.05,
+        "top": 386.3,
+        "right": 594.29,
+        "bottom": 478.45,
+        "width": 138.23,
+        "height": 92.16
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 506.59,
+        "top": 557.35,
+        "right": 598.75,
+        "bottom": 695.59,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 4,
+      "rect": {
+        "left": 393.65,
+        "top": 387.64,
+        "right": 495.22,
+        "bottom": 531.97,
+        "width": 101.57,
+        "height": 144.33
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 5,
+      "rect": {
+        "left": 506.59,
+        "top": 224.15,
+        "right": 598.75,
+        "bottom": 362.38,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 610.12,
+        "top": 387.64,
+        "right": 711.7,
+        "bottom": 531.97,
+        "width": 101.57,
+        "height": 144.33
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 7,
+      "rect": {
+        "left": 733.03,
+        "top": 570.16,
+        "right": 825.19,
+        "bottom": 708.4,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 8,
+      "rect": {
+        "left": 733.03,
+        "top": 442.01,
+        "right": 825.19,
+        "bottom": 580.24,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 9,
+      "rect": {
+        "left": 733.03,
+        "top": 313.85,
+        "right": 825.19,
+        "bottom": 452.09,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "celtic-cross",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-celtic-cross.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 10,
+      "rect": {
+        "left": 733.03,
+        "top": 185.7,
+        "right": 825.19,
+        "bottom": 323.93,
+        "width": 92.16,
+        "height": 138.23
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 6,
+      "cardSlot": 3,
+      "label": "6 可能性",
+      "labelRect": {
+        "left": 603.99,
+        "top": 519.76,
+        "right": 635.99,
+        "bottom": 551.76,
+        "width": 32,
+        "height": 32
+      },
+      "cardRect": {
+        "left": 562.68,
+        "top": 419.79,
+        "right": 665.07,
+        "bottom": 573.37,
+        "width": 102.39,
+        "height": 153.58
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 360.47,
+        "top": 413.14,
+        "right": 483.24,
+        "bottom": 579.48,
+        "width": 122.77,
+        "height": 166.33
+      },
+      "bRect": {
+        "left": 462.25,
+        "top": 383.49,
+        "right": 572.54,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 462.25,
+        "top": 383.49,
+        "right": 572.54,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      },
+      "bRect": {
+        "left": 562.68,
+        "top": 419.79,
+        "right": 665.07,
+        "bottom": 573.37,
+        "width": 102.39,
+        "height": 153.58
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 562.68,
+        "top": 419.79,
+        "right": 665.07,
+        "bottom": 573.37,
+        "width": 102.39,
+        "height": 153.58
+      },
+      "bRect": {
+        "left": 655.21,
+        "top": 383.49,
+        "right": 765.5,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 6,
+      "aRect": {
+        "left": 562.68,
+        "top": 419.79,
+        "right": 665.07,
+        "bottom": 573.37,
+        "width": 102.39,
+        "height": 153.58
+      },
+      "bRect": {
+        "left": 568.8,
+        "top": 574.76,
+        "right": 671.2,
+        "bottom": 728.34,
+        "width": 102.39,
+        "height": 153.58
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 4,
+      "bSlot": 5,
+      "aRect": {
+        "left": 655.21,
+        "top": 383.49,
+        "right": 765.5,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      },
+      "bRect": {
+        "left": 744.51,
+        "top": 413.14,
+        "right": 867.28,
+        "bottom": 579.48,
+        "width": 122.77,
+        "height": 166.33
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 1,
+      "rect": {
+        "left": 360.47,
+        "top": 413.14,
+        "right": 483.24,
+        "bottom": 579.48,
+        "width": 122.77,
+        "height": 166.33
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 2,
+      "rect": {
+        "left": 462.25,
+        "top": 383.49,
+        "right": 572.54,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 562.68,
+        "top": 419.79,
+        "right": 665.07,
+        "bottom": 573.37,
+        "width": 102.39,
+        "height": 153.58
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 4,
+      "rect": {
+        "left": 655.21,
+        "top": 383.49,
+        "right": 765.5,
+        "bottom": 542.22,
+        "width": 110.29,
+        "height": 158.73
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 5,
+      "rect": {
+        "left": 744.51,
+        "top": 413.14,
+        "right": 867.28,
+        "bottom": 579.48,
+        "width": 122.77,
+        "height": 166.33
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "compact",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\compact-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 568.8,
+        "top": 574.76,
+        "right": 671.2,
+        "bottom": 728.34,
+        "width": 102.39,
+        "height": 153.58
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 1,
+      "cardSlot": 2,
+      "label": "1 過去",
+      "labelRect": {
+        "left": 64.28,
+        "top": 1373.29,
+        "right": 94.28,
+        "bottom": 1403.29,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 83.83,
+        "top": 1250.57,
+        "right": 180.96,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 2,
+      "cardSlot": 3,
+      "label": "2 現在",
+      "labelRect": {
+        "left": 100.64,
+        "top": 1204.92,
+        "right": 130.64,
+        "bottom": 1234.92,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 3,
+      "cardSlot": 4,
+      "label": "3 隠れた影響",
+      "labelRect": {
+        "left": 141.51,
+        "top": 1091.14,
+        "right": 171.51,
+        "bottom": 1121.14,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 156,
+        "top": 1104.14,
+        "right": 234,
+        "bottom": 1221.14,
+        "width": 78,
+        "height": 117
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 5,
+      "cardSlot": 4,
+      "label": "5 周囲",
+      "labelRect": {
+        "left": 218.48,
+        "top": 1091.14,
+        "right": 248.48,
+        "bottom": 1121.14,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 156,
+        "top": 1104.14,
+        "right": 234,
+        "bottom": 1221.14,
+        "width": 78,
+        "height": 117
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 6,
+      "cardSlot": 5,
+      "label": "6 行動",
+      "labelRect": {
+        "left": 259.34,
+        "top": 1204.92,
+        "right": 289.34,
+        "bottom": 1234.92,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 7,
+      "cardSlot": 6,
+      "label": "7 結果",
+      "labelRect": {
+        "left": 295.71,
+        "top": 1373.29,
+        "right": 325.71,
+        "bottom": 1403.29,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 209.02,
+        "top": 1250.57,
+        "right": 306.15,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 83.83,
+        "top": 1250.57,
+        "right": 180.96,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      },
+      "bRect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 5,
+      "aRect": {
+        "left": 83.83,
+        "top": 1250.57,
+        "right": 180.96,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      },
+      "bRect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "bRect": {
+        "left": 156,
+        "top": 1104.14,
+        "right": 234,
+        "bottom": 1221.14,
+        "width": 78,
+        "height": 117
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 5,
+      "aRect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "bRect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 6,
+      "aRect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "bRect": {
+        "left": 209.02,
+        "top": 1250.57,
+        "right": 306.15,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 4,
+      "bSlot": 5,
+      "aRect": {
+        "left": 156,
+        "top": 1104.14,
+        "right": 234,
+        "bottom": 1221.14,
+        "width": 78,
+        "height": 117
+      },
+      "bRect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 5,
+      "bSlot": 6,
+      "aRect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "bRect": {
+        "left": 209.02,
+        "top": 1250.57,
+        "right": 306.15,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 1,
+      "rect": {
+        "left": 53.93,
+        "top": 1412.37,
+        "right": 164.26,
+        "bottom": 1547.75,
+        "width": 110.34,
+        "height": 135.38
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 2,
+      "rect": {
+        "left": 83.83,
+        "top": 1250.57,
+        "right": 180.96,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 120.25,
+        "top": 1141.33,
+        "right": 206.22,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 4,
+      "rect": {
+        "left": 156,
+        "top": 1104.14,
+        "right": 234,
+        "bottom": 1221.14,
+        "width": 78,
+        "height": 117
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 5,
+      "rect": {
+        "left": 183.76,
+        "top": 1141.33,
+        "right": 269.73,
+        "bottom": 1263.48,
+        "width": 85.97,
+        "height": 122.16
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 209.02,
+        "top": 1250.57,
+        "right": 306.15,
+        "bottom": 1379.34,
+        "width": 97.13,
+        "height": 128.77
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "seven_card_horseshoe",
+      "spreadLabel": "seven-horseshoe",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-seven-horseshoe.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 7,
+      "rect": {
+        "left": 225.72,
+        "top": 1412.37,
+        "right": 336.06,
+        "bottom": 1547.75,
+        "width": 110.34,
+        "height": 135.38
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 3,
+      "cardSlot": 2,
+      "label": "3 接点",
+      "labelRect": {
+        "left": 176.63,
+        "top": 1256.97,
+        "right": 206.63,
+        "bottom": 1286.97,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 97.25,
+        "top": 1274.78,
+        "right": 181.27,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 3,
+      "cardSlot": 4,
+      "label": "3 接点",
+      "labelRect": {
+        "left": 176.63,
+        "top": 1256.97,
+        "right": 206.63,
+        "bottom": 1286.97,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 202,
+        "top": 1274.78,
+        "right": 286.01,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "slot-label-other-card-overlap",
+      "message": "slot label overlaps another card",
+      "labelSlot": 6,
+      "cardSlot": 3,
+      "label": "6 可能性",
+      "labelRect": {
+        "left": 180,
+        "top": 1409.69,
+        "right": 210,
+        "bottom": 1439.69,
+        "width": 30,
+        "height": 30
+      },
+      "cardRect": {
+        "left": 152.63,
+        "top": 1309.97,
+        "right": 230.63,
+        "bottom": 1426.97,
+        "width": 78,
+        "height": 117
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 1,
+      "bSlot": 2,
+      "aRect": {
+        "left": 41.04,
+        "top": 1304.85,
+        "right": 134.56,
+        "bottom": 1431.57,
+        "width": 93.52,
+        "height": 126.72
+      },
+      "bRect": {
+        "left": 97.25,
+        "top": 1274.78,
+        "right": 181.27,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 2,
+      "bSlot": 3,
+      "aRect": {
+        "left": 97.25,
+        "top": 1274.78,
+        "right": 181.27,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      },
+      "bRect": {
+        "left": 152.63,
+        "top": 1309.97,
+        "right": 230.63,
+        "bottom": 1426.97,
+        "width": 78,
+        "height": 117
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 3,
+      "bSlot": 4,
+      "aRect": {
+        "left": 152.63,
+        "top": 1309.97,
+        "right": 230.63,
+        "bottom": 1426.97,
+        "width": 78,
+        "height": 117
+      },
+      "bRect": {
+        "left": 202,
+        "top": 1274.78,
+        "right": 286.01,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P3",
+      "code": "card-card-overlap",
+      "message": "card rectangles overlap; verify whether this is intentional for the spread",
+      "aSlot": 4,
+      "bSlot": 5,
+      "aRect": {
+        "left": 202,
+        "top": 1274.78,
+        "right": 286.01,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      },
+      "bRect": {
+        "left": 248.71,
+        "top": 1304.85,
+        "right": 342.23,
+        "bottom": 1431.57,
+        "width": 93.52,
+        "height": 126.72
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 1,
+      "rect": {
+        "left": 41.04,
+        "top": 1304.85,
+        "right": 134.56,
+        "bottom": 1431.57,
+        "width": 93.52,
+        "height": 126.72
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 2,
+      "rect": {
+        "left": 97.25,
+        "top": 1274.78,
+        "right": 181.27,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 3,
+      "rect": {
+        "left": 152.63,
+        "top": 1309.97,
+        "right": 230.63,
+        "bottom": 1426.97,
+        "width": 78,
+        "height": 117
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 4,
+      "rect": {
+        "left": 202,
+        "top": 1274.78,
+        "right": 286.01,
+        "bottom": 1395.71,
+        "width": 84.02,
+        "height": 120.92
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 5,
+      "rect": {
+        "left": 248.71,
+        "top": 1304.85,
+        "right": 342.23,
+        "bottom": 1431.57,
+        "width": 93.52,
+        "height": 126.72
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    },
+    {
+      "viewport": "mobile",
+      "spreadId": "relationship_line",
+      "spreadLabel": "relationship-line",
+      "screenshot": "reports\\ui-visual-audit-20260602-213335\\mobile-relationship-line.png",
+      "severity": "P2",
+      "code": "card-rendered-small",
+      "message": "card image is rendered too small for in-card labels/details",
+      "slot": 6,
+      "rect": {
+        "left": 156,
+        "top": 1462.69,
+        "right": 234,
+        "bottom": 1579.69,
+        "width": 78,
+        "height": 117
+      },
+      "natural": {
+        "width": 1024,
+        "height": 1536
+      }
+    }
+  ],
+  "counts": {
+    "P3": 55,
+    "P3:card-card-overlap": 55,
+    "P2": 68,
+    "P2:slot-label-other-card-overlap": 27,
+    "P2:card-rendered-small": 41
+  },
+  "checkedAt": "2026-06-02T12:33:51.059Z"
+}

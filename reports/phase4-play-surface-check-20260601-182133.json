@@ -1,0 +1,110 @@
+{
+  "ok": true,
+  "generatedAtUtc": "2026-06-01T18:21:33.828689+00:00",
+  "workspace": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA",
+  "failCount": 0,
+  "latestScreenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-card-visibility-labels-printwindow-20260602-031850.png",
+  "checks": [
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableController.h",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableController.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaPlayerController.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Source/ONOKO_ARCANA/OnokoArcanaTableHudWidget.cpp",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase4ThreeCardSpreadSessionTestResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase1HudReflectionSurfaceTestResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:Unreal/ONOKO_ARCANA/Saved/Phase1RuntimeMaterialsResult.json",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_SPREAD_PLAY_SURFACE.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_SPREAD_SLOT_HUD.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "file:docs/implementation/PHASE4_CARD_VISIBILITY_LABELS.md",
+      "status": "pass",
+      "detail": "exists"
+    },
+    {
+      "name": "result:Phase4ThreeCardSpreadSessionTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "result:Phase1HudReflectionSurfaceTestResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "result:Phase1RuntimeMaterialsResult.json",
+      "status": "pass",
+      "detail": "ok=True"
+    },
+    {
+      "name": "three-card demo screenshot",
+      "status": "pass",
+      "detail": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-card-visibility-labels-printwindow-20260602-031850.png"
+    },
+    {
+      "name": "runtime card material unlit",
+      "status": "pass",
+      "detail": "blend=<BlendMode.BLEND_MASKED: 1> shading=<MaterialShadingModel.MSM_UNLIT: 0>"
+    },
+    {
+      "name": "spread view model routed",
+      "status": "pass",
+      "detail": "controller spread helpers present"
+    },
+    {
+      "name": "spread slot selection routed",
+      "status": "pass",
+      "detail": "controller slot selection helpers present"
+    },
+    {
+      "name": "spread table labels routed",
+      "status": "pass",
+      "detail": "table label helpers present"
+    },
+    {
+      "name": "auto demo flag referenced",
+      "status": "pass",
+      "detail": "command-line demo flag present"
+    },
+    {
+      "name": "native slot hud controls",
+      "status": "pass",
+      "detail": "native fallback slot controls present"
+    }
+  ],
+  "nextTask": "Promote the native slot controls into a designed WBP_TableHUD and add table-card labels."
+}

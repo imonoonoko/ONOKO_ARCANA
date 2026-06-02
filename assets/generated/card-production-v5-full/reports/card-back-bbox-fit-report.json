@@ -1,0 +1,35 @@
+{
+  "input": "assets\\generated\\card-production-v5-full\\alpha\\card-back-onoko-v5-alpha.png",
+  "out": "assets\\generated\\card-production-v5-full\\alpha\\card-back-onoko-v5-alpha.png",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "sourceBbox": [
+    99,
+    38,
+    920,
+    1449
+  ],
+  "sourceBboxSize": [
+    821,
+    1411
+  ],
+  "targetBbox": [
+    103,
+    38,
+    921,
+    1504
+  ],
+  "targetBboxSize": [
+    818,
+    1466
+  ],
+  "finalBbox": [
+    103,
+    38,
+    921,
+    1504
+  ],
+  "reason": "Fit V5 card back visible silhouette to major-00 front bbox so front/back sizes match in Unreal QA."
+}

@@ -1,0 +1,306 @@
+{
+  "ok": true,
+  "targetRoot": "/Game/ONOKOArcana/Cards/Textures/V5Full",
+  "count": 23,
+  "results": [
+    {
+      "id": "card-back",
+      "sourceFile": "card-back-onoko-v5-alpha.png",
+      "destinationName": "T_Card_Back_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Card_Back_ONOKO_V5_Alpha.T_Card_Back_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-00-fool",
+      "sourceFile": "major-00-fool-onoko-v5-alpha.png",
+      "destinationName": "T_Major_00_Fool_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_00_Fool_ONOKO_V5_Alpha.T_Major_00_Fool_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-01-magician",
+      "sourceFile": "major-01-magician-onoko-v5-alpha.png",
+      "destinationName": "T_Major_01_Magician_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_01_Magician_ONOKO_V5_Alpha.T_Major_01_Magician_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-02-high-priestess",
+      "sourceFile": "major-02-high-priestess-onoko-v5-alpha.png",
+      "destinationName": "T_Major_02_High_Priestess_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_02_High_Priestess_ONOKO_V5_Alpha.T_Major_02_High_Priestess_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-03-empress",
+      "sourceFile": "major-03-empress-onoko-v5-alpha.png",
+      "destinationName": "T_Major_03_Empress_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_03_Empress_ONOKO_V5_Alpha.T_Major_03_Empress_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-04-emperor",
+      "sourceFile": "major-04-emperor-onoko-v5-alpha.png",
+      "destinationName": "T_Major_04_Emperor_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_04_Emperor_ONOKO_V5_Alpha.T_Major_04_Emperor_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-05-hierophant",
+      "sourceFile": "major-05-hierophant-onoko-v5-alpha.png",
+      "destinationName": "T_Major_05_Hierophant_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_05_Hierophant_ONOKO_V5_Alpha.T_Major_05_Hierophant_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-06-lovers",
+      "sourceFile": "major-06-lovers-onoko-v5-alpha.png",
+      "destinationName": "T_Major_06_Lovers_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_06_Lovers_ONOKO_V5_Alpha.T_Major_06_Lovers_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-07-chariot",
+      "sourceFile": "major-07-chariot-onoko-v5-alpha.png",
+      "destinationName": "T_Major_07_Chariot_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_07_Chariot_ONOKO_V5_Alpha.T_Major_07_Chariot_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-08-strength",
+      "sourceFile": "major-08-strength-onoko-v5-alpha.png",
+      "destinationName": "T_Major_08_Strength_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_08_Strength_ONOKO_V5_Alpha.T_Major_08_Strength_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-09-hermit",
+      "sourceFile": "major-09-hermit-onoko-v5-alpha.png",
+      "destinationName": "T_Major_09_Hermit_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_09_Hermit_ONOKO_V5_Alpha.T_Major_09_Hermit_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-10-wheel-of-fortune",
+      "sourceFile": "major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "destinationName": "T_Major_10_Wheel_Of_Fortune_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_10_Wheel_Of_Fortune_ONOKO_V5_Alpha.T_Major_10_Wheel_Of_Fortune_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-11-justice",
+      "sourceFile": "major-11-justice-onoko-v5-alpha.png",
+      "destinationName": "T_Major_11_Justice_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_11_Justice_ONOKO_V5_Alpha.T_Major_11_Justice_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-12-hanged-man",
+      "sourceFile": "major-12-hanged-man-onoko-v5-alpha.png",
+      "destinationName": "T_Major_12_Hanged_Man_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_12_Hanged_Man_ONOKO_V5_Alpha.T_Major_12_Hanged_Man_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-13-death",
+      "sourceFile": "major-13-death-onoko-v5-alpha.png",
+      "destinationName": "T_Major_13_Death_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_13_Death_ONOKO_V5_Alpha.T_Major_13_Death_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-14-temperance",
+      "sourceFile": "major-14-temperance-onoko-v5-alpha.png",
+      "destinationName": "T_Major_14_Temperance_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_14_Temperance_ONOKO_V5_Alpha.T_Major_14_Temperance_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-15-devil",
+      "sourceFile": "major-15-devil-onoko-v5-alpha.png",
+      "destinationName": "T_Major_15_Devil_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_15_Devil_ONOKO_V5_Alpha.T_Major_15_Devil_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-16-tower",
+      "sourceFile": "major-16-tower-onoko-v5-alpha.png",
+      "destinationName": "T_Major_16_Tower_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_16_Tower_ONOKO_V5_Alpha.T_Major_16_Tower_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-17-star",
+      "sourceFile": "major-17-star-onoko-v5-alpha.png",
+      "destinationName": "T_Major_17_Star_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_17_Star_ONOKO_V5_Alpha.T_Major_17_Star_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-18-moon",
+      "sourceFile": "major-18-moon-onoko-v5-alpha.png",
+      "destinationName": "T_Major_18_Moon_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_18_Moon_ONOKO_V5_Alpha.T_Major_18_Moon_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-19-sun",
+      "sourceFile": "major-19-sun-onoko-v5-alpha.png",
+      "destinationName": "T_Major_19_Sun_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_19_Sun_ONOKO_V5_Alpha.T_Major_19_Sun_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-20-judgement",
+      "sourceFile": "major-20-judgement-onoko-v5-alpha.png",
+      "destinationName": "T_Major_20_Judgement_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_20_Judgement_ONOKO_V5_Alpha.T_Major_20_Judgement_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    },
+    {
+      "id": "major-21-world",
+      "sourceFile": "major-21-world-onoko-v5-alpha.png",
+      "destinationName": "T_Major_21_World_ONOKO_V5_Alpha",
+      "assetPath": "/Game/ONOKOArcana/Cards/Textures/V5Full/T_Major_21_World_ONOKO_V5_Alpha.T_Major_21_World_ONOKO_V5_Alpha",
+      "width": 1024,
+      "height": 1536,
+      "expectedSize": [
+        1024,
+        1536
+      ],
+      "sizeOk": true
+    }
+  ]
+}
