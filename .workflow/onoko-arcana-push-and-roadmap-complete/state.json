@@ -2,7 +2,7 @@
   "title": "ONOKO ARCANA push and roadmap complete",
   "slug": "onoko-arcana-push-and-roadmap-complete",
   "created_at": "2026-06-03T18:42:34+00:00",
-  "status": "in_progress",
+  "status": "completed",
   "approval": {
     "required": true,
     "granted": true,
@@ -27,16 +27,32 @@
     {
       "id": "P4",
       "title": "Roadmap completion",
-      "status": "in_progress"
+      "status": "completed"
     },
     {
       "id": "P5",
       "title": "Final audit",
-      "status": "pending"
+      "status": "completed"
     }
   ],
   "verification": {
-    "status": "not_started",
-    "checks": []
+    "status": "passed",
+    "checks": [
+      {
+        "name": "preflight",
+        "status": "passed",
+        "report": ".workflow/onoko-arcana-push-and-roadmap-complete/results/P2-preflight.md"
+      },
+      {
+        "name": "current-state-push",
+        "status": "passed",
+        "report": ".workflow/onoko-arcana-push-and-roadmap-complete/results/P3-current-state-push.md"
+      },
+      {
+        "name": "roadmap-completion-push",
+        "status": "passed",
+        "report": ".workflow/onoko-arcana-push-and-roadmap-complete/results/P4-roadmap-completion.md"
+      }
+    ]
   }
 }
