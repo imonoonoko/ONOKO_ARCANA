@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "app": "web-app\\index.html",
+  "desktop": {
+    "screenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-web-app-celtic-20260603-022941.png",
+    "consoleErrors": [],
+    "guideDisabledBeforeNote": true,
+    "guideDisabledAfterNote": false,
+    "state": {
+      "spreadTitle": "ケルト十字",
+      "spreadChoices": 6,
+      "revealed": "10",
+      "saved": "2",
+      "cards": 10,
+      "selected": "XVII 星",
+      "guideRows": 3,
+      "historyItems": 2,
+      "status": "10 / 10 opened",
+      "exportDisabled": false,
+      "scrollWidth": 1600,
+      "viewport": 1600
+    }
+  },
+  "mobile": {
+    "screenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-web-app-mobile-20260603-022941.png",
+    "consoleErrors": [],
+    "state": {
+      "spreadTitle": "関係性ライン",
+      "revealed": "6",
+      "cards": 6,
+      "guideRows": 3,
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  },
+  "checkedAt": "2026-06-02T17:29:45.889Z"
+}

@@ -1,0 +1,431 @@
+{
+  "ok": false,
+  "app": "web-app\\index.html",
+  "runDir": "reports\\ui-visual-audit-20260603-022804",
+  "cases": [
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "tableCaptionCount": 1,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "three_card_past_present_future",
+        "spreadLabel": "three-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-three-card.png"
+      },
+      "title": "過去・現在・未来",
+      "cardCount": 3,
+      "tableCaptionCount": 3,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "code": "slot-label-card-overlap",
+          "message": "slot label overlaps its card",
+          "slot": 1,
+          "label": "1 過去",
+          "labelRect": {
+            "left": 499.57,
+            "top": 312,
+            "right": 596.54,
+            "bottom": 362.38,
+            "width": 96.98,
+            "height": 50.38
+          },
+          "cardRect": {
+            "left": 459.3,
+            "top": 362.23,
+            "right": 666.66,
+            "bottom": 653.22,
+            "width": 207.35,
+            "height": 290.99
+          }
+        },
+        {
+          "severity": "P1",
+          "code": "slot-label-card-overlap",
+          "message": "slot label overlaps its card",
+          "slot": 3,
+          "label": "3 未来",
+          "labelRect": {
+            "left": 942.55,
+            "top": 311.93,
+            "right": 1041.28,
+            "bottom": 362.45,
+            "width": 98.72,
+            "height": 50.53
+          },
+          "cardRect": {
+            "left": 873.33,
+            "top": 362.23,
+            "right": 1080.68,
+            "bottom": 653.22,
+            "width": 207.35,
+            "height": 290.99
+          }
+        }
+      ],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "desktop",
+        "width": 1600,
+        "height": 980,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1600,
+        "viewport": 1600,
+        "bodyHeight": 980
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\compact-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "tableCaptionCount": 1,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 961
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "five_card_cross",
+        "spreadLabel": "five-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\compact-five-cross.png"
+      },
+      "title": "五枚クロス",
+      "cardCount": 5,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 961
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "celtic_cross",
+        "spreadLabel": "celtic-cross",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\compact-celtic-cross.png"
+      },
+      "title": "ケルト十字",
+      "cardCount": 10,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 961
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "compact",
+        "width": 1280,
+        "height": 840,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\compact-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 1280,
+        "viewport": 1280,
+        "bodyHeight": 961
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "one_card",
+        "spreadLabel": "one-card",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\mobile-one-card.png"
+      },
+      "title": "一枚引き",
+      "cardCount": 1,
+      "tableCaptionCount": 1,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2596
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "seven_card_horseshoe",
+        "spreadLabel": "seven-horseshoe",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\mobile-seven-horseshoe.png"
+      },
+      "title": "七枚ホースシュー",
+      "cardCount": 7,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2629
+      },
+      "issues": [],
+      "consoleErrors": []
+    },
+    {
+      "meta": {
+        "viewport": "mobile",
+        "width": 390,
+        "height": 900,
+        "spreadId": "relationship_line",
+        "spreadLabel": "relationship-line",
+        "screenshot": "reports\\ui-visual-audit-20260603-022804\\mobile-relationship-line.png"
+      },
+      "title": "関係性ライン",
+      "cardCount": 6,
+      "tableCaptionCount": 0,
+      "consoleState": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "bodyHeight": 2629
+      },
+      "issues": [],
+      "consoleErrors": []
+    }
+  ],
+  "issues": [
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-three-card.png",
+      "severity": "P1",
+      "code": "slot-label-card-overlap",
+      "message": "slot label overlaps its card",
+      "slot": 1,
+      "label": "1 過去",
+      "labelRect": {
+        "left": 499.57,
+        "top": 312,
+        "right": 596.54,
+        "bottom": 362.38,
+        "width": 96.98,
+        "height": 50.38
+      },
+      "cardRect": {
+        "left": 459.3,
+        "top": 362.23,
+        "right": 666.66,
+        "bottom": 653.22,
+        "width": 207.35,
+        "height": 290.99
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-three-card.png",
+      "severity": "P1",
+      "code": "slot-label-card-overlap",
+      "message": "slot label overlaps its card",
+      "slot": 3,
+      "label": "3 未来",
+      "labelRect": {
+        "left": 942.55,
+        "top": 311.93,
+        "right": 1041.28,
+        "bottom": 362.45,
+        "width": 98.72,
+        "height": 50.53
+      },
+      "cardRect": {
+        "left": 873.33,
+        "top": 362.23,
+        "right": 1080.68,
+        "bottom": 653.22,
+        "width": 207.35,
+        "height": 290.99
+      }
+    }
+  ],
+  "blockingIssues": [
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-three-card.png",
+      "severity": "P1",
+      "code": "slot-label-card-overlap",
+      "message": "slot label overlaps its card",
+      "slot": 1,
+      "label": "1 過去",
+      "labelRect": {
+        "left": 499.57,
+        "top": 312,
+        "right": 596.54,
+        "bottom": 362.38,
+        "width": 96.98,
+        "height": 50.38
+      },
+      "cardRect": {
+        "left": 459.3,
+        "top": 362.23,
+        "right": 666.66,
+        "bottom": 653.22,
+        "width": 207.35,
+        "height": 290.99
+      }
+    },
+    {
+      "viewport": "desktop",
+      "spreadId": "three_card_past_present_future",
+      "spreadLabel": "three-card",
+      "screenshot": "reports\\ui-visual-audit-20260603-022804\\desktop-three-card.png",
+      "severity": "P1",
+      "code": "slot-label-card-overlap",
+      "message": "slot label overlaps its card",
+      "slot": 3,
+      "label": "3 未来",
+      "labelRect": {
+        "left": 942.55,
+        "top": 311.93,
+        "right": 1041.28,
+        "bottom": 362.45,
+        "width": 98.72,
+        "height": 50.53
+      },
+      "cardRect": {
+        "left": 873.33,
+        "top": 362.23,
+        "right": 1080.68,
+        "bottom": 653.22,
+        "width": 207.35,
+        "height": 290.99
+      }
+    }
+  ],
+  "counts": {
+    "P1": 2,
+    "P1:slot-label-card-overlap": 2
+  },
+  "checkedAt": "2026-06-02T17:28:24.511Z"
+}

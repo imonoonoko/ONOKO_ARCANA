@@ -121,11 +121,6 @@ function selectedNote() {
   return state.notes[slotNoteKey(selected.slot, selected.index)] || "";
 }
 
-function keywordLine(card) {
-  const list = card.reversed ? card.reversedKeywords : card.uprightKeywords;
-  return list.slice(0, 3).join(" / ");
-}
-
 function escapeText(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -194,12 +189,13 @@ function renderBoard() {
       card && revealed && card.reversed ? "is-reversed" : "",
       selected ? "is-selected" : ""
     ].filter(Boolean).join(" ");
-    const topLabel = card && revealed ? `${card.number} ${card.japaneseName}` : card ? "カード裏面" : "空きスロット";
-    const orientation = card && revealed ? (card.reversed ? "逆位置" : "正位置") : "";
+    const topLabel = card && revealed ? `${card.displayNumber} ${card.japaneseName}` : card ? "カード裏面" : "空きスロット";
     const orientationShort = card && revealed ? (card.reversed ? "逆" : "正") : "";
-    const cardInscription = card && revealed && textMode === "inscription" ? `
-          <span class="card-inscription top"><span>${escapeText(topLabel)}</span><span class="orientation">${orientation}</span></span>
-          <span class="card-inscription bottom">${escapeText(keywordLine(card))}</span>
+    const cardTableCaption = card && revealed && textMode === "inscription" ? `
+        <div class="card-table-caption">
+          <b>${escapeText(`${card.displayNumber} ${card.japaneseName}`)}</b>
+          <span>${card.reversed ? "逆位置" : "正位置"} / ${escapeText(slot.label)}</span>
+        </div>
         ` : "";
     const cardMarker = card && revealed && textMode === "marker" ? `
           <span class="card-marker" aria-hidden="true">
@@ -218,9 +214,9 @@ function renderBoard() {
         ${slotLabelMarkup}
         <button class="${classes}" type="button" data-slot-index="${index}" ${!revealed ? "aria-disabled='true'" : ""}>
           ${card ? `<img class="${card.reversed && revealed ? "reversed" : ""}" src="${image}" alt="${escapeText(topLabel)}">` : "<span class='empty-mark'></span>"}
-          ${cardInscription}
           ${cardMarker}
         </button>
+        ${cardTableCaption}
       </div>
     `;
   }).join("");
@@ -285,15 +281,16 @@ function renderInspector() {
   const activeKeywords = card.reversed ? card.reversedKeywords : card.uprightKeywords;
   const note = selectedNote();
   els.selectedCard.innerHTML = `
-    <img class="${card.reversed ? "reversed" : ""}" src="${card.image}" alt="${escapeText(`${card.number} ${card.japaneseName}`)}">
+    <img class="${card.reversed ? "reversed" : ""}" src="${card.image}" alt="${escapeText(`${card.displayNumber} ${card.japaneseName}`)}">
     <div class="selected-copy">
-      <h2>${escapeText(card.japaneseName)}</h2>
+      <h2>${escapeText(`${card.displayNumber} ${card.japaneseName}`)}</h2>
       <p>${escapeText(card.englishName)}</p>
       <div class="badge-row">
         <span class="badge gold">${index + 1}. ${escapeText(slot.label)}</span>
-        <span class="badge">${escapeText(card.number)}</span>
+        <span class="badge">${escapeText(card.displayNumber)}</span>
         <span class="badge">${orientationText}</span>
       </div>
+      <p class="keyword-preview"><b>キーワード</b>${escapeText(activeKeywords.join(" / "))}</p>
     </div>
   `;
   els.noteInput.disabled = false;
@@ -382,6 +379,7 @@ function saveReading() {
     return {
       cardId: card.id,
       number: card.number,
+      displayNumber: card.displayNumber,
       japaneseName: card.japaneseName,
       englishName: card.englishName,
       reversed: card.reversed,
@@ -398,7 +396,9 @@ function saveReading() {
     revealedCount: state.revealedCount,
     notes: state.notes,
     cards: revealedCards,
-    summary: revealedCards.map((card) => `${card.slotLabel}:${card.number}${card.reversed ? "逆" : "正"}`).join(" / ")
+    summary: revealedCards
+      .map((card) => `${card.slotLabel}:${card.displayNumber || card.number} ${card.japaneseName}${card.reversed ? "逆" : "正"}`)
+      .join(" / ")
   };
   const history = readHistory();
   history.unshift(item);

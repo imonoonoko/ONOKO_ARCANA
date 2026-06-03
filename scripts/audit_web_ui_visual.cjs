@@ -108,7 +108,7 @@ async function auditDom(page, meta) {
       ".spread-choice-copy strong",
       ".spread-choice-copy span",
       ".slot-label",
-      ".card-inscription",
+      ".card-table-caption",
       ".button",
       ".progress-dot span:last-child",
       ".selected-copy h2",
@@ -145,7 +145,7 @@ async function auditDom(page, meta) {
     document.querySelectorAll(".spread-choice").forEach((row) => {
       const copy = row.querySelector(".spread-choice-copy");
       const mini = row.querySelector(".spread-mini");
-      const count = row.querySelector("em");
+      const count = row.querySelector(".spread-mini-count");
       if (!copy || !mini || !count) return;
       const copyRect = rectOf(copy);
       const miniRect = rectOf(mini);
@@ -217,19 +217,21 @@ async function auditDom(page, meta) {
     });
 
     document.querySelectorAll(".arcana-card img").forEach((img, index) => {
-      const card = img.closest(".arcana-card");
+      const slot = img.closest(".slot");
+      const board = img.closest(".spread-board");
       const rect = rectOf(img);
       const natural = { width: img.naturalWidth, height: img.naturalHeight };
-      const hasReadableInscriptions = Boolean(card?.querySelector(".card-inscription"));
-      if (hasReadableInscriptions && (rect.width < 120 || rect.height < 180)) {
-        add("P2", "card-rendered-small", "card image is rendered too small for in-card labels/details", {
+      const isLabeledDerivative = img.currentSrc.includes("/web-labeled/") || img.src.includes("/web-labeled/");
+      const hasTableCaption = Boolean(slot?.querySelector(".card-table-caption"));
+      if (isLabeledDerivative && hasTableCaption && (rect.width < 170 || rect.height < 250)) {
+        add("P2", "labeled-card-rendered-small", "labeled card is rendered too small for its printed text to help", {
           slot: index + 1,
           rect,
           natural
         });
       }
       const previewLongSide = Math.max(rect.width, rect.height);
-      if (!hasReadableInscriptions && previewLongSide < 105) {
+      if (board?.classList.contains("mode-marker") && previewLongSide < 105) {
         add("P2", "card-preview-too-small", "marker-mode card preview is too small to identify the artwork", {
           slot: index + 1,
           rect,
@@ -263,7 +265,7 @@ async function auditDom(page, meta) {
       meta: input,
       title: document.querySelector("#spreadTitle")?.textContent || "",
       cardCount: cards.length,
-      inscriptionCount: document.querySelectorAll(".card-inscription").length,
+      tableCaptionCount: document.querySelectorAll(".card-table-caption").length,
       consoleState: {
         scrollWidth: document.documentElement.scrollWidth,
         viewport: window.innerWidth,
@@ -326,12 +328,14 @@ async function runCase(browser, runDir, viewport, spread) {
     acc[`${issue.severity}:${issue.code}`] = (acc[`${issue.severity}:${issue.code}`] || 0) + 1;
     return acc;
   }, {});
+  const blockingIssues = issues.filter((issue) => issue.severity === "P1" || issue.severity === "P2");
   const report = {
-    ok: cases.every((item) => item.consoleErrors.length === 0),
+    ok: cases.every((item) => item.consoleErrors.length === 0) && blockingIssues.length === 0,
     app: path.relative(ROOT, APP),
     runDir: path.relative(ROOT, runDir),
     cases,
     issues,
+    blockingIssues,
     counts,
     checkedAt: new Date().toISOString()
   };

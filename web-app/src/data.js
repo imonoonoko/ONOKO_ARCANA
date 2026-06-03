@@ -1,7 +1,33 @@
 (() => {
-const ASSET_ROOT = "../assets/generated/card-production-v5-full/alpha/";
+const SOURCE_ASSET_ROOT = "../assets/generated/card-production-v5-full/alpha/";
+const WEB_CARD_ROOT = "../assets/generated/card-production-v5-full/web-labeled/alpha/";
 
-const CARD_BACK = `${ASSET_ROOT}card-back-onoko-v5-alpha.png`;
+const CARD_BACK = `${WEB_CARD_ROOT}card-back-onoko-v5-alpha.png`;
+
+const ROMAN_NUMERALS = {
+  "00": "0",
+  "01": "I",
+  "02": "II",
+  "03": "III",
+  "04": "IV",
+  "05": "V",
+  "06": "VI",
+  "07": "VII",
+  "08": "VIII",
+  "09": "IX",
+  "10": "X",
+  "11": "XI",
+  "12": "XII",
+  "13": "XIII",
+  "14": "XIV",
+  "15": "XV",
+  "16": "XVI",
+  "17": "XVII",
+  "18": "XVIII",
+  "19": "XIX",
+  "20": "XX",
+  "21": "XXI"
+};
 
 const CARD_ROWS = [
   ["00", "fool", "愚者", "The Fool", ["始まり", "自由", "可能性", "冒険"], ["無計画", "軽率", "迷走", "準備不足"], "まだ形になっていない可能性を、恐れすぎず観測し始める。"],
@@ -31,13 +57,15 @@ const CARD_ROWS = [
 const cards = CARD_ROWS.map(([number, slug, japaneseName, englishName, uprightKeywords, reversedKeywords, studyFocus]) => ({
   id: `major-${number}-${slug}`,
   number,
+  displayNumber: ROMAN_NUMERALS[number] || number,
   slug,
   japaneseName,
   englishName,
   uprightKeywords,
   reversedKeywords,
   studyFocus,
-  image: `${ASSET_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`
+  sourceImage: `${SOURCE_ASSET_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`,
+  image: `${WEB_CARD_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`
 }));
 
 const spreads = [

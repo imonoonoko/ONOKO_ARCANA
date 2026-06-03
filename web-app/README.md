@@ -27,6 +27,18 @@ Verification:
 python scripts/check_web_app.py
 ```
 
+Regenerate the Web-only labeled card derivatives:
+
+```text
+C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe scripts/build_web_labeled_cards.py
+```
+
+The generated front-card images live under:
+
+```text
+assets/generated/card-production-v5-full/web-labeled/alpha/
+```
+
 Browser smoke, using the bundled Playwright runtime in this Codex environment:
 
 ```text

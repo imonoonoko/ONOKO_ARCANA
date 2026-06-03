@@ -127,6 +127,19 @@ def main() -> None:
     if missing_assets:
         fail("required card assets are missing", {"missingAssets": missing_assets})
 
+    web_labeled_root = ROOT / "assets" / "generated" / "card-production-v5-full" / "web-labeled" / "alpha"
+    expected_web_labeled_assets = [web_labeled_root / "card-back-onoko-v5-alpha.png"]
+    expected_web_labeled_assets.extend(
+        web_labeled_root / f"major-{number}-{slug}-onoko-v5-alpha.png"
+        for number, slug in CARD_SLUGS
+    )
+    missing_web_labeled_assets = [str(path.relative_to(ROOT)) for path in expected_web_labeled_assets if not path.exists()]
+    if missing_web_labeled_assets:
+        fail("required web labeled card assets are missing", {"missingWebLabeledAssets": missing_web_labeled_assets})
+
+    if "WEB_CARD_ROOT" not in data or "web-labeled/alpha" not in data:
+        fail("web app must use labeled card derivatives for front-card images", {"path": str(DATA.relative_to(ROOT))})
+
     hud_root = ROOT / "assets" / "generated" / "hud-elements" / "20260602-astra-modular-kit" / "components"
     expected_hud_assets = [
         hud_root / "panels" / "panel-02.png",
@@ -162,6 +175,7 @@ def main() -> None:
         "requiredIds": len(REQUIRED_IDS),
         "spreads": SPREAD_IDS,
         "cardAssets": len(expected_assets),
+        "webLabeledCardAssets": len(expected_web_labeled_assets),
         "hudAssets": len(expected_hud_assets),
         "electronShell": str(ELECTRON_MAIN.relative_to(ROOT)),
         "checkedAt": datetime.now().isoformat(timespec="seconds"),

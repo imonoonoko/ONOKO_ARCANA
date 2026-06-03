@@ -1,0 +1,495 @@
+{
+  "ok": true,
+  "deck": "data\\major-arcana-v5-deck.json",
+  "font": "C:\\Windows\\Fonts\\meiryob.ttc",
+  "outputRoot": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha",
+  "cardBack": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\card-back-onoko-v5-alpha.png",
+  "cards": [
+    {
+      "id": "major-00-fool",
+      "number": "00",
+      "displayNumber": "0",
+      "japaneseName": "愚者",
+      "englishName": "The Fool",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-00-fool-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-00-fool-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 26
+    },
+    {
+      "id": "major-01-magician",
+      "number": "01",
+      "displayNumber": "I",
+      "japaneseName": "魔術師",
+      "englishName": "The Magician",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-01-magician-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-01-magician-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        35,
+        921,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 28
+    },
+    {
+      "id": "major-02-high-priestess",
+      "number": "02",
+      "displayNumber": "II",
+      "japaneseName": "女教皇",
+      "englishName": "The High Priestess",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-02-high-priestess-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-02-high-priestess-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-03-empress",
+      "number": "03",
+      "displayNumber": "III",
+      "japaneseName": "女帝",
+      "englishName": "The Empress",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-03-empress-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-03-empress-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-04-emperor",
+      "number": "04",
+      "displayNumber": "IV",
+      "japaneseName": "皇帝",
+      "englishName": "The Emperor",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-04-emperor-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-04-emperor-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-05-hierophant",
+      "number": "05",
+      "displayNumber": "V",
+      "japaneseName": "教皇",
+      "englishName": "The Hierophant",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-05-hierophant-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-05-hierophant-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-06-lovers",
+      "number": "06",
+      "displayNumber": "VI",
+      "japaneseName": "恋人",
+      "englishName": "The Lovers",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-06-lovers-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-06-lovers-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 25
+    },
+    {
+      "id": "major-07-chariot",
+      "number": "07",
+      "displayNumber": "VII",
+      "japaneseName": "戦車",
+      "englishName": "The Chariot",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-07-chariot-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-07-chariot-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-08-strength",
+      "number": "08",
+      "displayNumber": "VIII",
+      "japaneseName": "力",
+      "englishName": "Strength",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-08-strength-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-08-strength-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        104,
+        38,
+        920,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 28
+    },
+    {
+      "id": "major-09-hermit",
+      "number": "09",
+      "displayNumber": "IX",
+      "japaneseName": "隠者",
+      "englishName": "The Hermit",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-09-hermit-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-09-hermit-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-10-wheel-of-fortune",
+      "number": "10",
+      "displayNumber": "X",
+      "japaneseName": "運命の輪",
+      "englishName": "Wheel of Fortune",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-10-wheel-of-fortune-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-11-justice",
+      "number": "11",
+      "displayNumber": "XI",
+      "japaneseName": "正義",
+      "englishName": "Justice",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-11-justice-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-11-justice-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        102,
+        37,
+        921,
+        1505
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-12-hanged-man",
+      "number": "12",
+      "displayNumber": "XII",
+      "japaneseName": "吊された男",
+      "englishName": "The Hanged Man",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-12-hanged-man-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-12-hanged-man-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 26
+    },
+    {
+      "id": "major-13-death",
+      "number": "13",
+      "displayNumber": "XIII",
+      "japaneseName": "死神",
+      "englishName": "Death",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-13-death-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-13-death-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        921,
+        1503
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 28
+    },
+    {
+      "id": "major-14-temperance",
+      "number": "14",
+      "displayNumber": "XIV",
+      "japaneseName": "節制",
+      "englishName": "Temperance",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-14-temperance-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-14-temperance-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-15-devil",
+      "number": "15",
+      "displayNumber": "XV",
+      "japaneseName": "悪魔",
+      "englishName": "The Devil",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-15-devil-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-15-devil-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 32
+    },
+    {
+      "id": "major-16-tower",
+      "number": "16",
+      "displayNumber": "XVI",
+      "japaneseName": "塔",
+      "englishName": "The Tower",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-16-tower-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-16-tower-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 26
+    },
+    {
+      "id": "major-17-star",
+      "number": "17",
+      "displayNumber": "XVII",
+      "japaneseName": "星",
+      "englishName": "The Star",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-17-star-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-17-star-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        36,
+        921,
+        1506
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-18-moon",
+      "number": "18",
+      "displayNumber": "XVIII",
+      "japaneseName": "月",
+      "englishName": "The Moon",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-18-moon-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-18-moon-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-19-sun",
+      "number": "19",
+      "displayNumber": "XIX",
+      "japaneseName": "太陽",
+      "englishName": "The Sun",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-19-sun-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-19-sun-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        38,
+        920,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 30
+    },
+    {
+      "id": "major-20-judgement",
+      "number": "20",
+      "displayNumber": "XX",
+      "japaneseName": "審判",
+      "englishName": "Judgement",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-20-judgement-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-20-judgement-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1505
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 25
+    },
+    {
+      "id": "major-21-world",
+      "number": "21",
+      "displayNumber": "XXI",
+      "japaneseName": "世界",
+      "englishName": "The World",
+      "source": "assets\\generated\\card-production-v5-full\\alpha\\major-21-world-onoko-v5-alpha.png",
+      "output": "assets\\generated\\card-production-v5-full\\web-labeled\\alpha\\major-21-world-onoko-v5-alpha.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "alphaBbox": [
+        103,
+        37,
+        921,
+        1504
+      ],
+      "numberFont": 43,
+      "titleFont": 44,
+      "keywordFont": 26
+    }
+  ],
+  "contactSheet": "assets\\generated\\card-production-v5-full\\web-labeled\\reports\\web-labeled-major-arcana-contact-sheet.png",
+  "generatedAt": "2026-06-03T02:41:08"
+}

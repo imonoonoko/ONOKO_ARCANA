@@ -96,7 +96,7 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 14px;
+  padding: 16px;
   overflow: hidden;
 }
 
@@ -246,14 +246,14 @@ textarea:focus-visible {
 }
 
 .section-row.action-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: start;
-  gap: 6px;
+  min-height: 36px;
+  padding: 0 6px;
+  gap: 10px;
 }
 
 .section-row.action-row .button.compact {
-  justify-self: start;
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
 .section-title {
@@ -271,10 +271,11 @@ textarea:focus-visible {
   border-image-width: 14px;
   border-image-repeat: stretch;
   border-radius: var(--radius);
-  padding: 8px 10px;
+  padding: 12px 14px;
   color: var(--text);
   background: var(--hud-field);
   caret-color: var(--blue);
+  line-height: 1.55;
 }
 
 .text-field::placeholder {
@@ -305,13 +306,13 @@ textarea:focus-visible {
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 9px;
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 10px;
   align-items: center;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  min-height: 58px;
-  padding: 9px 10px 9px 8px;
+  min-height: 68px;
+  padding: 10px 16px 10px 20px;
   background: var(--hud-surface);
   cursor: pointer;
   text-align: left;
@@ -361,7 +362,7 @@ textarea:focus-visible {
 }
 
 .spread-choice-copy {
-  padding: 2px 3px;
+  padding: 3px 8px 3px 2px;
   border-radius: 4px;
   background: linear-gradient(90deg, rgba(2, 7, 13, 0.92), rgba(2, 7, 13, 0.7) 88%, transparent);
 }
@@ -390,29 +391,32 @@ textarea:focus-visible {
 
 .spread-mini {
   position: relative;
-  width: 34px;
-  height: 30px;
-  border: 1px solid rgba(216, 180, 107, 0.22);
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(216, 180, 107, 0.36);
   border-radius: 6px;
   background:
-    radial-gradient(circle at 50% 50%, rgba(67, 168, 255, 0.16), transparent 62%),
-    rgba(2, 7, 12, 0.72);
-  box-shadow: inset 0 0 14px rgba(67, 168, 255, 0.08);
+    radial-gradient(circle at 50% 50%, rgba(67, 168, 255, 0.22), transparent 62%),
+    #02070d;
+  box-shadow: 0 0 0 3px rgba(2, 7, 13, 0.92), inset 0 0 15px rgba(67, 168, 255, 0.12);
+  place-self: center;
+  margin-left: 0;
+  overflow: hidden;
 }
 
 .spread-mini-count {
   position: absolute;
-  right: -5px;
-  bottom: -5px;
-  min-width: 16px;
-  height: 16px;
+  right: 5px;
+  bottom: 5px;
+  min-width: 17px;
+  height: 17px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(216, 180, 107, 0.72);
   border-radius: 999px;
   color: var(--gold);
   background: #04101a;
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
   line-height: 1;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.72);
@@ -511,9 +515,9 @@ textarea:focus-visible {
 .topbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
-  padding: 12px 14px;
+  padding: 16px 22px 15px 24px;
   overflow: hidden;
 }
 
@@ -532,6 +536,7 @@ textarea:focus-visible {
 
 .spread-heading {
   min-width: 0;
+  padding-left: 8px;
 }
 
 .spread-heading h2 {
@@ -559,10 +564,10 @@ textarea:focus-visible {
 
 .button {
   position: relative;
-  min-height: 34px;
+  min-height: 38px;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  padding: 7px 11px;
+  padding: 8px 14px;
   color: var(--gold);
   background:
     var(--hud-9-button) center / 100% 100% no-repeat,
@@ -593,8 +598,8 @@ textarea:focus-visible {
 }
 
 .button.compact {
-  min-height: 28px;
-  padding: 5px 10px;
+  min-height: 34px;
+  padding: 7px 13px;
 }
 
 .button:disabled {
@@ -670,9 +675,13 @@ textarea:focus-visible {
   width: var(--card-w);
   transform: translate(-50%, -50%) rotate(var(--rot));
   display: grid;
-  gap: 16px;
+  gap: 17px;
   justify-items: center;
   isolation: isolate;
+}
+
+.layout-one_card .slot {
+  gap: 14px;
 }
 
 .is-dense-board .slot {
@@ -700,10 +709,10 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  min-width: 62px;
-  max-width: 135px;
-  padding: 4px 8px 4px 20px;
+  gap: 7px;
+  min-width: 88px;
+  max-width: 180px;
+  padding: 6px 15px 6px 28px;
   border: 8px solid transparent;
   border-image-source: var(--hud-9-button);
   border-image-slice: 92 52 92 52 fill;
@@ -713,8 +722,8 @@ textarea:focus-visible {
   color: var(--gold);
   background: var(--hud-field);
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
-  font-size: 11px;
-  line-height: 1.2;
+  font-size: 11.5px;
+  line-height: 1.25;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -735,9 +744,9 @@ textarea:focus-visible {
 .slot-label::before {
   content: "";
   position: absolute;
-  left: 5px;
+  left: 7px;
   top: 50%;
-  width: 14px;
+  width: 15px;
   aspect-ratio: 1;
   transform: translateY(-50%);
   background-image: var(--hud-pip);
@@ -829,10 +838,13 @@ textarea:focus-visible {
   padding: 0;
   border-radius: 7px;
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.58)) drop-shadow(0 0 10px rgba(67, 168, 255, 0.14));
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .arcana-card img.reversed {
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateZ(0);
 }
 
 .arcana-card.is-selected img {
@@ -846,45 +858,41 @@ textarea:focus-visible {
   border-radius: 50%;
 }
 
-.card-inscription {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.card-table-caption {
+  width: max-content;
+  min-width: 132px;
+  max-width: min(282px, calc(var(--card-w) + 76px));
+  display: grid;
   gap: 4px;
-  color: #171009;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.05;
+  justify-items: center;
+  padding: 9px 16px;
+  border: 1px solid rgba(216, 180, 107, 0.48);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(2, 7, 13, 0.9);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.34), 0 0 12px rgba(67, 168, 255, 0.14);
+  font-size: 12px;
+  line-height: 1.28;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 247, 220, 0.54);
-  pointer-events: none;
-  overflow: hidden;
+  transform: rotate(var(--counter-rot)) translateY(-1px);
 }
 
-.card-inscription.top {
-  left: 19%;
-  right: 19%;
-  top: 9.8%;
-  height: 8.4%;
-  justify-content: space-between;
+.card-table-caption b,
+.card-table-caption span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.card-inscription.bottom {
-  left: 17%;
-  right: 17%;
-  bottom: 10.4%;
-  height: 9.2%;
-  color: #241708;
-  white-space: normal;
+.card-table-caption b {
+  color: var(--gold);
+  font-size: 13.5px;
 }
 
-.card-inscription .orientation {
-  flex: 0 0 auto;
-  margin-left: 4px;
-  font-size: 0.9em;
+.card-table-caption span {
+  color: var(--blue-soft);
+  font-size: 11px;
 }
 
 .card-marker {
@@ -916,38 +924,12 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
-.arcana-card.is-reversed .card-inscription.top {
-  top: auto;
-  bottom: 10.4%;
-}
-
-.arcana-card.is-reversed .card-inscription.bottom {
-  top: 9.8%;
-  bottom: auto;
-}
-
 .layout-one_card {
-  --card-w: clamp(178px, 20vw, 234px);
-}
-
-.layout-one_card .card-inscription.top {
-  font-size: 11px;
-}
-
-.layout-one_card .card-inscription.bottom {
-  font-size: 9px;
+  --card-w: clamp(228px, 24vw, 330px);
 }
 
 .layout-three_card_past_present_future {
-  --card-w: clamp(128px, 12vw, 168px);
-}
-
-.layout-three_card_past_present_future .card-inscription.top {
-  font-size: 9px;
-}
-
-.layout-three_card_past_present_future .card-inscription.bottom {
-  font-size: 8px;
+  --card-w: clamp(136px, 13vw, 184px);
 }
 
 .layout-five_card_cross {
@@ -969,9 +951,9 @@ textarea:focus-visible {
 .command-bar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
-  padding: 10px 12px;
+  padding: 12px 20px 13px 18px;
   overflow: hidden;
 }
 
@@ -994,7 +976,7 @@ textarea:focus-visible {
   flex-wrap: wrap;
   gap: 6px;
   overflow-x: visible;
-  padding-bottom: 2px;
+  padding: 1px 8px 3px 2px;
 }
 
 .progress-dot {
@@ -1045,8 +1027,15 @@ textarea:focus-visible {
 }
 
 .status-line {
+  justify-self: end;
+  min-width: 92px;
+  padding: 4px 10px;
+  border: 1px solid rgba(216, 180, 107, 0.28);
+  border-radius: 999px;
   color: var(--muted);
+  background: rgba(2, 7, 13, 0.76);
   font-size: 12px;
+  line-height: 1.2;
   text-align: right;
   white-space: nowrap;
 }
@@ -1054,11 +1043,11 @@ textarea:focus-visible {
 .selected-card {
   position: relative;
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 16px;
   align-items: center;
-  min-height: 138px;
-  padding: 10px;
+  min-height: 172px;
+  padding: 18px 20px;
   border: 1px solid transparent;
   border-radius: var(--radius);
   background: var(--hud-surface);
@@ -1098,14 +1087,15 @@ textarea:focus-visible {
 }
 
 .selected-card img {
-  width: 96px;
+  width: 118px;
   aspect-ratio: 2 / 3;
   object-fit: contain;
   border: 1px solid rgba(216, 180, 107, 0.3);
   border-radius: var(--radius);
   background: var(--hud-field);
-  padding: 4px;
+  padding: 6px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.36);
+  image-rendering: auto;
 }
 
 .selected-card img.reversed {
@@ -1117,6 +1107,11 @@ textarea:focus-visible {
   line-height: 1.2;
 }
 
+.selected-copy {
+  min-width: 0;
+  padding: 2px 2px 2px 0;
+}
+
 .selected-copy p {
   margin: 5px 0 0;
   color: var(--muted);
@@ -1124,25 +1119,43 @@ textarea:focus-visible {
   line-height: 1.45;
 }
 
+.selected-copy .keyword-preview {
+  margin-top: 9px;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.keyword-preview b {
+  margin-right: 7px;
+  color: var(--gold);
+}
+
 .badge-row {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .badge {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 9px solid transparent;
   border-image-source: var(--hud-9-button);
   border-image-slice: 92 52 92 52 fill;
   border-image-width: 8px 11px;
   border-image-repeat: stretch;
   border-radius: 999px;
-  padding: 4px 7px;
+  padding: 6px 10px;
   color: var(--blue-soft);
   background: var(--hud-field);
   font-size: 11px;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 .badge.gold {
@@ -1161,7 +1174,7 @@ textarea:focus-visible {
   border-image-slice: 70 fill;
   border-image-width: 10px 12px;
   border-image-repeat: stretch;
-  padding: 8px 10px;
+  padding: 11px 14px;
   background: var(--hud-field);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -1207,7 +1220,7 @@ textarea:focus-visible {
   border-image-width: 12px;
   border-image-repeat: stretch;
   border-radius: var(--radius);
-  padding: 8px;
+  padding: 11px 12px;
   color: var(--text);
   background: var(--hud-field);
   text-align: left;
@@ -1305,11 +1318,11 @@ textarea:focus-visible {
   }
 
   .layout-one_card {
-    --card-w: clamp(160px, 44vw, 210px);
+    --card-w: clamp(190px, 54vw, 230px);
   }
 
   .layout-three_card_past_present_future {
-    --card-w: clamp(96px, 26vw, 120px);
+    --card-w: clamp(92px, 24vw, 112px);
   }
 
   .layout-five_card_cross {

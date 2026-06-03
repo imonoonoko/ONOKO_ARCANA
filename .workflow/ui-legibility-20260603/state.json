@@ -1,0 +1,41 @@
+{
+  "workflow": "ui-legibility-20260603",
+  "status": "completed",
+  "currentStep": "final-report",
+  "packets": [
+    {
+      "id": "P1",
+      "name": "asset-label pipeline",
+      "status": "completed"
+    },
+    {
+      "id": "P2",
+      "name": "web integration",
+      "status": "completed"
+    },
+    {
+      "id": "P3",
+      "name": "qa",
+      "status": "completed"
+    },
+    {
+      "id": "P4",
+      "name": "red-box position correction",
+      "status": "completed"
+    },
+    {
+      "id": "P5",
+      "name": "spread mini background overlap and card text offsets",
+      "status": "completed"
+    }
+  ],
+  "approvalRequired": false,
+  "notes": [
+    "Derived assets only; approved V5 source alpha files are not overwritten.",
+    "Static check, visual audit, smoke test, and Browser loopback verification passed.",
+    "2026-06-03: Red-box position correction pass started for Web/Electron UI.",
+    "2026-06-03: Position pass passed static check, 13-case visual audit, smoke test, and one-card desktop screenshot review.",
+    "2026-06-03: Offset pass started for spread mini background overlap, top title upward shift, and bottom keyword downward shift.",
+    "2026-06-03: Offset pass passed static check, 13-case visual audit, smoke test, and Lovers desktop screenshot review."
+  ]
+}
