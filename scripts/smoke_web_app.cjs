@@ -44,6 +44,8 @@ async function reveal(page, count) {
 
 async function runDesktop(browser, id) {
   const screenshot = path.join(REPORTS, `onoko-arcana-web-app-celtic-${id}.png`);
+  const exportPath = path.join(REPORTS, `onoko-arcana-history-export-${id}.json`);
+  const invalidImportPath = path.join(REPORTS, `onoko-arcana-history-invalid-${id}.json`);
   const { page, consoleErrors } = await openPage(browser, {
     viewport: { width: 1600, height: 980 },
     deviceScaleFactor: 1
@@ -91,15 +93,55 @@ async function runDesktop(browser, id) {
     guideRows: document.querySelectorAll(".guide-row").length,
     historyItems: document.querySelectorAll(".history-item").length,
     status: document.querySelector("#statusLine")?.textContent,
+    importExists: Boolean(document.querySelector("#importHistoryButton")),
     exportDisabled: document.querySelector("#exportHistoryButton")?.disabled,
     scrollWidth: document.documentElement.scrollWidth,
     viewport: window.innerWidth
+  }));
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.click("#exportHistoryButton");
+  const download = await downloadPromise;
+  await download.saveAs(exportPath);
+
+  await page.evaluate((key) => localStorage.removeItem(key), HISTORY_KEY);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForSelector("#importHistoryInput");
+  await page.setInputFiles("#importHistoryInput", exportPath);
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "2");
+  const importState = await page.evaluate(() => ({
+    saved: document.querySelector("#statSaved")?.textContent,
+    historyItems: document.querySelectorAll(".history-item").length,
+    noteStatus: document.querySelector("#noteStatus")?.textContent,
+    exportDisabled: document.querySelector("#exportHistoryButton")?.disabled
+  }));
+
+  await page.setInputFiles("#importHistoryInput", exportPath);
+  await page.waitForFunction(() => document.querySelector("#noteStatus")?.textContent.includes("読み込み済み"));
+  const duplicateImportState = await page.evaluate(() => ({
+    saved: document.querySelector("#statSaved")?.textContent,
+    historyItems: document.querySelectorAll(".history-item").length,
+    noteStatus: document.querySelector("#noteStatus")?.textContent
+  }));
+
+  fs.writeFileSync(invalidImportPath, "{ invalid json", "utf8");
+  await page.setInputFiles("#importHistoryInput", invalidImportPath);
+  await page.waitForFunction(() => document.querySelector("#noteStatus")?.textContent.includes("読めません"));
+  const invalidImportState = await page.evaluate(() => ({
+    saved: document.querySelector("#statSaved")?.textContent,
+    historyItems: document.querySelectorAll(".history-item").length,
+    noteStatus: document.querySelector("#noteStatus")?.textContent
   }));
 
   await page.close();
   return {
     screenshot,
     consoleErrors,
+    exportPath,
+    invalidImportPath,
+    importState,
+    duplicateImportState,
+    invalidImportState,
     guideDisabledBeforeNote,
     guideDisabledAfterNote,
     state
@@ -151,7 +193,18 @@ async function runMobile(browser, id) {
     desktop.state.cards === 10 &&
     desktop.state.guideRows === 3 &&
     desktop.state.historyItems === 2 &&
+    desktop.state.importExists === true &&
     desktop.state.exportDisabled === false &&
+    desktop.importState.saved === "2" &&
+    desktop.importState.historyItems === 2 &&
+    desktop.importState.exportDisabled === false &&
+    desktop.importState.noteStatus.includes("履歴 2 件を読み込み") &&
+    desktop.duplicateImportState.saved === "2" &&
+    desktop.duplicateImportState.historyItems === 2 &&
+    desktop.duplicateImportState.noteStatus.includes("読み込み済み") &&
+    desktop.invalidImportState.saved === "2" &&
+    desktop.invalidImportState.historyItems === 2 &&
+    desktop.invalidImportState.noteStatus.includes("読めません") &&
     desktop.guideDisabledBeforeNote === true &&
     desktop.guideDisabledAfterNote === false &&
     desktop.state.scrollWidth <= desktop.state.viewport &&

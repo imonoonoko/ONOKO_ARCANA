@@ -1,0 +1,42 @@
+{
+  "title": "ONOKO ARCANA push and roadmap complete",
+  "slug": "onoko-arcana-push-and-roadmap-complete",
+  "created_at": "2026-06-03T18:42:34+00:00",
+  "status": "in_progress",
+  "approval": {
+    "required": true,
+    "granted": true,
+    "notes": "User explicitly requested pushing the current state to GitHub."
+  },
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Requirements",
+      "status": "completed"
+    },
+    {
+      "id": "P2",
+      "title": "Preflight",
+      "status": "completed"
+    },
+    {
+      "id": "P3",
+      "title": "Commit and push",
+      "status": "in_progress"
+    },
+    {
+      "id": "P4",
+      "title": "Roadmap completion",
+      "status": "pending"
+    },
+    {
+      "id": "P5",
+      "title": "Final audit",
+      "status": "pending"
+    }
+  ],
+  "verification": {
+    "status": "not_started",
+    "checks": []
+  }
+}

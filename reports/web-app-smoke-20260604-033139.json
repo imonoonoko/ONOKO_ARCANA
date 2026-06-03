@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "app": "web-app\\index.html",
+  "desktop": {
+    "screenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-web-app-celtic-20260604-033139.png",
+    "consoleErrors": [],
+    "exportPath": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-history-export-20260604-033139.json",
+    "invalidImportPath": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-history-invalid-20260604-033139.json",
+    "importState": {
+      "saved": "2",
+      "historyItems": 2,
+      "noteStatus": "履歴 2 件を読み込み",
+      "exportDisabled": false
+    },
+    "duplicateImportState": {
+      "saved": "2",
+      "historyItems": 2,
+      "noteStatus": "読み込み済みの履歴です"
+    },
+    "invalidImportState": {
+      "saved": "2",
+      "historyItems": 2,
+      "noteStatus": "履歴JSONを読めませんでした。"
+    },
+    "guideDisabledBeforeNote": true,
+    "guideDisabledAfterNote": false,
+    "state": {
+      "spreadTitle": "ケルト十字",
+      "spreadChoices": 6,
+      "revealed": "10",
+      "saved": "2",
+      "cards": 10,
+      "selected": "X 運命の輪",
+      "guideRows": 3,
+      "historyItems": 2,
+      "status": "10 / 10 opened",
+      "importExists": true,
+      "exportDisabled": false,
+      "scrollWidth": 1600,
+      "viewport": 1600
+    }
+  },
+  "mobile": {
+    "screenshot": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\reports\\onoko-arcana-web-app-mobile-20260604-033139.png",
+    "consoleErrors": [],
+    "state": {
+      "spreadTitle": "関係性ライン",
+      "revealed": "6",
+      "cards": 6,
+      "guideRows": 3,
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  },
+  "checkedAt": "2026-06-03T18:31:43.759Z"
+}

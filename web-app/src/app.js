@@ -2,6 +2,7 @@
 const { CARD_BACK, cards, spreads } = window.OnokoArcanaData;
 
 const historyKey = "onoko-arcana:desktop:history:v1";
+const maxHistoryItems = 48;
 
 const state = {
   spreadId: "one_card",
@@ -31,6 +32,8 @@ const els = {
   toggleGuideButton: document.getElementById("toggleGuideButton"),
   guidePanel: document.getElementById("guidePanel"),
   historyList: document.getElementById("historyList"),
+  importHistoryButton: document.getElementById("importHistoryButton"),
+  importHistoryInput: document.getElementById("importHistoryInput"),
   exportHistoryButton: document.getElementById("exportHistoryButton"),
   statCards: document.getElementById("statCards"),
   statRevealed: document.getElementById("statRevealed"),
@@ -43,14 +46,93 @@ function currentSpread() {
 
 function readHistory() {
   try {
-    return JSON.parse(localStorage.getItem(historyKey) || "[]");
+    const history = JSON.parse(localStorage.getItem(historyKey) || "[]");
+    return Array.isArray(history) ? history : [];
   } catch {
     return [];
   }
 }
 
 function writeHistory(history) {
-  localStorage.setItem(historyKey, JSON.stringify(history.slice(0, 48)));
+  localStorage.setItem(historyKey, JSON.stringify(history.slice(0, maxHistoryItems)));
+}
+
+function readingIdentity(item) {
+  const cards = Array.isArray(item.cards)
+    ? item.cards.map((card) => [
+      card.cardId,
+      card.slotKey,
+      card.reversed ? "R" : "U",
+      card.note || ""
+    ].join(":")).join("|")
+    : "";
+  return [
+    item.savedAt || "",
+    item.spreadId || "",
+    item.question || "",
+    item.summary || "",
+    cards
+  ].join("||");
+}
+
+function validImportedReading(item) {
+  if (!item || typeof item !== "object") return false;
+  if (typeof item.savedAt !== "string" || !item.savedAt.trim()) return false;
+  if (typeof item.spreadLabel !== "string" || !item.spreadLabel.trim()) return false;
+  if (typeof item.summary !== "string" || !item.summary.trim()) return false;
+  const spread = spreads.find((candidate) => candidate.id === item.spreadId);
+  if (!spread) return false;
+  if (!Array.isArray(item.cards) || item.cards.length === 0 || item.cards.length > spread.slots.length) return false;
+  return item.cards.every((entry) => (
+    entry &&
+    typeof entry === "object" &&
+    typeof entry.cardId === "string" &&
+    cards.some((card) => card.id === entry.cardId) &&
+    typeof entry.slotKey === "string" &&
+    spread.slots.some((slot) => slot.key === entry.slotKey)
+  ));
+}
+
+function importedHistoryFromPayload(payload) {
+  if (Array.isArray(payload)) return payload;
+  if (!payload || typeof payload !== "object") {
+    throw new Error("履歴JSONの形式が違います。");
+  }
+  if ("app" in payload && payload.app !== "ONOKO_ARCANA") {
+    throw new Error("ONOKO ARCANA用の履歴ファイルではありません。");
+  }
+  if ("schemaVersion" in payload && payload.schemaVersion !== 1) {
+    throw new Error("対応していない履歴形式です。");
+  }
+  if (!Array.isArray(payload.history)) {
+    throw new Error("履歴データが見つかりません。");
+  }
+  return payload.history;
+}
+
+function mergeImportedHistory(imported) {
+  const current = readHistory();
+  const seen = new Set(current.map(readingIdentity));
+  const valid = imported.filter(validImportedReading);
+  const additions = [];
+
+  valid.forEach((item) => {
+    const key = readingIdentity(item);
+    if (seen.has(key)) return;
+    seen.add(key);
+    additions.push(item);
+  });
+
+  if (additions.length) {
+    writeHistory([...additions, ...current]);
+  }
+
+  return {
+    added: additions.length,
+    skippedInvalid: imported.length - valid.length,
+    skippedDuplicate: valid.length - additions.length,
+    total: readHistory().length
+  };
 }
 
 function shuffleDeck() {
@@ -444,10 +526,47 @@ function exportHistory() {
   URL.revokeObjectURL(url);
 }
 
+async function importHistoryFile(file) {
+  if (!file) return;
+  try {
+    const text = await file.text();
+    let payload;
+    try {
+      payload = JSON.parse(text);
+    } catch {
+      throw new Error("履歴JSONを読めませんでした。");
+    }
+    const imported = importedHistoryFromPayload(payload);
+    if (!imported.length) {
+      els.noteStatus.textContent = "読み込む履歴がありません";
+      return;
+    }
+    const result = mergeImportedHistory(imported);
+    renderHistory();
+    renderStatus();
+    if (!result.added) {
+      els.noteStatus.textContent = result.skippedInvalid
+        ? `読み込みなし / 無効 ${result.skippedInvalid}`
+        : "読み込み済みの履歴です";
+      return;
+    }
+    const skipped = result.skippedDuplicate || result.skippedInvalid
+      ? ` / 除外 ${result.skippedDuplicate + result.skippedInvalid}`
+      : "";
+    els.noteStatus.textContent = `履歴 ${result.added} 件を読み込み${skipped}`;
+  } catch (error) {
+    els.noteStatus.textContent = error instanceof Error ? error.message : "履歴を読み込めませんでした";
+  } finally {
+    els.importHistoryInput.value = "";
+  }
+}
+
 els.drawButton.addEventListener("click", drawSpread);
 els.revealButton.addEventListener("click", revealNext);
 els.resetButton.addEventListener("click", resetTable);
 els.saveReadingButton.addEventListener("click", saveReading);
+els.importHistoryButton.addEventListener("click", () => els.importHistoryInput.click());
+els.importHistoryInput.addEventListener("change", () => importHistoryFile(els.importHistoryInput.files[0]));
 els.exportHistoryButton.addEventListener("click", exportHistory);
 els.noteInput.addEventListener("input", updateCurrentNote);
 els.toggleGuideButton.addEventListener("click", () => {

@@ -1,0 +1,209 @@
+{
+  "app": "ONOKO_ARCANA",
+  "schemaVersion": 1,
+  "exportedAt": "2026-06-03T18:31:41.559Z",
+  "history": [
+    {
+      "savedAt": "2026/6/4 3:31:40",
+      "question": "ONOKOアプリの完成へ向けて、今どの構造を採用するべきか",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "ケルト十字",
+      "revealedCount": 10,
+      "notes": {
+        "10:outcome": "2D占い卓を本体として完成させ、UEは将来の高級表現層として残す。"
+      },
+      "cards": [
+        {
+          "cardId": "major-02-high-priestess",
+          "number": "02",
+          "displayNumber": "II",
+          "japaneseName": "女教皇",
+          "englishName": "The High Priestess",
+          "reversed": true,
+          "slotKey": "present",
+          "slotLabel": "現状",
+          "note": ""
+        },
+        {
+          "cardId": "major-17-star",
+          "number": "17",
+          "displayNumber": "XVII",
+          "japaneseName": "星",
+          "englishName": "The Star",
+          "reversed": false,
+          "slotKey": "crossing",
+          "slotLabel": "交差",
+          "note": ""
+        },
+        {
+          "cardId": "major-16-tower",
+          "number": "16",
+          "displayNumber": "XVI",
+          "japaneseName": "塔",
+          "englishName": "The Tower",
+          "reversed": true,
+          "slotKey": "root",
+          "slotLabel": "根底",
+          "note": ""
+        },
+        {
+          "cardId": "major-09-hermit",
+          "number": "09",
+          "displayNumber": "IX",
+          "japaneseName": "隠者",
+          "englishName": "The Hermit",
+          "reversed": false,
+          "slotKey": "past",
+          "slotLabel": "過去",
+          "note": ""
+        },
+        {
+          "cardId": "major-14-temperance",
+          "number": "14",
+          "displayNumber": "XIV",
+          "japaneseName": "節制",
+          "englishName": "Temperance",
+          "reversed": false,
+          "slotKey": "crown",
+          "slotLabel": "意識",
+          "note": ""
+        },
+        {
+          "cardId": "major-21-world",
+          "number": "21",
+          "displayNumber": "XXI",
+          "japaneseName": "世界",
+          "englishName": "The World",
+          "reversed": false,
+          "slotKey": "near_future",
+          "slotLabel": "近未来",
+          "note": ""
+        },
+        {
+          "cardId": "major-19-sun",
+          "number": "19",
+          "displayNumber": "XIX",
+          "japaneseName": "太陽",
+          "englishName": "The Sun",
+          "reversed": false,
+          "slotKey": "self",
+          "slotLabel": "自分",
+          "note": ""
+        },
+        {
+          "cardId": "major-00-fool",
+          "number": "00",
+          "displayNumber": "0",
+          "japaneseName": "愚者",
+          "englishName": "The Fool",
+          "reversed": false,
+          "slotKey": "environment",
+          "slotLabel": "環境",
+          "note": ""
+        },
+        {
+          "cardId": "major-11-justice",
+          "number": "11",
+          "displayNumber": "XI",
+          "japaneseName": "正義",
+          "englishName": "Justice",
+          "reversed": false,
+          "slotKey": "hopes_fears",
+          "slotLabel": "希望と不安",
+          "note": ""
+        },
+        {
+          "cardId": "major-10-wheel-of-fortune",
+          "number": "10",
+          "displayNumber": "X",
+          "japaneseName": "運命の輪",
+          "englishName": "Wheel of Fortune",
+          "reversed": true,
+          "slotKey": "outcome",
+          "slotLabel": "結果",
+          "note": "2D占い卓を本体として完成させ、UEは将来の高級表現層として残す。"
+        }
+      ],
+      "summary": "現状:II 女教皇逆 / 交差:XVII 星正 / 根底:XVI 塔逆 / 過去:IX 隠者正 / 意識:XIV 節制正 / 近未来:XXI 世界正 / 自分:XIX 太陽正 / 環境:0 愚者正 / 希望と不安:XI 正義正 / 結果:X 運命の輪逆"
+    },
+    {
+      "savedAt": "2026/6/4 3:31:40",
+      "question": "完成へ進めるために、今見るべき関係性は何か",
+      "spreadId": "relationship_line",
+      "spreadLabel": "関係性ライン",
+      "revealedCount": 6,
+      "notes": {
+        "6:potential": "自分と相手、接点、課題、助言、可能性を同じ卓で読む。"
+      },
+      "cards": [
+        {
+          "cardId": "major-14-temperance",
+          "number": "14",
+          "displayNumber": "XIV",
+          "japaneseName": "節制",
+          "englishName": "Temperance",
+          "reversed": false,
+          "slotKey": "self",
+          "slotLabel": "自分",
+          "note": ""
+        },
+        {
+          "cardId": "major-00-fool",
+          "number": "00",
+          "displayNumber": "0",
+          "japaneseName": "愚者",
+          "englishName": "The Fool",
+          "reversed": false,
+          "slotKey": "other",
+          "slotLabel": "相手",
+          "note": ""
+        },
+        {
+          "cardId": "major-20-judgement",
+          "number": "20",
+          "displayNumber": "XX",
+          "japaneseName": "審判",
+          "englishName": "Judgement",
+          "reversed": false,
+          "slotKey": "bridge",
+          "slotLabel": "接点",
+          "note": ""
+        },
+        {
+          "cardId": "major-19-sun",
+          "number": "19",
+          "displayNumber": "XIX",
+          "japaneseName": "太陽",
+          "englishName": "The Sun",
+          "reversed": false,
+          "slotKey": "challenge",
+          "slotLabel": "課題",
+          "note": ""
+        },
+        {
+          "cardId": "major-10-wheel-of-fortune",
+          "number": "10",
+          "displayNumber": "X",
+          "japaneseName": "運命の輪",
+          "englishName": "Wheel of Fortune",
+          "reversed": false,
+          "slotKey": "advice",
+          "slotLabel": "助言",
+          "note": ""
+        },
+        {
+          "cardId": "major-07-chariot",
+          "number": "07",
+          "displayNumber": "VII",
+          "japaneseName": "戦車",
+          "englishName": "The Chariot",
+          "reversed": true,
+          "slotKey": "potential",
+          "slotLabel": "可能性",
+          "note": "自分と相手、接点、課題、助言、可能性を同じ卓で読む。"
+        }
+      ],
+      "summary": "自分:XIV 節制正 / 相手:0 愚者正 / 接点:XX 審判正 / 課題:XIX 太陽正 / 助言:X 運命の輪正 / 可能性:VII 戦車逆"
+    }
+  ]
+}

@@ -86,7 +86,11 @@
       <section class="section history-section">
         <div class="section-row action-row">
           <h2 class="section-title">履歴</h2>
-          <button id="exportHistoryButton" class="button compact" type="button" disabled>書き出し</button>
+          <div class="history-actions">
+            <button id="importHistoryButton" class="button compact" type="button">読み込み</button>
+            <button id="exportHistoryButton" class="button compact" type="button" disabled>書き出し</button>
+            <input id="importHistoryInput" class="visually-hidden" type="file" accept="application/json,.json">
+          </div>
         </div>
         <div id="historyList" class="history-list"></div>
       </section>

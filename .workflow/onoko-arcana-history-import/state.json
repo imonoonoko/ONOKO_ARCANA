@@ -1,0 +1,63 @@
+{
+  "title": "ONOKO ARCANA history import",
+  "slug": "onoko-arcana-history-import",
+  "created_at": "2026-06-03T18:18:13+00:00",
+  "status": "completed",
+  "approval": {
+    "required": false,
+    "granted": true,
+    "notes": "Local non-destructive implementation and verification only."
+  },
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Discovery",
+      "status": "completed"
+    },
+    {
+      "id": "P2",
+      "title": "Implementation",
+      "status": "completed"
+    },
+    {
+      "id": "P3",
+      "title": "Verification",
+      "status": "completed"
+    },
+    {
+      "id": "P4",
+      "title": "Docs",
+      "status": "completed"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checks": [
+      {
+        "name": "static",
+        "status": "passed",
+        "report": "reports/web-app-check-20260604-033125.json"
+      },
+      {
+        "name": "web-smoke",
+        "status": "passed",
+        "report": "reports/web-app-smoke-20260604-033139.json"
+      },
+      {
+        "name": "electron-smoke",
+        "status": "passed",
+        "report": "reports/electron-app-smoke-20260604-033157.json"
+      },
+      {
+        "name": "visual-audit",
+        "status": "passed",
+        "report": "reports/ui-visual-audit-20260604-033211/report.json"
+      },
+      {
+        "name": "workflow-artifact",
+        "status": "passed",
+        "report": ".workflow/onoko-arcana-history-import"
+      }
+    ]
+  }
+}

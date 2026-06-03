@@ -29,6 +29,8 @@ REQUIRED_IDS = [
     "toggleGuideButton",
     "guidePanel",
     "historyList",
+    "importHistoryButton",
+    "importHistoryInput",
     "exportHistoryButton",
 ]
 
@@ -108,6 +110,8 @@ def main() -> None:
         "saveReading",
         "restoreHistory",
         "exportHistory",
+        "importHistoryFile",
+        "mergeImportedHistory",
         "localStorage",
     ]
     missing_runtime_terms = [term for term in required_runtime_terms if term not in app]
