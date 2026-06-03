@@ -22,12 +22,12 @@
     {
       "id": "P3",
       "title": "Commit and push",
-      "status": "in_progress"
+      "status": "completed"
     },
     {
       "id": "P4",
       "title": "Roadmap completion",
-      "status": "pending"
+      "status": "in_progress"
     },
     {
       "id": "P5",

@@ -244,7 +244,31 @@ Status: Hold
 4. Electron packaging方式を決め、Windowsローカルpackageを作る。
 5. 履歴詳細/復習ビューの要件を切る。
 
-## 8. 参照文書
+## 8. 完了チェックポイント
+
+この全体ロードマップは、現状退避コミット `f658f08` の後に完了版として確定する。
+
+完了時点の判断:
+
+- Web/Electron 2D占い卓を現在の本線とする。
+- Unreal Engine は Hold の高級表現レーンとして維持する。
+- 大アルカナ版の実使用安定化、履歴管理、配布、復習を小アルカナより優先する。
+- 次の実装は履歴の単体削除と全削除から始める。
+
+完了時点の主要証跡:
+
+- `reports/web-app-check-20260604-033125.json`
+- `reports/web-app-smoke-20260604-033139.json`
+- `reports/electron-app-smoke-20260604-033157.json`
+- `reports/ui-visual-audit-20260604-033211/report.json`
+
+ロードマップ完了条件:
+
+- 現在地、製品ゴール、判断原則、フェーズ、品質ゲート、リスク、次アクションが1文書で確認できる。
+- 次に実装する順序が `docs/implementation/IMPLEMENTATION_KANBAN.md` と矛盾しない。
+- 既存の研究ロードマップを消さず、Web/Electron 本線への方針変更を明示している。
+
+## 9. 参照文書
 
 - `PRODUCT.md`
 - `DESIGN.md`
