@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  web-electron-smoke:
+    name: Web/Electron smoke checks
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web-app/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install web app dependencies
+        working-directory: web-app
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: web-app
+        run: npx playwright install chromium
+
+      - name: Static web app check
+        run: python scripts/check_web_app.py
+
+      - name: Browser smoke check
+        working-directory: web-app
+        run: npm run smoke:web
+
+      - name: Keyboard focus smoke check
+        working-directory: web-app
+        run: npm run smoke:keyboard
+
+      - name: Visual audit
+        working-directory: web-app
+        run: npm run audit:visual
+
+      - name: Electron smoke check
+        working-directory: web-app
+        run: npm run smoke:electron
+
+      - name: Local package smoke check
+        working-directory: web-app
+        run: |
+          npm run package:local
+          npm run smoke:package
+
+      - name: Upload generated reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: onoko-arcana-reports
+          path: reports/
+          if-no-files-found: ignore

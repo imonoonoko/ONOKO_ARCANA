@@ -1,5 +1,7 @@
 # ONOKO ARCANA
 
+[![CI](https://github.com/imonoonoko/ONOKO_ARCANA/actions/workflows/ci.yml/badge.svg)](https://github.com/imonoonoko/ONOKO_ARCANA/actions/workflows/ci.yml)
+
 ONOKO ARCANA is a local-first Web/Electron tarot study app. The active v1.x app is the 2D reading table in `web-app/`; Unreal Engine work is kept as archived technical evidence and is not the current implementation path.
 
 ## What It Does
@@ -104,6 +106,12 @@ Electron `localStorage` is stored in Electron's app data area for `ONOKO ARCANA`
 ## Evidence Policy
 
 Generated run output goes under `reports/` and is ignored by default. Keep only durable policy/index files or intentionally promoted representative evidence in Git. See `reports/README.md`.
+
+## Public Repository Notes
+
+- Contribution setup and verification commands are in `CONTRIBUTING.md`.
+- Vulnerability reporting and local data handling notes are in `SECURITY.md`.
+- Asset reuse restrictions are detailed in `docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md`.
 
 ## License
 

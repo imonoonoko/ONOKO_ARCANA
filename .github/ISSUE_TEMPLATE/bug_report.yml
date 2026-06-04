@@ -1,0 +1,60 @@
+name: Bug report
+description: Report a reproducible ONOKO ARCANA issue.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue. Please include enough detail to reproduce the problem without private data.
+  - type: input
+    id: version
+    attributes:
+      label: App version or commit
+      description: Use the release version, package date, or commit hash.
+      placeholder: "v0.1.0 / 0f8686d"
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime
+      options:
+        - Static web app
+        - Electron shell
+        - Local package
+        - Unreal archive
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact clicks, inputs, imports, or commands.
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Click ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Attach screenshots, JSON exports, or relevant console output. Remove private questions and reading history first.
+    validations:
+      required: false

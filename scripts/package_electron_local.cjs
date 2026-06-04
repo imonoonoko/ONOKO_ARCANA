@@ -5,6 +5,7 @@ const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const PACKAGE_ROOT = path.join(DIST, "onoko-arcana-local");
 const WEB_APP = path.join(ROOT, "web-app");
+const ELECTRON_MODULE = path.join(WEB_APP, "node_modules", "electron");
 
 const copyEntries = [
   {
@@ -58,6 +59,13 @@ function assertExists(source) {
   }
 }
 
+function resolveElectronExecutable() {
+  assertExists(ELECTRON_MODULE);
+  const electronExecutable = require(ELECTRON_MODULE);
+  assertExists(electronExecutable);
+  return electronExecutable;
+}
+
 function copyPath(source, target) {
   assertExists(source);
   fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -81,7 +89,7 @@ function writeLauncher() {
 
 function main() {
   copyEntries.forEach((entry) => assertExists(entry.source));
-  assertExists(path.join(WEB_APP, "node_modules", "electron", "dist", "electron.exe"));
+  const electronExecutable = resolveElectronExecutable();
 
   fs.mkdirSync(DIST, { recursive: true });
   assertInside(PACKAGE_ROOT, DIST);
@@ -97,6 +105,7 @@ function main() {
     output: path.relative(ROOT, PACKAGE_ROOT),
     launcher: "START_ONOKO_ARCANA.cmd",
     electronEntry: "web-app/electron/main.cjs",
+    electronExecutable: path.relative(ROOT, electronExecutable),
     historyStorage: "Electron localStorage key onoko-arcana:desktop:history:v1",
     copiedAt: new Date().toISOString(),
     copiedEntries: copyEntries.map((entry) => path.relative(ROOT, entry.source))
