@@ -4,14 +4,11 @@
   "exportedAt": "2026-06-05T00:00:00.000Z",
   "history": [
     {
-      "savedAt": "2026-06-05T00:00:00.000Z",
+      "savedAt": "2026-06-05T00:10:00.000Z",
       "spreadId": "one_card",
       "spreadLabel": "一枚引き",
-      "question": "今のONOKO ARCANAで最優先に固めるべきことは？",
+      "question": "cards noteだけの履歴を復元できるか？",
       "revealedCount": 1,
-      "notes": {
-        "1:present": "入口文書、schema、package smokeを先に固める。"
-      },
       "cards": [
         {
           "slotKey": "present",
@@ -28,7 +25,7 @@
             "冒険"
           ],
           "studyFocus": "まだ形になっていない可能性を、恐れすぎず観測し始める。",
-          "note": "入口文書、schema、package smokeを先に固める。"
+          "note": "cards entryだけに残る復元メモ"
         }
       ],
       "summary": "一枚引き: 愚者 / 正位置"

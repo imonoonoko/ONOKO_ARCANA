@@ -217,6 +217,41 @@ function slotNoteKey(slot, index) {
   return `${index + 1}:${slot.key}`;
 }
 
+function normalizeReadingNotes(item, spread) {
+  const normalized = {};
+  const sourceNotes = item && item.notes && typeof item.notes === "object" && !Array.isArray(item.notes)
+    ? item.notes
+    : {};
+
+  Object.entries(sourceNotes).forEach(([key, value]) => {
+    if (typeof value === "string") normalized[key] = value;
+  });
+
+  if (!item || !Array.isArray(item.cards)) return normalized;
+
+  item.cards.forEach((entry, index) => {
+    const slot = spread.slots[index] || spread.slots.find((candidate) => candidate.key === entry.slotKey);
+    if (!slot) return;
+    const key = slotNoteKey(slot, index);
+    const legacyKeys = [
+      key,
+      `${entry.slotKey}-${index}`,
+      `${entry.slotKey}:${index}`,
+      `${index}:${entry.slotKey}`
+    ];
+    const legacyNote = legacyKeys
+      .map((candidateKey) => sourceNotes[candidateKey])
+      .find((value) => typeof value === "string");
+    if (typeof legacyNote === "string") {
+      normalized[key] = legacyNote;
+      return;
+    }
+    if (typeof entry.note === "string") normalized[key] = entry.note;
+  });
+
+  return normalized;
+}
+
 function selectedNote() {
   const selected = selectedSlot();
   if (!selected) return "";
@@ -314,7 +349,7 @@ function renderBoard() {
     return `
       <div class="${slotClasses}" style="--x:${slot.x}%; --y:${slot.y}%; --rot:${slot.rot}deg; --counter-rot:${-slot.rot}deg;">
         ${slotLabelMarkup}
-        <button class="${classes}" type="button" data-slot-index="${index}" ${!revealed ? "aria-disabled='true'" : ""}>
+        <button class="${classes}" type="button" data-slot-index="${index}" ${!revealed ? "aria-disabled='true' tabindex='-1'" : ""}>
           ${card ? `<img class="${card.reversed && revealed ? "reversed" : ""}" src="${image}" alt="${escapeText(topLabel)}">` : "<span class='empty-mark'></span>"}
           ${cardMarker}
         </button>
@@ -434,10 +469,13 @@ function renderHistoryReview(history) {
   const cardRows = item.cards.map((entry, index) => {
     const note = typeof entry.note === "string" ? entry.note.trim() : "";
     const orientation = entry.reversed ? "逆位置" : "正位置";
+    const card = cards.find((candidate) => candidate.id === entry.cardId);
+    const displayNumber = entry.displayNumber || entry.number || card?.displayNumber || card?.number || "";
+    const japaneseName = entry.japaneseName || entry.cardName || card?.japaneseName || entry.cardId;
     return `
       <li class="review-card-row">
         <b>${index + 1}. ${escapeText(entry.slotLabel || entry.slotKey)}</b>
-        <span>${escapeText(`${entry.displayNumber || entry.number} ${entry.japaneseName || entry.cardId}`)} / ${orientation}</span>
+        <span>${escapeText(`${displayNumber} ${japaneseName}`.trim())} / ${orientation}</span>
         ${note ? `<em>${escapeText(note)}</em>` : "<em>メモなし</em>"}
       </li>
     `;
@@ -585,7 +623,7 @@ function restoreHistory(index) {
   }).filter(Boolean);
   state.revealedCount = state.drawn.length;
   state.selectedIndex = state.drawn.length ? 0 : -1;
-  state.notes = item.notes || {};
+  state.notes = normalizeReadingNotes(item, spread);
   state.guideVisible = false;
   state.restoredAt = item.savedAt;
   state.reviewedHistoryKey = readingIdentity(item);

@@ -51,6 +51,7 @@ async function runDesktop(browser, id) {
   const screenshot = path.join(REPORTS, `onoko-arcana-web-app-celtic-${id}.png`);
   const exportPath = path.join(REPORTS, `onoko-arcana-history-export-${id}.json`);
   const invalidImportPath = path.join(FIXTURES, "invalid-json.json");
+  const cardNoteOnlyImportPath = path.join(FIXTURES, "history-card-note-only-v1.json");
   const { page, consoleErrors } = await openPage(browser, {
     viewport: { width: 1424, height: 881 },
     deviceScaleFactor: 1
@@ -155,6 +156,21 @@ async function runDesktop(browser, id) {
     noteStatus: document.querySelector("#noteStatus")?.textContent
   }));
 
+  await page.evaluate((key) => localStorage.removeItem(key), HISTORY_KEY);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.setInputFiles("#importHistoryInput", cardNoteOnlyImportPath);
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "1");
+  await page.click('[data-history-index="0"]');
+  await page.waitForFunction(() => document.querySelector("#statRevealed")?.textContent === "1");
+  const cardNoteOnlyRestoreState = await page.evaluate(() => ({
+    saved: document.querySelector("#statSaved")?.textContent,
+    restoredNote: document.querySelector("#noteInput")?.value,
+    reviewText: document.querySelector("#historyReview")?.textContent
+  }));
+
+  await page.setInputFiles("#importHistoryInput", exportPath);
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "3");
+
   await page.click('[data-history-index="0"]');
   await page.waitForSelector("#historyReview [data-review-active='true']");
   const reviewState = await page.evaluate(() => ({
@@ -167,7 +183,7 @@ async function runDesktop(browser, id) {
   const deleteDialogPromise = page.waitForEvent("dialog").then((dialog) => dialog.accept());
   await page.click('[data-history-delete-index="0"]');
   await deleteDialogPromise;
-  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "1");
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "2");
   const deleteState = await page.evaluate(() => ({
     saved: document.querySelector("#statSaved")?.textContent,
     historyItems: document.querySelectorAll(".history-item").length,
@@ -198,10 +214,12 @@ async function runDesktop(browser, id) {
     consoleErrors,
     exportPath,
     invalidImportPath,
+    cardNoteOnlyImportPath,
     corruptStorageState,
     importState,
     duplicateImportState,
     invalidImportState,
+    cardNoteOnlyRestoreState,
     reviewState,
     deleteState,
     clearState,
@@ -272,6 +290,11 @@ async function runMobile(browser, id) {
     desktop.invalidImportState.saved === "2" &&
     desktop.invalidImportState.historyItems === 2 &&
     desktop.invalidImportState.noteStatus.includes("読めません") &&
+    desktop.cardNoteOnlyRestoreState.saved === "1" &&
+    desktop.cardNoteOnlyRestoreState.restoredNote === "cards entryだけに残る復元メモ" &&
+    desktop.cardNoteOnlyRestoreState.reviewText.includes("cards entryだけに残る復元メモ") &&
+    desktop.cardNoteOnlyRestoreState.reviewText.includes("0 愚者") &&
+    !desktop.cardNoteOnlyRestoreState.reviewText.includes("undefined") &&
     desktop.corruptStorageState.saved === "0" &&
     desktop.corruptStorageState.historyText.includes("履歴データを読めません") &&
     desktop.corruptStorageState.exportDisabled === true &&
@@ -279,9 +302,9 @@ async function runMobile(browser, id) {
     desktop.reviewState.reviewActive === true &&
     desktop.reviewState.reviewRows === 10 &&
     desktop.reviewState.reviewText.includes("復習ノート") &&
-    desktop.deleteState.saved === "1" &&
-    desktop.deleteState.historyItems === 1 &&
-    desktop.deleteState.historyDeleteButtons === 1 &&
+    desktop.deleteState.saved === "2" &&
+    desktop.deleteState.historyItems === 2 &&
+    desktop.deleteState.historyDeleteButtons === 2 &&
     desktop.deleteState.exportDisabled === false &&
     desktop.deleteState.clearDisabled === false &&
     desktop.deleteState.noteStatus.includes("削除しました") &&

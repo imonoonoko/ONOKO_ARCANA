@@ -19,6 +19,7 @@ SPREAD_SCHEMA = ROOT / "docs" / "data" / "SPREAD_SCHEMA_V1.md"
 REPORTS = ROOT / "reports"
 HISTORY_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "history" / "history-valid-v1.json"
 HISTORY_FIXTURE_DUPLICATE = ROOT / "tests" / "fixtures" / "history" / "history-duplicate-v1.json"
+HISTORY_FIXTURE_CARD_NOTE_ONLY = ROOT / "tests" / "fixtures" / "history" / "history-card-note-only-v1.json"
 HISTORY_FIXTURE_INVALID_JSON = ROOT / "tests" / "fixtures" / "history" / "invalid-json.json"
 REPORT_POLICY = REPORTS / "README.md"
 PACKAGE_SCRIPT = ROOT / "scripts" / "package_electron_local.cjs"
@@ -104,6 +105,7 @@ def main() -> None:
         SPREAD_SCHEMA,
         HISTORY_FIXTURE_VALID,
         HISTORY_FIXTURE_DUPLICATE,
+        HISTORY_FIXTURE_CARD_NOTE_ONLY,
         HISTORY_FIXTURE_INVALID_JSON,
         REPORT_POLICY,
         PACKAGE_SCRIPT,
@@ -158,6 +160,7 @@ def main() -> None:
 
     valid_fixture = json.loads(HISTORY_FIXTURE_VALID.read_text(encoding="utf-8"))
     duplicate_fixture = json.loads(HISTORY_FIXTURE_DUPLICATE.read_text(encoding="utf-8"))
+    card_note_only_fixture = json.loads(HISTORY_FIXTURE_CARD_NOTE_ONLY.read_text(encoding="utf-8"))
     invalid_json = HISTORY_FIXTURE_INVALID_JSON.read_text(encoding="utf-8")
     try:
         json.loads(invalid_json)
@@ -171,6 +174,7 @@ def main() -> None:
     for fixture_path, fixture in [
         (HISTORY_FIXTURE_VALID, valid_fixture),
         (HISTORY_FIXTURE_DUPLICATE, duplicate_fixture),
+        (HISTORY_FIXTURE_CARD_NOTE_ONLY, card_note_only_fixture),
     ]:
         if fixture.get("app") != "ONOKO_ARCANA" or fixture.get("schemaVersion") != 1:
             fail("history fixture wrapper is invalid", {"path": str(fixture_path.relative_to(ROOT))})
@@ -253,6 +257,7 @@ def main() -> None:
         "historyFixtures": [
             str(HISTORY_FIXTURE_VALID.relative_to(ROOT)),
             str(HISTORY_FIXTURE_DUPLICATE.relative_to(ROOT)),
+            str(HISTORY_FIXTURE_CARD_NOTE_ONLY.relative_to(ROOT)),
             str(HISTORY_FIXTURE_INVALID_JSON.relative_to(ROOT)),
         ],
         "packageScripts": [

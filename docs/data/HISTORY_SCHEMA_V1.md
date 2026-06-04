@@ -36,7 +36,7 @@ Updated: 2026-06-05
 | `spreadId` | string | yes | `web-app/src/data.js` の spread id |
 | `spreadLabel` | string | yes | UI表示用スプレッド名 |
 | `revealedCount` | number | no | 保存時点で開示済みの枚数 |
-| `notes` | object | no | slot key別のメモ。復元互換用に保持 |
+| `notes` | object | no | `1:present` のような `revealIndex:slotKey` 形式のメモ。復元互換用に保持 |
 | `cards` | array | yes | 開示済みカードの配列 |
 | `summary` | string | yes | 履歴一覧に表示する短い要約 |
 
@@ -62,6 +62,7 @@ Updated: 2026-06-05
 - 重複は `savedAt`, `spreadId`, `question`, `summary`, card entries から作る identity で除外する。
 - 不正な item は読み飛ばし、有効な item だけを既存履歴へ merge する。
 - 追加分は既存履歴の前に置き、最終的に 48 件へ丸める。
+- 復元時は `notes` を優先しつつ、古い `slotKey-index` 形式や `cards[].note` だけの履歴もカード別メモへ戻す。
 
 ## Delete And Backup Policy
 
@@ -82,6 +83,7 @@ Updated: 2026-06-05
 |---|---|
 | `tests/fixtures/history/history-valid-v1.json` | wrapperつき正常履歴 |
 | `tests/fixtures/history/history-duplicate-v1.json` | 重複merge確認用 |
+| `tests/fixtures/history/history-card-note-only-v1.json` | `cards[].note` だけの復元互換確認用 |
 | `tests/fixtures/history/invalid-json.json` | JSON parse失敗確認用 |
 
 ## Migration Policy

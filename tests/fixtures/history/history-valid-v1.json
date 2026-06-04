@@ -10,7 +10,7 @@
       "question": "今のONOKO ARCANAで最優先に固めるべきことは？",
       "revealedCount": 1,
       "notes": {
-        "present-0": "入口文書、schema、package smokeを先に固める。"
+        "1:present": "入口文書、schema、package smokeを先に固める。"
       },
       "cards": [
         {

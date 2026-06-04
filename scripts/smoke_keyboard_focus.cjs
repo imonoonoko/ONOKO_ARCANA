@@ -78,6 +78,9 @@ async function run() {
   await page.focus("#drawButton");
   await page.keyboard.press("Enter");
   await page.waitForFunction(() => document.querySelector("#statusLine")?.textContent.includes("Cards placed"));
+  const focusableHiddenCards = await page.evaluate(() => Array.from(
+    document.querySelectorAll(".arcana-card.is-hidden, .arcana-card.is-empty")
+  ).filter((el) => !el.disabled && el.tabIndex >= 0).length);
 
   await page.focus("#revealButton");
   await page.keyboard.press("Space");
@@ -127,6 +130,7 @@ async function run() {
     keyboardOutline.outlineStyle !== "none" &&
     keyboardOutline.outlineWidth !== "0px" &&
     state.revealed === "1" &&
+    focusableHiddenCards === 0 &&
     state.saved === "0" &&
     guideRowsAfterToggle === 3 &&
     state.historyItems === 0 &&
@@ -139,6 +143,7 @@ async function run() {
     app: path.relative(ROOT, APP),
     focusSequence,
     keyboardOutline,
+    focusableHiddenCards,
     guideRowsAfterToggle,
     consoleErrors,
     state,
