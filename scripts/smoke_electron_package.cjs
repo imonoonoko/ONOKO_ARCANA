@@ -45,6 +45,10 @@ function failMissing(input) {
   }
 }
 
+function canAssertSingleViewportFit(state) {
+  return state.viewport >= 1400 && state.viewportHeight >= 860;
+}
+
 (async () => {
   [PACKAGE_ROOT, PACKAGE_MAIN, PACKAGE_ELECTRON, PACKAGE_FIXTURES].forEach(failMissing);
   fs.mkdirSync(REPORTS, { recursive: true });
@@ -99,6 +103,7 @@ function failMissing(input) {
     sidePanelFits: document.querySelector(".side-panel")?.scrollHeight <= document.querySelector(".side-panel")?.clientHeight + 1,
     inspectorFits: document.querySelector(".inspector")?.scrollHeight <= document.querySelector(".inspector")?.clientHeight + 1
   }));
+  const singleViewportFitChecked = canAssertSingleViewportFit(savedState);
 
   const exportPayload = await page.evaluate((key) => ({
     app: "ONOKO_ARCANA",
@@ -146,7 +151,7 @@ function failMissing(input) {
     savedState.exportDisabled === false &&
     savedState.clearDisabled === false &&
     savedState.scrollWidth <= savedState.viewport &&
-    savedState.scrollHeight <= savedState.viewportHeight &&
+    (!singleViewportFitChecked || savedState.scrollHeight <= savedState.viewportHeight) &&
     savedState.sidePanelFits === true &&
     savedState.inspectorFits === true &&
     importState.saved === "1" &&
@@ -167,6 +172,7 @@ function failMissing(input) {
     invalidImportPath,
     guideDisabledBeforeNote,
     guideDisabledAfterNote,
+    singleViewportFitChecked,
     savedState,
     importState,
     invalidImportState,

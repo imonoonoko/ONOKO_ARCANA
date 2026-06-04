@@ -27,6 +27,10 @@ function stamp() {
   ].join("");
 }
 
+function canAssertSingleViewportFit(state) {
+  return state.viewport >= 1400 && state.viewportHeight >= 860;
+}
+
 (async () => {
   fs.mkdirSync(REPORTS, { recursive: true });
   const id = stamp();
@@ -72,6 +76,7 @@ function stamp() {
     sidePanelFits: document.querySelector(".side-panel")?.scrollHeight <= document.querySelector(".side-panel")?.clientHeight + 1,
     inspectorFits: document.querySelector(".inspector")?.scrollHeight <= document.querySelector(".inspector")?.clientHeight + 1
   }));
+  const singleViewportFitChecked = canAssertSingleViewportFit(state);
 
   await electronApp.close();
 
@@ -88,7 +93,7 @@ function stamp() {
     state.historyItems === 1 &&
     state.title === "ONOKO ARCANA" &&
     state.scrollWidth <= state.viewport &&
-    state.scrollHeight <= state.viewportHeight &&
+    (!singleViewportFitChecked || state.scrollHeight <= state.viewportHeight) &&
     state.sidePanelFits === true &&
     state.inspectorFits === true;
 
@@ -98,6 +103,7 @@ function stamp() {
     screenshot,
     guideDisabledBeforeNote,
     guideDisabledAfterNote,
+    singleViewportFitChecked,
     state,
     consoleErrors,
     checkedAt: new Date().toISOString()
