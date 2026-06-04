@@ -1,6 +1,6 @@
 # ONOKO ARCANA デザインカンバン
 
-Updated: 2026-06-04
+Updated: 2026-06-05
 
 この文書は、初期の全体デザインカンバンを現行の Web/Electron MVP に合わせて整理したデザイン判断ボードである。初期世界観資料は `docs/design/overall-design-kanban.md` と `assets/design/onoko-arcana-design-kanban-v1-onoko.png` を参照し、この文書では「何を残すか」「何を改善するか」「どの証跡で判断するか」を管理する。
 
@@ -21,18 +21,19 @@ Updated: 2026-06-04
 - 文字情報は画像に焼き込まず、HTML/UMG などの実テキストとして表示する。
 - 青は観測、選択、reveal、guide の光に使う。
 - 金は枠、ラベル、重要な読み状態に絞る。
-- Web/Electron 2D 卓を当面の MVP 表現とし、Unreal は将来の高級 3D 表現レーンとして保持する。
+- Web/Electron 2D 卓を MVP 表現として固定する。Unreal 化は現行 v1.x では完全に見送り、既存UE成果はアーカイブ扱いにする。
+- 初期カンバンの「学習ノート」要素は、右パネルの自分の読みと履歴復習に取り込む。
 
 ## 現在の採用基準
 
 | 領域 | 採用基準 | 現在の証跡 |
 |---|---|---|
 | ONOKO らしさ | 黒、白、電気的な青、静かな観測感、猫/結晶/星の控えめな記号 | `PRODUCT.md`, `DESIGN.md` |
-| 卓の印象 | UI パネルではなく、机上の占い道具として読める | `reports/onoko-arcana-web-app-celtic-20260603-002749.png` |
+| 卓の印象 | UI パネルではなく、机上の占い道具として読める | `reports/onoko-arcana-initial-history-fit-20260604-054738.png` |
 | カード表示 | 1枚/3枚はカード名とキーワードを読める。密集スプレッドは番号/位置マーカーを優先する | `reports/ui-visual-audit-20260603-002707/report.json` |
 | スプレッド | 6種類の配置が横幅破綻なく読める | `data/spread-definitions-v1.json` |
-| モバイル/狭幅 | 横スクロールを出さず、縦スクロールで完結する | `reports/onoko-arcana-web-app-mobile-20260603-002749.png` |
-| 監査状態 | P1/P2/P3 の視覚問題を 0 件に保つ | `reports/ui-visual-audit-20260603-002707/report.json` |
+| モバイル/狭幅 | 横スクロールを出さず、縦スクロールで完結する | `reports/onoko-arcana-web-app-mobile-20260605-004943.png` |
+| 監査状態 | P1/P2/P3 の視覚問題を 0 件に保つ | `reports/ui-visual-audit-20260605-004949/report.json` |
 
 ## UI TABLE
 
@@ -60,7 +61,8 @@ Updated: 2026-06-04
 |---|---|---|---|---|---|
 | 先に自分の読みを書く | Verified | P0 | note 入力後に guide を見る流れが成立 | note 未入力時の guide 制御を維持 | Web smoke |
 | Guide の表示 | Implemented | P0 | 結果、逆位置、学習観点を表示 | guide の文量と比較しやすさを調整 | Guide rows screenshot |
-| 過去メモの復習 | Active | P1 | 履歴カードとして保存内容を見返せる | カード別、スプレッド別、問い別に振り返る復習ビューを検討 | New review flow |
+| 過去メモの復習 | Implemented | P1 | 履歴選択後に復習ノートで問い、カード、保存メモを見返せる | カード別、スプレッド別、問い別に振り返る復習filterを検討 | Web smoke |
+| 学習ノート質感 | Verified | P1 | 自分の読み欄と履歴復習が白枠のない暗い観測ノート風になった | 濃いONOKO UI内で可読性を維持 | `reports/onoko-arcana-initial-history-fit-20260604-054738.png` |
 | 学習進捗 | Backlog | P2 | 未実装 | よく引いたカード、未復習カード、自己解釈の変化を出す | Study dashboard or report |
 | 暗記ではなく比較 | Backlog | P2 | 右パネルで選択カードの意味を確認できる | 同カードの過去読み比較を追加する | Comparison UI screenshot |
 
@@ -72,7 +74,7 @@ Updated: 2026-06-04
 | 複数スプレッド | Verified | P0 | 6種類を実装済み | スプレッドごとの説明文を磨く | `web-app-check-20260603-002748.json` |
 | 順番めくり | Verified | P0 | reveal order に沿って開ける | reveal 済み/未 reveal の差を維持確認 | Browser smoke |
 | 選択カード Inspector | Implemented | P0 | 選択カードの意味、note、guide、履歴を右に表示 | guide と履歴が縦に詰まりすぎる場合の調整 | Desktop screenshot |
-| 読みの完了感 | Active | P1 | Save 後に保存状態は出る | 保存後の次アクション、次の読み、履歴復習への導線を強める | Save flow smoke |
+| 読みの完了感 | Implemented | P1 | Save 後に履歴一覧と復習ノートへつながる | 次の読み、filter、比較学習への導線を強める | Save flow smoke |
 
 ## ASSETS
 
@@ -81,15 +83,15 @@ Updated: 2026-06-04
 | V5 カード素材 | Verified | P0 | 23 assets を使用 | 変更しない。新規生成は別ブランチ扱い | Asset audit |
 | 卓背景 | Verified | P0 | `astra-nocturne-background-v1.png` を採用 | 暗すぎる/眩しすぎる箇所だけ調整 | Screenshot |
 | 9-slice HUD | Implemented | P1 | パネル、ボタン、行、slot 装飾に使用 | active/disabled/focus の状態差を整理 | Visual audit |
-| アイコン体系 | Active | P1 | 猫、結晶、gem pips などが一部導入済み | 操作アイコンと装飾アイコンを分ける | Component list |
-| 生成素材管理 | Backlog | P2 | 素材は `assets/generated/` に蓄積 | 本番採用品と実験素材を manifest で分離 | Asset manifest |
+| アイコン体系 | Implemented | P1 | Electron window iconはカード裏面PNGを使用。操作icon体系は後続で整理 | 操作アイコンと装飾アイコンを分ける | `web-app/electron/main.cjs` |
+| 生成素材管理 | Implemented | P2 | 採用素材はpackage scriptとstatic checkで限定コピー/確認する | 本格manifestは外部配布時に検討 | `scripts/package_electron_local.cjs`, `scripts/check_web_app.py` |
 
 ## POLISH
 
 | Item | Status | Priority | 現在 | 次の改善 | Done 証跡 |
 |---|---|---|---|---|---|
-| 視覚監査 | Verified | P0 | 最新 audit は issueCount 0 | 主要変更ごとに再実行 | `ui-visual-audit` report |
-| ホバー/選択状態 | Implemented | P1 | 青い選択光と金枠がある | キーボード focus と同じ意味にそろえる | Interaction screenshot |
+| 視覚監査 | Verified | P0 | 最新 audit は issueCount 0 | 主要変更ごとに再実行 | `reports/ui-visual-audit-20260605-004949/report.json` |
+| ホバー/選択状態 | Verified | P1 | 青い選択光と金枠があり、keyboard focus smoke済み | より深い読み上げ監査は後続 | `reports/keyboard-focus-smoke-20260605-005005.json` |
 | 低モーション | Implemented | P1 | `prefers-reduced-motion` 対応あり | reveal motion を入れる場合も低モーションを維持 | CSS check |
 | レスポンシブ | Verified | P0 | Desktop, compact, mobile で監査済み | 1280x720 など低め画面を追加確認 | Additional audit |
 | コピー調整 | Active | P1 | 日本語の短い説明で構成 | 占いらしさと操作明瞭性のバランスを改善 | Copy review |
@@ -98,7 +100,7 @@ Updated: 2026-06-04
 
 | Item | Status | Priority | 現在 | 次の改善 | Done 証跡 |
 |---|---|---|---|---|---|
-| キーボード操作 | Active | P1 | 基本 HTML 操作は可能 | Tab 順、Enter/Space 操作、focus 表示を監査する | Keyboard smoke |
+| キーボード操作 | Verified | P1 | Tab 順、Enter/Space 操作、focus 表示を監査済み | 追加a11y監査で深掘り | `reports/keyboard-focus-smoke-20260605-005005.json` |
 | 色以外の状態表現 | Implemented | P1 | ラベル、番号、位置名を併用 | disabled/revealed/selected の形状差を強める | Visual audit |
 | 文字サイズ | Implemented | P1 | 密集カードは marker mode で対応 | 履歴と guide の長文折り返しを継続確認 | Text overflow check |
 | 読み上げ | Backlog | P2 | 未検証 | aria-label と live region の要否を整理 | Accessibility check |

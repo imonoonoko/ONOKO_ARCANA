@@ -3,6 +3,7 @@ const { CARD_BACK, cards, spreads } = window.OnokoArcanaData;
 
 const historyKey = "onoko-arcana:desktop:history:v1";
 const maxHistoryItems = 48;
+let historyReadFailed = false;
 
 const state = {
   spreadId: "one_card",
@@ -11,7 +12,8 @@ const state = {
   selectedIndex: -1,
   notes: {},
   guideVisible: false,
-  restoredAt: null
+  restoredAt: null,
+  reviewedHistoryKey: null
 };
 
 const els = {
@@ -32,9 +34,11 @@ const els = {
   toggleGuideButton: document.getElementById("toggleGuideButton"),
   guidePanel: document.getElementById("guidePanel"),
   historyList: document.getElementById("historyList"),
+  historyReview: document.getElementById("historyReview"),
   importHistoryButton: document.getElementById("importHistoryButton"),
   importHistoryInput: document.getElementById("importHistoryInput"),
   exportHistoryButton: document.getElementById("exportHistoryButton"),
+  clearHistoryButton: document.getElementById("clearHistoryButton"),
   statCards: document.getElementById("statCards"),
   statRevealed: document.getElementById("statRevealed"),
   statSaved: document.getElementById("statSaved")
@@ -46,15 +50,28 @@ function currentSpread() {
 
 function readHistory() {
   try {
-    const history = JSON.parse(localStorage.getItem(historyKey) || "[]");
+    const raw = localStorage.getItem(historyKey);
+    if (!raw) {
+      historyReadFailed = false;
+      return [];
+    }
+    const history = JSON.parse(raw);
+    historyReadFailed = !Array.isArray(history);
     return Array.isArray(history) ? history : [];
   } catch {
+    historyReadFailed = true;
     return [];
   }
 }
 
 function writeHistory(history) {
-  localStorage.setItem(historyKey, JSON.stringify(history.slice(0, maxHistoryItems)));
+  try {
+    localStorage.setItem(historyKey, JSON.stringify(history.slice(0, maxHistoryItems)));
+    historyReadFailed = false;
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function readingIdentity(item) {
@@ -88,8 +105,10 @@ function validImportedReading(item) {
     typeof entry === "object" &&
     typeof entry.cardId === "string" &&
     cards.some((card) => card.id === entry.cardId) &&
+    typeof entry.reversed === "boolean" &&
     typeof entry.slotKey === "string" &&
-    spread.slots.some((slot) => slot.key === entry.slotKey)
+    spread.slots.some((slot) => slot.key === entry.slotKey) &&
+    (!("note" in entry) || typeof entry.note === "string")
   ));
 }
 
@@ -123,14 +142,13 @@ function mergeImportedHistory(imported) {
     additions.push(item);
   });
 
-  if (additions.length) {
-    writeHistory([...additions, ...current]);
-  }
+  const storageFailed = additions.length ? !writeHistory([...additions, ...current]) : false;
 
   return {
     added: additions.length,
     skippedInvalid: imported.length - valid.length,
     skippedDuplicate: valid.length - additions.length,
+    storageFailed,
     total: readHistory().length
   };
 }
@@ -154,6 +172,7 @@ function drawSpread() {
   state.notes = {};
   state.guideVisible = false;
   state.restoredAt = null;
+  state.reviewedHistoryKey = null;
   els.noteStatus.textContent = "";
   render();
 }
@@ -175,6 +194,7 @@ function resetTable() {
   state.notes = {};
   state.guideVisible = false;
   state.restoredAt = null;
+  state.reviewedHistoryKey = null;
   els.noteStatus.textContent = "";
   render();
 }
@@ -397,25 +417,82 @@ function renderInspector() {
   `;
 }
 
+function renderHistoryReview(history) {
+  if (!els.historyReview) return;
+  const item = history.find((candidate) => readingIdentity(candidate) === state.reviewedHistoryKey);
+  if (!item) {
+    if (state.reviewedHistoryKey) state.reviewedHistoryKey = null;
+    els.historyReview.innerHTML = `
+      <div class="history-review-empty">
+        <b>復習ノート</b>
+        <span>履歴を選ぶと、問い、カード、保存メモをここで読み返せます。</span>
+      </div>
+    `;
+    return;
+  }
+
+  const cardRows = item.cards.map((entry, index) => {
+    const note = typeof entry.note === "string" ? entry.note.trim() : "";
+    const orientation = entry.reversed ? "逆位置" : "正位置";
+    return `
+      <li class="review-card-row">
+        <b>${index + 1}. ${escapeText(entry.slotLabel || entry.slotKey)}</b>
+        <span>${escapeText(`${entry.displayNumber || entry.number} ${entry.japaneseName || entry.cardId}`)} / ${orientation}</span>
+        ${note ? `<em>${escapeText(note)}</em>` : "<em>メモなし</em>"}
+      </li>
+    `;
+  }).join("");
+
+  els.historyReview.innerHTML = `
+    <article class="history-review-card" data-review-active="true">
+      <div class="review-head">
+        <b>復習ノート</b>
+        <span>${escapeText(item.savedAt)}</span>
+      </div>
+      ${item.question ? `<p class="review-question">${escapeText(item.question)}</p>` : ""}
+      <ol class="review-card-list">
+        ${cardRows}
+      </ol>
+    </article>
+  `;
+}
+
 function renderHistory() {
   const history = readHistory();
   els.statSaved.textContent = String(history.length);
   els.exportHistoryButton.disabled = history.length === 0;
+  els.clearHistoryButton.disabled = history.length === 0;
+  if (historyReadFailed) {
+    els.historyList.innerHTML = `
+      <p class="empty error-state">
+        履歴データを読めません。書き出し済みJSONがある場合は「読み込み」から復元してください。
+      </p>`;
+    renderHistoryReview(history);
+    return;
+  }
   if (!history.length) {
     els.historyList.innerHTML = `<p class="empty">保存済みのリーディングはありません。</p>`;
+    renderHistoryReview(history);
     return;
   }
 
   els.historyList.innerHTML = history.map((item, index) => `
-    <button class="history-item" type="button" data-history-index="${index}">
-      <b>${escapeText(item.spreadLabel)} / ${escapeText(item.savedAt)}</b>
-      <span>${escapeText(item.summary)}${item.question ? ` / ${escapeText(item.question)}` : ""}</span>
-    </button>
+    <div class="history-row ${readingIdentity(item) === state.reviewedHistoryKey ? "is-active" : ""}">
+      <button class="history-item" type="button" data-history-index="${index}" aria-label="${escapeText(`${item.spreadLabel} ${item.savedAt} を復元`)}">
+        <b>${escapeText(item.spreadLabel)} / ${escapeText(item.savedAt)}</b>
+        <span>${escapeText(item.summary)}${item.question ? ` / ${escapeText(item.question)}` : ""}</span>
+      </button>
+      <button class="history-delete" type="button" data-history-delete-index="${index}" aria-label="${escapeText(`${item.spreadLabel} ${item.savedAt} を削除`)}">削除</button>
+    </div>
   `).join("");
 
   els.historyList.querySelectorAll("[data-history-index]").forEach((button) => {
     button.addEventListener("click", () => restoreHistory(Number(button.dataset.historyIndex)));
   });
+  els.historyList.querySelectorAll("[data-history-delete-index]").forEach((button) => {
+    button.addEventListener("click", () => deleteHistory(Number(button.dataset.historyDeleteIndex)));
+  });
+  renderHistoryReview(history);
 }
 
 function renderStatus() {
@@ -484,7 +561,13 @@ function saveReading() {
   };
   const history = readHistory();
   history.unshift(item);
-  writeHistory(history);
+  if (!writeHistory(history)) {
+    els.noteStatus.textContent = "履歴を保存できません。空き容量またはブラウザ設定を確認してください。";
+    renderHistory();
+    renderStatus();
+    return;
+  }
+  state.reviewedHistoryKey = readingIdentity(item);
   els.noteStatus.textContent = "保存しました";
   renderHistory();
   renderStatus();
@@ -505,8 +588,43 @@ function restoreHistory(index) {
   state.notes = item.notes || {};
   state.guideVisible = false;
   state.restoredAt = item.savedAt;
+  state.reviewedHistoryKey = readingIdentity(item);
   els.questionInput.value = item.question || "";
   els.noteStatus.textContent = "履歴を復元";
+  render();
+}
+
+function deleteHistory(index) {
+  const history = readHistory();
+  const item = history[index];
+  if (!item) return;
+  const confirmed = window.confirm("この履歴を削除します。先に書き出していない場合は戻せません。");
+  if (!confirmed) return;
+  const deletedKey = readingIdentity(item);
+  const nextHistory = history.filter((_, itemIndex) => itemIndex !== index);
+  if (!writeHistory(nextHistory)) {
+    els.noteStatus.textContent = "履歴を削除できません。ブラウザの保存設定を確認してください。";
+    return;
+  }
+  if (state.reviewedHistoryKey === deletedKey) state.reviewedHistoryKey = null;
+  if (state.restoredAt === item.savedAt) state.restoredAt = null;
+  els.noteStatus.textContent = "履歴を削除しました";
+  renderHistory();
+  renderStatus();
+}
+
+function clearHistory() {
+  const history = readHistory();
+  if (!history.length) return;
+  const confirmed = window.confirm("すべての履歴を削除します。先に書き出していない場合は戻せません。");
+  if (!confirmed) return;
+  if (!writeHistory([])) {
+    els.noteStatus.textContent = "履歴を全消去できません。ブラウザの保存設定を確認してください。";
+    return;
+  }
+  state.reviewedHistoryKey = null;
+  state.restoredAt = null;
+  els.noteStatus.textContent = "履歴を全消去しました";
   render();
 }
 
@@ -544,6 +662,10 @@ async function importHistoryFile(file) {
     const result = mergeImportedHistory(imported);
     renderHistory();
     renderStatus();
+    if (result.storageFailed) {
+      els.noteStatus.textContent = "履歴を読み込めません。空き容量またはブラウザ設定を確認してください。";
+      return;
+    }
     if (!result.added) {
       els.noteStatus.textContent = result.skippedInvalid
         ? `読み込みなし / 無効 ${result.skippedInvalid}`
@@ -568,6 +690,7 @@ els.saveReadingButton.addEventListener("click", saveReading);
 els.importHistoryButton.addEventListener("click", () => els.importHistoryInput.click());
 els.importHistoryInput.addEventListener("change", () => importHistoryFile(els.importHistoryInput.files[0]));
 els.exportHistoryButton.addEventListener("click", exportHistory);
+els.clearHistoryButton.addEventListener("click", clearHistory);
 els.noteInput.addEventListener("input", updateCurrentNote);
 els.toggleGuideButton.addEventListener("click", () => {
   if (!selectedNote().trim()) return;

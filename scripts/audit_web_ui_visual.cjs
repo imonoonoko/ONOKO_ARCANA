@@ -20,8 +20,9 @@ const SPREADS = [
 ];
 
 const VIEWPORTS = [
-  { id: "desktop", width: 1600, height: 980, mobile: false, spreads: SPREADS.map((spread) => spread.id) },
+  { id: "desktop", width: 1424, height: 881, mobile: false, spreads: SPREADS.map((spread) => spread.id) },
   { id: "compact", width: 1280, height: 840, mobile: false, spreads: ["one_card", "five_card_cross", "celtic_cross", "relationship_line"] },
+  { id: "low-height", width: 1280, height: 720, mobile: false, spreads: ["one_card", "celtic_cross"] },
   { id: "mobile", width: 390, height: 900, mobile: true, spreads: ["one_card", "seven_card_horseshoe", "relationship_line"] }
 ];
 
@@ -104,7 +105,33 @@ async function auditDom(page, meta) {
       });
     }
 
+    if (!input.mobile && document.documentElement.scrollHeight > window.innerHeight + 1) {
+      add("P1", "desktop-vertical-overflow", "desktop app should fit in one viewport without page scroll", {
+        scrollHeight: document.documentElement.scrollHeight,
+        bodyHeight: document.body.scrollHeight,
+        viewport: window.innerHeight
+      });
+    }
+
+    if (!input.mobile) {
+      [".side-panel", ".inspector"].forEach((selector) => {
+        const el = document.querySelector(selector);
+        if (el && el.scrollHeight > el.clientHeight + 1) {
+          add("P1", "desktop-panel-clipping", "desktop side panels should not clip their own content", {
+            selector,
+            scrollHeight: el.scrollHeight,
+            clientHeight: el.clientHeight,
+            rect: rectOf(el)
+          });
+        }
+      });
+    }
+
     const overflowSelectors = [
+      ".brand-block h1",
+      ".brand-block p",
+      ".spread-heading h2",
+      ".spread-heading p",
       ".spread-choice-copy strong",
       ".spread-choice-copy span",
       ".slot-label",
@@ -116,6 +143,13 @@ async function auditDom(page, meta) {
       ".badge",
       ".guide-row span",
       ".history-item",
+      ".history-delete",
+      ".backup-cue",
+      ".history-review-empty",
+      ".review-head",
+      ".review-question",
+      ".review-card-row",
+      ".study-notebook .note-field",
       ".micro-status"
     ];
     document.querySelectorAll(overflowSelectors.join(",")).forEach((el) => {
@@ -123,7 +157,9 @@ async function auditDom(page, meta) {
       const overflowY = el.scrollHeight - Math.ceil(el.clientHeight);
       const style = getComputedStyle(el);
       const fontSize = Number.parseFloat(style.fontSize || "0");
-      if (overflowX > 1 || overflowY > 1) {
+      const scrollsX = style.overflowX === "auto" || style.overflowX === "scroll";
+      const scrollsY = style.overflowY === "auto" || style.overflowY === "scroll";
+      if ((overflowX > 1 && !scrollsX) || (overflowY > 1 && !scrollsY)) {
         add("P1", "text-overflow", "text is clipped or overflows its box", {
           selector: cssPath(el),
           text: textOf(el).slice(0, 80),
@@ -261,6 +297,23 @@ async function auditDom(page, meta) {
       }
     });
 
+    document.querySelectorAll(".history-row").forEach((row) => {
+      const item = row.querySelector(".history-item");
+      const del = row.querySelector(".history-delete");
+      if (!item || !del) return;
+      const itemRect = rectOf(item);
+      const delRect = rectOf(del);
+      const rowRect = rectOf(row);
+      if (intersects(itemRect, delRect, -1) || itemRect.left < rowRect.left -1 || delRect.right > rowRect.right + 1) {
+        add("P1", "history-row-overlap", "history item and delete control do not fit in their row", {
+          itemRect,
+          deleteRect: delRect,
+          rowRect,
+          text: textOf(item).slice(0, 80)
+        });
+      }
+    });
+
     return {
       meta: input,
       title: document.querySelector("#spreadTitle")?.textContent || "",
@@ -290,6 +343,7 @@ async function runCase(browser, runDir, viewport, spread) {
     viewport: viewport.id,
     width: viewport.width,
     height: viewport.height,
+    mobile: viewport.mobile,
     spreadId: spread.id,
     spreadLabel: spread.label,
     screenshot: path.relative(ROOT, screenshot)

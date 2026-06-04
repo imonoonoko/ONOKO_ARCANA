@@ -1,5 +1,7 @@
 # Phase 1 UE / Codex Preflight
 
+> Archive notice (2026-06-05): This UE/UMG preflight is historical evidence. The active v1.x lane is Web/Electron; do not use this document as current next work.
+
 作成日: 2026-06-01  
 対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA`
 

@@ -1,5 +1,7 @@
 # Phase 3 Spread Selection Foundation
 
+> Archive notice (2026-06-05): This UE spread note is historical evidence. The active v1.x lane is Web/Electron; do not use this document as current next work.
+
 Updated: 2026-06-02
 
 ## Goal

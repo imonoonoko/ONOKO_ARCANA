@@ -18,6 +18,10 @@ dist/
 build/
 coverage/
 
+# Generated verification output
+reports/*
+!reports/README.md
+
 # Logs
 *.log
 npm-debug.log*

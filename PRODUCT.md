@@ -10,7 +10,7 @@ ONOKO ARCANA is for users who want to practice tarot reading on a PC without own
 
 ## Product Purpose
 
-The product turns generated ONOKO tarot assets into a usable desktop divination table. The immediate MVP medium is a Web/Electron-ready 2D table because it proves the reading loop faster than Unreal wiring. Unreal remains a future premium 3D expression once the product loop is stable. Success means the first screen feels like an active reading table rather than an admin dashboard: cards are clear, the spread state is readable, and the learning loop can be completed from one play surface.
+The product turns generated ONOKO tarot assets into a usable desktop divination table. The v1.x medium is a Web/Electron-ready 2D table; Unreal conversion is fully shelved for the current roadmap and retained only as archived technical evidence. Success means the first screen feels like an active reading table rather than an admin dashboard: cards are clear, the spread state is readable, and the learning loop can be completed from one play surface.
 
 ## Brand Personality
 

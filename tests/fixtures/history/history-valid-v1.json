@@ -1,0 +1,37 @@
+{
+  "app": "ONOKO_ARCANA",
+  "schemaVersion": 1,
+  "exportedAt": "2026-06-05T00:00:00.000Z",
+  "history": [
+    {
+      "savedAt": "2026-06-05T00:00:00.000Z",
+      "spreadId": "one_card",
+      "spreadLabel": "一枚引き",
+      "question": "今のONOKO ARCANAで最優先に固めるべきことは？",
+      "revealedCount": 1,
+      "notes": {
+        "present-0": "入口文書、schema、package smokeを先に固める。"
+      },
+      "cards": [
+        {
+          "slotKey": "present",
+          "slotLabel": "一枚引き",
+          "cardId": "major-00-fool",
+          "cardName": "愚者",
+          "englishName": "The Fool",
+          "reversed": false,
+          "orientation": "正位置",
+          "keywords": [
+            "始まり",
+            "自由",
+            "可能性",
+            "冒険"
+          ],
+          "studyFocus": "まだ形になっていない可能性を、恐れすぎず観測し始める。",
+          "note": "入口文書、schema、package smokeを先に固める。"
+        }
+      ],
+      "summary": "一枚引き: 愚者 / 正位置"
+    }
+  ]
+}

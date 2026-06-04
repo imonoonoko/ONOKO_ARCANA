@@ -13,7 +13,17 @@ DATA = WEB_APP / "src" / "data.js"
 APP = WEB_APP / "src" / "app.js"
 STYLES = WEB_APP / "src" / "styles.css"
 ELECTRON_MAIN = WEB_APP / "electron" / "main.cjs"
+HISTORY_SCHEMA = ROOT / "docs" / "data" / "HISTORY_SCHEMA_V1.md"
+CARD_SCHEMA = ROOT / "docs" / "data" / "CARD_SCHEMA_V1.md"
+SPREAD_SCHEMA = ROOT / "docs" / "data" / "SPREAD_SCHEMA_V1.md"
 REPORTS = ROOT / "reports"
+HISTORY_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "history" / "history-valid-v1.json"
+HISTORY_FIXTURE_DUPLICATE = ROOT / "tests" / "fixtures" / "history" / "history-duplicate-v1.json"
+HISTORY_FIXTURE_INVALID_JSON = ROOT / "tests" / "fixtures" / "history" / "invalid-json.json"
+REPORT_POLICY = REPORTS / "README.md"
+PACKAGE_SCRIPT = ROOT / "scripts" / "package_electron_local.cjs"
+PACKAGE_SMOKE = ROOT / "scripts" / "smoke_electron_package.cjs"
+ROOT_README = ROOT / "README.md"
 
 REQUIRED_IDS = [
     "questionInput",
@@ -29,9 +39,12 @@ REQUIRED_IDS = [
     "toggleGuideButton",
     "guidePanel",
     "historyList",
+    "historyReview",
     "importHistoryButton",
     "importHistoryInput",
     "exportHistoryButton",
+    "clearHistoryButton",
+    "historyBackupCue",
 ]
 
 SPREAD_IDS = [
@@ -80,7 +93,23 @@ def fail(message: str, details: dict | None = None) -> None:
 
 
 def main() -> None:
-    required_files = [INDEX, DATA, APP, STYLES, ELECTRON_MAIN]
+    required_files = [
+        INDEX,
+        DATA,
+        APP,
+        STYLES,
+        ELECTRON_MAIN,
+        HISTORY_SCHEMA,
+        CARD_SCHEMA,
+        SPREAD_SCHEMA,
+        HISTORY_FIXTURE_VALID,
+        HISTORY_FIXTURE_DUPLICATE,
+        HISTORY_FIXTURE_INVALID_JSON,
+        REPORT_POLICY,
+        PACKAGE_SCRIPT,
+        PACKAGE_SMOKE,
+        ROOT_README,
+    ]
     missing_files = [str(path.relative_to(ROOT)) for path in required_files if not path.exists()]
     if missing_files:
         fail("required web app files are missing", {"missingFiles": missing_files})
@@ -109,9 +138,15 @@ def main() -> None:
         "selectedNote",
         "saveReading",
         "restoreHistory",
+        "renderHistoryReview",
+        "deleteHistory",
+        "clearHistory",
         "exportHistory",
         "importHistoryFile",
         "mergeImportedHistory",
+        "reviewedHistoryKey",
+        "historyReadFailed",
+        "履歴データを読めません",
         "localStorage",
     ]
     missing_runtime_terms = [term for term in required_runtime_terms if term not in app]
@@ -120,6 +155,34 @@ def main() -> None:
 
     if "contextIsolation: true" not in electron or "nodeIntegration: false" not in electron:
         fail("electron shell must keep renderer isolated", {"path": str(ELECTRON_MAIN.relative_to(ROOT))})
+
+    valid_fixture = json.loads(HISTORY_FIXTURE_VALID.read_text(encoding="utf-8"))
+    duplicate_fixture = json.loads(HISTORY_FIXTURE_DUPLICATE.read_text(encoding="utf-8"))
+    invalid_json = HISTORY_FIXTURE_INVALID_JSON.read_text(encoding="utf-8")
+    try:
+        json.loads(invalid_json)
+    except json.JSONDecodeError:
+        invalid_fixture_rejected = True
+    else:
+        invalid_fixture_rejected = False
+    if not invalid_fixture_rejected:
+        fail("invalid history fixture must stay invalid JSON", {"path": str(HISTORY_FIXTURE_INVALID_JSON.relative_to(ROOT))})
+
+    for fixture_path, fixture in [
+        (HISTORY_FIXTURE_VALID, valid_fixture),
+        (HISTORY_FIXTURE_DUPLICATE, duplicate_fixture),
+    ]:
+        if fixture.get("app") != "ONOKO_ARCANA" or fixture.get("schemaVersion") != 1:
+            fail("history fixture wrapper is invalid", {"path": str(fixture_path.relative_to(ROOT))})
+        history = fixture.get("history")
+        if not isinstance(history, list) or not history:
+            fail("history fixture must contain at least one reading", {"path": str(fixture_path.relative_to(ROOT))})
+        first = history[0]
+        cards_payload = first.get("cards") if isinstance(first, dict) else None
+        if not isinstance(cards_payload, list) or not cards_payload:
+            fail("history fixture must contain card entries", {"path": str(fixture_path.relative_to(ROOT))})
+        if any("reversed" not in entry for entry in cards_payload):
+            fail("history fixture card entries must include reversed boolean", {"path": str(fixture_path.relative_to(ROOT))})
 
     card_root = ROOT / "assets" / "generated" / "card-production-v5-full" / "alpha"
     expected_assets = [card_root / "card-back-onoko-v5-alpha.png"]
@@ -182,6 +245,21 @@ def main() -> None:
         "webLabeledCardAssets": len(expected_web_labeled_assets),
         "hudAssets": len(expected_hud_assets),
         "electronShell": str(ELECTRON_MAIN.relative_to(ROOT)),
+        "schemas": [
+            str(HISTORY_SCHEMA.relative_to(ROOT)),
+            str(CARD_SCHEMA.relative_to(ROOT)),
+            str(SPREAD_SCHEMA.relative_to(ROOT)),
+        ],
+        "historyFixtures": [
+            str(HISTORY_FIXTURE_VALID.relative_to(ROOT)),
+            str(HISTORY_FIXTURE_DUPLICATE.relative_to(ROOT)),
+            str(HISTORY_FIXTURE_INVALID_JSON.relative_to(ROOT)),
+        ],
+        "packageScripts": [
+            str(PACKAGE_SCRIPT.relative_to(ROOT)),
+            str(PACKAGE_SMOKE.relative_to(ROOT)),
+        ],
+        "reportPolicy": str(REPORT_POLICY.relative_to(ROOT)),
         "checkedAt": datetime.now().isoformat(timespec="seconds"),
     }
     report_path = REPORTS / f"web-app-check-{datetime.now().strftime('%Y%m%d-%H%M%S')}.json"

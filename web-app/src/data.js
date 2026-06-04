@@ -84,9 +84,9 @@ const spreads = [
     description: "状況の流れを三段階で読み、変化の筋道を確認する。",
     layoutType: "linear",
     slots: [
-      { key: "past", label: "過去", revealOrder: 1, prompt: "現在に影響している背景や前提を見る。", x: 24, y: 52, rot: -5 },
+      { key: "past", label: "過去", revealOrder: 1, prompt: "現在に影響している背景や前提を見る。", x: 18, y: 52, rot: -5 },
       { key: "present", label: "現在", revealOrder: 2, prompt: "今の中心課題や意識すべき状態を見る。", x: 50, y: 48, rot: 0 },
-      { key: "future", label: "未来", revealOrder: 3, prompt: "この流れの先に出やすい可能性を見る。", x: 76, y: 52, rot: 5 }
+      { key: "future", label: "未来", revealOrder: 3, prompt: "この流れの先に出やすい可能性を見る。", x: 82, y: 52, rot: 5 }
     ]
   },
   {

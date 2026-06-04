@@ -1,5 +1,7 @@
 # Phase 2 Reading SaveGame
 
+> Archive notice (2026-06-05): This UE SaveGame note is historical evidence. The active v1.x persistence path is Web/Electron `localStorage` history v1; do not use this document as current next work.
+
 Updated: 2026-06-01
 
 This note defines the first durable reading-history layer for ONOKO ARCANA. It is intentionally UI-independent so the one-card table HUD can save readings before the final history screen exists.

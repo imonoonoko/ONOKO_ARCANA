@@ -4,7 +4,7 @@ Date: 2026-06-02
 
 ## Decision
 
-The immediate MVP direction has moved from Unreal-first wiring to a Web/Electron-ready 2D tarot table. Unreal remains in the project as a future premium 3D layer, but it is no longer the shortest path for proving the product loop.
+The v1.x direction is locked to a Web/Electron-ready 2D tarot table. Unreal remains in the repository only as archived technical evidence and is no longer a future implementation lane for the current roadmap.
 
 ## Why
 
@@ -52,7 +52,7 @@ Electron-ready shell:
 web-app/electron/main.cjs
 ```
 
-Electron is installed as a development dependency under `web-app/`, and the shell has been smoke-tested through Playwright's Electron launcher. Distribution packaging is still a later task.
+Electron is installed as a development dependency under `web-app/`, and the shell has been smoke-tested through Playwright's Electron launcher. A local folder package is created by `scripts/package_electron_local.cjs`; signed installer/public distribution remains a later task.
 
 ## Requirement Artifact
 
@@ -78,10 +78,10 @@ python scripts/check_web_app.py
 python scripts/check_web_mvp_prototype.py
 ```
 
-Latest passing report:
+Latest hardening report:
 
 ```text
-reports/web-app-check-20260602-051246.json
+reports/web-app-check-20260605-004943.json
 ```
 
 Browser smoke test performed with Playwright:
@@ -146,7 +146,7 @@ C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin
 Latest smoke report:
 
 ```text
-reports/web-app-smoke-20260602-051246.json
+reports/web-app-smoke-20260605-004943.json
 ```
 
 Electron smoke command used in this environment:
@@ -159,13 +159,19 @@ C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin
 Latest Electron smoke report:
 
 ```text
-reports/electron-app-smoke-20260602-051246.json
+reports/electron-app-smoke-20260605-004947.json
+```
+
+Latest package smoke report:
+
+```text
+reports/electron-package-smoke-20260605-005006.json
 ```
 
 ## Next Work
 
-1. Add distribution packaging after the current Electron shell is accepted.
-2. Add import for exported reading history after the export format is accepted.
-3. Decide whether Tauri is still worth comparing after a few real reading sessions in Electron.
-4. Move from major-arcana-only to minor arcana only after the current table remains readable with higher card counts.
-5. Revisit Unreal only after the Web app loop is stable and the desired 3D value is specific.
+1. Add card/question/spread filters to make saved readings useful at larger history counts.
+2. Add a settings surface for history/export/import/display preferences.
+3. Decide on signed installer, `.ico`, and public distribution only after local package usage is accepted.
+4. Move from major-arcana-only to minor arcana only after review and package flows remain stable.
+5. Keep Unreal archived unless a specific 3D product value is defined in a separate scope.

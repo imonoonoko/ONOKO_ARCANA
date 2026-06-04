@@ -1,6 +1,18 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("node:path");
 
+const windowIcon = path.join(
+  __dirname,
+  "..",
+  "..",
+  "assets",
+  "generated",
+  "card-production-v5-full",
+  "web-labeled",
+  "alpha",
+  "card-back-onoko-v5-alpha.png"
+);
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1440,
@@ -9,6 +21,7 @@ function createWindow() {
     minHeight: 760,
     backgroundColor: "#03070c",
     title: "ONOKO ARCANA",
+    icon: windowIcon,
     autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true,

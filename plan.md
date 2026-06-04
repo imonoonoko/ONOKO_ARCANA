@@ -1,21 +1,29 @@
-# ONOKO ARCANA 研究水準実装計画書
+# ONOKO ARCANA Web/Electron 実装計画書
 
-Updated: 2026-06-02  
+Updated: 2026-06-05
 引き継ぎ元: `019e78ce-7d75-7833-95d3-612892488a02`  
 Project: `C:\ONOKO_PROJECT\ONOKO_ARCANA`  
-Primary roadmap: `docs/roadmap/ONOKO_ARCANA_RESEARCH_GRADE_ROADMAP_V2_2026-05-31.md`
+Primary roadmap: `docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`
+
+## 2026-06-04 Scope Lock
+
+ONOKO ARCANA v1.x は Web/Electron の 2D 占い卓として完成させる。Unreal Engine 化は完全に見送り、既存UE成果は削除せずアーカイブ証跡として保持する。この文書の下部に残るUE調査・import・C++・Commandlet関連の記述は履歴であり、現在の実装タスクには混ぜない。
+
+## 2026-06-05 Handoff Hardening
+
+Web/Electron版を日常使用と引き継ぎに耐える状態へ固めるhardening gateは完了した。Electron local package、保存場所/バックアップ説明、Card/Spread schema、固定fixture、代表証跡ポリシー、package smokeを整備済みである。UEの `WBP_TableHUD`、`L_Phase1_OneCard_Table`、Commandlet検証はアーカイブ資料であり、v1.xの作業順には含めない。
 
 ## 2026-06-02 媒体方針アップデート
 
-現時点の最短MVPは、UE Editor/UMG配線をさらに深追いすることではなく、Web/Electron-readyな2D占い卓で「スプレッド選択、ドロー、順番めくり、解釈メモ、ガイド照合、履歴保存」の学習ループを先に完成させる方針へ切り替える。Unreal Engine は破棄せず、カード素材・3D演出・将来のプレミアム表現層として保持する。現行の本体候補は `web-app/index.html`、旧プロトタイプ証跡は `prototype/onoko-arcana-web-mvp-v1.html`。詳細は `docs/implementation/WEB_MVP_PIVOT_2026-06-02.md` と `.agent/requirements/20260602-0432-web-mvp-pivot/` を参照する。
+現時点の最短MVPは、Web/Electron-readyな2D占い卓で「スプレッド選択、ドロー、順番めくり、解釈メモ、ガイド照合、履歴保存、履歴復習」の学習ループを完成させる方針で固定する。現行の本体は `web-app/index.html`、Electron shell は `web-app/electron/main.cjs`、旧プロトタイプ証跡は `prototype/onoko-arcana-web-mvp-v1.html`。詳細は `docs/implementation/WEB_MVP_PIVOT_2026-06-02.md` と `.agent/requirements/20260602-0432-web-mvp-pivot/` を参照する。
 
 ## 要旨
 
-ONOKO ARCANA は、タロットカードを物理的に所持していないユーザーでも、PC上の3D占い卓でカードを引き、意味を学び、自分の解釈を記録できる Unreal Engine 製デスクトップアプリケーションである。本計画の中心命題は、単に美麗なカード画像を表示することではない。ユーザーが「自分で読む」「補助解釈を見る」「履歴から学び直す」という反復学習を、占い卓という空間的インターフェース上で成立させることである。
+ONOKO ARCANA は、タロットカードを物理的に所持していないユーザーでも、PC上のWeb/Electron占い卓でカードを引き、意味を学び、自分の解釈を記録できるデスクトップアプリケーションである。本計画の中心命題は、単に美麗なカード画像を表示することではない。ユーザーが「自分で読む」「補助解釈を見る」「履歴から学び直す」という反復学習を、占い卓という空間的インターフェース上で成立させることである。
 
 前スレッドでは、初期の画像生成・透過処理・UE取り込み・ロードマップ策定・C++実装が段階的に進められた。その結果、V5方式の大アルカナ22枚および裏面1枚は、透過、外形、視覚QA、UE import、実行時manifest検証の各ゲートを通過している。さらに、C++側では V5 deck runtime、1枚引き session、card actor、table controller、HUD parent、SaveGame、reading history ViewModel まで実装され、commandlet による証跡も揃っている。
 
-したがって、現在のボトルネックはカード再生成ではなく、UE Editor 上で実際に使える占い卓画面へ接続することである。今後の最短経路は、V5大アルカナを active candidate deck として固定し、`L_Phase1_OneCard_Table` に `AOnokoArcanaCardActor`、`AOnokoArcanaTableController`、`WBP_TableHUD` を手動または安定した自動化経路で接続し、1枚引き、表裏反転、正逆、解釈メモ、ガイド表示、保存、履歴確認までを同一画面で実証することである。
+したがって、現在のボトルネックはカード再生成やUE配線ではなく、Web/Electron上で日常使用できる保存、復習、履歴保護、キーボード操作、視覚品質を閉じることである。今後の最短経路は、V5大アルカナを active candidate deck として固定し、Web/Electronの同一画面で複数スプレッド、表裏反転、正逆、解釈メモ、ガイド表示、保存、履歴復習、import/export、削除を実証することである。
 
 ## 1. 背景と目的
 
@@ -25,7 +33,7 @@ ONOKO ARCANA は、タロットカードを物理的に所持していないユ�
 
 ONOKO ARCANA の体験価値は、次の三層から成る。
 
-1. 占い卓体験: 3D空間にカードを置き、引き、めくることで、物理カードに近い儀式性を持たせる。
+1. 占い卓体験: 2Dの机上UIにカードを置き、引き、めくることで、物理カードに近い儀式性を持たせる。
 2. 学習体験: 正位置・逆位置・キーワード・study focus を、ユーザー自身の解釈の後に提示する。
 3. 記録体験: 過去の問い、引いたカード、正逆、解釈メモ、ガイド表示状態を保存し、履歴から学び直す。
 
@@ -42,8 +50,8 @@ ONOKO ARCANA の体験価値は、次の三層から成る。
 - 正位置または逆位置を保持し、対応するキーワードを表示する。
 - ユーザーが自分の解釈を入力する。
 - 明示操作後に study focus / guide を表示する。
-- 現在の読みを SaveGame に保存する。
-- 保存済み履歴の件数、最新サマリ、選択中詳細をUIに出す。
+- 現在の読みを `localStorage` history v1 に保存する。
+- 保存済み履歴の件数、最新サマリ、復習ノート、export/import/deleteをUIに出す。
 
 ### 1.3 計画の原則
 
@@ -55,7 +63,7 @@ ONOKO ARCANA の体験価値は、次の三層から成る。
 
 | 領域 | 現在の決定 |
 |---|---|
-| Engine | Unreal Engine 5.7 系のプロジェクト `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject` を使用する。 |
+| Runtime | Web/Electron-readyな `web-app/index.html` を使用する。 |
 | 初期deck範囲 | 大アルカナ22枚と共通裏面1枚を先行対象とする。 |
 | 小アルカナ | 大アルカナのruntime、UI、保存、履歴が安定するまで着手しない。 |
 | カード画像 | V5 clean-start の `1024x1536` 縦長タロットシルエットを採用する。 |
@@ -121,9 +129,9 @@ V5 asset gate の後、UE側で以下の実装が進んだ。
 - `FOnokoArcanaSavedReading`、`UOnokoArcanaReadingSaveGame`、`UOnokoArcanaReadingSaveLibrary`。
 - 履歴件数、最新サマリ、選択中詳細を出す `UOnokoArcanaReadingHistoryViewModel`。
 
-### 3.6 現在の未完了点
+### 3.6 UE laneの未完了点と現在の扱い
 
-C++実装とcommandlet検証は進んでいるが、実際のUE Editor上の完成画面はまだ成立していない。`L_Phase1_OneCard_Table` は存在するが、Pythonによるmap actor spawn経路が `EXCEPTION_ACCESS_VIOLATION` を起こしており、自動生成結果を完成証跡として扱えない。次工程では、手動Editor配置、または別の安定自動化経路で `WBP_TableHUD` とカードActorを接続し、実画面での縦断スライスを証明する必要がある。
+C++実装とcommandlet検証は進んでいるが、実際のUE Editor上の完成画面は成立していない。`L_Phase1_OneCard_Table` は存在するが、Pythonによるmap actor spawn経路が `EXCEPTION_ACCESS_VIOLATION` を起こしており、自動生成結果を完成証跡として扱えない。このUE laneは現行v1.xではアーカイブ扱いとし、次工程にはしない。現行の完成証跡はWeb/Electron smoke、visual audit、package smokeで作る。
 
 ## 4. 証跡一覧
 
@@ -162,11 +170,13 @@ C++実装とcommandlet検証は進んでいるが、実際のUE Editor上の完�
 | `docs/design/card-production-v5-clean-start.md` | V5 clean-start の採用理由と制作ルール。 |
 | `docs/design/overall-design-kanban.md` | UI TABLE、CARDS、STUDY、READING、ASSETS、POLISH の設計カンバン。 |
 
-## 5. 研究課題と設計仮説
+## 5. 旧UE laneの研究課題と設計仮説
+
+この章から8章までは、Web/Electronへpivotする前のUE実装研究を記録する履歴資料である。現行v1.xの作業順、完了条件、検証ゲートは9章以降を優先する。
 
 ### 5.1 研究課題
 
-本プロジェクトの研究課題は、生成AI由来のカード素材、Unreal Engine の3D表示、タロット学習UI、ローカル保存を、破綻なく1つの縦断体験へ統合できるかである。
+旧UE laneの研究課題は、生成AI由来のカード素材、Unreal Engine の3D表示、タロット学習UI、ローカル保存を、破綻なく1つの縦断体験へ統合できるかであった。
 
 具体的な問いは次の通りである。
 
@@ -186,7 +196,7 @@ C++実装とcommandlet検証は進んでいるが、実際のUE Editor上の完�
 | H4 | SaveGame + history ViewModel で最初の学習履歴は成立する。 | 保存、読込、件数、最新サマリ、選択詳細のcommandlet検証。 |
 | H5 | 現時点のmap自動生成は完成証跡に使わず、手動Editor接続を優先する方が安全である。 | UE Python actor spawn crash の再発を避け、Editor配置後のスクリーンショットを証跡化。 |
 
-## 6. システム構成
+## 6. 旧UE laneのシステム構成
 
 ### 6.1 レイヤ構造
 
@@ -219,7 +229,7 @@ flowchart TD
 | UI | 実際のbutton、textbox、textblockを持つ。 | `UOnokoArcanaTableHudWidget`, `WBP_TableHUD` |
 | Persistence | 読みの保存、読込、削除、履歴取得を扱う。 | `OnokoArcanaReadingSaveGame.*`, `OnokoArcanaReadingSaveLibrary.*` |
 
-## 7. 要件
+## 7. 旧UE laneの要件
 
 ### 7.1 機能要件
 
@@ -254,7 +264,7 @@ flowchart TD
 - 正逆、keywords、study focus は学習補助であり、ユーザーの解釈を上書きしない。
 - 履歴は単なるログではなく、過去の問いと自分の解釈を読み返すための学習資産である。
 
-## 8. フェーズ計画
+## 8. 旧UE laneのフェーズ計画
 
 ### 8.1 Phase 0A: Evidence Freeze
 
@@ -468,65 +478,53 @@ Status: Blocked
 
 - Major Arcana 22枚のruntime体験が完成している。
 - 3枚引きが安定している。
-- asset generation / audit / UE import / visual QA の手順が再利用可能である。
+- asset generation / audit / Web asset化 / visual QA の手順が再利用可能である。
 
-## 9. 直近作業指示
+## 9. 直近完了と次作業
 
 ### 9.1 最優先ゴール
 
-次の作業ブロックのゴールは、`WBP_TableHUD` を作り、実map上で1枚引き学習ループを操作可能にすることである。C++の追加より、Editor/Blueprint配線と実画面証跡を優先する。
+2026-06-05の作業ブロックでは、Web/Electron版をローカルで起動・保存・復元・検証しやすい状態へ固めた。package、保存場所/バックアップ説明、schema、fixture、代表証跡ポリシー、package smokeは完了済みである。次の優先順位は、履歴復習filter、settings画面、初回起動empty state、配布polishの順とする。
 
-### 9.2 作業手順
+### 9.2 完了したhardening手順
 
-1. `/Game/ONOKOArcana/Maps/L_Phase1_OneCard_Table` を開く。
-2. 中央reading slotに `AOnokoArcanaCardActor` を配置する。
-3. card actor に `/Game/ONOKOArcana/Phase1/Materials/M_Phase1_CardMasked_TextureParam` を割り当てる。
-4. back texture に `/Game/ONOKOArcana/Cards/Textures/V5Full/T_Card_Back_ONOKO_V5_Alpha` を割り当てる。
-5. `AOnokoArcanaTableController` を配置する。
-6. controller の `ReadingCardActor` に配置済みcard actorを割り当てる。
-7. `DefaultQuestion` に `今の自分に必要な視点は？` などの短い仮質問を入れる。
-8. `UOnokoArcanaTableHudWidget` を親にして `WBP_TableHUD` を作る。
-9. 推奨widget名に従い、Draw、Reveal、Note、Guide、Save、History、Reset を配置する。
-10. `AOnokoArcanaPlayerController` がHUDを生成し、table controllerへ接続することを確認する。
-11. 実画面で draw -> reveal -> note -> guide -> save -> refresh history -> reset を通す。
-12. checkerboardではないproduction-like table screenshotを `assets/generated/reports/` に保存する。
+1. `AGENTS.md` と本計画の現行タスクを Web/Electron 本線へ同期する。
+2. `docs/data/HISTORY_SCHEMA_V1.md` に加え、Card schema と Spread schema を固定する。
+3. `tests/fixtures/history/` に正常/重複/壊れた履歴fixtureを置く。
+4. smokeで壊れたJSONを `reports/` に都度生成せず、固定fixtureを使う。
+5. `reports/README.md` と `.gitignore` で代表証跡と一時run出力の扱いを分ける。
+6. `scripts/package_electron_local.cjs` で `dist/onoko-arcana-local/` を作れるようにする。
+7. package smokeで、local packageから draw -> reveal -> note -> guide -> save を通す。
+8. READMEに起動、検証、保存場所、backup/restore、package手順を残す。
 
-### 9.3 `WBP_TableHUD` 最小widget契約
+### 9.3 現行Web/Electron契約
 
-| Widget Name | Type | 用途 |
-|---|---|---|
-| `QuestionTextBox` | `EditableTextBox` | 問いの入力 |
-| `StartReadingButton` | `Button` | reading開始 |
-| `DrawButton` | `Button` | 1枚引き |
-| `RevealCardButton` | `Button` | カード表面表示 |
-| `UserInterpretationTextBox` | `MultiLineEditableTextBox` | ユーザー解釈 |
-| `RevealGuideButton` | `Button` | guide / study focus 表示 |
-| `SaveReadingButton` | `Button` | 現在の読みを保存 |
-| `RefreshHistoryButton` | `Button` | 履歴再読込 |
-| `ResetButton` | `Button` | 現在の読みをリセット |
-| `CardTitleText` | `TextBlock` | カード名 |
-| `OrientationText` | `TextBlock` | 正位置・逆位置 |
-| `KeywordsText` | `TextBlock` | active keywords |
-| `StudyFocusText` | `TextBlock` | guide後の学習文 |
-| `ErrorText` | `TextBlock` | エラー |
-| `StateText` | `TextBlock` | 状態 |
-| `HistoryCountText` | `TextBlock` | 保存件数 |
-| `HistoryLatestSummaryText` | `TextBlock` | 最新履歴サマリ |
-| `HistorySelectedTitleText` | `TextBlock` | 選択履歴タイトル |
-| `HistorySelectedDetailText` | `TextBlock` | 選択履歴詳細 |
-| `HistoryEmptyStateText` | `TextBlock` | 履歴なし状態 |
+| 領域 | 契約 |
+|---|---|
+| Runtime | `web-app/index.html` を直接openでき、Electron shellでも同一loopが動く |
+| Assets | Web表示は `assets/generated/card-production-v5-full/web-labeled/alpha/` を使う |
+| History | `onoko-arcana:desktop:history:v1` に最大48件を新しい順で保存する |
+| Export | `app: ONOKO_ARCANA`, `schemaVersion: 1`, `history: []` wrapperを使う |
+| Import | wrapperまたは旧array形式を受け入れ、不正itemと重複を捨てる |
+| Delete | 個別削除/全消去は確認つきで、UI上に書き出し推奨を出す |
+| Package | `dist/onoko-arcana-local/` にWeb/Electron本体と必要assetをコピーする |
 
-### 9.4 直近作業の完了条件
+### 9.4 hardening gateの完了条件
 
-- `WBP_TableHUD` が `UOnokoArcanaTableHudWidget` を親にしている。
-- button類がC++側のoptional binding名と一致する。
-- draw後、card actorがV5裏面または表面を正しく表示する。
-- reveal後、選択カード名、正逆、keywordsがUIへ出る。
-- guide前はstudy focusが隠れる。
-- guide後はstudy focusが出る。
-- save後、history count または latest summary が更新される。
-- reset後、note、guide state、current card stateが初期化される。
-- 実画面スクリーンショットが残る。
+- `AGENTS.md` がWeb/Electron本線を最優先としている。
+- `plan.md` のhardening gateがUE配線ではなく、package/schema/fixture/report policyの完了を記録している。
+- Card/Spread/History schemaが `docs/data/` に揃っている。
+- fixed fixtureを使ってimport error pathを検証できる。
+- `reports/` の一時run出力が新規追跡対象にならない。
+- local packageが作成できる。
+- package smokeが通る。
+
+### 9.5 次の実装候補
+
+1. 保存履歴をカード、問い、スプレッド、日付で絞り込む復習filter。
+2. 保存、履歴、表示、backup/restoreを集約するsettings画面。
+3. 初回起動時と保存直後の次アクション文言/状態改善。
+4. 外部配布する場合のinstaller、`.ico`、署名、auto updateの別スコープ定義。
 
 ## 10. 検証計画
 
@@ -534,67 +532,57 @@ Status: Blocked
 
 | 変更種別 | 最低検証 | 強い検証 |
 |---|---|---|
-| Blueprint widget配線 | Editor上の手動操作 | `Phase1HudReflectionSurface` の再実行 |
-| C++ controller変更 | UE build | 関連commandlet全再実行 |
-| SaveGame変更 | SaveGame test | restart smoke test |
-| Deck manifest変更 | manifest validation | deck runtime 22 draw test |
-| Card asset変更 | alpha audit | visual QA + UE import + QA map |
-| Map/lighting変更 | screenshot | 複数視点、表裏、正逆の目視 |
+| HTML/CSS/JS変更 | `python scripts/check_web_app.py` | Web smoke + visual audit |
+| 履歴保存/import/export変更 | static check | Web smoke + fixture追加 |
+| Electron shell変更 | Electron smoke | package smoke |
+| Package script変更 | local package作成 | package smoke + README確認 |
+| Card/Spread data変更 | schema doc更新 | smoke + visual audit + fixture |
+| Layout/visual変更 | screenshot | visual audit全viewport |
 
 ### 10.2 推奨検証順
 
-1. UE C++ build: `ONOKO_ARCANAEditor Win64 Development`
-2. `V5DeckManifestValidationResult.json`
-3. `Phase1DeckRuntimeTestResult.json`
-4. `Phase1OneCardSessionTestResult.json`
-5. `Phase1OneCardViewModelTestResult.json`
-6. `Phase1HudReflectionSurfaceTestResult.json`
-7. `Phase2ReadingSaveGameTestResult.json`
-8. `Phase2ReadingHistoryViewModelTestResult.json`
-9. Editor manual smoke test
-10. Screenshot proof
+1. `python scripts/check_web_app.py`
+2. `scripts/smoke_web_app.cjs`
+3. `scripts/smoke_electron_app.cjs`
+4. `scripts/audit_web_ui_visual.cjs`
+5. `scripts/package_electron_local.cjs`
+6. `scripts/smoke_electron_package.cjs`
+7. README / roadmap / kanban の証跡パス更新
 
 ### 10.3 手動スモークテスト
 
-1. アプリまたはEditor PIEを起動する。
-2. `QuestionTextBox` に問いを入力する。
-3. `StartReadingButton` を押す。
-4. `DrawButton` を押す。
-5. card actorが裏面を表示していることを確認する。
-6. `RevealCardButton` を押す。
-7. 表面Texture、正逆、keywordsが一致することを確認する。
-8. `UserInterpretationTextBox` に短い解釈を書く。
-9. `RevealGuideButton` を押す。
-10. study focus が表示されることを確認する。
-11. `SaveReadingButton` を押す。
-12. `RefreshHistoryButton` を押す。
-13. 履歴件数、最新サマリ、選択詳細が表示されることを確認する。
-14. `ResetButton` を押し、初期状態に戻ることを確認する。
+1. WebまたはElectronを起動する。
+2. 問いを入力する。
+3. スプレッドを選ぶ。
+4. `Draw` を押す。
+5. 全カードを順番に `Reveal` する。
+6. noteを書く前にguideが開かないことを確認する。
+7. noteを書いてguideを開く。
+8. `Save` を押す。
+9. 履歴一覧、復習ノート、書き出し、読み込み、削除、全消去を確認する。
+10. package smokeでは `dist/onoko-arcana-local/` から同じloopを確認する。
 
 ## 11. リスク管理
 
 | リスク | 影響 | 現在の判断 | 対策 |
 |---|---|---|---|
-| UE Python actor spawn crash | map自動生成が止まる | 既に複数回再現 | 直近は手動Editor配置を優先。原因調査は別タスク化。 |
+| 入口文書のUE回帰 | 次の作業者が古いUE laneへ戻る | 最重要 | `AGENTS.md` と本計画をWeb/Electronへ同期し、UEはArchive扱いにする。 |
 | V4 bboxへの回帰 | V5で承認済みの縦長感が崩れる | 高リスク | 現行計画に「V5外形を採用」と明記。 |
 | カード再生成ループ | runtime実装が進まない | 高リスク | 実画面でhard blockerが出るまで再生成しない。 |
-| UMG widget名不一致 | C++ bindingが効かない | 中リスク | 推奨widget名を計画と実装docに固定。 |
-| SaveGame schema変更 | 既存履歴が読めなくなる | 中リスク | schema version とmigration方針をPhase 2後半で追加。 |
+| localStorage破損の黙殺 | ユーザーが履歴喪失に気づけない | 中リスク | 読込失敗をUI表示し、export/import復旧導線を明記する。 |
+| Electron配布で保存場所が不明 | backupできない | 中リスク | READMEに保存場所、export、restore手順を明記する。 |
+| 証跡肥大化 | Git同期と引き継ぎが重くなる | 既に発生 | `reports/README.md` と `.gitignore` で代表証跡だけを管理する。 |
 | Texture memory増大 | 小アルカナ拡張時に重くなる | 将来リスク | 78枚化はMajor runtime完成後。 |
-| スクリーンショット誤取得 | 証跡が信用できない | 過去に発生済み | 前面window確認、無効画像の破棄、ファイル名に用途を明記。 |
-| QA mapとproduction mapの混同 | 見た目完成の誤判定 | 中リスク | QA mapはalpha/size証跡、production tableは別証跡とする。 |
 
 ## 12. 非目標
 
-次の作業ブロックでは、以下を行わない。
+現行v1.x hardening blockでは、以下を行わない。
 
 - 小アルカナ56枚の生成。
 - 全カードの再生成。
-- Windows build packaging。
 - 完成polish animationの作り込み。
-- 3枚引きの先行実装。
-- full history list の凝ったUI。
-- DataAsset化。
+- installer署名や公開配布。
+- Auto update。
 - UE Python map spawn crash の深追い。
 
 これらは重要だが、現在の縦断スライス完成には直結しない。
@@ -603,36 +591,36 @@ Status: Blocked
 
 ### 13.1 MVP完成
 
-MVPは、1枚引き学習ループが実画面で成立した時点で完成とする。
+MVPは、Web/Electron上で大アルカナの占い学習ループが成立した時点で完成とする。
 
 必要条件:
 
 - V5大アルカナがactive deckとして読み込まれる。
-- 1枚引き、reveal、正逆、keywords、study focusが動く。
-- user interpretation を入力できる。
-- readingを保存できる。
-- 保存履歴の最低限表示ができる。
-- 実画面スクリーンショットとJSON証跡が残る。
+- 6種類のスプレッド、draw、reveal、正逆、keywords、study focusが動く。
+- user interpretationをguide前に入力できる。
+- readingをlocalStorageへ保存できる。
+- 履歴の復習、export/import、個別削除、全消去ができる。
+- Web smoke、Electron smoke、visual auditの代表証跡が残る。
 
 ### 13.2 Alpha完成
 
-Alphaは、1枚引きに加えて3枚引きとstudy galleryの最小版が動いた時点で完成とする。
+Alphaは、Web/Electron版を日常使用できるローカルデスクトップアプリとして扱える時点で完成とする。
 
 必要条件:
 
-- 3枚引きでカード重複がない。
-- 3slotそれぞれが正逆とkeywordsを持つ。
-- galleryで22枚を閲覧できる。
-- saved reading と gallery detail が意味的に接続される。
+- local packageが作成できる。
+- package smokeが通る。
+- 保存場所、backup、restore手順がREADMEにある。
+- Card/Spread/History schemaとfixtureがある。
 
 ### 13.3 Beta完成
 
-Betaは、Windows packaged buildで主要操作が通る時点で完成とする。
+Betaは、配布候補packageで主要操作が通る時点で完成とする。
 
 必要条件:
 
-- packaged buildが作成できる。
-- 初回起動、1枚引き、3枚引き、保存、restart後読込が通る。
+- packaged buildまたはlocal packageが作成できる。
+- 初回起動、複数スプレッド、保存、restart後読込が通る。
 - missing texture / missing widget がない。
 - UI textが読める。
 - 既知のクラッシュがない。
@@ -644,10 +632,10 @@ v1.0は、大アルカナ学習アプリとして他者に渡せる品質に到�
 必要条件:
 
 - Major Arcana 22枚の体験が安定している。
-- 1枚引き、3枚引き、履歴、study gallery が使える。
+- 複数スプレッド、履歴、復習、export/import が使える。
 - 操作説明なしでも基本操作が理解できる。
 - 保存データの破損や読込失敗にUI上の対処がある。
-- 最低限のpolish animationと音が入り、読みやすさを損なわない。
+- 最低限のpolishが入り、読みやすさを損なわない。
 - READMEまたは起動手順が整備されている。
 
 ## 14. 小アルカナ拡張条件
@@ -657,7 +645,7 @@ v1.0は、大アルカナ学習アプリとして他者に渡せる品質に到�
 開始条件:
 
 - Major Arcana runtime が安定している。
-- 生成・透過・visual QA・UE import の手順が再現可能である。
+- 生成・透過・visual QA・Web asset化・schema更新の手順が再現可能である。
 - 78枚化後のTexture memoryとロード時間の見積りがある。
 - UIが78枚galleryに耐える。
 
@@ -678,20 +666,20 @@ v1.0は、大アルカナ学習アプリとして他者に渡せる品質に到�
 
 | 目的 | 要件 | 実装 | 証跡 |
 |---|---|---|---|
-| V5 deckを使う | F-01 | `UOnokoArcanaDeckRuntime` | `V5DeckManifestValidationResult.json` |
-| 1枚引きする | F-02 | `DrawOne`, `UOnokoArcanaOneCardSession` | `Phase1DeckRuntimeTestResult.json`, `Phase1OneCardSessionTestResult.json` |
-| 表裏を切り替える | F-03 | `AOnokoArcanaCardActor` | `PHASE1_ONE_CARD_TABLE_WIRING.md` |
-| 正逆を扱う | F-04 | draw result, actor rotation, ViewModel | `Phase1OneCardViewModelTestResult.json` |
-| 自分の解釈を書く | F-05 | `SubmitUserInterpretation`, HUD textbox | `PHASE1_ONE_CARD_TABLE_WIRING.md` |
-| guideを後出しする | F-06 | `RevealGuide`, study focus visibility | `Phase1OneCardViewModelTestResult.json` |
-| 読みを保存する | F-07 | `UOnokoArcanaReadingSaveLibrary` | `Phase2ReadingSaveGameTestResult.json` |
-| 履歴を見る | F-08 | `UOnokoArcanaReadingHistoryViewModel` | `Phase2ReadingHistoryViewModelTestResult.json` |
-| 学習卓にする | UX要件 | `WBP_TableHUD`, production map | 次のEditor screenshotで検証 |
+| V5 deckを使う | F-01 | `web-app/src/data.js` | `reports/web-app-check-20260604-054533.json` |
+| 複数スプレッドで引く | F-02 | `drawSpread`, spread definitions | `reports/web-app-smoke-20260604-054534.json` |
+| 表裏を切り替える | F-03 | `revealNext`, card slot renderer | `reports/web-app-smoke-20260604-054534.json` |
+| 正逆を扱う | F-04 | draw result, rotated image, label | `reports/ui-visual-audit-20260604-054646/report.json` |
+| 自分の解釈を書く | F-05 | `noteInput`, `selectedNote` | `reports/web-app-smoke-20260604-054534.json` |
+| guideを後出しする | F-06 | `toggleGuideButton` gating | `reports/keyboard-focus-smoke-20260604-041422.json` |
+| 読みを保存する | F-07 | `localStorage` history v1 | `docs/data/HISTORY_SCHEMA_V1.md` |
+| 履歴を見る | F-08 | history list / review notebook | `reports/web-app-smoke-20260604-054534.json` |
+| local package化する | Packaging | `scripts/package_electron_local.cjs` | package smokeで検証 |
 
 ## 17. 最終結論
 
-ONOKO ARCANA の現在地点は、素材制作フェーズの出口と、実アプリ体験フェーズの入口にある。V5大アルカナと裏面は、現時点でruntimeへ渡してよい。C++基盤も、1枚引き、ViewModel、HUD parent、SaveGame、history ViewModel まで検証済みである。
+ONOKO ARCANA の現在地点は、Web/ElectronのMVP学習ループを実証済みで、v1.0へ向けた配布・保存安全性・schema固定を進める段階にある。V5大アルカナと裏面は、現時点でWeb runtimeへ渡してよい。UE成果はアーカイブ証跡として価値があるが、v1.xの実装laneではない。
 
-次にやるべきことは明確である。カードを増やさず、抽象的な設計を増やさず、`WBP_TableHUD` と `L_Phase1_OneCard_Table` を接続し、ユーザーが1枚引き学習ループを実際に触れる状態へ進める。ここを通過すれば、ONOKO ARCANA は「カード素材とコードの集合」から「占いを学ぶための最小アプリ」へ移行する。
+次にやるべきことは明確である。カードを増やさず、UEへ戻らず、保存履歴を学習に使いやすくする復習filterとsettings画面へ進める。local package、保存場所/バックアップ説明、schema、fixture、代表証跡ポリシー、package smokeは通過済みであり、ONOKO ARCANA は「開発環境で動くWebアプリ」から「ローカルで継続使用できる占い学習アプリ」へ移行した。
 
-直近の作業は、`docs/implementation/PHASE1_ONE_CARD_TABLE_WIRING.md` と `docs/implementation/PHASE2_READING_SAVE_GAME.md` を手順書として、Editor上のHUD/Actor/Controller接続を完了させることである。
+直近の次作業は、`docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`、`docs/implementation/IMPLEMENTATION_KANBAN.md`、`web-app/README.md` を入口として、履歴復習filter、settings、empty stateを小さいsliceで実装・検証することである。

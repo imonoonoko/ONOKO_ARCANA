@@ -17,17 +17,17 @@
         </div>
       </header>
 
-      <section class="section">
+      <section class="section selected-section">
         <h2 class="section-title">問い</h2>
         <textarea id="questionInput" class="text-field question-field" rows="4" placeholder="今読む問いを入力"></textarea>
       </section>
 
-      <section class="section">
+      <section class="section note-section">
         <h2 class="section-title">スプレッド</h2>
         <div id="spreadControls" class="spread-list"></div>
       </section>
 
-      <section class="section">
+      <section class="section guide-section">
         <h2 class="section-title">状態</h2>
         <div class="stat-grid">
           <div class="stat"><b id="statCards">0</b><span>配置</span></div>
@@ -72,7 +72,10 @@
           <h2 class="section-title">自分の読み</h2>
           <span id="noteStatus" class="micro-status"></span>
         </div>
-        <textarea id="noteInput" class="text-field note-field" rows="5" placeholder="先に自分の解釈を書く" disabled></textarea>
+        <div class="study-notebook" aria-label="自分の読みノート">
+          <span class="notebook-pin" aria-hidden="true"></span>
+          <textarea id="noteInput" class="text-field note-field" rows="5" placeholder="先に自分の解釈を書く" disabled></textarea>
+        </div>
       </section>
 
       <section class="section">
@@ -89,10 +92,13 @@
           <div class="history-actions">
             <button id="importHistoryButton" class="button compact" type="button">読み込み</button>
             <button id="exportHistoryButton" class="button compact" type="button" disabled>書き出し</button>
+            <button id="clearHistoryButton" class="button compact danger-action" type="button" disabled>全消去</button>
             <input id="importHistoryInput" class="visually-hidden" type="file" accept="application/json,.json">
           </div>
         </div>
+        <p id="historyBackupCue" class="backup-cue">削除前は書き出し推奨</p>
         <div id="historyList" class="history-list"></div>
+        <div id="historyReview" class="history-review" aria-live="polite"></div>
       </section>
     </aside>
   </div>

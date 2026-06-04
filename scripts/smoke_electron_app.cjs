@@ -64,7 +64,13 @@ function stamp() {
     cards: document.querySelectorAll(".arcana-card").length,
     guideRows: document.querySelectorAll(".guide-row").length,
     historyItems: document.querySelectorAll(".history-item").length,
-    title: document.title
+    title: document.title,
+    scrollWidth: document.documentElement.scrollWidth,
+    scrollHeight: document.documentElement.scrollHeight,
+    viewport: window.innerWidth,
+    viewportHeight: window.innerHeight,
+    sidePanelFits: document.querySelector(".side-panel")?.scrollHeight <= document.querySelector(".side-panel")?.clientHeight + 1,
+    inspectorFits: document.querySelector(".inspector")?.scrollHeight <= document.querySelector(".inspector")?.clientHeight + 1
   }));
 
   await electronApp.close();
@@ -80,7 +86,11 @@ function stamp() {
     state.cards === 6 &&
     state.guideRows === 3 &&
     state.historyItems === 1 &&
-    state.title === "ONOKO ARCANA";
+    state.title === "ONOKO ARCANA" &&
+    state.scrollWidth <= state.viewport &&
+    state.scrollHeight <= state.viewportHeight &&
+    state.sidePanelFits === true &&
+    state.inspectorFits === true;
 
   const report = {
     ok,

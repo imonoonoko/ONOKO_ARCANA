@@ -1,5 +1,7 @@
 # Phase 1 One-Card Table Wiring
 
+> Archive notice (2026-06-05): This UE/UMG note is historical evidence. The active v1.x lane is Web/Electron; do not use this document as current next work.
+
 Updated: 2026-06-01
 
 This note defines the next Unreal Editor wiring pass for the one-card vertical slice. The C++ runtime is now ready. A native fallback HUD and runtime actor bootstrap now allow PIE validation before the polished `WBP_TableHUD` pass.

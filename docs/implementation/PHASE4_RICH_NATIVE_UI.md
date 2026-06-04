@@ -1,5 +1,7 @@
 # Phase 4 Rich Native UI
 
+> Archive notice (2026-06-05): This UE native UI note is historical evidence. The active v1.x lane is Web/Electron; do not use this document as current next work.
+
 Updated: 2026-06-02
 
 ## Purpose

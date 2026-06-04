@@ -5,7 +5,9 @@
   "description": "ONOKO ARCANA Web/Electron-ready desktop reading table.",
   "main": "electron/main.cjs",
   "scripts": {
-    "desktop": "electron electron/main.cjs"
+    "check": "python ../scripts/check_web_app.py",
+    "desktop": "electron electron/main.cjs",
+    "package:local": "node ../scripts/package_electron_local.cjs"
   },
   "devDependencies": {
     "electron": "^42.3.0"

@@ -1,0 +1,48 @@
+{
+  "title": "ONOKO ARCANA web-only completion gate",
+  "slug": "onoko-arcana-web-only-completion-gate",
+  "created_at": "2026-06-03T19:01:21+00:00",
+  "status": "complete",
+  "approval": {
+    "required": false,
+    "granted": true,
+    "notes": "User explicitly requested Web-only direction and full UE shelving."
+  },
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Scope lock",
+      "status": "complete"
+    },
+    {
+      "id": "P2",
+      "title": "Implementation",
+      "status": "complete"
+    },
+    {
+      "id": "P3",
+      "title": "Schema and docs",
+      "status": "complete"
+    },
+    {
+      "id": "P4",
+      "title": "Verification",
+      "status": "complete"
+    },
+    {
+      "id": "P5",
+      "title": "Closeout",
+      "status": "complete"
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "checks": [
+      "reports/web-app-check-20260604-041421.json",
+      "reports/web-app-smoke-20260604-041737.json",
+      "reports/electron-app-smoke-20260604-041434.json",
+      "reports/keyboard-focus-smoke-20260604-041422.json",
+      "reports/ui-visual-audit-20260604-041434/report.json"
+    ]
+  }
+}
