@@ -2,7 +2,7 @@
 
 Updated: 2026-06-05
 引き継ぎ元: `019e78ce-7d75-7833-95d3-612892488a02`  
-Project: `C:\ONOKO_PROJECT\ONOKO_ARCANA`  
+Project: `<repo>`
 Primary roadmap: `docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`
 
 ## 2026-06-04 Scope Lock

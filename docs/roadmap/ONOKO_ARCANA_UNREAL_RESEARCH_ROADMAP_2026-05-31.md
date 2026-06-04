@@ -1,7 +1,7 @@
 # ONOKO ARCANA Unreal Engine Research Roadmap
 
 作成日: 2026-05-31  
-対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA`  
+対象: `<repo>`
 版: v1.0 research roadmap  
 関連HTML: `reports/onoko-arcana-unreal-roadmap-2026-05-31.html`
 
@@ -147,7 +147,7 @@ Goal:
 Unreal Engine 5.7系を使える状態にし、ONOKO ARCANA用プロジェクトの最小構成を作る。
 
 Status as of 2026-05-31:
-Started and mechanically validated. Unreal Engine 5.7.4 was detected at `C:\Program Files\Epic Games\UE_5.7`. A minimal project scaffold now exists at `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject`, with Phase 0 sample textures staged under `Unreal/ONOKO_ARCANA/ImportStaging/Phase0_CardTextures/`. Project files generation, editor target build, commandlet load, staged texture dimension checks, and automated Texture2D import succeeded. The next remaining Phase 0 step is to open the editor and confirm a `2:3` card plane in the viewport.
+Started and mechanically validated. Unreal Engine 5.7.4 was detected at `<UE_5.7>`. A minimal project scaffold now exists at `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject`, with Phase 0 sample textures staged under `Unreal/ONOKO_ARCANA/ImportStaging/Phase0_CardTextures/`. Project files generation, editor target build, commandlet load, staged texture dimension checks, and automated Texture2D import succeeded. The next remaining Phase 0 step is to open the editor and confirm a `2:3` card plane in the viewport.
 
 Inputs:
 - Epic Games Launcher
@@ -312,7 +312,7 @@ Gate Criteria:
 ## 9. Proposed Folder Layout
 
 ```text
-C:\ONOKO_PROJECT\ONOKO_ARCANA
+<repo>
 |-- assets
 |   |-- design
 |   |-- generated

@@ -20,18 +20,18 @@ Remote Control APIも候補だが、WebSocket/HTTPサーバーをUE内に立て�
 
 ## Codex設定
 
-`C:\Users\Humin\.codex\config.toml` に以下のMCPサーバーを追加した。
+`<codex-home>\\config.toml` に以下のMCPサーバーを追加した。
 
 ```toml
 [mcp_servers.unrealMCP]
-command = 'C:\Users\Humin\AppData\Local\Programs\Python\Python312\python.exe'
-args = ['C:\ONOKO_PROJECT\ONOKO_ARCANA\tools\unreal_mcp\server.py']
+command = '<python-3.12>\\python.exe'
+args = ['<repo>\tools\unreal_mcp\server.py']
 enabled = true
 startup_timeout_sec = 30
 
 [mcp_servers.unrealMCP.env]
-ONOKO_UNREAL_ENGINE = 'C:\Program Files\Epic Games\UE_5.7'
-ONOKO_UNREAL_PROJECT = 'C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject'
+ONOKO_UNREAL_ENGINE = '<UE_5.7>'
+ONOKO_UNREAL_PROJECT = '<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject'
 ```
 
 既存Codexプロセスは起動時にMCP設定を読むため、現在のセッションで即座にツールが出ない場合はCodexの再起動が必要。

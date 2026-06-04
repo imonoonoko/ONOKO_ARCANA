@@ -1,7 +1,7 @@
 # ONOKO ARCANA Phase 0 Baseline Report
 
 作成日: 2026-05-31  
-対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA`
+対象: `<repo>`
 
 ## 結論
 
@@ -17,11 +17,11 @@ Editor GUIでPhase 0確認Mapを開き、初期表示の問題として「旧裏
 
 | Item | Value |
 |---|---|
-| Install path | `C:\Program Files\Epic Games\UE_5.7` |
+| Install path | `<UE_5.7>` |
 | AppName | `UE_5.7` |
 | AppVersion | `5.7.4-51494982+++UE5+Release-5.7-Windows` |
-| UnrealEditor | `C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe` |
-| UnrealEditor-Cmd | `C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe` |
+| UnrealEditor | `<UE_5.7>\Engine\Binaries\Win64\UnrealEditor.exe` |
+| UnrealEditor-Cmd | `<UE_5.7>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe` |
 
 ## 作成したプロジェクト準備物
 

@@ -7,9 +7,15 @@
   "scripts": {
     "check": "python ../scripts/check_web_app.py",
     "desktop": "electron electron/main.cjs",
-    "package:local": "node ../scripts/package_electron_local.cjs"
+    "package:local": "node ../scripts/package_electron_local.cjs",
+    "smoke:web": "node ../scripts/smoke_web_app.cjs",
+    "smoke:electron": "node ../scripts/smoke_electron_app.cjs",
+    "smoke:package": "node ../scripts/smoke_electron_package.cjs",
+    "smoke:keyboard": "node ../scripts/smoke_keyboard_focus.cjs",
+    "audit:visual": "node ../scripts/audit_web_ui_visual.cjs"
   },
   "devDependencies": {
-    "electron": "^42.3.0"
+    "electron": "^42.3.0",
+    "playwright": "^1.60.0"
   }
 }

@@ -4,7 +4,7 @@
   "created": "2026-05-31",
   "engine": {
     "association": "5.7",
-    "installPath": "C:/Program Files/Epic Games/UE_5.7",
+    "installPath": "<UE_5.7>",
     "detectedVersion": "5.7.4-51494982+++UE5+Release-5.7-Windows"
   },
   "policy": {

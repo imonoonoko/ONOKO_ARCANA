@@ -47,7 +47,7 @@
 
 ## Phase 0 Update - 2026-05-31
 
-- Unreal Engine 5.7.4 was detected at `C:\Program Files\Epic Games\UE_5.7`.
+- Unreal Engine 5.7.4 was detected at `<UE_5.7>`.
 - Created `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject` as a minimal Blueprint-first project with Common UI enabled and an empty C++ runtime module for UnrealBuildTool/project-file validation.
 - Created the planned Content folder structure under `Unreal/ONOKO_ARCANA/Content/ONOKOArcana/`.
 - Staged four import samples under `Unreal/ONOKO_ARCANA/ImportStaging/Phase0_CardTextures/`.

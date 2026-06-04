@@ -1,7 +1,7 @@
 [
   {
-    "source": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-backs\\card-back-onoko-production-v2-source.png",
-    "dest": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-backs\\card-back-onoko-production-v2-transparent.png",
+    "source": "<repo>\\assets\\generated\\card-backs\\card-back-onoko-production-v2-source.png",
+    "dest": "<repo>\\assets\\generated\\card-backs\\card-back-onoko-production-v2-transparent.png",
     "bbox": [
       0,
       0,
@@ -15,8 +15,8 @@
     ]
   },
   {
-    "source": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\major-00-fool-onoko-concept-v1.png",
-    "dest": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\ue-alpha\\major-00-fool-onoko-concept-v1-alpha.png",
+    "source": "<repo>\\assets\\generated\\card-fronts\\major-00-fool-onoko-concept-v1.png",
+    "dest": "<repo>\\assets\\generated\\card-fronts\\ue-alpha\\major-00-fool-onoko-concept-v1-alpha.png",
     "bbox": [
       46,
       12,
@@ -30,8 +30,8 @@
     ]
   },
   {
-    "source": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\major-01-magician-onoko-concept-v1.png",
-    "dest": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\ue-alpha\\major-01-magician-onoko-concept-v1-alpha.png",
+    "source": "<repo>\\assets\\generated\\card-fronts\\major-01-magician-onoko-concept-v1.png",
+    "dest": "<repo>\\assets\\generated\\card-fronts\\ue-alpha\\major-01-magician-onoko-concept-v1-alpha.png",
     "bbox": [
       44,
       10,
@@ -45,8 +45,8 @@
     ]
   },
   {
-    "source": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\major-07-chariot-onoko-concept-v2.png",
-    "dest": "C:\\ONOKO_PROJECT\\ONOKO_ARCANA\\assets\\generated\\card-fronts\\ue-alpha\\major-07-chariot-onoko-concept-v2-alpha.png",
+    "source": "<repo>\\assets\\generated\\card-fronts\\major-07-chariot-onoko-concept-v2.png",
+    "dest": "<repo>\\assets\\generated\\card-fronts\\ue-alpha\\major-07-chariot-onoko-concept-v2-alpha.png",
     "bbox": [
       46,
       10,

@@ -1,8 +1,18 @@
 # ONOKO ARCANA
 
-ONOKO ARCANA is a local Web/Electron tarot study app. The active v1.x lane is the 2D Web/Electron reading table in `web-app/`; Unreal Engine work is archived evidence and is not the current implementation path.
+ONOKO ARCANA is a local-first Web/Electron tarot study app. The active v1.x app is the 2D reading table in `web-app/`; Unreal Engine work is kept as archived technical evidence and is not the current implementation path.
 
-## Current Entry
+## What It Does
+
+- Choose a tarot spread.
+- Enter a question.
+- Draw cards face down.
+- Reveal cards in order.
+- Write your own interpretation before opening guidance.
+- Save readings to local history.
+- Export/import history JSON for backup and migration.
+
+## Current Entry Points
 
 | Item | Path |
 |---|---|
@@ -13,28 +23,45 @@ ONOKO ARCANA is a local Web/Electron tarot study app. The active v1.x lane is th
 | Implementation kanban | `docs/implementation/IMPLEMENTATION_KANBAN.md` |
 | Data schemas | `docs/data/` |
 
+## Requirements
+
+- Node.js 22+ and npm
+- Python 3 for static checks
+
+The plain Web app can be opened directly without a build step. Electron and Playwright checks require installing the `web-app` dev dependencies.
+
 ## Run
 
-Open `web-app/index.html` directly, or run the Electron shell from `web-app/`:
+Open the static app directly:
+
+```text
+web-app/index.html
+```
+
+Run the Electron shell:
 
 ```powershell
+cd web-app
+npm install
 npm run desktop
 ```
 
 ## Verify
 
+From the repository root:
+
 ```powershell
 python scripts/check_web_app.py
 ```
 
-```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
-```
+After `npm install` in `web-app/`, run browser/Electron checks:
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
+cd web-app
+npm run smoke:web
+npm run smoke:electron
+npm run smoke:keyboard
+npm run audit:visual
 ```
 
 ## Local Package
@@ -42,7 +69,8 @@ C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin
 Create a local Electron folder package:
 
 ```powershell
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/package_electron_local.cjs
+cd web-app
+npm run package:local
 ```
 
 Output:
@@ -55,8 +83,8 @@ dist/onoko-arcana-local/START_ONOKO_ARCANA.cmd
 Smoke the package:
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_package.cjs
+cd web-app
+npm run smoke:package
 ```
 
 This package is for local use and verification. Signed installer, auto update, and public distribution are separate v1.0+ tasks.
@@ -76,3 +104,12 @@ Electron `localStorage` is stored in Electron's app data area for `ONOKO ARCANA`
 ## Evidence Policy
 
 Generated run output goes under `reports/` and is ignored by default. Keep only durable policy/index files or intentionally promoted representative evidence in Git. See `reports/README.md`.
+
+## License
+
+This repository uses a split license:
+
+- Source code, scripts, tests, and Markdown documentation are MIT-licensed.
+- Tarot artwork, generated HUD images, reference images, ONOKO ARCANA visual identity, and other non-code visual assets are not covered by the MIT license and are not granted for reuse outside this project.
+
+See `LICENSE` for details.

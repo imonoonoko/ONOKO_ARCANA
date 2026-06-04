@@ -104,7 +104,7 @@ Blueprint-only project scaffold can be valid for the editor, but UBT validation 
 Unreal Engine 5.7の実体を確認し、ONOKO ARCANA用の最小Unrealプロジェクト、ImportStaging、サンプルカード取り込みマニフェスト、チェックリストを作成した。
 
 ### Decisions
-- Accepted: Engine install path is `C:\Program Files\Epic Games\UE_5.7`.
+- Accepted: Engine install path is `<UE_5.7>`.
 - Accepted: Detected engine version is `5.7.4-51494982+++UE5+Release-5.7-Windows`.
 - Accepted: Phase 0 first import set is card back, 00 Fool, 01 Magician, and 07 Chariot v2.
 - Accepted: Unreal project root is `Unreal/ONOKO_ARCANA/`.

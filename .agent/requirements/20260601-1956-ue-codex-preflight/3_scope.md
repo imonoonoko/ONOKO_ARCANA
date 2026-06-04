@@ -21,7 +21,7 @@
 
 ## 前提
 
-- Unreal Engine 5.7は `C:\Program Files\Epic Games\UE_5.7` に存在する。
+- Unreal Engine 5.7は `<UE_5.7>` に存在する。
 - `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject` はEngineAssociation `5.7`。
 - `PythonScriptPlugin` と `EditorScriptingUtilities` はEditor targetで有効。
 - `L_Phase1_OneCard_Table`、Phase 1 masked material、V5Full Texture2D群はContent内に存在する。

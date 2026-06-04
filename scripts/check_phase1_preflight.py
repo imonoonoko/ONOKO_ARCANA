@@ -147,7 +147,7 @@ def main() -> int:
         add(checks, "uproject", False, f"missing {rel(UPROJECT)}")
         engine_association = None
 
-    engine_dir = Path("C:/Program Files/Epic Games/UE_5.7")
+    engine_dir = Path("<UE_5.7>")
     add(checks, "engine dir", engine_dir.exists(), str(engine_dir))
     add(
         checks,

@@ -3,7 +3,7 @@
 > Archive notice (2026-06-05): This UE/UMG preflight is historical evidence. The active v1.x lane is Web/Electron; do not use this document as current next work.
 
 作成日: 2026-06-01  
-対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA`
+対象: `<repo>`
 
 ## 結論
 
@@ -27,7 +27,7 @@ Pythonによるmap actor spawnは過去に `EXCEPTION_ACCESS_VIOLATION` を起�
 |---|---|
 | UE Project | `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject` |
 | EngineAssociation | `5.7` |
-| Engine path | `C:\Program Files\Epic Games\UE_5.7` |
+| Engine path | `<UE_5.7>` |
 | PythonScriptPlugin | enabled, Editor target |
 | EditorScriptingUtilities | enabled, Editor target |
 | CommonUI | enabled |
@@ -57,7 +57,7 @@ Pythonによるmap actor spawnは過去に `EXCEPTION_ACCESS_VIOLATION` を起�
 PowerShell:
 
 ```powershell
-cd C:\ONOKO_PROJECT\ONOKO_ARCANA
+cd <repo>
 python scripts/check_phase1_preflight.py
 ```
 
@@ -68,7 +68,7 @@ python scripts/check_phase1_preflight.py
 1. Unreal Editorを起動する。
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe" "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject"
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor.exe" "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject"
 ```
 
 2. `L_Phase1_OneCard_Table` を開く。

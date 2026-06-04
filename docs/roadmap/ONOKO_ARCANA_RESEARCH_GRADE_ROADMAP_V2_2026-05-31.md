@@ -1,7 +1,7 @@
 # ONOKO ARCANA Research-Grade Roadmap v2
 
 作成日: 2026-05-31  
-対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA`  
+対象: `<repo>`
 版: v2.0 research-grade roadmap  
 位置づけ: 透過漏れ、裏面比率、ONOKOキャラクター画質劣化を踏まえた再計画
 
@@ -261,7 +261,7 @@ AI画像生成の品質は数値だけで採用できない。次の目視ゲー
 Local verified version:
 
 ```text
-C:\Program Files\Epic Games\UE_5.7
+<UE_5.7>
 5.7.4-51494982+++UE5+Release-5.7-Windows
 ```
 

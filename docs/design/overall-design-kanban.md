@@ -13,7 +13,7 @@ ONOKO ARCANA は、タロットカードを持っていない人が PC 上で占
 
 ## ONOKO らしさ
 
-参考元は `C:\Users\Humin\OneDrive\画像\ONOKO` のローカル画像群。直近の代表画像から、以下を ONOKO ARCANA の固有要素として扱う。
+参考元は `<local-onoko-reference-images>` のローカル画像群。直近の代表画像から、以下を ONOKO ARCANA の固有要素として扱う。
 
 - 黒髪に鮮烈な青の差し色
 - 青い瞳、白と青が強い衣装

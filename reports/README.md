@@ -4,9 +4,11 @@ Updated: 2026-06-05
 
 `reports/` is the generated verification output area. Do not treat every run as a source artifact.
 
+Only this README is tracked in Git by default. Timestamped JSON files, screenshots, exported histories, and visual-audit directories are local run output.
+
 ## Representative Proof
 
-The current representative proof set is tracked from roadmap references:
+The current representative proof set is recorded from roadmap references but not committed by default:
 
 - `reports/web-app-check-20260605-004943.json`
 - `reports/web-app-smoke-20260605-004943.json`
@@ -22,6 +24,8 @@ Update the roadmap when a newer run becomes the accepted proof.
 New timestamped smoke screenshots, exported history files, invalid import files, and visual-audit directories are disposable unless explicitly promoted in a roadmap or handoff doc.
 
 Invalid JSON test inputs belong in `tests/fixtures/history/`, not in this directory.
+
+Do not force-add generated reports unless a release/handoff explicitly needs a small representative proof file.
 
 ## Promotion Rule
 

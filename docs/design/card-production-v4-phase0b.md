@@ -6,7 +6,7 @@
 
 ## 結論
 
-ユーザーが `C:\Users\Humin\Downloads\Image.png` で作成したWindows標準フォトの背景削除結果を、V4前面カードのmask sourceとして採用した。
+ユーザーが `<local-downloads>\\Image.png` で作成したWindows標準フォトの背景削除結果を、V4前面カードのmask sourceとして採用した。
 
 このPNGは `1024x1536`、RGBA、alpha bbox `(111, 77, 914, 1456)` で、外周borderは不透明ではなく透明化されている。V4 Phase 0Bでは、このbboxを前面・裏面共通の見かけ外形として使う。
 
@@ -14,7 +14,7 @@
 
 | Role | Path |
 |---|---|
-| Photos cutout source | `C:\Users\Humin\Downloads\Image.png` |
+| Photos cutout source | `<local-downloads>\\Image.png` |
 | Project copy | `assets/generated/card-production-v4/templates/card-frame-front-v4-photos-cutout-source.png` |
 | 00 source | `assets/generated/card-fronts/major-00-fool-onoko-concept-v1.png` |
 | 01 source | `assets/generated/card-fronts/major-01-magician-onoko-concept-v1.png` |

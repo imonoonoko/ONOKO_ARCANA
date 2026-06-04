@@ -87,7 +87,7 @@ ONOKO ARCANA のカード画像は、元の `major-00-fool-onoko-concept-v1.png`
 
 ## V4 Phase 0B 試作
 
-2026-05-31に、Windows標準フォトで背景削除した `C:\Users\Humin\Downloads\Image.png` を基準maskにして、00/01/02/裏面のV4試作を作成した。
+2026-05-31に、Windows標準フォトで背景削除した `<local-downloads>\\Image.png` を基準maskにして、00/01/02/裏面のV4試作を作成した。
 
 詳細: `docs/design/card-production-v4-phase0b.md`
 

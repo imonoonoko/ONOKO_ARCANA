@@ -28,7 +28,7 @@ assets/generated/hud/20260602-onoko-hud-overlay-v1/onoko-hud-overlay-v1-alpha.pn
 The alpha version was produced with:
 
 ```text
-C:\Users\Humin\.codex\skills\.system\imagegen\scripts\remove_chroma_key.py
+<codex-home>\\skills\\.system\\imagegen\\scripts\\remove_chroma_key.py
 ```
 
 using the bundled Codex Python runtime because the shell default Python did not have Pillow installed.

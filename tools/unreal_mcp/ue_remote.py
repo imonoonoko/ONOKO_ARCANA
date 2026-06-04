@@ -19,7 +19,7 @@ from typing import Any
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_ENGINE_ROOT = Path(os.environ.get("ONOKO_UNREAL_ENGINE", r"C:\Program Files\Epic Games\UE_5.7"))
+DEFAULT_ENGINE_ROOT = Path(os.environ.get("ONOKO_UNREAL_ENGINE", r"<UE_5.7>"))
 DEFAULT_PROJECT_PATH = REPO_ROOT / "Unreal" / "ONOKO_ARCANA" / "ONOKO_ARCANA.uproject"
 UNREAL_PROJECT = Path(os.environ.get("ONOKO_UNREAL_PROJECT", str(DEFAULT_PROJECT_PATH)))
 REMOTE_EXECUTION_DIR = Path(

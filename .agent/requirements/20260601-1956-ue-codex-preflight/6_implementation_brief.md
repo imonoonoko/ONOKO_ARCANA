@@ -23,20 +23,20 @@
 PowerShell:
 
 ```powershell
-cd C:\ONOKO_PROJECT\ONOKO_ARCANA
+cd <repo>
 python scripts/check_phase1_preflight.py
 ```
 
 UE Editor起動:
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe" "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject"
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor.exe" "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject"
 ```
 
 Commandlet smokeの再実行が必要な場合:
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" -run=pythonscript -script="C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\Scripts\test_phase1_hud_reflection_surface.py" -Unattended -NullRHI
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" -run=pythonscript -script="<repo>\Unreal\ONOKO_ARCANA\Scripts\test_phase1_hud_reflection_surface.py" -Unattended -NullRHI
 ```
 
 ## Editor内手順

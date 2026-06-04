@@ -6,8 +6,8 @@ CodexからUnreal Editorを操作するための、プロジェクト専用stdio
 
 - Codex MCP transport: stdio
 - UE側: Python Script PluginのRemote Execution
-- 対象: `C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject`
-- Engine: `C:\Program Files\Epic Games\UE_5.7`
+- 対象: `<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject`
+- Engine: `<UE_5.7>`
 
 ## UE側の前提
 
@@ -25,7 +25,7 @@ Editorを既に起動していた場合、この設定は即時反映されな�
 
 ## Codex側
 
-`C:\Users\Humin\.codex\config.toml` に `unrealMCP` を追加済み。
+`<codex-home>\\config.toml` に `unrealMCP` を追加済み。
 現在のCodexセッションに新しいMCPツールが出ない場合は、Codexを再起動してから `/mcp` で確認する。
 
 ## ローカル検証

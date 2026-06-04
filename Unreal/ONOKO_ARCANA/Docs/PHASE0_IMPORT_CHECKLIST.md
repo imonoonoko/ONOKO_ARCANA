@@ -1,7 +1,7 @@
 # ONOKO ARCANA Phase 0 Import Checklist
 
 Date: 2026-05-31  
-Engine: Unreal Engine 5.7.4 at `C:\Program Files\Epic Games\UE_5.7`  
+Engine: Unreal Engine 5.7.4 at `<UE_5.7>`
 Project: `Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject`
 
 ## Goal
@@ -86,26 +86,26 @@ Target Unreal folder:
 The original non-alpha textures can be imported without opening the GUI by running:
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
-  "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
-  -ExecutePythonScript="C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\Scripts\import_phase0_textures.py" `
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
+  "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
+  -ExecutePythonScript="<repo>\Unreal\ONOKO_ARCANA\Scripts\import_phase0_textures.py" `
   -Unattended -NullRHI -NoSound -NoSplash -NoP4 -stdout -FullStdOutLogOutput
 ```
 
 The current alpha-ready Phase 0 textures can be imported without opening the GUI by running:
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
-  "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
-  -ExecutePythonScript="C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\Scripts\import_phase0_alpha_textures.py" `
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
+  "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
+  -ExecutePythonScript="<repo>\Unreal\ONOKO_ARCANA\Scripts\import_phase0_alpha_textures.py" `
   -Unattended -NullRHI -NoSound -NoSplash -NoP4 -stdout -FullStdOutLogOutput
 ```
 
 The current card-plane check map can be rebuilt by running:
 
 ```powershell
-& "C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
-  "C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
-  -ExecutePythonScript="C:\ONOKO_PROJECT\ONOKO_ARCANA\Unreal\ONOKO_ARCANA\Scripts\create_phase0_card_plane_scene.py" `
+& "<UE_5.7>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
+  "<repo>\Unreal\ONOKO_ARCANA\ONOKO_ARCANA.uproject" `
+  -ExecutePythonScript="<repo>\Unreal\ONOKO_ARCANA\Scripts\create_phase0_card_plane_scene.py" `
   -Unattended -NullRHI -NoSound -NoSplash -NoP4 -stdout -FullStdOutLogOutput
 ```

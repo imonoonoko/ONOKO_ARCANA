@@ -66,8 +66,8 @@ reports/web-app-check-20260602-134738.json
 Web smoke:
 
 ```text
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
+cd web-app
+npm run smoke:web
 ```
 
 Latest report:
@@ -86,8 +86,8 @@ reports/onoko-arcana-web-app-mobile-20260602-133704.png
 Electron smoke:
 
 ```text
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
+cd web-app
+npm run smoke:electron
 ```
 
 Latest report:

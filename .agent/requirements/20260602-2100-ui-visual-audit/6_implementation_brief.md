@@ -25,8 +25,8 @@
 
 ```text
 python scripts/check_web_app.py
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/audit_web_ui_visual.cjs
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
+$env:NODE_PATH='<playwright-node-modules>'
+node scripts/audit_web_ui_visual.cjs
+node scripts/smoke_web_app.cjs
+node scripts/smoke_electron_app.cjs
 ```

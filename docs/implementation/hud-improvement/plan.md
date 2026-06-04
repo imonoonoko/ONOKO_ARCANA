@@ -348,9 +348,9 @@ Commands:
 
 ```text
 python scripts/check_web_app.py
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
+cd web-app
+npm run smoke:web
+npm run smoke:electron
 ```
 
 Screenshots to produce:

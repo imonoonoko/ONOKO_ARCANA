@@ -42,7 +42,7 @@ Phase 0の目視で透過漏れと裏面幅差が発覚し、その後のv3後�
 ## Phase 0B Prototype Result - 2026-05-31 23:20
 
 ### User Input
-> Windows標準の フォト で背景綺麗に透過できたよ。`C:\Users\Humin\Downloads\Image.png`
+> Windows標準の フォト で背景綺麗に透過できたよ。`<local-downloads>\\Image.png`
 
 ### Codex Proposal Or Discovery
 `Image.png` を実測したところ、`1024x1536`、RGBA、alpha bbox `(111,77,914,1456)`、外周border alpha 0であり、V4の前面mask sourceとして使えることを確認した。

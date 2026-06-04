@@ -37,32 +37,34 @@ python scripts/check_web_app.py
 ```
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
+cd web-app
+npm install
+npm run smoke:web
 ```
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
+cd web-app
+npm run smoke:electron
 ```
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/audit_web_ui_visual.cjs
+cd web-app
+npm run audit:visual
 ```
 
 ```powershell
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/package_electron_local.cjs
+cd web-app
+npm run package:local
 ```
 
 ```powershell
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_package.cjs
+cd web-app
+npm run smoke:package
 ```
 
 ## UEアーカイブ情報
 
 - Unreal project: `Unreal/ONOKO_ARCANA/ONOKO_ARCANA.uproject`
-- Engine: `C:\Program Files\Epic Games\UE_5.7`
+- Engine: `<UE_5.7>`
 - 過去にPython map actor spawn経路で `EXCEPTION_ACCESS_VIOLATION` が発生している。UE Python actor spawnを完成証跡に使わない。
 - UEを再開する場合は、現行v1.x完了後に新しい要件定義と再開条件を作る。

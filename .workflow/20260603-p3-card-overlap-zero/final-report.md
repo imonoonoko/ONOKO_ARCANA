@@ -62,4 +62,4 @@ reports/onoko-arcana-electron-smoke-20260603-002749.png
 
 ## Notes
 
-- `git status --short` could not be used because `C:\ONOKO_PROJECT\ONOKO_ARCANA` is not a Git repository.
+- `git status --short` could not be used because `<repo>` is not a Git repository.

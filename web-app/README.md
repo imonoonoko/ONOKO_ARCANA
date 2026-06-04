@@ -1,16 +1,25 @@
 # ONOKO ARCANA Web App
 
-This is the Web/Electron-ready 2D desktop reading table.
+This is the active Web/Electron 2D desktop reading table.
 
-Open directly:
+## Run
+
+Open directly from the repository root:
 
 ```text
 web-app/index.html
 ```
 
-Current implemented loop:
+Run the Electron shell:
 
-- choose any spread in `data/spread-definitions-v1.json`,
+```powershell
+npm install
+npm run desktop
+```
+
+## Current Reading Loop
+
+- choose any spread,
 - enter a question,
 - draw cards face down,
 - reveal cards in order,
@@ -22,13 +31,15 @@ Current implemented loop:
 - export reading history as JSON,
 - delete one reading or clear all readings after confirmation.
 
-History storage:
+## Data Contracts
+
+History storage key:
 
 ```text
 onoko-arcana:desktop:history:v1
 ```
 
-The JSON contract is documented in:
+Schema and fixture docs:
 
 ```text
 docs/data/HISTORY_SCHEMA_V1.md
@@ -37,60 +48,30 @@ docs/data/SPREAD_SCHEMA_V1.md
 tests/fixtures/history/
 ```
 
-Verification:
+## Verification
 
-```text
+From the repository root:
+
+```powershell
 python scripts/check_web_app.py
 ```
 
-From this directory:
+From this directory after `npm install`:
 
-```text
+```powershell
 npm run check
+npm run smoke:web
+npm run smoke:electron
+npm run smoke:keyboard
+npm run audit:visual
 ```
 
-Regenerate the Web-only labeled card derivatives:
+## Local Package
 
-```text
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe scripts/build_web_labeled_cards.py
-```
+Create the local folder package:
 
-The generated front-card images live under:
-
-```text
-assets/generated/card-production-v5-full/web-labeled/alpha/
-```
-
-Browser smoke, using the bundled Playwright runtime in this Codex environment:
-
-```text
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_web_app.cjs
-```
-
-Electron shell:
-
-```text
-web-app/electron/main.cjs
-```
-
-Run the Electron shell:
-
-```text
-npm run desktop
-```
-
-Electron smoke, using the bundled Playwright runtime in this Codex environment:
-
-```text
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_app.cjs
-```
-
-Create a local folder package:
-
-```text
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/package_electron_local.cjs
+```powershell
+npm run package:local
 ```
 
 Output:
@@ -99,14 +80,27 @@ Output:
 dist/onoko-arcana-local/START_ONOKO_ARCANA.cmd
 ```
 
-Package smoke:
+Smoke the packaged app:
 
-```text
-$env:NODE_PATH='C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules'
-C:\Users\Humin\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe scripts/smoke_electron_package.cjs
+```powershell
+npm run smoke:package
 ```
 
-Backup and restore:
+## Generated Card Derivatives
+
+Regenerate the Web-only labeled card derivatives from the repository root:
+
+```powershell
+python scripts/build_web_labeled_cards.py
+```
+
+The generated front-card images live under:
+
+```text
+assets/generated/card-production-v5-full/web-labeled/alpha/
+```
+
+## Backup And Restore
 
 - Use the in-app export button before deleting history or moving machines.
 - Keep the exported JSON as the supported backup.

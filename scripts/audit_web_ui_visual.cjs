@@ -1,11 +1,15 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
-require("module").Module._initPaths();
+const Module = require("node:module");
+
+const ROOT = path.resolve(__dirname, "..");
+const WEB_NODE_MODULES = path.join(ROOT, "web-app", "node_modules");
+process.env.NODE_PATH = [process.env.NODE_PATH, WEB_NODE_MODULES].filter(Boolean).join(path.delimiter);
+Module._initPaths();
 
 const { chromium } = require("playwright");
 
-const ROOT = path.resolve(__dirname, "..");
 const APP = path.join(ROOT, "web-app", "index.html");
 const REPORTS = path.join(ROOT, "reports");
 const HISTORY_KEY = "onoko-arcana:desktop:history:v1";
