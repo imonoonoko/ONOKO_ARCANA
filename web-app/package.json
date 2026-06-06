@@ -1,22 +1,103 @@
 {
   "name": "onoko-arcana-web-app",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ONOKO ARCANA Web/Electron-ready desktop reading table.",
   "main": "electron/main.cjs",
   "scripts": {
     "check": "python ../scripts/check_web_app.py",
     "desktop": "electron electron/main.cjs",
     "package:local": "node ../scripts/package_electron_local.cjs",
+    "package:installer": "electron-builder --win nsis --x64 --publish never",
     "smoke:web": "node ../scripts/smoke_web_app.cjs",
     "smoke:electron": "node ../scripts/smoke_electron_app.cjs",
     "smoke:package": "node ../scripts/smoke_electron_package.cjs",
+    "smoke:installer": "node ../scripts/smoke_electron_installer_app.cjs",
     "smoke:keyboard": "node ../scripts/smoke_keyboard_focus.cjs",
     "audit:visual": "node ../scripts/audit_web_ui_visual.cjs",
     "release:artifact": "powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/create_release_artifacts.ps1"
   },
   "devDependencies": {
     "electron": "^42.3.0",
+    "electron-builder": "^26.15.0",
     "playwright": "^1.60.0"
+  },
+  "build": {
+    "appId": "com.onoko.arcana",
+    "productName": "ONOKO ARCANA",
+    "asar": true,
+    "artifactName": "onoko-arcana-v${version}-setup.${ext}",
+    "directories": {
+      "output": "../dist/installer"
+    },
+    "files": [
+      "index.html",
+      "src/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../assets/generated/card-production-v5-full",
+        "to": "assets/generated/card-production-v5-full"
+      },
+      {
+        "from": "../assets/generated/hud-elements/20260602-astra-modular-kit/components",
+        "to": "assets/generated/hud-elements/20260602-astra-modular-kit/components"
+      },
+      {
+        "from": "../assets/generated/hud-elements/20260602-astra-nine-slice-kit/nine-slice",
+        "to": "assets/generated/hud-elements/20260602-astra-nine-slice-kit/nine-slice"
+      },
+      {
+        "from": "../assets/generated/hud-candidates/20260602-named-hud-sets/astra-nocturne-background-v1.png",
+        "to": "assets/generated/hud-candidates/20260602-named-hud-sets/astra-nocturne-background-v1.png"
+      },
+      {
+        "from": "../assets/generated/app-icons/onoko-arcana-app-icon-v1.ico",
+        "to": "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico"
+      },
+      {
+        "from": "../assets/generated/app-icons/onoko-arcana-app-icon-v1.png",
+        "to": "assets/generated/app-icons/onoko-arcana-app-icon-v1.png"
+      },
+      {
+        "from": "../LICENSE",
+        "to": "LICENSE"
+      },
+      {
+        "from": "../SECURITY.md",
+        "to": "SECURITY.md"
+      },
+      {
+        "from": "../docs/legal",
+        "to": "docs/legal"
+      },
+      {
+        "from": "../docs/release/DISTRIBUTION_NOTICE.md",
+        "to": "DISTRIBUTION_NOTICE.md"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "../assets/generated/app-icons/onoko-arcana-app-icon-v1.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "ONOKO ARCANA",
+      "uninstallDisplayName": "ONOKO ARCANA"
+    }
   }
 }

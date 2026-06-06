@@ -5,8 +5,8 @@ This runbook keeps ONOKO ARCANA GitHub Releases reproducible and avoids publishi
 ## Target
 
 - Repository: `imonoonoko/ONOKO_ARCANA`
-- Current preview release tag: `v0.1.1`
-- Release type: GitHub Release pre-release with attached unsigned local Electron package
+- Current preview release tag: `v0.1.3`
+- Release type: GitHub Release pre-release with attached unsigned Windows installer and fallback local Electron package
 - Artifact source: GitHub Actions tag artifact
 
 ## Preflight
@@ -24,6 +24,8 @@ npm run audit:visual
 npm run smoke:electron
 npm run package:local
 npm run smoke:package
+npm run package:installer
+npm run smoke:installer
 npm run release:artifact
 npm audit --audit-level=high
 ```
@@ -33,11 +35,14 @@ Stop if any check fails.
 ## Artifact Rules
 
 - Keep generated packages under `dist/`.
-- Do not commit generated zip files.
-- Prefer the zip and `.sha256` downloaded from the tag CI artifact.
-- The package must include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/`.
-- The package must not include non-runtime icon source material.
-- Do not describe the package as signed, installed, auto-updating, or store-reviewed.
+- Do not commit generated installer or zip files.
+- Prefer the setup executable, fallback zip, and matching `.sha256` files downloaded from the tag CI artifact.
+- The setup executable is the primary Windows user artifact.
+- The setup executable must be built by `electron-builder` with `win.icon` set to `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`.
+- The installer must create Start Menu/Desktop shortcuts named `ONOKO ARCANA`.
+- The fallback zip must include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/`.
+- The fallback zip must not include non-runtime icon source material.
+- Do not describe the package as signed, auto-updating, store-reviewed, or MSIX-distributed.
 
 ## Commit And CI Gate
 
@@ -45,7 +50,7 @@ Commit the intended release candidate first, then push and wait for GitHub Actio
 
 ```powershell
 git add README.md CHANGELOG.md LICENSE SECURITY.md docs/release docs/legal scripts .github/workflows/ci.yml web-app/package.json web-app/package-lock.json
-git commit -m "Prepare ONOKO ARCANA v0.1.1 release"
+git commit -m "Prepare ONOKO ARCANA v0.1.3 release"
 git push origin main
 gh run list --branch main --limit 5
 ```
@@ -57,7 +62,7 @@ Publish only after the release commit has a passing CI run.
 Create the annotated tag from the CI-green commit. The tag push triggers CI and uploads the release artifact.
 
 ```powershell
-$tag = "v0.1.1"
+$tag = "v0.1.3"
 git tag -a $tag -m "ONOKO ARCANA $tag"
 git push origin $tag
 
@@ -68,6 +73,8 @@ gh run download <tag-run-id> `
   --dir "dist/ci-release-artifacts/$tag"
 
 gh release create $tag `
+  "dist/ci-release-artifacts/$tag/onoko-arcana-$tag-setup.exe" `
+  "dist/ci-release-artifacts/$tag/onoko-arcana-$tag-setup.exe.sha256" `
   "dist/ci-release-artifacts/$tag/onoko-arcana-$tag-local.zip" `
   "dist/ci-release-artifacts/$tag/onoko-arcana-$tag-local.zip.sha256" `
   --title "ONOKO ARCANA $tag" `
@@ -78,12 +85,12 @@ gh release create $tag `
 ## Post-Release Check
 
 ```powershell
-gh release view v0.1.1 --json tagName,name,isDraft,isPrerelease,assets,url
+gh release view v0.1.3 --json tagName,name,isDraft,isPrerelease,assets,url
 ```
 
 Confirm:
 
 - Release is attached to the intended tag.
-- Zip and `.sha256` are present.
+- Setup executable, fallback zip, and matching `.sha256` files are present.
 - Release notes include known limitations and license notes.
 - The tag points to the CI-green release commit.

@@ -2,6 +2,22 @@
 
 All notable release changes are tracked here.
 
+## v0.1.3 - 2026-06-07
+
+Windows installer release for the public preview package.
+
+### Added
+
+- Added an `electron-builder` NSIS installer target for GitHub Releases.
+- Added automatic Desktop and Start Menu shortcut creation with the generated ONOKO ARCANA `.ico` icon.
+- Added installer package smoke coverage against the generated `win-unpacked` executable.
+
+### Changed
+
+- Updated the Release artifact flow to publish `setup.exe`, fallback zip, and matching SHA256 files.
+- Updated CI to build and smoke the installer package before uploading tag artifacts.
+- Updated Release docs so `setup.exe` is the recommended Windows download and zip remains the fallback.
+
 ## v0.1.2 - 2026-06-07
 
 Desktop shortcut icon patch for the public preview package.

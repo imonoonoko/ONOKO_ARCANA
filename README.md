@@ -90,29 +90,31 @@ cd web-app
 npm run smoke:package
 ```
 
-This package is for local use and verification. Signed installer, auto update, and store distribution are separate v1.0+ tasks.
+This package is for local use and fallback verification. GitHub Releases should use the Windows installer as the primary download when available. Code signing, auto update, and store distribution remain separate v1.0+ tasks.
 
 ## GitHub Release Download
 
 GitHub Releases attach:
 
-- `onoko-arcana-v0.1.2-local.zip`
-- `onoko-arcana-v0.1.2-local.zip.sha256`
+- `onoko-arcana-v0.1.3-setup.exe`
+- `onoko-arcana-v0.1.3-setup.exe.sha256`
+- `onoko-arcana-v0.1.3-local.zip`
+- `onoko-arcana-v0.1.3-local.zip.sha256`
 
-The attached zip is an unsigned local Electron folder package. It should include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/` so the split license and asset reuse restrictions remain visible outside the repository checkout.
+The setup executable is the recommended Windows download. It installs ONOKO ARCANA and creates Start Menu/Desktop shortcuts with the generated `onoko-arcana-app-icon-v1.ico` icon. The zip remains as an unsigned local Electron folder fallback and should include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/` so the split license and asset reuse restrictions remain visible outside the repository checkout.
 
 Quick start:
 
 ```text
-1. Download the zip.
-2. Extract it to a normal user folder.
-3. Run START_ONOKO_ARCANA.cmd.
-4. Optional: run CREATE_DESKTOP_SHORTCUT.ps1 to create/update the Desktop shortcut with the ONOKO ARCANA .ico icon.
+1. Download onoko-arcana-v0.1.3-setup.exe.
+2. Run the setup executable.
+3. Launch ONOKO ARCANA from the Desktop or Start Menu shortcut.
+4. If setup is blocked, use onoko-arcana-v0.1.3-local.zip as the fallback: extract it and run START_ONOKO_ARCANA.cmd.
 ```
 
-Windows may show a warning because this is not a signed installer.
+Windows may show a warning because the installer is unsigned.
 
-Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md`, use the tag CI artifact for the zip, and confirm GitHub Actions passes on the exact tagged commit.
+Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md`, use the tag CI artifacts for the setup executable and fallback zip, and confirm GitHub Actions passes on the exact tagged commit.
 
 ONOKO ARCANA is a tarot study, self-reflection, and entertainment tool. Do not use it as a substitute for professional medical, legal, financial, safety, or mental-health advice.
 

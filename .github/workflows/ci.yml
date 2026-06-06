@@ -68,6 +68,12 @@ jobs:
           npm run package:local
           npm run smoke:package
 
+      - name: Installer package smoke check
+        working-directory: web-app
+        run: |
+          npm run package:installer
+          npm run smoke:installer
+
       - name: Create release artifact
         if: startsWith(github.ref, 'refs/tags/v')
         shell: powershell
@@ -79,6 +85,8 @@ jobs:
         with:
           name: onoko-arcana-${{ github.ref_name }}-release-artifacts
           path: |
+            dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-setup.exe
+            dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-setup.exe.sha256
             dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-local.zip
             dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-local.zip.sha256
           if-no-files-found: error

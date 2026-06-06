@@ -1,12 +1,12 @@
 # ONOKO ARCANA Distribution Notice
 
-This notice is intended for the GitHub Release zip and the generated local Electron package.
+This notice is intended for the GitHub Release installer, fallback zip, and generated local Electron package.
 
 ## Package Type
 
-ONOKO ARCANA is distributed as an unsigned local Electron folder package.
+ONOKO ARCANA is distributed as an unsigned Windows installer, with an unsigned local Electron folder package retained as a fallback artifact.
 
-It is not a signed Windows installer, does not include auto update, and does not collect or sync user data through a server.
+The installer creates Start Menu/Desktop shortcuts with the ONOKO ARCANA app icon. It is not code-signed, does not include auto update, and does not collect or sync user data through a server.
 
 ## Local Data
 
@@ -39,4 +39,4 @@ You may not extract, reuse, resell, redistribute, train on, or repurpose the pro
 
 ## Release Integrity
 
-For the official GitHub Release, compare the downloaded zip against the published `.sha256` file before use when possible.
+For the official GitHub Release, compare the downloaded installer or zip against the matching published `.sha256` file before use when possible.

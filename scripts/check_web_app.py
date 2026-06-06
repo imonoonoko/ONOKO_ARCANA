@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_APP = ROOT / "web-app"
+PACKAGE_JSON = WEB_APP / "package.json"
 INDEX = WEB_APP / "index.html"
 DATA = WEB_APP / "src" / "data.js"
 APP = WEB_APP / "src" / "app.js"
@@ -26,6 +27,7 @@ LEARNING_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "learning" / "learning-va
 REPORT_POLICY = REPORTS / "README.md"
 PACKAGE_SCRIPT = ROOT / "scripts" / "package_electron_local.cjs"
 PACKAGE_SMOKE = ROOT / "scripts" / "smoke_electron_package.cjs"
+INSTALLER_SMOKE = ROOT / "scripts" / "smoke_electron_installer_app.cjs"
 ROOT_README = ROOT / "README.md"
 APP_ICON_ROOT = ROOT / "assets" / "generated" / "app-icons"
 APP_ICON_PNG = APP_ICON_ROOT / "onoko-arcana-app-icon-v1.png"
@@ -127,6 +129,7 @@ def fail(message: str, details: dict | None = None) -> None:
 
 def main() -> None:
     required_files = [
+        PACKAGE_JSON,
         INDEX,
         DATA,
         APP,
@@ -144,6 +147,7 @@ def main() -> None:
         REPORT_POLICY,
         PACKAGE_SCRIPT,
         PACKAGE_SMOKE,
+        INSTALLER_SMOKE,
         ROOT_README,
         APP_ICON_PNG,
         APP_ICON_ICO,
@@ -158,6 +162,7 @@ def main() -> None:
     styles = STYLES.read_text(encoding="utf-8")
     electron = ELECTRON_MAIN.read_text(encoding="utf-8")
     package_script = PACKAGE_SCRIPT.read_text(encoding="utf-8")
+    package_json = json.loads(PACKAGE_JSON.read_text(encoding="utf-8"))
 
     missing_ids = [item for item in REQUIRED_IDS if f'id="{item}"' not in index]
     if missing_ids:
@@ -257,6 +262,37 @@ def main() -> None:
     if '"assets", "generated", "app-icons"' not in package_script or "appIcon" not in package_script:
         fail("local package must copy and declare app icon assets", {
             "path": str(PACKAGE_SCRIPT.relative_to(ROOT)),
+        })
+
+    package_scripts = package_json.get("scripts", {})
+    build_config = package_json.get("build", {})
+    win_config = build_config.get("win", {})
+    nsis_config = build_config.get("nsis", {})
+    win_targets = win_config.get("target", [])
+    has_nsis_target = any(
+        target == "nsis" or (isinstance(target, dict) and target.get("target") == "nsis")
+        for target in win_targets
+    )
+    installer_requirements = {
+        "package:installer": "electron-builder" in package_scripts.get("package:installer", ""),
+        "smoke:installer": "smoke_electron_installer_app.cjs" in package_scripts.get("smoke:installer", ""),
+        "electron-builder": "electron-builder" in package_json.get("devDependencies", {}),
+        "appId": build_config.get("appId") == "com.onoko.arcana",
+        "productName": build_config.get("productName") == "ONOKO ARCANA",
+        "artifactName": build_config.get("artifactName") == "onoko-arcana-v${version}-setup.${ext}",
+        "winIcon": str(win_config.get("icon", "")).endswith("onoko-arcana-app-icon-v1.ico"),
+        "nsisTarget": has_nsis_target,
+        "desktopShortcut": nsis_config.get("createDesktopShortcut") == "always",
+        "startMenuShortcut": nsis_config.get("createStartMenuShortcut") is True,
+        "shortcutName": nsis_config.get("shortcutName") == "ONOKO ARCANA",
+    }
+    missing_installer_requirements = [
+        name for name, ok in installer_requirements.items() if not ok
+    ]
+    if missing_installer_requirements:
+        fail("installer release configuration is incomplete", {
+            "path": str(PACKAGE_JSON.relative_to(ROOT)),
+            "missing": missing_installer_requirements,
         })
 
     valid_fixture = json.loads(HISTORY_FIXTURE_VALID.read_text(encoding="utf-8"))
@@ -399,6 +435,7 @@ def main() -> None:
         "packageScripts": [
             str(PACKAGE_SCRIPT.relative_to(ROOT)),
             str(PACKAGE_SMOKE.relative_to(ROOT)),
+            str(INSTALLER_SMOKE.relative_to(ROOT)),
         ],
         "appIcons": [
             str(APP_ICON_PNG.relative_to(ROOT)),

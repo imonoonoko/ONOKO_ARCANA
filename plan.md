@@ -518,13 +518,15 @@ Status: Blocked
 - `reports/` の一時run出力が新規追跡対象にならない。
 - local packageが作成できる。
 - package smokeが通る。
+- installer packageが作成できる。
+- installer package smokeが通る。
 
 ### 9.5 次の実装候補
 
 1. 保存履歴をカード、問い、スプレッド、日付で絞り込む復習filter。
 2. 保存、履歴、表示、backup/restoreを集約するsettings画面。
 3. 初回起動時と保存直後の次アクション文言/状態改善。
-4. 外部配布する場合のinstaller、`.ico`、署名、auto updateの別スコープ定義。
+4. 外部配布はGitHub Release用installerと`.ico`適用まで進行済み。残りは署名、auto update、MSIX/Store配布の別スコープ化。
 
 ## 10. 検証計画
 
@@ -536,6 +538,7 @@ Status: Blocked
 | 履歴保存/import/export変更 | static check | Web smoke + fixture追加 |
 | Electron shell変更 | Electron smoke | package smoke |
 | Package script変更 | local package作成 | package smoke + README確認 |
+| Installer設定変更 | installer package作成 | installer smoke + Release artifact作成 |
 | Card/Spread data変更 | schema doc更新 | smoke + visual audit + fixture |
 | Layout/visual変更 | screenshot | visual audit全viewport |
 
@@ -547,7 +550,9 @@ Status: Blocked
 4. `scripts/audit_web_ui_visual.cjs`
 5. `scripts/package_electron_local.cjs`
 6. `scripts/smoke_electron_package.cjs`
-7. README / roadmap / kanban の証跡パス更新
+7. `npm run package:installer`
+8. `npm run smoke:installer`
+9. README / roadmap / kanban の証跡パス更新
 
 ### 10.3 手動スモークテスト
 
@@ -561,6 +566,7 @@ Status: Blocked
 8. `Save` を押す。
 9. 履歴一覧、復習ノート、書き出し、読み込み、削除、全消去を確認する。
 10. package smokeでは `dist/onoko-arcana-local/` から同じloopを確認する。
+11. installer smokeでは `dist/installer/win-unpacked/ONOKO ARCANA.exe` から同じloopを確認する。
 
 ## 11. リスク管理
 
@@ -571,6 +577,7 @@ Status: Blocked
 | カード再生成ループ | runtime実装が進まない | 高リスク | 実画面でhard blockerが出るまで再生成しない。 |
 | localStorage破損の黙殺 | ユーザーが履歴喪失に気づけない | 中リスク | 読込失敗をUI表示し、export/import復旧導線を明記する。 |
 | Electron配布で保存場所が不明 | backupできない | 中リスク | READMEに保存場所、export、restore手順を明記する。 |
+| 未署名installerの警告 | 初回ユーザーが起動を中断する | 残リスク | Release notesで未署名を明記し、署名証明書取得まではauto updateを入れない。 |
 | 証跡肥大化 | Git同期と引き継ぎが重くなる | 既に発生 | `reports/README.md` と `.gitignore` で代表証跡だけを管理する。 |
 | Texture memory増大 | 小アルカナ拡張時に重くなる | 将来リスク | 78枚化はMajor runtime完成後。 |
 
@@ -581,8 +588,9 @@ Status: Blocked
 - 小アルカナ56枚の生成。
 - 全カードの再生成。
 - 完成polish animationの作り込み。
-- installer署名や公開配布。
+- installer署名。
 - Auto update。
+- MSIX / Microsoft Store配布。
 - UE Python map spawn crash の深追い。
 
 これらは重要だが、現在の縦断スライス完成には直結しない。
