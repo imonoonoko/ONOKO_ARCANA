@@ -12,6 +12,26 @@ This resolves the practical icon problem for normal users: a GitHub Release down
 
 The local zip remains as a fallback artifact for users whose environment blocks the installer.
 
+## v0.1.3 Outcome
+
+Published GitHub Release:
+
+```text
+https://github.com/imonoonoko/ONOKO_ARCANA/releases/tag/v0.1.3
+```
+
+Evidence:
+
+- Release commit: `27b4435dd84d652bf9ef6ec72d55b211ac130e3e`
+- Main CI: `27071854833`, success
+- Tag CI: `27071948735`, success
+- Setup artifact: `onoko-arcana-v0.1.3-setup.exe`
+- Setup SHA-256: `209930B6168ED965EBF0C418548286471B64F3B7006070AC9EDBFDC4DBE3051A`
+- Fallback zip: `onoko-arcana-v0.1.3-local.zip`
+- Fallback zip SHA-256: `5797BD67B784D38757B802F4072ECC3A6191DE1F993FBFF7D74D989BEC1DCA02`
+
+The setup executable was confirmed `NotSigned` by Authenticode inspection, matching the release notes.
+
 ## Risk Register
 
 | Risk | Prior State | Current State | Owner Action |

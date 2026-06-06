@@ -19,10 +19,10 @@ Release type: public preview GitHub Release with CI-generated unsigned installer
 - [x] Installer package smoke: `cd web-app && npm run smoke:installer`
 - [x] Release artifact creation: `cd web-app && npm run release:artifact`
 - [x] High-severity dependency audit: `cd web-app && npm audit --audit-level=high`
-- [ ] GitHub Actions success on the release commit.
-- [ ] GitHub Actions success on the `v0.1.3` tag.
-- [ ] Installer, fallback zip, and matching `.sha256` files downloaded from the tag CI artifact.
-- [ ] GitHub Release created as a pre-release/public preview.
+- [x] GitHub Actions success on the release commit.
+- [x] GitHub Actions success on the `v0.1.3` tag.
+- [x] Installer, fallback zip, and matching `.sha256` files downloaded from the tag CI artifact.
+- [x] GitHub Release created as a pre-release/public preview.
 
 ## Local Evidence
 
@@ -38,6 +38,20 @@ Release type: public preview GitHub Release with CI-generated unsigned installer
 - Installer Authenticode status: `NotSigned`
 - Fallback zip artifact: `dist/release-artifacts/onoko-arcana-v0.1.3-local.zip`
 - Fallback zip SHA-256: `9B235354851D98B20B3D9EB4E45488CBFE4D72B8CF5DDA2E87DE21E60FBAB9D0`
+
+## Completion Evidence
+
+- Release commit: `27b4435dd84d652bf9ef6ec72d55b211ac130e3e`
+- Main CI: `27071854833`, success
+- Tag CI: `27071948735`, success
+- GitHub Release: `https://github.com/imonoonoko/ONOKO_ARCANA/releases/tag/v0.1.3`
+- Release setup artifact: `onoko-arcana-v0.1.3-setup.exe`
+- Release setup SHA-256: `209930B6168ED965EBF0C418548286471B64F3B7006070AC9EDBFDC4DBE3051A`
+- Release setup GitHub asset digest: `sha256:209930b6168ed965ebf0c418548286471b64f3b7006070ac9edbfdc4dbe3051a`
+- Release fallback zip: `onoko-arcana-v0.1.3-local.zip`
+- Release fallback zip SHA-256: `5797BD67B784D38757B802F4072ECC3A6191DE1F993FBFF7D74D989BEC1DCA02`
+- Release fallback zip GitHub asset digest: `sha256:5797bd67b784d38757b802f4072ecc3a6191de1f993fbff7d74d989bec1dca02`
+- Release type: pre-release/public preview
 
 ## Artifact Rules
 

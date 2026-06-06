@@ -39,6 +39,13 @@ Get-FileHash .\onoko-arcana-v0.1.3-setup.exe -Algorithm SHA256
 Get-Content .\onoko-arcana-v0.1.3-setup.exe.sha256
 ```
 
+CI artifact SHA256:
+
+```text
+209930B6168ED965EBF0C418548286471B64F3B7006070AC9EDBFDC4DBE3051A  onoko-arcana-v0.1.3-setup.exe
+5797BD67B784D38757B802F4072ECC3A6191DE1F993FBFF7D74D989BEC1DCA02  onoko-arcana-v0.1.3-local.zip
+```
+
 ## Japanese Quick Start
 
 1. `onoko-arcana-v0.1.3-setup.exe` をダウンロードします。
