@@ -7,14 +7,16 @@
 - ONOKO ARCANA v1.x は Web/Electron の 2D 占い卓として完成させる。
 - 現行本体は `web-app/index.html`、Electron shell は `web-app/electron/main.cjs`。
 - 入口文書は `plan.md`、`docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`、`docs/implementation/IMPLEMENTATION_KANBAN.md`、`docs/design/DESIGN_KANBAN.md`。
-- 次の実装順は、履歴復習filter、settings画面、初回起動empty state、配布polish。
-- 作業前は `python scripts/check_web_app.py` を実行し、変更内容に応じて Web smoke、Electron smoke、visual audit、package smoke を通す。
+- 現在の公開基準は GitHub Release `v0.1.2` public preview。次の実装順は、公開後フィードバック収集、GitHub Release/BOOTH向け説明整備、署名installer/MSIX検討、小アルカナ判断ゲート。
+- 作業前は `python scripts/check_web_app.py` を実行し、変更内容に応じて Web smoke、Electron smoke、visual audit、package smoke、release artifact smoke を通す。
 
 ## Web/Electron環境
 
 - Web entry: `web-app/index.html`
 - Electron entry: `web-app/electron/main.cjs`
 - Local package output: `dist/onoko-arcana-local/`
+- Release artifact output: `dist/release-artifacts/onoko-arcana-vX.Y.Z-local.zip`
+- Desktop shortcut helper: `dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1`
 - History storage key: `onoko-arcana:desktop:history:v1`
 - History schema: `docs/data/HISTORY_SCHEMA_V1.md`
 - Card schema: `docs/data/CARD_SCHEMA_V1.md`
@@ -60,6 +62,11 @@ npm run package:local
 ```powershell
 cd web-app
 npm run smoke:package
+```
+
+```powershell
+cd web-app
+npm run release:artifact
 ```
 
 ## UEアーカイブ情報

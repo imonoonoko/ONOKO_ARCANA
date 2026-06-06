@@ -20,7 +20,7 @@ Updated: 2026-06-07
 | Learning loop | 初回導線 -> 自分の読みを書く -> 同じカードの学習シートを参照する -> 保存 -> 履歴で見返す -> 学習シート前に想起練習する -> スロット解釈を練習する -> due 復習に戻る |
 | Persistence | `localStorage` history v1 + learning v1 draft |
 | Data portability | history JSON export / import + learning JSON export / import / clear |
-| Latest proof | `reports/web-app-check-20260607-014605.json`, `reports/web-app-smoke-20260607-011915.json`, `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`, `reports/onoko-arcana-app-icon-preview-20260607-0143.png`, `reports/electron-app-smoke-20260607-014422.json`, `reports/electron-package-smoke-20260607-014620.json`, `reports/keyboard-focus-smoke-20260607-012201.json`, `reports/ui-visual-audit-20260607-012023/report.json` |
+| Latest proof | `reports/web-app-check-20260607-034851.json`, `reports/web-app-smoke-20260607-034852.json`, `reports/electron-app-smoke-20260607-034921.json`, `reports/electron-package-smoke-20260607-034938.json`, `reports/keyboard-focus-smoke-20260607-034852.json`, `reports/ui-visual-audit-20260607-034852/report.json`, `dist/release-artifacts/onoko-arcana-v0.1.2-local.zip.sha256` |
 
 ## 2. 製品ゴール
 
@@ -99,7 +99,7 @@ Status: Web-only gate complete / deeper a11y remains
 
 ### Phase C: Desktop Packaging
 
-Status: Verified for local package
+Status: Verified for GitHub public preview package v0.1.2
 
 目的は、開発用HTMLから、実際にローカルで起動しやすいデスクトップアプリへ進めることである。
 
@@ -108,13 +108,14 @@ Status: Verified for local package
 | packaging方式決定 | P1 | Verified: 依存追加なしの `dist/onoko-arcana-local/` 方式を採用 |
 | Windows local package | P1 | Verified: `scripts/package_electron_local.cjs` |
 | app icon | P1 | Verified: `imagegen` 生成の透明 PNG と Windows `.ico` を採用し、Electron window/taskbar 用に `AppUserModelID` も設定 |
+| Desktop shortcut helper | P1 | Verified: `CREATE_DESKTOP_SHORTCUT.ps1` が `ONOKO ARCANA.lnk` を作成/更新し、`IconLocation` に `onoko-arcana-app-icon-v1.ico` を設定 |
 | 保存場所の説明 | P1 | Verified: `README.md`, `web-app/README.md` |
-| package smoke | P1 | Verified: `reports/electron-package-smoke-20260605-005006.json` |
+| package smoke | P1 | Verified: `reports/electron-package-smoke-20260607-034938.json` |
 
 保留:
 
 - Auto update は v1.0 前には必須ではない。
-- 外部公開、署名、配布サイトは、ローカルpackage確認後に判断する。
+- GitHub Release public preview は `v0.1.2` で実施。署名installer、MSIX、store distribution は別ゲートで判断する。
 
 ### Phase D: Review And Study Mode
 

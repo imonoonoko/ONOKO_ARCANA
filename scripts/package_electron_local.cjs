@@ -111,6 +111,50 @@ function writeLauncher() {
   fs.writeFileSync(path.join(PACKAGE_ROOT, "START_ONOKO_ARCANA.cmd"), launcher, "utf8");
 }
 
+function writeDesktopShortcutScript() {
+  const shortcutScript = [
+    "param(",
+    '  [string] $DesktopPath = [Environment]::GetFolderPath("Desktop")',
+    ")",
+    "",
+    '$ErrorActionPreference = "Stop"',
+    '$PackageRoot = Split-Path -Parent $MyInvocation.MyCommand.Path',
+    '$ElectronExe = Join-Path $PackageRoot "web-app\\node_modules\\electron\\dist\\electron.exe"',
+    '$EntryPoint = Join-Path $PackageRoot "web-app\\electron\\main.cjs"',
+    '$WorkingDirectory = Join-Path $PackageRoot "web-app"',
+    '$IconPath = Join-Path $PackageRoot "assets\\generated\\app-icons\\onoko-arcana-app-icon-v1.ico"',
+    '$ShortcutPath = Join-Path $DesktopPath "ONOKO ARCANA.lnk"',
+    "",
+    'foreach ($Required in @($ElectronExe, $EntryPoint, $WorkingDirectory, $IconPath)) {',
+    "  if (!(Test-Path -LiteralPath $Required)) {",
+    '    throw "Missing required file: $Required"',
+    "  }",
+    "}",
+    "",
+    "New-Item -ItemType Directory -Force -Path $DesktopPath | Out-Null",
+    "",
+    "$Shell = New-Object -ComObject WScript.Shell",
+    "$Shortcut = $Shell.CreateShortcut($ShortcutPath)",
+    "$Shortcut.TargetPath = $ElectronExe",
+    '$Shortcut.Arguments = "`"$EntryPoint`""',
+    "$Shortcut.WorkingDirectory = $WorkingDirectory",
+    '$Shortcut.IconLocation = "$IconPath,0"',
+    '$Shortcut.Description = "Launch ONOKO ARCANA desktop reading table"',
+    "$Shortcut.WindowStyle = 1",
+    "$Shortcut.Save()",
+    "",
+    "[PSCustomObject]@{",
+    "  ok = $true",
+    "  shortcut = $ShortcutPath",
+    "  target = $Shortcut.TargetPath",
+    "  arguments = $Shortcut.Arguments",
+    "  icon = $Shortcut.IconLocation",
+    "} | ConvertTo-Json",
+    ""
+  ].join("\r\n");
+  fs.writeFileSync(path.join(PACKAGE_ROOT, "CREATE_DESKTOP_SHORTCUT.ps1"), shortcutScript, "utf8");
+}
+
 function main() {
   copyEntries.forEach((entry) => assertExists(entry.source));
   const electronExecutable = resolveElectronExecutable();
@@ -122,12 +166,14 @@ function main() {
 
   copyEntries.forEach((entry) => copyPath(entry.source, entry.target));
   writeLauncher();
+  writeDesktopShortcutScript();
 
   const manifest = {
     app: "ONOKO_ARCANA",
     packageType: "local-electron-folder",
     output: path.relative(ROOT, PACKAGE_ROOT),
     launcher: "START_ONOKO_ARCANA.cmd",
+    desktopShortcutScript: "CREATE_DESKTOP_SHORTCUT.ps1",
     electronEntry: "web-app/electron/main.cjs",
     electronExecutable: path.relative(ROOT, electronExecutable),
     appIcon: "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico",
@@ -145,6 +191,7 @@ function main() {
     ok: true,
     package: path.relative(ROOT, PACKAGE_ROOT),
     launcher: path.relative(ROOT, path.join(PACKAGE_ROOT, "START_ONOKO_ARCANA.cmd")),
+    desktopShortcutScript: path.relative(ROOT, path.join(PACKAGE_ROOT, "CREATE_DESKTOP_SHORTCUT.ps1")),
     manifest: path.relative(ROOT, manifestPath)
   }, null, 2));
 }

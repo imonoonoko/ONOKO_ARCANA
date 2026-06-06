@@ -36,7 +36,7 @@ Updated: 2026-06-07
 | Latest visual audit | `reports/ui-visual-audit-20260607-012023/report.json` |
 | Latest web smoke | `reports/web-app-smoke-20260607-011915.json` |
 | Latest electron smoke | `reports/electron-app-smoke-20260607-014422.json` |
-| Latest package smoke | `reports/electron-package-smoke-20260607-014620.json` |
+| Latest package smoke | `reports/electron-package-smoke-20260607-034938.json` |
 | Latest keyboard smoke | `reports/keyboard-focus-smoke-20260607-012201.json` |
 
 ## 検証コマンド
@@ -142,7 +142,7 @@ npm run smoke:package
 |---|---|---|---|---|---|
 | Electron shell | Verified | P0 | `npm run desktop` 相当の shell がある | 変更時に electron smoke を通す | `reports/electron-app-smoke-20260606-203227.json` |
 | Packaging | Verified | P1 | `dist/onoko-arcana-local/` を作成できる | 外部配布時はinstallerを別定義 | `reports/electron-package-smoke-20260606-203245.json` |
-| App icon | Verified | P1 | `imagegen` 生成の透明 PNG と Windows `.ico` を採用し、Electron window/taskbar 用に `AppUserModelID` も設定 | 外部installer化時は exe 埋め込み icon を別ゲートで検証 | `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`, `reports/onoko-arcana-app-icon-preview-20260607-0143.png`, `reports/electron-package-smoke-20260607-014620.json` |
+| App icon | Verified | P1 | `imagegen` 生成の透明 PNG と Windows `.ico` を採用し、Electron window/taskbar 用に `AppUserModelID` も設定。Desktop shortcut helper も同じ `.ico` を `IconLocation` に設定 | 外部installer化時は exe 埋め込み icon を別ゲートで検証 | `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`, `dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1`, `reports/electron-package-smoke-20260607-034938.json` |
 | Auto update | Hold | P3 | 未検討 | 配布方式が決まるまで保留 | Distribution plan |
 | Settings screen | Verified | P2 | 履歴データ、学習データ、表示設定、localStorage key を分けた modal を実装 | package版で保存場所説明とsettings表示を目視確認 | `reports/web-app-smoke-20260606-203136.json`, `reports/onoko-arcana-settings-20260606-203136.png`, `reports/electron-package-smoke-20260606-203245.json` |
 

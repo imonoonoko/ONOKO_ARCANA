@@ -10,6 +10,7 @@ const PACKAGE_ELECTRON = path.join(PACKAGED_WEB, "node_modules", "electron", "di
 const PACKAGE_FIXTURES = path.join(PACKAGE_ROOT, "tests", "fixtures", "history");
 const PACKAGE_ICON_PNG = path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.png");
 const PACKAGE_ICON_ICO = path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.ico");
+const PACKAGE_SHORTCUT_SCRIPT = path.join(PACKAGE_ROOT, "CREATE_DESKTOP_SHORTCUT.ps1");
 const PACKAGE_MANIFEST = path.join(PACKAGE_ROOT, "package-manifest.json");
 const ROOT_WEB_NODE_MODULES = path.join(ROOT, "web-app", "node_modules");
 const PACKAGE_NODE_MODULES = path.join(PACKAGED_WEB, "node_modules");
@@ -53,7 +54,7 @@ function canAssertSingleViewportFit(state) {
 }
 
 (async () => {
-  [PACKAGE_ROOT, PACKAGE_MAIN, PACKAGE_ELECTRON, PACKAGE_FIXTURES, PACKAGE_ICON_PNG, PACKAGE_ICON_ICO, PACKAGE_MANIFEST].forEach(failMissing);
+  [PACKAGE_ROOT, PACKAGE_MAIN, PACKAGE_ELECTRON, PACKAGE_FIXTURES, PACKAGE_ICON_PNG, PACKAGE_ICON_ICO, PACKAGE_SHORTCUT_SCRIPT, PACKAGE_MANIFEST].forEach(failMissing);
   fs.mkdirSync(REPORTS, { recursive: true });
 
   const id = stamp();
@@ -61,9 +62,14 @@ function canAssertSingleViewportFit(state) {
   const exportPath = path.join(REPORTS, `onoko-arcana-package-history-export-${id}.json`);
   const invalidImportPath = path.join(PACKAGE_FIXTURES, "invalid-json.json");
   const packageManifest = JSON.parse(fs.readFileSync(PACKAGE_MANIFEST, "utf8"));
+  const shortcutScript = fs.readFileSync(PACKAGE_SHORTCUT_SCRIPT, "utf8");
   const iconState = {
     png: path.relative(ROOT, PACKAGE_ICON_PNG),
     ico: path.relative(ROOT, PACKAGE_ICON_ICO),
+    desktopShortcutScript: path.relative(ROOT, PACKAGE_SHORTCUT_SCRIPT),
+    manifestDesktopShortcutScript: packageManifest.desktopShortcutScript,
+    desktopShortcutUsesIco: shortcutScript.includes("onoko-arcana-app-icon-v1.ico") &&
+      shortcutScript.includes("IconLocation"),
     manifestIcon: packageManifest.appIcon,
     appUserModelId: packageManifest.appUserModelId,
     pngBytes: fs.statSync(PACKAGE_ICON_PNG).size,
@@ -155,6 +161,8 @@ function canAssertSingleViewportFit(state) {
   const ok =
     consoleErrors.length === 0 &&
     iconState.manifestIcon === "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico" &&
+    iconState.manifestDesktopShortcutScript === "CREATE_DESKTOP_SHORTCUT.ps1" &&
+    iconState.desktopShortcutUsesIco === true &&
     iconState.appUserModelId === "com.onoko.arcana" &&
     iconState.pngBytes > 0 &&
     iconState.icoBytes > 0 &&

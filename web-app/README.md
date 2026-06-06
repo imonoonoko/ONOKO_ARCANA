@@ -78,6 +78,7 @@ Output:
 
 ```text
 dist/onoko-arcana-local/START_ONOKO_ARCANA.cmd
+dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1
 ```
 
 Smoke the packaged app:

@@ -80,6 +80,7 @@ Output:
 ```text
 dist/onoko-arcana-local/
 dist/onoko-arcana-local/START_ONOKO_ARCANA.cmd
+dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1
 ```
 
 Smoke the package:
@@ -95,8 +96,8 @@ This package is for local use and verification. Signed installer, auto update, a
 
 GitHub Releases attach:
 
-- `onoko-arcana-v0.1.1-local.zip`
-- `onoko-arcana-v0.1.1-local.zip.sha256`
+- `onoko-arcana-v0.1.2-local.zip`
+- `onoko-arcana-v0.1.2-local.zip.sha256`
 
 The attached zip is an unsigned local Electron folder package. It should include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/` so the split license and asset reuse restrictions remain visible outside the repository checkout.
 
@@ -106,6 +107,7 @@ Quick start:
 1. Download the zip.
 2. Extract it to a normal user folder.
 3. Run START_ONOKO_ARCANA.cmd.
+4. Optional: run CREATE_DESKTOP_SHORTCUT.ps1 to create/update the Desktop shortcut with the ONOKO ARCANA .ico icon.
 ```
 
 Windows may show a warning because this is not a signed installer.

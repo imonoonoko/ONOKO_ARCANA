@@ -38,6 +38,7 @@ try {
   $Entries = $Zip.Entries.FullName | ForEach-Object { $_ -replace "\\", "/" }
   $RequiredEntries = @(
     "START_ONOKO_ARCANA.cmd",
+    "CREATE_DESKTOP_SHORTCUT.ps1",
     "package-manifest.json",
     "LICENSE",
     "SECURITY.md",

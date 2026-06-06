@@ -2,6 +2,16 @@
 
 All notable release changes are tracked here.
 
+## v0.1.2 - 2026-06-07
+
+Desktop shortcut icon patch for the public preview package.
+
+### Fixed
+
+- Added `CREATE_DESKTOP_SHORTCUT.ps1` to the local Electron package so Windows Desktop shortcuts can target the app directly while using the generated ONOKO ARCANA `.ico`.
+- Updated package smoke and release artifact validation so the shortcut script and `.ico` icon assignment are checked before release.
+- Updated the local `ONOKO ARCANA.lnk` shortcut on this machine to use `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`.
+
 ## v0.1.1 - 2026-06-07
 
 Corrective public preview release after the first GitHub Release.

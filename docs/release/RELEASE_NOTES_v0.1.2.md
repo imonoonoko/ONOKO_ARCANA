@@ -1,45 +1,47 @@
-# ONOKO ARCANA v0.1.1
+# ONOKO ARCANA v0.1.2
 
-ONOKO ARCANA v0.1.1 is a public preview GitHub Release for the local-first Web/Electron tarot study app.
+ONOKO ARCANA v0.1.2 is a public preview GitHub Release for the local-first Web/Electron tarot study app.
 
-This release replaced v0.1.0. It is now superseded by v0.1.2, which adds the packaged Desktop shortcut icon helper.
+This release replaces v0.1.1 as the recommended download.
 
-## What Changed Since v0.1.0
+## What Changed Since v0.1.1
 
-- Release documentation now matches the published state instead of pre-release gate wording.
-- The local package no longer includes non-runtime app-icon source files such as raw alpha or chromakey images.
-- The package includes a clearer `DISTRIBUTION_NOTICE.md` with local-data, license, asset-reuse, and use-disclaimer notes.
-- CI can now create the release zip and `.sha256` as a workflow artifact for tag builds.
+- The local package now includes `CREATE_DESKTOP_SHORTCUT.ps1`.
+- The shortcut helper creates or updates `ONOKO ARCANA.lnk` on the Windows Desktop.
+- The Desktop shortcut targets the packaged Electron app directly and uses `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`.
+- Package smoke and release zip validation now require the shortcut helper and `.ico` assignment.
 
 ## Download
 
 Download both files from the GitHub Release:
 
-- `onoko-arcana-v0.1.1-local.zip`
-- `onoko-arcana-v0.1.1-local.zip.sha256`
+- `onoko-arcana-v0.1.2-local.zip`
+- `onoko-arcana-v0.1.2-local.zip.sha256`
 
 ## Quick Start
 
-1. Download `onoko-arcana-v0.1.1-local.zip`.
+1. Download `onoko-arcana-v0.1.2-local.zip`.
 2. Extract the zip to a normal user folder such as `Downloads` or `Documents`.
 3. Open the extracted folder.
 4. Run `START_ONOKO_ARCANA.cmd`.
+5. Optional: run `CREATE_DESKTOP_SHORTCUT.ps1` to create or update the Windows Desktop shortcut with the ONOKO ARCANA `.ico` icon.
 
 Windows may show a warning because this is an unsigned local package, not a signed installer.
 
 To check the download hash in PowerShell:
 
 ```powershell
-Get-FileHash .\onoko-arcana-v0.1.1-local.zip -Algorithm SHA256
-Get-Content .\onoko-arcana-v0.1.1-local.zip.sha256
+Get-FileHash .\onoko-arcana-v0.1.2-local.zip -Algorithm SHA256
+Get-Content .\onoko-arcana-v0.1.2-local.zip.sha256
 ```
 
-## 日本語クイックスタート
+## Japanese Quick Start
 
-1. `onoko-arcana-v0.1.1-local.zip` をダウンロードします。
+1. `onoko-arcana-v0.1.2-local.zip` をダウンロードします。
 2. zipを `Downloads` や `Documents` などの通常フォルダへ展開します。
 3. 展開したフォルダの `START_ONOKO_ARCANA.cmd` を実行します。
-4. Windowsの警告が出る場合があります。これは未署名のローカルパッケージであり、署名済みインストーラーではありません。
+4. 任意で `CREATE_DESKTOP_SHORTCUT.ps1` を実行すると、作成済み `.ico` を使う `ONOKO ARCANA.lnk` がデスクトップに作成または更新されます。
+5. Windowsの警告が出る場合があります。これは未署名のローカルパッケージであり、署名済みインストーラーではありません。
 
 ## Verification
 
@@ -55,6 +57,7 @@ Local verification path:
 - `cd web-app && npm run smoke:electron`
 - `cd web-app && npm run package:local`
 - `cd web-app && npm run smoke:package`
+- `cd web-app && npm run release:artifact`
 - `cd web-app && npm audit --audit-level=high`
 
 ## Known Limitations
