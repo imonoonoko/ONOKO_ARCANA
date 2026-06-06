@@ -7,21 +7,31 @@ Release type: public preview GitHub Release with CI-generated artifact
 
 ## Required Gates
 
-- [ ] Static app check: `python scripts/check_web_app.py`
-- [ ] Dependency install: `cd web-app && npm ci`
-- [ ] Browser smoke: `cd web-app && npm run smoke:web`
-- [ ] Keyboard focus smoke: `cd web-app && npm run smoke:keyboard`
-- [ ] Visual audit: `cd web-app && npm run audit:visual`
-- [ ] Electron smoke: `cd web-app && npm run smoke:electron`
-- [ ] Local package build: `cd web-app && npm run package:local`
-- [ ] Package smoke: `cd web-app && npm run smoke:package`
-- [ ] Release artifact creation: `cd web-app && npm run release:artifact`
-- [ ] High-severity dependency audit: `cd web-app && npm audit --audit-level=high`
-- [ ] Temporary shortcut smoke: run `dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1` against a temporary Desktop path and verify `IconLocation` uses `onoko-arcana-app-icon-v1.ico`.
-- [ ] GitHub Actions success on the release commit.
-- [ ] GitHub Actions success on the `v0.1.2` tag.
-- [ ] Release zip and `.sha256` downloaded from the tag CI artifact.
-- [ ] GitHub Release created as a pre-release/public preview.
+- [x] Static app check: `python scripts/check_web_app.py`
+- [x] Dependency install: `cd web-app && npm ci`
+- [x] Browser smoke: `cd web-app && npm run smoke:web`
+- [x] Keyboard focus smoke: `cd web-app && npm run smoke:keyboard`
+- [x] Visual audit: `cd web-app && npm run audit:visual`
+- [x] Electron smoke: `cd web-app && npm run smoke:electron`
+- [x] Local package build: `cd web-app && npm run package:local`
+- [x] Package smoke: `cd web-app && npm run smoke:package`
+- [x] Release artifact creation: `cd web-app && npm run release:artifact`
+- [x] High-severity dependency audit: `cd web-app && npm audit --audit-level=high`
+- [x] Temporary shortcut smoke: run `dist/onoko-arcana-local/CREATE_DESKTOP_SHORTCUT.ps1` against a temporary Desktop path and verify `IconLocation` uses `onoko-arcana-app-icon-v1.ico`.
+- [x] GitHub Actions success on the release commit.
+- [x] GitHub Actions success on the `v0.1.2` tag.
+- [x] Release zip and `.sha256` downloaded from the tag CI artifact.
+- [x] GitHub Release created as a pre-release/public preview.
+
+## Completion Evidence
+
+- Release commit: `b3bcbe0592fbeb39f2dfff7b9338a9e9f75d32f1`
+- Main CI: `27070913513`, success
+- Tag CI: `27070996926`, success
+- GitHub Release: `https://github.com/imonoonoko/ONOKO_ARCANA/releases/tag/v0.1.2`
+- Release zip: `onoko-arcana-v0.1.2-local.zip`
+- Release zip SHA-256: `8ADD96A30C2BE47A27E0F816B31A94768FB76D9EF58D0798754F230083AA9FC0`
+- GitHub asset digest: `sha256:8add96a30c2be47a27e0f816b31a94768fb76d9ef58d0798754f230083aa9fc0`
 
 ## Artifact Rules
 
