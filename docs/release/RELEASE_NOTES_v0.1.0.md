@@ -1,6 +1,8 @@
 # ONOKO ARCANA v0.1.0
 
-ONOKO ARCANA v0.1.0 is the first formal GitHub Release candidate for the local-first Web/Electron tarot study app.
+ONOKO ARCANA v0.1.0 was the first formal GitHub Release candidate for the local-first Web/Electron tarot study app.
+
+Status: superseded by `v0.1.1`. New users should download the latest release instead of this first package.
 
 ## Highlights
 

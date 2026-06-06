@@ -6,9 +6,9 @@ Audience: project owner / release operator
 
 ## Decision
 
-The current checkout is locally release-ready for a first GitHub Release candidate after the existing working-tree changes are intentionally committed and CI is rerun on the pushed commit.
+`v0.1.0` was published successfully as the first GitHub Release.
 
-Do not publish the GitHub Release yet from the current dirty tree. The local gates are green, but GitHub Actions has not run against the current uncommitted release candidate.
+This report is retained as the release-readiness record for that release. The post-release review is tracked separately in `docs/release/POST_RELEASE_REVIEW_v0.1.0.md`.
 
 ## Readiness Dashboard
 
@@ -22,9 +22,9 @@ Do not publish the GitHub Release yet from the current dirty tree. The local gat
 | Local package smoke | Pass | `reports/electron-package-smoke-20260607-030701.json` |
 | Dependency audit | Pass | `npm audit --audit-level=high`, `found 0 vulnerabilities` |
 | Release artifact | Pass | `dist/release-artifacts/onoko-arcana-v0.1.0-local.zip` |
-| GitHub Release state | Ready | No existing release found |
+| GitHub Release state | Pass | Published at `https://github.com/imonoonoko/ONOKO_ARCANA/releases/tag/v0.1.0` |
 | Open PR state | Ready | No open PRs found |
-| Current-commit CI | Blocked | Must push the release commit and wait for CI |
+| Current-commit CI | Pass | GitHub Actions run `27070066993`, commit `bfeaecb6fdac7b6c4ba1cfc7a7ef95c3a639e1cc` |
 
 ## Security And Attack-Path Notes
 
@@ -41,8 +41,8 @@ Residual release risks:
 
 - The Electron package is unsigned, so Windows may show trust warnings.
 - Release assets are generated under `dist/` and should be attached to GitHub Releases, not committed unless the project intentionally changes generated-artifact policy.
-- The package must be rebuilt after release notice and license-file inclusion changes so the published zip contains `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/`.
-- CI must run after committing because the latest remote CI success is from commit `01407b4`, before the current working-tree changes.
+- `v0.1.1` should use a tag CI artifact for the release zip and `.sha256`.
+- `v0.1.1` should avoid packaging non-runtime icon source files.
 
 ## Release Artifact
 
@@ -59,10 +59,10 @@ SHA256:
 B5D6F11623BFD6DCD69C400B1FAD773DF489059CC289CD57106E593289DC3787  onoko-arcana-v0.1.0-local.zip
 ```
 
-## Required Next Step
+## Completed Release Steps
 
-1. Review and commit the release candidate changes.
-2. Push the release commit.
-3. Confirm GitHub Actions CI passes on that exact commit.
-4. Create annotated tag `v0.1.0`.
-5. Publish GitHub Release using `docs/release/RELEASE_NOTES_v0.1.0.md` and attach the zip plus SHA256 file.
+1. Release candidate changes were reviewed and committed.
+2. Commit `bfeaecb6fdac7b6c4ba1cfc7a7ef95c3a639e1cc` was pushed to `main`.
+3. GitHub Actions run `27070066993` passed on that commit.
+4. Annotated tag `v0.1.0` was created from that commit.
+5. GitHub Release `v0.1.0` was published with the zip plus SHA256 file.

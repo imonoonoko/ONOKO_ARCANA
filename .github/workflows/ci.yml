@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "v*"
   pull_request:
 
 permissions:
@@ -65,6 +67,21 @@ jobs:
         run: |
           npm run package:local
           npm run smoke:package
+
+      - name: Create release artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: powershell
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/create_release_artifacts.ps1 -Version "${{ github.ref_name }}"
+
+      - name: Upload release artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@v7
+        with:
+          name: onoko-arcana-${{ github.ref_name }}-release-artifacts
+          path: |
+            dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-local.zip
+            dist/release-artifacts/onoko-arcana-${{ github.ref_name }}-local.zip.sha256
+          if-no-files-found: error
 
       - name: Upload generated reports on failure
         if: failure()

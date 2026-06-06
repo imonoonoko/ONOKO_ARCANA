@@ -2,6 +2,18 @@
 
 All notable release changes are tracked here.
 
+## v0.1.1 - 2026-06-07
+
+Corrective public preview release after the first GitHub Release.
+
+### Fixed
+
+- Updated release documentation so the readiness report no longer contradicts the published `v0.1.0` state.
+- Added Japanese quick-start and clearer unsigned-package guidance to release notes.
+- Added explicit use-disclaimer language for medical, legal, financial, safety, and mental-health decisions.
+- Removed non-runtime app-icon source files from the generated local package.
+- Added a reproducible release-artifact script and tag CI artifact upload path.
+
 ## v0.1.0 - 2026-06-07
 
 Initial formal GitHub Release candidate for the ONOKO ARCANA Web/Electron v1.x line.

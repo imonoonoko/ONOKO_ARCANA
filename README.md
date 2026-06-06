@@ -93,14 +93,26 @@ This package is for local use and verification. Signed installer, auto update, a
 
 ## GitHub Release Download
 
-Formal GitHub Releases should attach:
+GitHub Releases attach:
 
-- `onoko-arcana-v0.1.0-local.zip`
-- `onoko-arcana-v0.1.0-local.zip.sha256`
+- `onoko-arcana-v0.1.1-local.zip`
+- `onoko-arcana-v0.1.1-local.zip.sha256`
 
 The attached zip is an unsigned local Electron folder package. It should include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/` so the split license and asset reuse restrictions remain visible outside the repository checkout.
 
-Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md` and confirm GitHub Actions passes on the exact tagged commit.
+Quick start:
+
+```text
+1. Download the zip.
+2. Extract it to a normal user folder.
+3. Run START_ONOKO_ARCANA.cmd.
+```
+
+Windows may show a warning because this is not a signed installer.
+
+Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md`, use the tag CI artifact for the zip, and confirm GitHub Actions passes on the exact tagged commit.
+
+ONOKO ARCANA is a tarot study, self-reflection, and entertainment tool. Do not use it as a substitute for professional medical, legal, financial, safety, or mental-health advice.
 
 ## History And Backup
 

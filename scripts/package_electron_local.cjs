@@ -17,8 +17,12 @@ const copyEntries = [
     target: path.join(PACKAGE_ROOT, "assets", "generated", "card-production-v5-full", "web-labeled", "alpha")
   },
   {
-    source: path.join(ROOT, "assets", "generated", "app-icons"),
-    target: path.join(PACKAGE_ROOT, "assets", "generated", "app-icons")
+    source: path.join(ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.ico"),
+    target: path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.ico")
+  },
+  {
+    source: path.join(ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.png"),
+    target: path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.png")
   },
   {
     source: path.join(ROOT, "assets", "generated", "hud-elements", "20260602-astra-modular-kit", "components"),
@@ -57,7 +61,7 @@ const copyEntries = [
     target: path.join(PACKAGE_ROOT, "docs", "legal")
   },
   {
-    source: path.join(ROOT, "docs", "release", "DISTRIBUTION_NOTICE_v0.1.0.md"),
+    source: path.join(ROOT, "docs", "release", "DISTRIBUTION_NOTICE.md"),
     target: path.join(PACKAGE_ROOT, "DISTRIBUTION_NOTICE.md")
   },
   {
