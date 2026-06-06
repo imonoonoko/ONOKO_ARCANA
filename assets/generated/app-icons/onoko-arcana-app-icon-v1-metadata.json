@@ -1,0 +1,24 @@
+{
+  "app": "ONOKO_ARCANA",
+  "asset": "onoko-arcana-app-icon-v1",
+  "createdAt": "2026-06-07",
+  "generator": "imagegen built-in tool",
+  "sourceImage": "C:/Users/Humin/.codex/generated_images/019e9b12-52f1-7103-81a8-67cedfab7183/ig_00349d055a8ba0bb016a244caa9f68819180271ad4bb8d1de7.png",
+  "workspaceOutputs": [
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1-source-chromakey.png",
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1-alpha-raw.png",
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1.png",
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1-512.png",
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1-256.png",
+    "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico"
+  ],
+  "preview": "reports/onoko-arcana-app-icon-preview-20260607-0143.png",
+  "transparentBackground": true,
+  "transparencyMethod": "Generated on chroma-key background, then removed locally with remove_chroma_key.py and normalized to square PNG/ICO.",
+  "electronUse": {
+    "windowsIcon": "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico",
+    "fallbackIcon": "assets/generated/app-icons/onoko-arcana-app-icon-v1.png",
+    "appUserModelId": "com.onoko.arcana"
+  },
+  "promptSummary": "Japanese gothic-cyber tarot app icon with black/navy lacquer, antique gold trim, electric blue crystal glow, star circuitry, and cat-emblem silhouette; no text."
+}

@@ -8,6 +8,9 @@ const PACKAGED_WEB = path.join(PACKAGE_ROOT, "web-app");
 const PACKAGE_MAIN = path.join(PACKAGED_WEB, "electron", "main.cjs");
 const PACKAGE_ELECTRON = path.join(PACKAGED_WEB, "node_modules", "electron", "dist", "electron.exe");
 const PACKAGE_FIXTURES = path.join(PACKAGE_ROOT, "tests", "fixtures", "history");
+const PACKAGE_ICON_PNG = path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.png");
+const PACKAGE_ICON_ICO = path.join(PACKAGE_ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.ico");
+const PACKAGE_MANIFEST = path.join(PACKAGE_ROOT, "package-manifest.json");
 const ROOT_WEB_NODE_MODULES = path.join(ROOT, "web-app", "node_modules");
 const PACKAGE_NODE_MODULES = path.join(PACKAGED_WEB, "node_modules");
 const REPORTS = path.join(ROOT, "reports");
@@ -50,13 +53,22 @@ function canAssertSingleViewportFit(state) {
 }
 
 (async () => {
-  [PACKAGE_ROOT, PACKAGE_MAIN, PACKAGE_ELECTRON, PACKAGE_FIXTURES].forEach(failMissing);
+  [PACKAGE_ROOT, PACKAGE_MAIN, PACKAGE_ELECTRON, PACKAGE_FIXTURES, PACKAGE_ICON_PNG, PACKAGE_ICON_ICO, PACKAGE_MANIFEST].forEach(failMissing);
   fs.mkdirSync(REPORTS, { recursive: true });
 
   const id = stamp();
   const screenshot = path.join(REPORTS, `onoko-arcana-package-smoke-${id}.png`);
   const exportPath = path.join(REPORTS, `onoko-arcana-package-history-export-${id}.json`);
   const invalidImportPath = path.join(PACKAGE_FIXTURES, "invalid-json.json");
+  const packageManifest = JSON.parse(fs.readFileSync(PACKAGE_MANIFEST, "utf8"));
+  const iconState = {
+    png: path.relative(ROOT, PACKAGE_ICON_PNG),
+    ico: path.relative(ROOT, PACKAGE_ICON_ICO),
+    manifestIcon: packageManifest.appIcon,
+    appUserModelId: packageManifest.appUserModelId,
+    pngBytes: fs.statSync(PACKAGE_ICON_PNG).size,
+    icoBytes: fs.statSync(PACKAGE_ICON_ICO).size
+  };
 
   const electronApp = await electron.launch({
     executablePath: PACKAGE_ELECTRON,
@@ -78,10 +90,13 @@ function canAssertSingleViewportFit(state) {
   for (let index = 0; index < 6; index += 1) {
     await page.click("#revealButton");
   }
-  const guideDisabledBeforeNote = await page.locator("#toggleGuideButton").isDisabled();
   await page.fill("#noteInput", "package内のElectronから起動し、保存と復元を確認する。");
-  const guideDisabledAfterNote = await page.locator("#toggleGuideButton").isDisabled();
-  await page.click("#toggleGuideButton");
+  const cardStudySheetState = await page.evaluate(() => ({
+    open: Boolean(document.querySelector("#cardStudySheetPanel [data-study-sheet-open]")),
+    text: document.querySelector("#cardStudySheetPanel")?.textContent,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
+    guidePanelExists: Boolean(document.querySelector("#guidePanel"))
+  }));
   await page.click("#saveReadingButton");
   await page.screenshot({ path: screenshot, fullPage: true });
 
@@ -91,7 +106,8 @@ function canAssertSingleViewportFit(state) {
     revealed: document.querySelector("#statRevealed")?.textContent,
     saved: document.querySelector("#statSaved")?.textContent,
     cards: document.querySelectorAll(".arcana-card").length,
-    guideRows: document.querySelectorAll(".guide-row").length,
+    cardStudySheets: document.querySelectorAll("#cardStudySheetPanel [data-study-sheet-open]").length,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
     historyItems: document.querySelectorAll(".history-item").length,
     title: document.title,
     exportDisabled: document.querySelector("#exportHistoryButton")?.disabled,
@@ -138,14 +154,22 @@ function canAssertSingleViewportFit(state) {
 
   const ok =
     consoleErrors.length === 0 &&
-    guideDisabledBeforeNote === true &&
-    guideDisabledAfterNote === false &&
+    iconState.manifestIcon === "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico" &&
+    iconState.appUserModelId === "com.onoko.arcana" &&
+    iconState.pngBytes > 0 &&
+    iconState.icoBytes > 0 &&
+    cardStudySheetState.open === true &&
+    cardStudySheetState.text.includes("象徴") &&
+    cardStudySheetState.text.includes("誤読しやすい点") &&
+    cardStudySheetState.guideButtonExists === false &&
+    cardStudySheetState.guidePanelExists === false &&
     savedState.spreadTitle === "関係性ライン" &&
     savedState.spreadChoices === 6 &&
     savedState.revealed === "6" &&
     savedState.saved === "1" &&
     savedState.cards === 6 &&
-    savedState.guideRows === 3 &&
+    savedState.cardStudySheets === 1 &&
+    savedState.guideButtonExists === false &&
     savedState.historyItems === 1 &&
     savedState.title === "ONOKO ARCANA" &&
     savedState.exportDisabled === false &&
@@ -170,8 +194,8 @@ function canAssertSingleViewportFit(state) {
     screenshot,
     exportPath,
     invalidImportPath,
-    guideDisabledBeforeNote,
-    guideDisabledAfterNote,
+    iconState,
+    cardStudySheetState,
     singleViewportFitChecked,
     savedState,
     importState,

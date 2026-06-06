@@ -1,17 +1,25 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("node:path");
 
-const windowIcon = path.join(
+const iconDir = path.join(
   __dirname,
   "..",
   "..",
   "assets",
   "generated",
-  "card-production-v5-full",
-  "web-labeled",
-  "alpha",
-  "card-back-onoko-v5-alpha.png"
+  "app-icons"
 );
+const windowIcon = path.join(
+  iconDir,
+  process.platform === "win32"
+    ? "onoko-arcana-app-icon-v1.ico"
+    : "onoko-arcana-app-icon-v1.png"
+);
+
+app.setName("ONOKO ARCANA");
+if (process.platform === "win32") {
+  app.setAppUserModelId("com.onoko.arcana");
+}
 
 function createWindow() {
   const win = new BrowserWindow({

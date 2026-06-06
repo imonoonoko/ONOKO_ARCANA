@@ -1,6 +1,6 @@
 # ONOKO ARCANA Report Policy
 
-Updated: 2026-06-05
+Updated: 2026-06-07
 
 `reports/` is the generated verification output area. Do not treat every run as a source artifact.
 
@@ -10,12 +10,14 @@ Only this README is tracked in Git by default. Timestamped JSON files, screensho
 
 The current representative proof set is recorded from roadmap references but not committed by default:
 
-- `reports/web-app-check-20260605-004943.json`
-- `reports/web-app-smoke-20260605-004943.json`
-- `reports/electron-app-smoke-20260605-004947.json`
-- `reports/electron-package-smoke-20260605-005006.json`
-- `reports/keyboard-focus-smoke-20260605-005005.json`
-- `reports/ui-visual-audit-20260605-004949/report.json`
+- `reports/web-app-check-20260607-014605.json`
+- `reports/web-app-smoke-20260607-011915.json`
+- `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`
+- `reports/onoko-arcana-app-icon-preview-20260607-0143.png`
+- `reports/electron-app-smoke-20260607-014422.json`
+- `reports/electron-package-smoke-20260607-014620.json`
+- `reports/keyboard-focus-smoke-20260607-012201.json`
+- `reports/ui-visual-audit-20260607-012023/report.json`
 
 Update the roadmap when a newer run becomes the accepted proof.
 

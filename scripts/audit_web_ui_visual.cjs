@@ -13,6 +13,8 @@ const { chromium } = require("playwright");
 const APP = path.join(ROOT, "web-app", "index.html");
 const REPORTS = path.join(ROOT, "reports");
 const HISTORY_KEY = "onoko-arcana:desktop:history:v1";
+const LEARNING_KEY = "onoko-arcana:desktop:learning:v1";
+const SETTINGS_KEY = "onoko-arcana:desktop:settings:v1";
 
 const SPREADS = [
   { id: "one_card", slots: 1, label: "one-card" },
@@ -57,6 +59,8 @@ async function openPage(browser, viewport) {
   });
   await page.goto(pathToFileURL(APP).href, { waitUntil: "domcontentloaded" });
   await page.evaluate((key) => localStorage.removeItem(key), HISTORY_KEY);
+  await page.evaluate((key) => localStorage.removeItem(key), LEARNING_KEY);
+  await page.evaluate((key) => localStorage.removeItem(key), SETTINGS_KEY);
   return { page, consoleErrors };
 }
 
@@ -64,6 +68,11 @@ async function reveal(page, count) {
   for (let index = 0; index < count; index += 1) {
     await page.click("#revealButton");
   }
+}
+
+async function openInspectorTab(page, tab) {
+  await page.click(`[data-inspector-tab="${tab}"]`);
+  await page.waitForSelector(`[data-inspector-panel="${tab}"]:not([hidden])`);
 }
 
 async function auditDom(page, meta) {
@@ -142,10 +151,11 @@ async function auditDom(page, meta) {
       ".card-table-caption",
       ".button",
       ".progress-dot span:last-child",
+      ".inspector-tabs",
+      ".inspector-tab",
       ".selected-copy h2",
       ".selected-copy p",
       ".badge",
-      ".guide-row span",
       ".history-item",
       ".history-delete",
       ".backup-cue",
@@ -153,6 +163,44 @@ async function auditDom(page, meta) {
       ".review-head",
       ".review-question",
       ".review-card-row",
+      ".review-learning-compare",
+      ".study-lens-card",
+      ".study-lens-head",
+      ".study-stat-row",
+      ".study-lens-grid",
+      ".study-card-button",
+      ".study-sheet-link",
+      ".study-chip",
+      ".study-focus-line",
+      ".study-sheet-panel",
+      ".card-study-sheet",
+      ".study-detail-grid",
+      ".study-focus-box",
+      ".symbol-chip",
+      ".study-caution-list",
+      ".study-reflection-list",
+      ".study-sheet-actions",
+      ".slot-drill-card",
+      ".slot-drill-head",
+      ".slot-drill-answer",
+      ".slot-drill-guide",
+      ".slot-drill-confidence",
+      ".due-review-cue",
+      ".recall-practice-card",
+      ".recall-answer",
+      ".recall-guide",
+      ".recall-confidence",
+      ".history-filter-bar",
+      ".history-filter-clear",
+      ".first-launch-guide",
+      ".first-launch-steps",
+      ".after-save-actions",
+      ".settings-panel",
+      ".settings-header",
+      ".settings-status",
+      ".settings-group",
+      ".settings-actions",
+      ".settings-toggle",
       ".study-notebook .note-field",
       ".micro-status"
     ];
@@ -339,6 +387,9 @@ async function runCase(browser, runDir, viewport, spread) {
   await page.fill("#questionInput", `UI監査: ${spread.label}`);
   await page.click("#drawButton");
   await reveal(page, spread.slots);
+  await openInspectorTab(page, "study");
+  await page.click("#toggleStudySheetButton");
+  await page.waitForSelector("#studySheetPanel [data-study-sheet-open]");
   await page.waitForTimeout(220);
 
   const screenshot = path.join(runDir, `${viewport.id}-${spread.label}.png`);

@@ -12,6 +12,8 @@ const { _electron: electron } = require("playwright");
 const MAIN = path.join(ROOT, "web-app", "electron", "main.cjs");
 const REPORTS = path.join(ROOT, "reports");
 const HISTORY_KEY = "onoko-arcana:desktop:history:v1";
+const APP_ICON_PNG = path.join(ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.png");
+const APP_ICON_ICO = path.join(ROOT, "assets", "generated", "app-icons", "onoko-arcana-app-icon-v1.ico");
 
 function stamp() {
   const now = new Date();
@@ -33,6 +35,13 @@ function canAssertSingleViewportFit(state) {
 
 (async () => {
   fs.mkdirSync(REPORTS, { recursive: true });
+  const iconState = {
+    png: path.relative(ROOT, APP_ICON_PNG),
+    ico: path.relative(ROOT, APP_ICON_ICO),
+    pngExists: fs.existsSync(APP_ICON_PNG),
+    icoExists: fs.existsSync(APP_ICON_ICO),
+    mainUsesAppUserModelId: fs.readFileSync(MAIN, "utf8").includes("setAppUserModelId")
+  };
   const id = stamp();
   const screenshot = path.join(REPORTS, `onoko-arcana-electron-smoke-${id}.png`);
   const electronPath = require("electron");
@@ -53,10 +62,13 @@ function canAssertSingleViewportFit(state) {
   for (let index = 0; index < 6; index += 1) {
     await page.click("#revealButton");
   }
-  const guideDisabledBeforeNote = await page.locator("#toggleGuideButton").isDisabled();
   await page.fill("#noteInput", "Electron shellでも同じリーディング体験を保つ。");
-  const guideDisabledAfterNote = await page.locator("#toggleGuideButton").isDisabled();
-  await page.click("#toggleGuideButton");
+  const cardStudySheetState = await page.evaluate(() => ({
+    open: Boolean(document.querySelector("#cardStudySheetPanel [data-study-sheet-open]")),
+    text: document.querySelector("#cardStudySheetPanel")?.textContent,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
+    guidePanelExists: Boolean(document.querySelector("#guidePanel"))
+  }));
   await page.click("#saveReadingButton");
   await page.screenshot({ path: screenshot, fullPage: true });
 
@@ -66,7 +78,8 @@ function canAssertSingleViewportFit(state) {
     revealed: document.querySelector("#statRevealed")?.textContent,
     saved: document.querySelector("#statSaved")?.textContent,
     cards: document.querySelectorAll(".arcana-card").length,
-    guideRows: document.querySelectorAll(".guide-row").length,
+    cardStudySheets: document.querySelectorAll("#cardStudySheetPanel [data-study-sheet-open]").length,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
     historyItems: document.querySelectorAll(".history-item").length,
     title: document.title,
     scrollWidth: document.documentElement.scrollWidth,
@@ -82,14 +95,21 @@ function canAssertSingleViewportFit(state) {
 
   const ok =
     consoleErrors.length === 0 &&
-    guideDisabledBeforeNote === true &&
-    guideDisabledAfterNote === false &&
+    iconState.pngExists === true &&
+    iconState.icoExists === true &&
+    iconState.mainUsesAppUserModelId === true &&
+    cardStudySheetState.open === true &&
+    cardStudySheetState.text.includes("象徴") &&
+    cardStudySheetState.text.includes("誤読しやすい点") &&
+    cardStudySheetState.guideButtonExists === false &&
+    cardStudySheetState.guidePanelExists === false &&
     state.spreadTitle === "関係性ライン" &&
     state.spreadChoices === 6 &&
     state.revealed === "6" &&
     state.saved === "1" &&
     state.cards === 6 &&
-    state.guideRows === 3 &&
+    state.cardStudySheets === 1 &&
+    state.guideButtonExists === false &&
     state.historyItems === 1 &&
     state.title === "ONOKO ARCANA" &&
     state.scrollWidth <= state.viewport &&
@@ -101,8 +121,8 @@ function canAssertSingleViewportFit(state) {
     ok,
     app: path.relative(ROOT, MAIN),
     screenshot,
-    guideDisabledBeforeNote,
-    guideDisabledAfterNote,
+    iconState,
+    cardStudySheetState,
     singleViewportFitChecked,
     state,
     consoleErrors,

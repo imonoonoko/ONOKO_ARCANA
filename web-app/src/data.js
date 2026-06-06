@@ -54,6 +54,119 @@ const CARD_ROWS = [
   ["21", "world", "世界", "The World", ["完成", "統合", "到達", "循環完了"], ["未完成", "閉じきれない", "停滞", "次への不安"], "ここまでで完了したことと、次の循環へ持ち越すものを分ける。"]
 ];
 
+const CARD_STUDY_DETAILS = {
+  fool: {
+    symbols: ["旅立ち", "白い花", "崖", "小さな荷物"],
+    commonMisreads: ["無責任だけで読む", "準備不足をすべて否定する"],
+    reflectionQuestions: ["今、まだ試していない可能性は何か。", "自由と無計画を分ける基準は何か。"]
+  },
+  magician: {
+    symbols: ["机上の道具", "片手を天へ", "無限大", "赤と白"],
+    commonMisreads: ["才能だけで結果が出ると読む", "操作性と創造性を混同する"],
+    reflectionQuestions: ["手元にある道具は何か。", "意志を最初の行動に変えるなら何をするか。"]
+  },
+  "high-priestess": {
+    symbols: ["柱", "幕", "月", "巻物"],
+    commonMisreads: ["沈黙を停滞だけで読む", "直感を確認不要の結論にする"],
+    reflectionQuestions: ["まだ言語化できない違和感は何か。", "今は開く情報と伏せる情報をどう分けるか。"]
+  },
+  empress: {
+    symbols: ["実り", "庭", "母性", "金星"],
+    commonMisreads: ["豊かさを消費だけで読む", "育成と過保護を区別しない"],
+    reflectionQuestions: ["何を育てる時期か。", "満たされているものと枯れているものは何か。"]
+  },
+  emperor: {
+    symbols: ["玉座", "王冠", "石", "境界線"],
+    commonMisreads: ["支配と責任を混同する", "硬さをすべて悪く読む"],
+    reflectionQuestions: ["守るべき枠組みは何か。", "誰が責任を持つべき場面か。"]
+  },
+  hierophant: {
+    symbols: ["師", "鍵", "祝福", "門弟"],
+    commonMisreads: ["伝統を盲信だけで読む", "学びの共同体を依存と決めつける"],
+    reflectionQuestions: ["参照すべき基準や師は何か。", "型を守ることと破ることの境目はどこか。"]
+  },
+  lovers: {
+    symbols: ["二者", "天使", "選択", "裸の正直さ"],
+    commonMisreads: ["恋愛成就だけで読む", "選択の責任を軽く見る"],
+    reflectionQuestions: ["本当に選んでいる価値は何か。", "惹かれるものと約束できるものは一致しているか。"]
+  },
+  chariot: {
+    symbols: ["戦車", "二つの力", "鎧", "都市の外"],
+    commonMisreads: ["前進を強引さと同一視する", "制御が不要な勢いと読む"],
+    reflectionQuestions: ["進む方向は一つに絞れているか。", "両立させるべき二つの力は何か。"]
+  },
+  strength: {
+    symbols: ["獅子", "手なずける手", "無限大", "静かな勇気"],
+    commonMisreads: ["力を攻撃性だけで読む", "優しさを弱さとして読む"],
+    reflectionQuestions: ["押すよりなだめるべき対象は何か。", "勇気と忍耐のどちらが必要か。"]
+  },
+  hermit: {
+    symbols: ["灯り", "杖", "山", "外套"],
+    commonMisreads: ["孤独を孤立だけで読む", "内省を行動回避にする"],
+    reflectionQuestions: ["自分だけが確認できる灯りは何か。", "一度距離を置くべき声は何か。"]
+  },
+  "wheel-of-fortune": {
+    symbols: ["輪", "四方の存在", "回転", "周期"],
+    commonMisreads: ["幸運か不運だけで読む", "流れを待つだけの受け身にする"],
+    reflectionQuestions: ["今はどの周期の中にいるか。", "流れが来た時に動ける準備は何か。"]
+  },
+  justice: {
+    symbols: ["天秤", "剣", "法衣", "正面性"],
+    commonMisreads: ["罰だけで読む", "公平さと冷淡さを混同する"],
+    reflectionQuestions: ["事実と感情を分けるなら何が残るか。", "選択の結果を誰が受け取るか。"]
+  },
+  "hanged-man": {
+    symbols: ["逆さの姿勢", "吊るされた足", "光輪", "停止"],
+    commonMisreads: ["我慢すればよいと読む", "停止を失敗だけで読む"],
+    reflectionQuestions: ["視点を逆にすると何が見えるか。", "保留する価値のある判断は何か。"]
+  },
+  death: {
+    symbols: ["旗", "白い馬", "沈む太陽", "終わりの門"],
+    commonMisreads: ["物理的な死と短絡する", "終了の痛みだけで読み再生を見ない"],
+    reflectionQuestions: ["終わらせると空く場所はどこか。", "手放すことで始まるものは何か。"]
+  },
+  temperance: {
+    symbols: ["二つの杯", "水の流れ", "片足ずつ", "中庸"],
+    commonMisreads: ["妥協だけで読む", "調整に必要な時間を軽視する"],
+    reflectionQuestions: ["混ぜるべきものと分けるべきものは何か。", "無理なく続く速度はどれくらいか。"]
+  },
+  devil: {
+    symbols: ["鎖", "影", "欲望", "束縛"],
+    commonMisreads: ["外部の悪だけに責任を置く", "欲望そのものを全否定する"],
+    reflectionQuestions: ["外せるのに外していない鎖は何か。", "快楽と依存の境目はどこか。"]
+  },
+  tower: {
+    symbols: ["落雷", "崩れる塔", "落下", "露見"],
+    commonMisreads: ["破壊を罰だけで読む", "小さな警告を無視する"],
+    reflectionQuestions: ["崩れる前提は何だったか。", "早めに崩した方がよい構造は何か。"]
+  },
+  star: {
+    symbols: ["星", "水を注ぐ人", "裸の信頼", "遠い光"],
+    commonMisreads: ["希望を即効性のある結果にする", "癒しを現実逃避にする"],
+    reflectionQuestions: ["長く頼れる光は何か。", "回復のために水を注ぐ場所はどこか。"]
+  },
+  moon: {
+    symbols: ["月", "道", "犬と狼", "水から出るもの"],
+    commonMisreads: ["不安をすべて直感と見る", "曖昧さをすぐ悪い兆しにする"],
+    reflectionQuestions: ["不安が映している影は何か。", "現実確認できる情報は何か。"]
+  },
+  sun: {
+    symbols: ["太陽", "子ども", "白馬", "ひまわり"],
+    commonMisreads: ["成功を過信に変える", "明るさで影を無視する"],
+    reflectionQuestions: ["素直に喜べる成果は何か。", "隠さず見せることで進むものは何か。"]
+  },
+  judgement: {
+    symbols: ["呼びかけ", "復活", "ラッパ", "再評価"],
+    commonMisreads: ["裁きだけで読む", "過去の責め直しにする"],
+    reflectionQuestions: ["今、応答すべき呼びかけは何か。", "過去の結果から次に使えるものは何か。"]
+  },
+  world: {
+    symbols: ["輪", "踊る姿", "四隅の存在", "完成した循環"],
+    commonMisreads: ["終わりを固定化する", "未完成な部分を失敗扱いする"],
+    reflectionQuestions: ["完了した循環は何か。", "次の旅へ持ち越す経験は何か。"]
+  }
+};
+
 const cards = CARD_ROWS.map(([number, slug, japaneseName, englishName, uprightKeywords, reversedKeywords, studyFocus]) => ({
   id: `major-${number}-${slug}`,
   number,
@@ -64,6 +177,11 @@ const cards = CARD_ROWS.map(([number, slug, japaneseName, englishName, uprightKe
   uprightKeywords,
   reversedKeywords,
   studyFocus,
+  studyDetails: CARD_STUDY_DETAILS[slug] || {
+    symbols: [],
+    commonMisreads: [],
+    reflectionQuestions: []
+  },
   sourceImage: `${SOURCE_ASSET_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`,
   image: `${WEB_CARD_ROOT}major-${number}-${slug}-onoko-v5-alpha.png`
 }));

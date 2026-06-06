@@ -1,6 +1,6 @@
 # ONOKO ARCANA 改善ロードマップ
 
-Updated: 2026-06-05
+Updated: 2026-06-06
 
 この文書は、初期カンバン `docs/design/overall-design-kanban.md` を起点に、現行の Web/Electron 版で足りていない要素、改善すべき要素、アップデートすべき文書と検証をロードマップ化したものである。親ロードマップは `docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md` とし、この文書は改善項目の実行順と完了条件を管理する。
 
@@ -51,12 +51,12 @@ Updated: 2026-06-05
 
 | Item | Priority | 現在 | 改善内容 | Done | 検証 |
 |---|---|---|---|---|---|
-| keyboard smoke | P1 | Verified | Tab順、Enter/Space、focus遷移を検証 | 主要操作がマウスなしで完了 | `reports/keyboard-focus-smoke-20260605-005005.json` |
-| focus表示整理 | P1 | Verified | 選択中、focus、disabledの意味を分ける | 見た目と状態が矛盾しない | `reports/ui-visual-audit-20260605-004949/report.json` |
+| keyboard smoke | P1 | Verified | Tab順、Enter/Space、focus遷移を検証 | 主要操作がマウスなしで完了 | `reports/keyboard-focus-smoke-20260606-194648.json` |
+| focus表示整理 | P1 | Verified | 選択中、focus、disabledの意味を分ける | 見た目と状態が矛盾しない | `reports/ui-visual-audit-20260606-194648/report.json` |
 | ARIA label | P1 | Implemented | ボタン、カードslot、履歴項目にlabelを付与 | 履歴復元/削除が判別できる | Static check |
 | 低縦幅viewport | P2 | Verified | 1280x720、1366x768を監査 | 主要操作が折り返し/重なりなし | Visual audit |
 | 長文overflow | P2 | Verified | 長い問い、メモ、履歴、guideを監査 | テキストが枠外へ破綻しない | Visual audit |
-| 初回起動empty state | P2 | 最小 | 次に押すべき操作が分かる | 初回画面で迷いが少ない | Screenshot review |
+| 初回起動empty state | P2 | Verified | 履歴 0 件時に学習 loop と1枚引き入口を案内する | 初回画面で問い、ドロー、保存/復習の流れが分かる | `reports/onoko-arcana-first-launch-20260606-194424.png`, `reports/web-app-smoke-20260606-194424.json` |
 
 更新対象:
 
@@ -72,12 +72,12 @@ Updated: 2026-06-05
 
 | Item | Priority | 現在 | 改善内容 | Done | 検証 |
 |---|---|---|---|---|---|
-| 保存後の次アクション | P1 | Implemented | 次の読み、履歴復習、書き出しを自然に案内 | 保存後の履歴復習導線が明確 | Web smoke / screenshot |
+| 保存後の次アクション | P1 | Verified | 次の読み、履歴復習、書き出しを自然に案内 | 保存後の履歴復習導線が明確 | `reports/web-app-smoke-20260606-194424.json` |
 | 履歴詳細ビュー | P1 | Verified | 1件の読みを詳細表示する | 問い、全カード、noteが見返せる | `reports/web-app-smoke-20260605-004943.json` |
-| カード別復習 | P1 | 未実装 | 同じカードの過去読みを比較 | カード別に履歴が引ける | Review smoke |
+| カード別復習 | P1 | Verified | 同じカードの過去読みを比較 | カード別に履歴が引ける | `reports/web-app-smoke-20260606-140227.json`, `reports/onoko-arcana-card-review-compare-20260606-1342-compare-visible.png` |
 | 問い/スプレッドfilter | P2 | 未実装 | 日付、スプレッド、カード、キーワードで絞る | 履歴が増えても探せる | Search smoke |
-| 学習進捗 | P2 | 未実装 | よく引いたカード、未復習カードを表示 | 学習状態が分かる | Study report |
-| guide比較改善 | P2 | guide表示あり | 自分の読みとguideを並べて比較 | 暗記でなく比較学習できる | Screenshot |
+| 学習進捗 | P2 | Verified | よく引いたカード、未復習カード、想起回数、次の due 復習を表示 | 学習状態が分かる | `reports/web-app-smoke-20260606-194424.json` |
+| guide比較改善 | P2 | Verified | 自分の読みとguideを並べて比較 | 暗記でなく比較学習できる | `reports/onoko-arcana-card-review-compare-20260606-1342-compare-visible.png` |
 
 更新対象:
 
@@ -96,7 +96,7 @@ Updated: 2026-06-05
 |---|---|---|---|---|---|
 | packaging方式決定 | P1 | Verified | electron-builder等を比較し採用判断 | 依存追加なしのlocal folder packageを採用 | `README.md`, `scripts/package_electron_local.cjs` |
 | Windows local package | P1 | Verified | ローカルで起動できるpackageを作る | packageから起動できる | `dist/onoko-arcana-local/`, `reports/electron-package-smoke-20260605-005006.json` |
-| app icon | P1 | Implemented | ONOKO ARCANA iconを設定 | Electron window iconにカード裏面を使用 | `web-app/electron/main.cjs` |
+| app icon | P1 | Verified | ONOKO ARCANA iconを設定 | `imagegen` 生成の透明 PNG と Windows `.ico` を Electron window/taskbar 用に使用 | `assets/generated/app-icons/onoko-arcana-app-icon-v1.ico`, `web-app/electron/main.cjs` |
 | 保存場所説明 | P1 | Verified | Electronでの履歴保存/backup場所を説明 | READMEに運用説明がある | `README.md`, `web-app/README.md` |
 | package smoke | P1 | Verified | package後の起動、保存、import/exportを検証 | packaged appで主要loopが通る | `reports/electron-package-smoke-20260605-005006.json` |
 | settings screen | P2 | 未実装 | 保存、履歴、表示設定を整理 | 基本設定が操作可能 | Settings smoke |
@@ -189,10 +189,11 @@ Updated: 2026-06-05
 
 ## 11. 次に着手する実装順
 
-1. カード別/問い別/スプレッド別の復習filter設計。
-2. settings screenで保存、履歴、表示設定を整理する。
-3. 初回起動empty stateと保存後の次アクションを磨く。
-4. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
+1. package版 settings で保存場所、学習データ、復旧導線の見え方を目視確認する。
+2. スプレッド、メモ有無、問い、日付の順で履歴filterを追加する。
+3. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
+4. 7日/14日 interval を入れる場合は learning fixture と due smoke を先に増やす。
+5. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
 
 ## 12. 完了ゲート
 

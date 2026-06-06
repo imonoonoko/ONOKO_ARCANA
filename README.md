@@ -89,7 +89,18 @@ cd web-app
 npm run smoke:package
 ```
 
-This package is for local use and verification. Signed installer, auto update, and public distribution are separate v1.0+ tasks.
+This package is for local use and verification. Signed installer, auto update, and store distribution are separate v1.0+ tasks.
+
+## GitHub Release Download
+
+Formal GitHub Releases should attach:
+
+- `onoko-arcana-v0.1.0-local.zip`
+- `onoko-arcana-v0.1.0-local.zip.sha256`
+
+The attached zip is an unsigned local Electron folder package. It should include `LICENSE`, `SECURITY.md`, `DISTRIBUTION_NOTICE.md`, and `docs/legal/` so the split license and asset reuse restrictions remain visible outside the repository checkout.
+
+Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md` and confirm GitHub Actions passes on the exact tagged commit.
 
 ## History And Backup
 
@@ -112,6 +123,7 @@ Generated run output goes under `reports/` and is ignored by default. Keep only 
 - Contribution setup and verification commands are in `CONTRIBUTING.md`.
 - Vulnerability reporting and local data handling notes are in `SECURITY.md`.
 - Asset reuse restrictions are detailed in `docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md`.
+- Release operation steps are in `docs/release/GITHUB_RELEASE_RUNBOOK.md`.
 
 ## License
 

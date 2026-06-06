@@ -16,15 +16,20 @@ ELECTRON_MAIN = WEB_APP / "electron" / "main.cjs"
 HISTORY_SCHEMA = ROOT / "docs" / "data" / "HISTORY_SCHEMA_V1.md"
 CARD_SCHEMA = ROOT / "docs" / "data" / "CARD_SCHEMA_V1.md"
 SPREAD_SCHEMA = ROOT / "docs" / "data" / "SPREAD_SCHEMA_V1.md"
+LEARNING_SCHEMA = ROOT / "docs" / "data" / "LEARNING_SCHEMA_V1_DRAFT.md"
 REPORTS = ROOT / "reports"
 HISTORY_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "history" / "history-valid-v1.json"
 HISTORY_FIXTURE_DUPLICATE = ROOT / "tests" / "fixtures" / "history" / "history-duplicate-v1.json"
 HISTORY_FIXTURE_CARD_NOTE_ONLY = ROOT / "tests" / "fixtures" / "history" / "history-card-note-only-v1.json"
 HISTORY_FIXTURE_INVALID_JSON = ROOT / "tests" / "fixtures" / "history" / "invalid-json.json"
+LEARNING_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "learning" / "learning-valid-v1.json"
 REPORT_POLICY = REPORTS / "README.md"
 PACKAGE_SCRIPT = ROOT / "scripts" / "package_electron_local.cjs"
 PACKAGE_SMOKE = ROOT / "scripts" / "smoke_electron_package.cjs"
 ROOT_README = ROOT / "README.md"
+APP_ICON_ROOT = ROOT / "assets" / "generated" / "app-icons"
+APP_ICON_PNG = APP_ICON_ROOT / "onoko-arcana-app-icon-v1.png"
+APP_ICON_ICO = APP_ICON_ROOT / "onoko-arcana-app-icon-v1.ico"
 
 REQUIRED_IDS = [
     "questionInput",
@@ -35,17 +40,44 @@ REQUIRED_IDS = [
     "saveReadingButton",
     "resetButton",
     "progressTrack",
+    "inspectorTabs",
+    "inspectorTabCard",
+    "inspectorTabStudy",
+    "inspectorTabHistory",
+    "cardTabPanel",
+    "studyTabPanel",
+    "historyTabPanel",
     "selectedCard",
     "noteInput",
-    "toggleGuideButton",
-    "guidePanel",
+    "cardStudySheetPanel",
+    "toggleStudySheetButton",
+    "studySheetPanel",
     "historyList",
     "historyReview",
+    "studyLens",
+    "historyFilterBar",
     "importHistoryButton",
     "importHistoryInput",
     "exportHistoryButton",
     "clearHistoryButton",
     "historyBackupCue",
+    "openSettingsButton",
+    "settingsDialog",
+    "closeSettingsButton",
+    "settingsStatus",
+    "settingsHistoryCount",
+    "settingsHistoryUpdated",
+    "settingsLearningCount",
+    "settingsLearningUpdated",
+    "settingsImportHistoryButton",
+    "settingsExportHistoryButton",
+    "settingsClearHistoryButton",
+    "importLearningButton",
+    "importLearningInput",
+    "exportLearningButton",
+    "clearLearningButton",
+    "compactLearningToggle",
+    "settingsLocalKeys",
 ]
 
 SPREAD_IDS = [
@@ -103,14 +135,18 @@ def main() -> None:
         HISTORY_SCHEMA,
         CARD_SCHEMA,
         SPREAD_SCHEMA,
+        LEARNING_SCHEMA,
         HISTORY_FIXTURE_VALID,
         HISTORY_FIXTURE_DUPLICATE,
         HISTORY_FIXTURE_CARD_NOTE_ONLY,
         HISTORY_FIXTURE_INVALID_JSON,
+        LEARNING_FIXTURE_VALID,
         REPORT_POLICY,
         PACKAGE_SCRIPT,
         PACKAGE_SMOKE,
         ROOT_README,
+        APP_ICON_PNG,
+        APP_ICON_ICO,
     ]
     missing_files = [str(path.relative_to(ROOT)) for path in required_files if not path.exists()]
     if missing_files:
@@ -121,6 +157,7 @@ def main() -> None:
     app = APP.read_text(encoding="utf-8")
     styles = STYLES.read_text(encoding="utf-8")
     electron = ELECTRON_MAIN.read_text(encoding="utf-8")
+    package_script = PACKAGE_SCRIPT.read_text(encoding="utf-8")
 
     missing_ids = [item for item in REQUIRED_IDS if f'id="{item}"' not in index]
     if missing_ids:
@@ -148,6 +185,49 @@ def main() -> None:
         "mergeImportedHistory",
         "reviewedHistoryKey",
         "historyReadFailed",
+        "learningKey",
+        "onoko-arcana:desktop:learning:v1",
+        "settingsKey",
+        "onoko-arcana:desktop:settings:v1",
+        "readLearningState",
+        "writeLearningState",
+        "importedLearningFromPayload",
+        "mergeImportedLearning",
+        "exportLearning",
+        "importLearningFile",
+        "clearLearning",
+        "readSettings",
+        "writeSettings",
+        "renderSettings",
+        "renderRecallPractice",
+        "renderCardStudySheet",
+        "renderStudySheets",
+        "renderStudySheet",
+        "selectedStudySheetContext",
+        "renderSlotInterpretationDrill",
+        "saveSlotInterpretationAttempt",
+        "openStudySheet",
+        "data-study-sheet-card-id",
+        "data-study-sheet-open",
+        "data-slot-drill",
+        "studyDetails",
+        "commonMisreads",
+        "reflectionQuestions",
+        "renderFirstLaunchGuide",
+        "inspectorTab",
+        "renderInspectorTabs",
+        "setInspectorTab",
+        "data-inspector-tab",
+        "data-inspector-panel",
+        "renderDueReviewCue",
+        "learningDueSummary",
+        "confidenceIntervalDays",
+        "afterSaveKey",
+        "data-after-save-next",
+        "data-first-launch-guide",
+        "data-due-review-cue",
+        "keyword_recall",
+        "slot_interpretation",
         "履歴データを読めません",
         "localStorage",
     ]
@@ -158,9 +238,31 @@ def main() -> None:
     if "contextIsolation: true" not in electron or "nodeIntegration: false" not in electron:
         fail("electron shell must keep renderer isolated", {"path": str(ELECTRON_MAIN.relative_to(ROOT))})
 
+    if "setAppUserModelId" not in electron or "com.onoko.arcana" not in electron:
+        fail("electron shell must set a Windows AppUserModelID for taskbar icon grouping", {
+            "path": str(ELECTRON_MAIN.relative_to(ROOT)),
+        })
+
+    if "onoko-arcana-app-icon-v1.ico" not in electron or "onoko-arcana-app-icon-v1.png" not in electron:
+        fail("electron shell must reference the generated app icon PNG/ICO", {
+            "path": str(ELECTRON_MAIN.relative_to(ROOT)),
+        })
+
+    if APP_ICON_PNG.read_bytes()[:8] != b"\x89PNG\r\n\x1a\n":
+        fail("app icon PNG signature is invalid", {"path": str(APP_ICON_PNG.relative_to(ROOT))})
+
+    if APP_ICON_ICO.read_bytes()[:4] != b"\x00\x00\x01\x00":
+        fail("app icon ICO signature is invalid", {"path": str(APP_ICON_ICO.relative_to(ROOT))})
+
+    if '"assets", "generated", "app-icons"' not in package_script or "appIcon" not in package_script:
+        fail("local package must copy and declare app icon assets", {
+            "path": str(PACKAGE_SCRIPT.relative_to(ROOT)),
+        })
+
     valid_fixture = json.loads(HISTORY_FIXTURE_VALID.read_text(encoding="utf-8"))
     duplicate_fixture = json.loads(HISTORY_FIXTURE_DUPLICATE.read_text(encoding="utf-8"))
     card_note_only_fixture = json.loads(HISTORY_FIXTURE_CARD_NOTE_ONLY.read_text(encoding="utf-8"))
+    learning_fixture = json.loads(LEARNING_FIXTURE_VALID.read_text(encoding="utf-8"))
     invalid_json = HISTORY_FIXTURE_INVALID_JSON.read_text(encoding="utf-8")
     try:
         json.loads(invalid_json)
@@ -187,6 +289,38 @@ def main() -> None:
             fail("history fixture must contain card entries", {"path": str(fixture_path.relative_to(ROOT))})
         if any("reversed" not in entry for entry in cards_payload):
             fail("history fixture card entries must include reversed boolean", {"path": str(fixture_path.relative_to(ROOT))})
+
+    if learning_fixture.get("app") != "ONOKO_ARCANA" or learning_fixture.get("schemaVersion") != 1:
+        fail("learning fixture wrapper is invalid", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+    attempts = learning_fixture.get("attempts")
+    if not isinstance(attempts, list) or not attempts:
+        fail("learning fixture must contain at least one attempt", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+    valid_card_ids = {f"major-{number}-{slug}" for number, slug in CARD_SLUGS}
+    prompt_types = set()
+    for attempt in attempts:
+        if not isinstance(attempt, dict):
+            fail("learning attempt must be an object", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+        prompt_types.add(attempt.get("promptType"))
+        if attempt.get("cardId") not in valid_card_ids:
+            fail("learning fixture cardId must exist in card data", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+        if attempt.get("orientation") not in ["upright", "reversed"]:
+            fail("learning fixture orientation is invalid", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+        if attempt.get("promptType") not in ["keyword_recall", "slot_interpretation"]:
+            fail("learning fixture promptType is invalid", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+        if attempt.get("confidence") not in ["hard", "ok", "easy"]:
+            fail("learning fixture confidence is invalid", {"path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT))})
+        if attempt.get("promptType") == "slot_interpretation":
+            for field in ["spreadId", "spreadLabel", "slotKey", "slotLabel", "slotPrompt"]:
+                if not isinstance(attempt.get(field), str) or not attempt.get(field).strip():
+                    fail("slot interpretation fixture must include spread and slot fields", {
+                        "path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT)),
+                        "field": field,
+                    })
+    if not {"keyword_recall", "slot_interpretation"}.issubset(prompt_types):
+        fail("learning fixture must cover keyword recall and slot interpretation", {
+            "path": str(LEARNING_FIXTURE_VALID.relative_to(ROOT)),
+            "promptTypes": sorted(prompt_types),
+        })
 
     card_root = ROOT / "assets" / "generated" / "card-production-v5-full" / "alpha"
     expected_assets = [card_root / "card-back-onoko-v5-alpha.png"]
@@ -253,16 +387,22 @@ def main() -> None:
             str(HISTORY_SCHEMA.relative_to(ROOT)),
             str(CARD_SCHEMA.relative_to(ROOT)),
             str(SPREAD_SCHEMA.relative_to(ROOT)),
+            str(LEARNING_SCHEMA.relative_to(ROOT)),
         ],
         "historyFixtures": [
             str(HISTORY_FIXTURE_VALID.relative_to(ROOT)),
             str(HISTORY_FIXTURE_DUPLICATE.relative_to(ROOT)),
             str(HISTORY_FIXTURE_CARD_NOTE_ONLY.relative_to(ROOT)),
             str(HISTORY_FIXTURE_INVALID_JSON.relative_to(ROOT)),
+            str(LEARNING_FIXTURE_VALID.relative_to(ROOT)),
         ],
         "packageScripts": [
             str(PACKAGE_SCRIPT.relative_to(ROOT)),
             str(PACKAGE_SMOKE.relative_to(ROOT)),
+        ],
+        "appIcons": [
+            str(APP_ICON_PNG.relative_to(ROOT)),
+            str(APP_ICON_ICO.relative_to(ROOT)),
         ],
         "reportPolicy": str(REPORT_POLICY.relative_to(ROOT)),
         "checkedAt": datetime.now().isoformat(timespec="seconds"),

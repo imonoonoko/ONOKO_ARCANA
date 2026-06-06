@@ -1,8 +1,10 @@
 # ONOKO ARCANA 全体ロードマップ
 
-Updated: 2026-06-05
+Updated: 2026-06-07
 
 この文書は、ONOKO ARCANA を「画像素材と試作がある状態」から「日常的に使えるデスクトップ占い学習アプリ」へ進めるための全体ロードマップである。既存の研究ロードマップは履歴として保持し、現時点の本線は Web/Electron-ready な 2D 占い卓とする。Unreal Engine 化は v1.x ロードマップでは完全に見送り、既存UE成果はアーカイブ証跡として保持する。
+
+学習強化の詳細ロードマップは `docs/roadmap/TAROT_LEARNING_ENHANCEMENT_ROADMAP_2026-06-06.md` を参照する。この文書はネット調査と `$define-requirements` に基づき、カード別復習、カード学習シート、想起練習、間隔復習、スプレッド学習、Minor Arcana 準備を段階化したものである。
 
 ## 1. 現在地
 
@@ -15,10 +17,10 @@ Updated: 2026-06-05
 | Visual direction | ONOKO 風 cyber divination table |
 | Card scope | V5 大アルカナ 22 枚 + 裏面 1 枚 |
 | Spread scope | 1枚引き、3枚、五枚クロス、七枚ホースシュー、ケルト十字、関係性ライン |
-| Learning loop | 自分の読みを書く -> guide を開く -> 保存 -> 履歴で見返す |
-| Persistence | `localStorage` history v1 |
-| Data portability | history JSON export / import |
-| Latest proof | `reports/web-app-check-20260605-004943.json`, `reports/web-app-smoke-20260605-004943.json`, `reports/electron-app-smoke-20260605-004947.json`, `reports/electron-package-smoke-20260605-005006.json`, `reports/keyboard-focus-smoke-20260605-005005.json`, `reports/ui-visual-audit-20260605-004949/report.json` |
+| Learning loop | 初回導線 -> 自分の読みを書く -> 同じカードの学習シートを参照する -> 保存 -> 履歴で見返す -> 学習シート前に想起練習する -> スロット解釈を練習する -> due 復習に戻る |
+| Persistence | `localStorage` history v1 + learning v1 draft |
+| Data portability | history JSON export / import + learning JSON export / import / clear |
+| Latest proof | `reports/web-app-check-20260607-014605.json`, `reports/web-app-smoke-20260607-011915.json`, `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`, `reports/onoko-arcana-app-icon-preview-20260607-0143.png`, `reports/electron-app-smoke-20260607-014422.json`, `reports/electron-package-smoke-20260607-014620.json`, `reports/keyboard-focus-smoke-20260607-012201.json`, `reports/ui-visual-audit-20260607-012023/report.json` |
 
 ## 2. 製品ゴール
 
@@ -26,7 +28,7 @@ ONOKO ARCANA の v1.0 ゴールは、次の状態である。
 
 - 起動直後に占い卓として使える。
 - ユーザーが問いを書き、スプレッドを選び、カードを引き、順番にめくれる。
-- guide は答えを先に与えず、ユーザーの解釈入力後に開ける。
+- `カード` タブで、ユーザーが自分の読みを書きながら同じカードのフル学習シートを参照できる。
 - 過去の読みを失わず、書き出し、読み込み、削除、復習ができる。
 - Web版の動作と Electron デスクトップ版の動作が同じ検証で追える。
 - ONOKO らしい雰囲気を維持しつつ、日本語テキストが読める。
@@ -36,7 +38,7 @@ ONOKO ARCANA の v1.0 ゴールは、次の状態である。
 
 - カード再生成より、実際に使える読解・保存・復習ループを優先する。
 - 追加機能は、保存データを壊さないことを最優先にする。
-- 画面の装飾は、カード、問い、メモ、guide、履歴の可読性を妨げない範囲にする。
+- 画面の装飾は、カード、問い、メモ、学習シート、履歴の可読性を妨げない範囲にする。
 - Web/Electron 本線の学習体験を完成させ、Unreal には戻らない。
 - 小アルカナは、履歴/復習/配布/検証が安定するまで着手しない。
 
@@ -52,7 +54,7 @@ Status: Web/Electron local package gate complete
 
 - 6種類のスプレッド選択。
 - ドロー、順番 reveal、選択カード Inspector。
-- note 入力後の guide 表示。
+- note 入力中に同じカードの学習シートを参照できるカードタブ。
 - localStorage 保存。
 - history JSON export / import。
 - Web smoke、Electron smoke、package smoke、keyboard smoke、visual audit。
@@ -65,7 +67,7 @@ Status: Web/Electron local package gate complete
 | 履歴の全削除 | P1 | Verified: 確認つき全消去、empty state、export/clear disabledをWeb smokeで確認 |
 | 保存/読み込み schema note | P1 | Verified: `docs/data/HISTORY_SCHEMA_V1.md` |
 | storage failure 表示 | P2 | Verified: 保存/読み込み/削除失敗時と破損localStorageのメッセージをWeb smokeで確認 |
-| 初回起動の空状態改善 | P2 | 初回でも次の操作が分かる |
+| 初回起動の空状態改善 | P2 | Verified: 履歴 0 件時に問いを書く、1枚引きで始める、保存後に復習する流れを案内 |
 
 推奨順:
 
@@ -73,7 +75,7 @@ Status: Web/Electron local package gate complete
 2. 全削除と確認UI。
 3. import/export schema note。
 4. 保存失敗表示。
-5. 初回空状態の文言調整。
+5. 初回空状態は検証済み。以後は実使用メモから文言だけ調整する。
 
 ### Phase B: Usability And Accessibility
 
@@ -87,7 +89,7 @@ Status: Web-only gate complete / deeper a11y remains
 | Focus visual alignment | P1 | Verified: focus outlineとvisual audit issueCount 0 |
 | ARIA label 整理 | P2 | Implemented: 履歴復元/削除にaria-label追加。全体監査は継続 |
 | 低縦幅 viewport 監査 | P2 | Verified: visual auditに1280x720を追加 |
-| 長文履歴/guide overflow 監査 | P2 | Verified: 新しい履歴/復習/ノート要素をvisual audit対象に追加 |
+| 長文履歴/学習シート overflow 監査 | P2 | Verified: 新しい履歴/復習/ノート/学習シート要素をvisual audit対象に追加 |
 
 完了条件:
 
@@ -105,7 +107,7 @@ Status: Verified for local package
 |---|---|---|
 | packaging方式決定 | P1 | Verified: 依存追加なしの `dist/onoko-arcana-local/` 方式を採用 |
 | Windows local package | P1 | Verified: `scripts/package_electron_local.cjs` |
-| app icon | P1 | Implemented: Electron window iconに既存カード裏面PNGを使用。installer用 `.ico` は後続 |
+| app icon | P1 | Verified: `imagegen` 生成の透明 PNG と Windows `.ico` を採用し、Electron window/taskbar 用に `AppUserModelID` も設定 |
 | 保存場所の説明 | P1 | Verified: `README.md`, `web-app/README.md` |
 | package smoke | P1 | Verified: `reports/electron-package-smoke-20260605-005006.json` |
 
@@ -123,10 +125,14 @@ Status: Active
 | Item | Priority | Done |
 |---|---|---|
 | 履歴詳細ビュー | P1 | Verified: 履歴選択後に復習ノートで問い、カード、noteを表示 |
-| カード別復習 | P1 | 同じカードが出た過去の読みを比較できる |
+| カード別復習 | P1 | Verified: 同じカードが出た過去の読みをカード別に絞り込める |
 | 問い/スプレッド別filter | P2 | 日付、カード、スプレッド、キーワードで絞れる |
-| 学習進捗 | P2 | よく引いたカード、未復習カード、自分の解釈変化が見える |
-| guide比較改善 | P2 | 自分の読みとguideを比較しやすい |
+| 学習レンズ | P1 | Verified: 履歴から保存数、メモ数、既出/未出カード、よく出るカード、次の観測候補を表示 |
+| 学習進捗 | P2 | Verified: よく引いたカード、未出カード、想起練習回数、compact表示設定、due card 数と cue を表示/操作済み |
+| 学習シート比較改善 | P2 | Verified: カード別復習中に、自分の読み、学習シート要点、slot prompt を同じ履歴カード内で比較できる |
+| 想起練習 | P1 | Verified: 学習シートを見る前にキーワードや逆位置傾向を入力し、答え合わせ後に hard/ok/easy を保存できる |
+| 学習データ管理 | P1 | Verified: settings で履歴データ、学習データ、表示設定、保存keyを分け、学習データのexport/import/clearをWeb smokeで確認 |
+| 初回/保存後学習導線 | P1 | Verified: 初回は学習 loop を案内し、保存後は復習開始または次の問いへ進める |
 
 完了条件:
 
@@ -145,6 +151,7 @@ Status: Active
 | Card data schema | P1 | Verified: `docs/data/CARD_SCHEMA_V1.md` |
 | Spread schema | P1 | Verified: `docs/data/SPREAD_SCHEMA_V1.md` |
 | History schema v1 | P1 | Verified: `docs/data/HISTORY_SCHEMA_V1.md` |
+| Learning schema v1 draft | P1 | Verified: `docs/data/LEARNING_SCHEMA_V1_DRAFT.md`, `tests/fixtures/learning/learning-valid-v1.json` |
 | Migration policy | P2 | Verified: `docs/data/HISTORY_SCHEMA_V1.md` にv2以降の方針を記載 |
 | Sample fixtures | P2 | Verified: `tests/fixtures/history/` |
 
@@ -239,15 +246,16 @@ Status: Hold
 
 次に進める順序は次の通り。
 
-1. 履歴filter、カード別復習、問い別復習を設計する。
-2. 初回起動empty stateと保存後の次アクションを磨く。
-3. settings画面で保存、履歴、表示設定を整理する。
-4. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
-5. 小アルカナ拡張は、復習filterと配布判断が安定してから再評価する。
+1. settings を package版で確認し、ローカル保存場所/復旧導線の見え方を固める。
+2. スプレッド、メモ有無、問い、日付の順で履歴filterを追加する。
+3. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
+4. 7日/14日 interval を入れる場合は learning fixture と due smoke を先に増やす。
+5. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
+6. 小アルカナ拡張は、復習filterと配布判断が安定してから再評価する。
 
 ## 8. 完了チェックポイント
 
-この全体ロードマップは、Web/Electron-only 完了ゲートを 2026-06-04 時点で通過し、local package/schema/fixture hardening gateを 2026-06-05 時点で通過した。v1.0全体では、復習filter、settings、配布polishが残る。
+この全体ロードマップは、Web/Electron-only 完了ゲートを 2026-06-04 時点で通過し、local package/schema/fixture hardening gateを 2026-06-05 時点で通過した。2026-06-06 時点では、カード別復習、Card Study Sheet、Recall Practice、Slot Interpretation Drill、settings learning data controls、初回導線、保存後アクション、最小 due card queue が検証済み。v1.0全体では、package版settings目視確認、履歴filter拡張、Spread Tutor要件、配布polishが残る。
 
 完了時点の判断:
 
@@ -264,6 +272,12 @@ Status: Hold
 - `reports/electron-package-smoke-20260605-005006.json`
 - `reports/keyboard-focus-smoke-20260605-005005.json`
 - `reports/ui-visual-audit-20260605-004949/report.json`
+- `reports/web-app-check-20260606-195432.json`
+- `reports/web-app-smoke-20260606-194424.json`
+- `reports/electron-app-smoke-20260606-194716.json`
+- `reports/keyboard-focus-smoke-20260606-194648.json`
+- `reports/ui-visual-audit-20260606-194648/report.json`
+- `reports/onoko-arcana-first-launch-20260606-194424.png`
 
 ロードマップ完了条件:
 

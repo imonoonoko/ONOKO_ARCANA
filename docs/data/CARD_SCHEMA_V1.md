@@ -19,6 +19,9 @@ Updated: 2026-06-05
 | `uprightKeywords` | string[] | yes | 正位置の短いキーワード |
 | `reversedKeywords` | string[] | yes | 逆位置の短いキーワード |
 | `studyFocus` | string | yes | guideで表示する学習観点 |
+| `studyDetails.symbols` | string[] | yes | 学習シートで見るカード上の象徴、モチーフ、構図 |
+| `studyDetails.commonMisreads` | string[] | yes | 初学者が短絡しやすい読みの注意点 |
+| `studyDetails.reflectionQuestions` | string[] | yes | 自分の言葉で読み直すための内省質問 |
 | `sourceImage` | string | yes | 元alpha asset path |
 | `image` | string | yes | Web表示用labeled alpha asset path |
 

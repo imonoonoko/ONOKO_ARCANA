@@ -1,0 +1,29 @@
+{
+  "app": "ONOKO_ARCANA",
+  "schemaVersion": 1,
+  "attempts": [
+    {
+      "attemptedAt": "2026-06-06T04:54:00.000Z",
+      "cardId": "major-09-hermit",
+      "cardLabel": "IX 隠者",
+      "orientation": "upright",
+      "promptType": "keyword_recall",
+      "answer": "内省、探求、孤独、導き",
+      "confidence": "ok"
+    },
+    {
+      "attemptedAt": "2026-06-06T05:12:00.000Z",
+      "cardId": "major-09-hermit",
+      "cardLabel": "IX 隠者",
+      "orientation": "reversed",
+      "promptType": "slot_interpretation",
+      "answer": "課題の位置では、孤立が深まりすぎて助言を受け取れない状態として読む。",
+      "confidence": "hard",
+      "spreadId": "celtic_cross",
+      "spreadLabel": "ケルト十字",
+      "slotKey": "challenge",
+      "slotLabel": "課題",
+      "slotPrompt": "今ぶつかっている葛藤や抵抗。"
+    }
+  ]
+}

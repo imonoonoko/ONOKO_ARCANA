@@ -61,46 +61,121 @@
       </footer>
     </main>
 
-    <aside class="panel inspector" aria-label="カード詳細と履歴">
-      <section class="section">
-        <h2 class="section-title">選択カード</h2>
-        <div id="selectedCard" class="selected-card"></div>
-      </section>
+    <aside class="panel inspector" aria-label="カード詳細、学習、履歴">
+      <nav id="inspectorTabs" class="inspector-tabs" role="tablist" aria-label="詳細パネル">
+        <button id="inspectorTabCard" class="inspector-tab" type="button" role="tab" aria-selected="false" aria-controls="cardTabPanel" tabindex="-1" data-inspector-tab="card">カード</button>
+        <button id="inspectorTabStudy" class="inspector-tab" type="button" role="tab" aria-selected="false" aria-controls="studyTabPanel" tabindex="-1" data-inspector-tab="study">学習</button>
+        <button id="inspectorTabHistory" class="inspector-tab" type="button" role="tab" aria-selected="false" aria-controls="historyTabPanel" tabindex="-1" data-inspector-tab="history">履歴</button>
+      </nav>
 
-      <section class="section">
-        <div class="section-row">
-          <h2 class="section-title">自分の読み</h2>
-          <span id="noteStatus" class="micro-status"></span>
-        </div>
-        <div class="study-notebook" aria-label="自分の読みノート">
-          <span class="notebook-pin" aria-hidden="true"></span>
-          <textarea id="noteInput" class="text-field note-field" rows="5" placeholder="先に自分の解釈を書く" disabled></textarea>
-        </div>
-      </section>
+      <div id="cardTabPanel" class="inspector-tab-panel card-tab-panel" role="tabpanel" aria-labelledby="inspectorTabCard" data-inspector-panel="card" hidden>
+        <section class="section">
+          <h2 class="section-title">選択カード</h2>
+          <div id="selectedCard" class="selected-card"></div>
+        </section>
 
-      <section class="section">
-        <div class="section-row action-row">
-          <h2 class="section-title">ガイド</h2>
-          <button id="toggleGuideButton" class="button compact" type="button" disabled>ガイド表示</button>
-        </div>
-        <div id="guidePanel" class="guide-grid"></div>
-      </section>
-
-      <section class="section history-section">
-        <div class="section-row action-row">
-          <h2 class="section-title">履歴</h2>
-          <div class="history-actions">
-            <button id="importHistoryButton" class="button compact" type="button">読み込み</button>
-            <button id="exportHistoryButton" class="button compact" type="button" disabled>書き出し</button>
-            <button id="clearHistoryButton" class="button compact danger-action" type="button" disabled>全消去</button>
-            <input id="importHistoryInput" class="visually-hidden" type="file" accept="application/json,.json">
+        <section class="section">
+          <div class="section-row">
+            <h2 class="section-title">自分の読み</h2>
+            <span id="noteStatus" class="micro-status"></span>
           </div>
-        </div>
-        <p id="historyBackupCue" class="backup-cue">削除前は書き出し推奨</p>
-        <div id="historyList" class="history-list"></div>
-        <div id="historyReview" class="history-review" aria-live="polite"></div>
-      </section>
+          <div class="study-notebook" aria-label="自分の読みノート">
+            <span class="notebook-pin" aria-hidden="true"></span>
+            <textarea id="noteInput" class="text-field note-field" rows="5" placeholder="先に自分の解釈を書く" disabled></textarea>
+          </div>
+        </section>
+
+        <section class="section card-study-sheet-section">
+          <div class="section-row action-row">
+            <h2 class="section-title">学習シート</h2>
+          </div>
+          <div id="cardStudySheetPanel" class="study-sheet-panel card-tab-study-sheet-panel" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <div id="studyTabPanel" class="inspector-tab-panel study-tab-panel" role="tabpanel" aria-labelledby="inspectorTabStudy" data-inspector-panel="study" hidden>
+        <section class="section study-sheet-section">
+          <div class="section-row action-row">
+            <h2 class="section-title">カード学習</h2>
+            <button id="toggleStudySheetButton" class="button compact" type="button" disabled>学習シート</button>
+          </div>
+          <div id="studySheetPanel" class="study-sheet-panel" aria-live="polite"></div>
+        </section>
+
+        <section class="section study-lens-section">
+          <div id="studyLens" class="study-lens" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <div id="historyTabPanel" class="inspector-tab-panel history-tab-panel" role="tabpanel" aria-labelledby="inspectorTabHistory" data-inspector-panel="history" hidden>
+        <section class="section history-section">
+          <div class="section-row action-row">
+            <h2 class="section-title">履歴</h2>
+            <div class="history-actions">
+              <button id="openSettingsButton" class="button compact" type="button">設定</button>
+              <button id="importHistoryButton" class="button compact" type="button">読込</button>
+              <button id="exportHistoryButton" class="button compact" type="button" disabled>書出</button>
+              <button id="clearHistoryButton" class="button compact danger-action" type="button" disabled>消去</button>
+              <input id="importHistoryInput" class="visually-hidden" type="file" accept="application/json,.json">
+            </div>
+          </div>
+          <p id="historyBackupCue" class="backup-cue">削除前は書き出し推奨</p>
+          <div id="historyFilterBar" class="history-filter-slot"></div>
+          <div id="historyList" class="history-list"></div>
+          <div id="historyReview" class="history-review" aria-live="polite"></div>
+        </section>
+      </div>
     </aside>
+  </div>
+
+  <div id="settingsDialog" class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+    <button class="settings-scrim" type="button" data-close-settings aria-label="設定を閉じる"></button>
+    <section class="panel settings-panel" aria-label="設定とバックアップ">
+      <header class="settings-header">
+        <div>
+          <h2 id="settingsTitle">設定とバックアップ</h2>
+          <p>読みの履歴、想起練習、表示だけを分けて扱います。</p>
+        </div>
+        <button id="closeSettingsButton" class="button compact quiet" type="button">閉じる</button>
+      </header>
+      <p id="settingsStatus" class="settings-status" aria-live="polite"></p>
+      <div class="settings-grid">
+        <section class="settings-group">
+          <h3>履歴データ</h3>
+          <p><b id="settingsHistoryCount">0</b> 件 / <span id="settingsHistoryUpdated">未保存</span></p>
+          <div class="settings-actions">
+            <button id="settingsImportHistoryButton" class="button compact" type="button">履歴を読み込み</button>
+            <button id="settingsExportHistoryButton" class="button compact" type="button" disabled>履歴を書き出し</button>
+            <button id="settingsClearHistoryButton" class="button compact danger-action" type="button" disabled>履歴を全消去</button>
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h3>学習データ</h3>
+          <p><b id="settingsLearningCount">0</b> 回 / <span id="settingsLearningUpdated">未練習</span></p>
+          <div class="settings-actions">
+            <button id="importLearningButton" class="button compact" type="button">学習を読み込み</button>
+            <button id="exportLearningButton" class="button compact" type="button" disabled>学習を書き出し</button>
+            <button id="clearLearningButton" class="button compact danger-action" type="button" disabled>学習を消去</button>
+            <input id="importLearningInput" class="visually-hidden" type="file" accept="application/json,.json">
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h3>表示設定</h3>
+          <label class="settings-toggle">
+            <input id="compactLearningToggle" type="checkbox">
+            <span>学習レンズをコンパクト表示</span>
+          </label>
+          <p>練習中も占い卓を広く残すための表示設定です。</p>
+        </section>
+
+        <section class="settings-group local-data-group">
+          <h3>ローカル保存</h3>
+          <p id="settingsLocalKeys">history v1 と learning v1 はこの端末の localStorage に保存します。</p>
+        </section>
+      </div>
+    </section>
   </div>
 
   <script src="./src/data.js"></script>

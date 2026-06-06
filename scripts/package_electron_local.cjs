@@ -17,6 +17,10 @@ const copyEntries = [
     target: path.join(PACKAGE_ROOT, "assets", "generated", "card-production-v5-full", "web-labeled", "alpha")
   },
   {
+    source: path.join(ROOT, "assets", "generated", "app-icons"),
+    target: path.join(PACKAGE_ROOT, "assets", "generated", "app-icons")
+  },
+  {
     source: path.join(ROOT, "assets", "generated", "hud-elements", "20260602-astra-modular-kit", "components"),
     target: path.join(PACKAGE_ROOT, "assets", "generated", "hud-elements", "20260602-astra-modular-kit", "components")
   },
@@ -39,6 +43,22 @@ const copyEntries = [
   {
     source: path.join(ROOT, "README.md"),
     target: path.join(PACKAGE_ROOT, "README.md")
+  },
+  {
+    source: path.join(ROOT, "LICENSE"),
+    target: path.join(PACKAGE_ROOT, "LICENSE")
+  },
+  {
+    source: path.join(ROOT, "SECURITY.md"),
+    target: path.join(PACKAGE_ROOT, "SECURITY.md")
+  },
+  {
+    source: path.join(ROOT, "docs", "legal"),
+    target: path.join(PACKAGE_ROOT, "docs", "legal")
+  },
+  {
+    source: path.join(ROOT, "docs", "release", "DISTRIBUTION_NOTICE_v0.1.0.md"),
+    target: path.join(PACKAGE_ROOT, "DISTRIBUTION_NOTICE.md")
   },
   {
     source: path.join(ROOT, "reports", "README.md"),
@@ -106,6 +126,10 @@ function main() {
     launcher: "START_ONOKO_ARCANA.cmd",
     electronEntry: "web-app/electron/main.cjs",
     electronExecutable: path.relative(ROOT, electronExecutable),
+    appIcon: "assets/generated/app-icons/onoko-arcana-app-icon-v1.ico",
+    appUserModelId: "com.onoko.arcana",
+    license: "Split license. See LICENSE and DISTRIBUTION_NOTICE.md.",
+    assetReuse: "Project artwork, generated visuals, app icons, and ONOKO ARCANA identity assets are not granted for reuse outside this project.",
     historyStorage: "Electron localStorage key onoko-arcana:desktop:history:v1",
     copiedAt: new Date().toISOString(),
     copiedEntries: copyEntries.map((entry) => path.relative(ROOT, entry.source))

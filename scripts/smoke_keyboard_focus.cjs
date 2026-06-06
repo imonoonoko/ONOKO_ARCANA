@@ -88,12 +88,13 @@ async function run() {
 
   await page.focus("#noteInput");
   await page.keyboard.type("キーボード操作で自分の読みを残す。");
-  await page.waitForFunction(() => !document.querySelector("#toggleGuideButton")?.disabled);
-
-  await page.focus("#toggleGuideButton");
-  await page.keyboard.press("Enter");
-  await page.waitForFunction(() => document.querySelectorAll(".guide-row").length === 3);
-  const guideRowsAfterToggle = await page.evaluate(() => document.querySelectorAll(".guide-row").length);
+  await page.waitForSelector("#cardStudySheetPanel [data-study-sheet-open]");
+  const cardStudySheetState = await page.evaluate(() => ({
+    open: Boolean(document.querySelector("#cardStudySheetPanel [data-study-sheet-open]")),
+    text: document.querySelector("#cardStudySheetPanel")?.textContent,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
+    guidePanelExists: Boolean(document.querySelector("#guidePanel"))
+  }));
 
   await page.focus("#saveReadingButton");
   await page.keyboard.press("Enter");
@@ -101,8 +102,12 @@ async function run() {
 
   await page.focus('[data-history-index="0"]');
   await page.keyboard.press("Enter");
-  await page.waitForSelector("#historyReview [data-review-active='true']");
+  await page.waitForFunction(() => Boolean(document.querySelector("#historyReview [data-review-active='true']")));
 
+  await page.focus('[data-inspector-tab="card"]');
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.press("ArrowRight");
+  await page.waitForSelector('[data-inspector-panel="history"]:not([hidden])');
   await page.focus('[data-history-delete-index="0"]');
   const deleteDialogPromise = page.waitForEvent("dialog").then((dialog) => dialog.accept());
   await page.keyboard.press("Enter");
@@ -112,7 +117,8 @@ async function run() {
   const state = await page.evaluate(() => ({
     saved: document.querySelector("#statSaved")?.textContent,
     revealed: document.querySelector("#statRevealed")?.textContent,
-    guideRows: document.querySelectorAll(".guide-row").length,
+    cardStudySheets: document.querySelectorAll("#cardStudySheetPanel [data-study-sheet-open]").length,
+    guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
     historyItems: document.querySelectorAll(".history-item").length,
     clearDisabled: document.querySelector("#clearHistoryButton")?.disabled,
     noteStatus: document.querySelector("#noteStatus")?.textContent,
@@ -131,8 +137,13 @@ async function run() {
     keyboardOutline.outlineWidth !== "0px" &&
     state.revealed === "1" &&
     focusableHiddenCards === 0 &&
+    cardStudySheetState.open === true &&
+    cardStudySheetState.text.includes("象徴") &&
+    cardStudySheetState.guideButtonExists === false &&
+    cardStudySheetState.guidePanelExists === false &&
     state.saved === "0" &&
-    guideRowsAfterToggle === 3 &&
+    state.cardStudySheets === 1 &&
+    state.guideButtonExists === false &&
     state.historyItems === 0 &&
     state.clearDisabled === true &&
     state.noteStatus.includes("削除しました") &&
@@ -144,7 +155,7 @@ async function run() {
     focusSequence,
     keyboardOutline,
     focusableHiddenCards,
-    guideRowsAfterToggle,
+    cardStudySheetState,
     consoleErrors,
     state,
     checkedAt: new Date().toISOString()
