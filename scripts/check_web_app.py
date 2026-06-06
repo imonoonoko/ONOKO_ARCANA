@@ -25,6 +25,7 @@ HISTORY_FIXTURE_CARD_NOTE_ONLY = ROOT / "tests" / "fixtures" / "history" / "hist
 HISTORY_FIXTURE_INVALID_JSON = ROOT / "tests" / "fixtures" / "history" / "invalid-json.json"
 LEARNING_FIXTURE_VALID = ROOT / "tests" / "fixtures" / "learning" / "learning-valid-v1.json"
 REPORT_POLICY = REPORTS / "README.md"
+INSTALLER_MANUAL_SMOKE_CHECKLIST = ROOT / "docs" / "release" / "INSTALLER_MANUAL_SMOKE_CHECKLIST.md"
 PACKAGE_SCRIPT = ROOT / "scripts" / "package_electron_local.cjs"
 PACKAGE_SMOKE = ROOT / "scripts" / "smoke_electron_package.cjs"
 INSTALLER_SMOKE = ROOT / "scripts" / "smoke_electron_installer_app.cjs"
@@ -79,6 +80,14 @@ REQUIRED_IDS = [
     "exportLearningButton",
     "clearLearningButton",
     "compactLearningToggle",
+    "settingsAppVersion",
+    "settingsReleaseWarning",
+    "settingsBackupCue",
+    "settingsLatestReleaseLink",
+    "settingsProjectLink",
+    "settingsSecurityLink",
+    "settingsLicenseLink",
+    "settingsLicenseCue",
     "settingsLocalKeys",
 ]
 
@@ -145,6 +154,7 @@ def main() -> None:
         HISTORY_FIXTURE_INVALID_JSON,
         LEARNING_FIXTURE_VALID,
         REPORT_POLICY,
+        INSTALLER_MANUAL_SMOKE_CHECKLIST,
         PACKAGE_SCRIPT,
         PACKAGE_SMOKE,
         INSTALLER_SMOKE,
@@ -194,6 +204,12 @@ def main() -> None:
         "onoko-arcana:desktop:learning:v1",
         "settingsKey",
         "onoko-arcana:desktop:settings:v1",
+        "appVersion",
+        "latestReleaseUrl",
+        "projectRepositoryUrl",
+        "securityPolicyUrl",
+        "assetLicenseUrl",
+        "ONOKO_ARCANA/releases/latest",
         "readLearningState",
         "writeLearningState",
         "importedLearningFromPayload",
@@ -251,6 +267,23 @@ def main() -> None:
     if "onoko-arcana-app-icon-v1.ico" not in electron or "onoko-arcana-app-icon-v1.png" not in electron:
         fail("electron shell must reference the generated app icon PNG/ICO", {
             "path": str(ELECTRON_MAIN.relative_to(ROOT)),
+        })
+
+    external_link_requirements = [
+        "setWindowOpenHandler",
+        "will-navigate",
+        "shell.openExternal",
+        "isAllowedExternalUrl",
+        "github.com",
+        "/imonoonoko/ONOKO_ARCANA",
+    ]
+    missing_external_link_terms = [
+        term for term in external_link_requirements if term not in electron
+    ]
+    if missing_external_link_terms:
+        fail("electron shell must restrict official external release/support links", {
+            "path": str(ELECTRON_MAIN.relative_to(ROOT)),
+            "missing": missing_external_link_terms,
         })
 
     if APP_ICON_PNG.read_bytes()[:8] != b"\x89PNG\r\n\x1a\n":

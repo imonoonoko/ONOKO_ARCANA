@@ -386,6 +386,14 @@ async function runDesktop(browser, id) {
     historyExportDisabled: document.querySelector("#settingsExportHistoryButton")?.disabled,
     learningExportDisabled: document.querySelector("#exportLearningButton")?.disabled,
     compactChecked: document.querySelector("#compactLearningToggle")?.checked,
+    version: document.querySelector("#settingsAppVersion")?.textContent,
+    releaseWarning: document.querySelector("#settingsReleaseWarning")?.textContent,
+    backupCue: document.querySelector("#settingsBackupCue")?.textContent,
+    latestReleaseHref: document.querySelector("#settingsLatestReleaseLink")?.href,
+    projectHref: document.querySelector("#settingsProjectLink")?.href,
+    securityHref: document.querySelector("#settingsSecurityLink")?.href,
+    licenseHref: document.querySelector("#settingsLicenseLink")?.href,
+    licenseCue: document.querySelector("#settingsLicenseCue")?.textContent,
     localKeys: document.querySelector("#settingsLocalKeys")?.textContent
   }));
 
@@ -702,6 +710,17 @@ async function runMobile(browser, id) {
     desktop.settingsOpenState.learningCount === "2" &&
     desktop.settingsOpenState.historyExportDisabled === false &&
     desktop.settingsOpenState.learningExportDisabled === false &&
+    desktop.settingsOpenState.version === "v0.1.3" &&
+    desktop.settingsOpenState.releaseWarning.includes("未署名") &&
+    desktop.settingsOpenState.releaseWarning.includes("自動更新") &&
+    desktop.settingsOpenState.backupCue.includes("更新前") &&
+    desktop.settingsOpenState.backupCue.includes("学習データ") &&
+    desktop.settingsOpenState.latestReleaseHref === "https://github.com/imonoonoko/ONOKO_ARCANA/releases/latest" &&
+    desktop.settingsOpenState.projectHref === "https://github.com/imonoonoko/ONOKO_ARCANA" &&
+    desktop.settingsOpenState.securityHref === "https://github.com/imonoonoko/ONOKO_ARCANA/security/policy" &&
+    desktop.settingsOpenState.licenseHref.includes("/docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md") &&
+    desktop.settingsOpenState.licenseCue.includes("MIT") &&
+    desktop.settingsOpenState.licenseCue.includes("再利用許諾外") &&
     desktop.settingsOpenState.localKeys.includes("onoko-arcana:desktop:history:v1") &&
     desktop.settingsOpenState.localKeys.includes("onoko-arcana:desktop:learning:v1") &&
     desktop.settingsOpenState.localKeys.includes("onoko-arcana:desktop:settings:v1") &&

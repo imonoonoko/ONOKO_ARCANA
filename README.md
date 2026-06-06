@@ -114,6 +114,8 @@ Quick start:
 
 Windows may show a warning because the installer is unsigned.
 
+After launch, open Settings to check the official latest GitHub Release, review the security/license links, and export history or learning data before updating, moving PCs, or uninstalling. ONOKO ARCANA does not include auto update in this unsigned preview channel.
+
 Before publishing a Release, follow `docs/release/GITHUB_RELEASE_RUNBOOK.md`, use the tag CI artifacts for the setup executable and fallback zip, and confirm GitHub Actions passes on the exact tagged commit.
 
 ONOKO ARCANA is a tarot study, self-reflection, and entertainment tool. Do not use it as a substitute for professional medical, legal, financial, safety, or mental-health advice.

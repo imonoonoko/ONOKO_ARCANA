@@ -35,12 +35,20 @@ function canAssertSingleViewportFit(state) {
 
 (async () => {
   fs.mkdirSync(REPORTS, { recursive: true });
+  const mainSource = fs.readFileSync(MAIN, "utf8");
   const iconState = {
     png: path.relative(ROOT, APP_ICON_PNG),
     ico: path.relative(ROOT, APP_ICON_ICO),
     pngExists: fs.existsSync(APP_ICON_PNG),
     icoExists: fs.existsSync(APP_ICON_ICO),
-    mainUsesAppUserModelId: fs.readFileSync(MAIN, "utf8").includes("setAppUserModelId")
+    mainUsesAppUserModelId: mainSource.includes("setAppUserModelId")
+  };
+  const externalLinkState = {
+    usesWindowOpenHandler: mainSource.includes("setWindowOpenHandler"),
+    usesWillNavigate: mainSource.includes("will-navigate"),
+    usesShellOpenExternal: mainSource.includes("shell.openExternal"),
+    restrictsHost: mainSource.includes("github.com"),
+    restrictsRepoPath: mainSource.includes("/imonoonoko/ONOKO_ARCANA")
   };
   const id = stamp();
   const screenshot = path.join(REPORTS, `onoko-arcana-electron-smoke-${id}.png`);
@@ -98,6 +106,11 @@ function canAssertSingleViewportFit(state) {
     iconState.pngExists === true &&
     iconState.icoExists === true &&
     iconState.mainUsesAppUserModelId === true &&
+    externalLinkState.usesWindowOpenHandler === true &&
+    externalLinkState.usesWillNavigate === true &&
+    externalLinkState.usesShellOpenExternal === true &&
+    externalLinkState.restrictsHost === true &&
+    externalLinkState.restrictsRepoPath === true &&
     cardStudySheetState.open === true &&
     cardStudySheetState.text.includes("象徴") &&
     cardStudySheetState.text.includes("誤読しやすい点") &&
@@ -122,6 +135,7 @@ function canAssertSingleViewportFit(state) {
     app: path.relative(ROOT, MAIN),
     screenshot,
     iconState,
+    externalLinkState,
     cardStudySheetState,
     singleViewportFitChecked,
     state,

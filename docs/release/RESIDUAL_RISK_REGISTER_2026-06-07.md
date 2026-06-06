@@ -44,6 +44,17 @@ The setup executable was confirmed `NotSigned` by Authenticode inspection, match
 | Asset reuse ambiguity | Split license docs existed | Maintained: installer/fallback package includes license and attribution docs | Keep `DISTRIBUTION_NOTICE.md` and `docs/legal/` in packaged resources |
 | Local history migration | Export/import supported | Still local-first only | Keep export/import as supported backup path; do not promise cloud sync |
 
+## Immediate Mitigations Added After v0.1.3
+
+These are low-cost mitigations that can be shipped before code signing, MSIX, Microsoft Store, or auto update work.
+
+- Settings now exposes the current app version, official latest GitHub Release URL, repository URL, security policy URL, and license/asset attribution URL.
+- Settings now warns that the installer is unsigned and that auto update is not included.
+- Settings now tells users to export history and learning data before updating, moving PCs, uninstalling, or deleting local data.
+- Electron opens only `https://github.com/imonoonoko/ONOKO_ARCANA` links externally; other new-window or external navigation attempts are denied.
+- Browser, Electron, local package, and installer smokes now assert the Release/Support settings remain present.
+- Manual install/uninstall verification is tracked in `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md`.
+
 ## Verification Added
 
 - `web-app/package.json`

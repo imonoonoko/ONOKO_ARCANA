@@ -79,3 +79,12 @@ Release type: public preview GitHub Release with CI-generated unsigned installer
 - Auto update remains intentionally disabled because unsigned update channels would create avoidable trust and tampering risk.
 - MSIX/Microsoft Store distribution remains a separate packaging and identity task.
 - Minor Arcana content remains out of scope for this preview.
+
+## Post-Release Mitigation Slice
+
+- [x] Added in-app Settings links to latest GitHub Release, repository, Security policy, and asset/license attribution.
+- [x] Added in-app warning that the installer is unsigned and auto update is not included.
+- [x] Added in-app backup cue for history and learning export before update, PC move, uninstall, or local data deletion.
+- [x] Restricted Electron external navigation to the official GitHub repository path.
+- [x] Added automated assertions for Release/Support/Backup settings in browser, Electron, local package, and installer smokes.
+- [x] Added `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` for SmartScreen, shortcut shell display, uninstall, and fallback zip checks.

@@ -1,5 +1,8 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, shell } = require("electron");
 const path = require("node:path");
+
+const allowedExternalHost = "github.com";
+const allowedExternalPathPrefix = "/imonoonoko/ONOKO_ARCANA";
 
 const iconDir = path.join(
   __dirname,
@@ -21,6 +24,28 @@ if (process.platform === "win32") {
   app.setAppUserModelId("com.onoko.arcana");
 }
 
+function isAllowedExternalUrl(input) {
+  try {
+    const url = new URL(input);
+    return (
+      url.protocol === "https:" &&
+      url.hostname === allowedExternalHost &&
+      (
+        url.pathname === allowedExternalPathPrefix ||
+        url.pathname.startsWith(`${allowedExternalPathPrefix}/`)
+      )
+    );
+  } catch {
+    return false;
+  }
+}
+
+function openAllowedExternalUrl(url) {
+  if (!isAllowedExternalUrl(url)) return false;
+  shell.openExternal(url);
+  return true;
+}
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1440,
@@ -36,6 +61,17 @@ function createWindow() {
       nodeIntegration: false,
       sandbox: true
     }
+  });
+
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    openAllowedExternalUrl(url);
+    return { action: "deny" };
+  });
+
+  win.webContents.on("will-navigate", (event, url) => {
+    if (url.startsWith("file://")) return;
+    event.preventDefault();
+    openAllowedExternalUrl(url);
   });
 
   win.loadFile(path.join(__dirname, "..", "index.html"));

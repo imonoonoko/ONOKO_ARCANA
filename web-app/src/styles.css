@@ -835,6 +835,14 @@ input:focus-visible {
   padding: 7px 13px;
 }
 
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
 .button:disabled {
   color: #8faabd;
   border-color: transparent;
@@ -2312,6 +2320,21 @@ input:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
+}
+
+.settings-release-group {
+  grid-column: 1 / -1;
+}
+
+.settings-release-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.settings-release-warning {
+  color: #ffc2b8;
 }
 
 .settings-toggle {

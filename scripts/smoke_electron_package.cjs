@@ -104,6 +104,9 @@ function canAssertSingleViewportFit(state) {
     guidePanelExists: Boolean(document.querySelector("#guidePanel"))
   }));
   await page.click("#saveReadingButton");
+  await page.click('[data-inspector-tab="history"]');
+  await page.click("#openSettingsButton");
+  await page.waitForSelector("#settingsDialog:not([hidden])");
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const savedState = await page.evaluate(() => ({
@@ -116,6 +119,15 @@ function canAssertSingleViewportFit(state) {
     guideButtonExists: Boolean(document.querySelector("#toggleGuideButton")),
     historyItems: document.querySelectorAll(".history-item").length,
     title: document.title,
+    release: {
+      version: document.querySelector("#settingsAppVersion")?.textContent,
+      warning: document.querySelector("#settingsReleaseWarning")?.textContent,
+      backupCue: document.querySelector("#settingsBackupCue")?.textContent,
+      latestReleaseHref: document.querySelector("#settingsLatestReleaseLink")?.href,
+      securityHref: document.querySelector("#settingsSecurityLink")?.href,
+      licenseHref: document.querySelector("#settingsLicenseLink")?.href,
+      licenseCue: document.querySelector("#settingsLicenseCue")?.textContent
+    },
     exportDisabled: document.querySelector("#exportHistoryButton")?.disabled,
     clearDisabled: document.querySelector("#clearHistoryButton")?.disabled,
     scrollWidth: document.documentElement.scrollWidth,
@@ -180,6 +192,14 @@ function canAssertSingleViewportFit(state) {
     savedState.guideButtonExists === false &&
     savedState.historyItems === 1 &&
     savedState.title === "ONOKO ARCANA" &&
+    savedState.release.version === "v0.1.3" &&
+    savedState.release.warning.includes("未署名") &&
+    savedState.release.warning.includes("自動更新") &&
+    savedState.release.backupCue.includes("更新前") &&
+    savedState.release.latestReleaseHref === "https://github.com/imonoonoko/ONOKO_ARCANA/releases/latest" &&
+    savedState.release.securityHref === "https://github.com/imonoonoko/ONOKO_ARCANA/security/policy" &&
+    savedState.release.licenseHref.includes("/docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md") &&
+    savedState.release.licenseCue.includes("再利用許諾外") &&
     savedState.exportDisabled === false &&
     savedState.clearDisabled === false &&
     savedState.scrollWidth <= savedState.viewport &&

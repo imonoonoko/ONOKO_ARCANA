@@ -94,3 +94,7 @@ Confirm:
 - Setup executable, fallback zip, and matching `.sha256` files are present.
 - Release notes include known limitations and license notes.
 - The tag points to the CI-green release commit.
+
+## Manual Installer Path
+
+For release promotion or installer behavior changes, run `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` on a clean Windows user or VM. Automated smokes verify packaged resources and launch behavior, but SmartScreen reputation, real shortcut shell display, uninstall cleanup, and antivirus policy are environment-dependent.

@@ -4,6 +4,11 @@ const { CARD_BACK, cards, spreads } = window.OnokoArcanaData;
 const historyKey = "onoko-arcana:desktop:history:v1";
 const learningKey = "onoko-arcana:desktop:learning:v1";
 const settingsKey = "onoko-arcana:desktop:settings:v1";
+const appVersion = "v0.1.3";
+const latestReleaseUrl = "https://github.com/imonoonoko/ONOKO_ARCANA/releases/latest";
+const projectRepositoryUrl = "https://github.com/imonoonoko/ONOKO_ARCANA";
+const securityPolicyUrl = "https://github.com/imonoonoko/ONOKO_ARCANA/security/policy";
+const assetLicenseUrl = "https://github.com/imonoonoko/ONOKO_ARCANA/blob/main/docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md";
 const maxHistoryItems = 48;
 const maxLearningAttempts = 128;
 const learningPromptTypes = ["keyword_recall", "slot_interpretation"];
@@ -94,6 +99,14 @@ const els = {
   exportLearningButton: document.getElementById("exportLearningButton"),
   clearLearningButton: document.getElementById("clearLearningButton"),
   compactLearningToggle: document.getElementById("compactLearningToggle"),
+  settingsAppVersion: document.getElementById("settingsAppVersion"),
+  settingsReleaseWarning: document.getElementById("settingsReleaseWarning"),
+  settingsBackupCue: document.getElementById("settingsBackupCue"),
+  settingsLatestReleaseLink: document.getElementById("settingsLatestReleaseLink"),
+  settingsProjectLink: document.getElementById("settingsProjectLink"),
+  settingsSecurityLink: document.getElementById("settingsSecurityLink"),
+  settingsLicenseLink: document.getElementById("settingsLicenseLink"),
+  settingsLicenseCue: document.getElementById("settingsLicenseCue"),
   settingsLocalKeys: document.getElementById("settingsLocalKeys"),
   importHistoryButton: document.getElementById("importHistoryButton"),
   importHistoryInput: document.getElementById("importHistoryInput"),
@@ -1654,6 +1667,11 @@ function renderSettings(history = readHistory(), learningState = readLearningSta
   if (els.settingsClearHistoryButton) els.settingsClearHistoryButton.disabled = history.length === 0;
   if (els.exportLearningButton) els.exportLearningButton.disabled = learningState.attempts.length === 0;
   if (els.clearLearningButton) els.clearLearningButton.disabled = learningState.attempts.length === 0;
+  if (els.settingsAppVersion) els.settingsAppVersion.textContent = appVersion;
+  if (els.settingsLatestReleaseLink) els.settingsLatestReleaseLink.href = latestReleaseUrl;
+  if (els.settingsProjectLink) els.settingsProjectLink.href = projectRepositoryUrl;
+  if (els.settingsSecurityLink) els.settingsSecurityLink.href = securityPolicyUrl;
+  if (els.settingsLicenseLink) els.settingsLicenseLink.href = assetLicenseUrl;
   if (els.settingsLocalKeys) {
     els.settingsLocalKeys.textContent = `${historyKey} / ${learningKey} / ${settingsKey}`;
   }

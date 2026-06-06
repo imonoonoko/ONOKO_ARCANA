@@ -134,6 +134,9 @@ function assertInstallerConfig() {
     }
     await page.fill("#noteInput", "electron-builder packaged app smoke");
     await page.click("#saveReadingButton");
+    await page.click('[data-inspector-tab="history"]');
+    await page.click("#openSettingsButton");
+    await page.waitForSelector("#settingsDialog:not([hidden])");
 
     const pageState = await page.evaluate(async () => {
       const images = Array.from(document.images);
@@ -152,6 +155,15 @@ function assertInstallerConfig() {
         spreadTitle: document.querySelector("#spreadTitle")?.textContent,
         revealed: document.querySelector("#statRevealed")?.textContent,
         saved: document.querySelector("#statSaved")?.textContent,
+        release: {
+          version: document.querySelector("#settingsAppVersion")?.textContent,
+          warning: document.querySelector("#settingsReleaseWarning")?.textContent,
+          backupCue: document.querySelector("#settingsBackupCue")?.textContent,
+          latestReleaseHref: document.querySelector("#settingsLatestReleaseLink")?.href,
+          securityHref: document.querySelector("#settingsSecurityLink")?.href,
+          licenseHref: document.querySelector("#settingsLicenseLink")?.href,
+          licenseCue: document.querySelector("#settingsLicenseCue")?.textContent
+        },
         imageCount: images.length,
         brokenImages: images
           .filter((image) => image.naturalWidth === 0 || image.naturalHeight === 0)
@@ -179,6 +191,18 @@ function assertInstallerConfig() {
     }
     if (consoleErrors.length > 0) {
       fail("packaged app emitted console errors", report);
+    }
+    if (
+      pageState.release.version !== `v${PACKAGE_JSON.version}` ||
+      !pageState.release.warning.includes("未署名") ||
+      !pageState.release.warning.includes("自動更新") ||
+      !pageState.release.backupCue.includes("更新前") ||
+      pageState.release.latestReleaseHref !== "https://github.com/imonoonoko/ONOKO_ARCANA/releases/latest" ||
+      pageState.release.securityHref !== "https://github.com/imonoonoko/ONOKO_ARCANA/security/policy" ||
+      !pageState.release.licenseHref.includes("/docs/legal/ASSET_LICENSE_AND_ATTRIBUTION.md") ||
+      !pageState.release.licenseCue.includes("再利用許諾外")
+    ) {
+      fail("packaged app release/support settings are incomplete", report);
     }
 
     fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
