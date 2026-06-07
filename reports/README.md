@@ -10,14 +10,23 @@ Only this README is tracked in Git by default. Timestamped JSON files, screensho
 
 The current representative proof set is recorded from roadmap references but not committed by default:
 
-- `reports/web-app-check-20260607-014605.json`
-- `reports/web-app-smoke-20260607-011915.json`
+- `reports/web-app-check-20260607-061238.json`
+- `reports/web-app-smoke-20260607-061029.json`
+- `reports/onoko-arcana-settings-20260607-061029.png`
 - `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`
 - `reports/onoko-arcana-app-icon-preview-20260607-0143.png`
-- `reports/electron-app-smoke-20260607-014422.json`
-- `reports/electron-package-smoke-20260607-014620.json`
-- `reports/keyboard-focus-smoke-20260607-012201.json`
-- `reports/ui-visual-audit-20260607-012023/report.json`
+- `reports/keyboard-focus-smoke-20260607-061239.json`
+- `reports/ui-visual-audit-20260607-061249/report.json`
+- `reports/electron-app-smoke-20260607-061249.json`
+- `reports/electron-package-smoke-20260607-061337.json`
+- `reports/onoko-arcana-installer-smoke-20260607-052003.json`
+- GitHub Actions CI `27072878818`
+
+The release-support hardening rationale is tracked in `docs/reports/RETROSPECTIVE_HARDENING_2026-06-07_RELEASE_SUPPORT.md`.
+
+The 2026-06-07 06:10-06:13 local proof set adds card/spread/note history filter coverage. Clean Windows installer manual smoke remains pending and is not represented by these automated reports.
+
+The critical-alignment and history-filter retrospective is tracked in `docs/reports/RETROSPECTIVE_HARDENING_2026-06-07_CRITICAL_ALIGNMENT_HISTORY_FILTERS.md`.
 
 Update the roadmap when a newer run becomes the accepted proof.
 

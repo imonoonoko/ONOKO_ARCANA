@@ -1,6 +1,6 @@
 # ONOKO ARCANA Web/Electron 実装計画書
 
-Updated: 2026-06-05
+Updated: 2026-06-07
 引き継ぎ元: `019e78ce-7d75-7833-95d3-612892488a02`  
 Project: `<repo>`
 Primary roadmap: `docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`
@@ -12,6 +12,16 @@ ONOKO ARCANA v1.x は Web/Electron の 2D 占い卓として完成させる。Un
 ## 2026-06-05 Handoff Hardening
 
 Web/Electron版を日常使用と引き継ぎに耐える状態へ固めるhardening gateは完了した。Electron local package、保存場所/バックアップ説明、Card/Spread schema、固定fixture、代表証跡ポリシー、package smokeを整備済みである。UEの `WBP_TableHUD`、`L_Phase1_OneCard_Table`、Commandlet検証はアーカイブ資料であり、v1.xの作業順には含めない。
+
+## 2026-06-07 Release And Support Hardening
+
+GitHub Release `v0.1.3` は公開済みで、通常ユーザー向けの主導線は `onoko-arcana-v0.1.3-setup.exe`、fallback は `onoko-arcana-v0.1.3-local.zip` である。Release後の追加hardeningとして、Settings内に最新版Release、公式Repo、Security、License、未署名/自動更新なし、更新前backup cueを追加し、Electron外部リンクは公式GitHub repo配下のみ許可する。最新の受理済みCIは `27072878818`、commitは `9a4b0420dfc9c31862d51618bd63e628b1967a6c`。
+
+ただし、clean Windows user/VM での manual installer smoke はこの環境では未実施であり、SmartScreen、実ショートカットicon、uninstall cleanup、fallback zipの実ユーザー経路は外部環境待ちである。署名やStoreより前に実施するゲートとして残すが、ローカルで進められる次作業は履歴filter拡張と復習UIの過密化抑制である。
+
+## 2026-06-07 Critical Alignment And History Filter Slice
+
+批判的現状確認により、installer release の状態表現を「自動検証済み / clean Windows manual smoke pending」として扱う方針に補正した。ローカルで実行可能な次スライスとして、履歴filterに spread と メモ有無 を追加し、既存のカード別復習filter、復習ノート、restore/deleteの元履歴indexを維持する。
 
 ## 2026-06-02 媒体方針アップデート
 

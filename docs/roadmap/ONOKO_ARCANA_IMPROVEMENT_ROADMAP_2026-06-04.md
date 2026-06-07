@@ -189,11 +189,11 @@ Updated: 2026-06-06
 
 ## 11. 次に着手する実装順
 
-1. package版 settings で保存場所、学習データ、復旧導線の見え方を目視確認する。
+1. `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` を clean Windows user/VM で実行し、Desktop/Start Menu icon、起動、保存、import/export、uninstall を目視証跡つきで確認する。
 2. スプレッド、メモ有無、問い、日付の順で履歴filterを追加する。
 3. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
 4. 7日/14日 interval を入れる場合は learning fixture と due smoke を先に増やす。
-5. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
+5. 署名installer、MSIX/Store配布、auto updateは、手動インストール導線が安定してから別スコープで定義する。
 
 ## 12. 完了ゲート
 

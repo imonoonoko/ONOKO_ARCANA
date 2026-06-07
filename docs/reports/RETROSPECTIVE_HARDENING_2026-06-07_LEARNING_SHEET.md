@@ -60,4 +60,4 @@ Do not mark a learning UI slice complete until all checks pass:
 
 ## Next Safe Slice
 
-Proceed with package版 settings local data confirmation and history filter expansion. Keep the card-tab study sheet behavior as a regression gate: a user must be able to write their own reading while the selected card's full study sheet stays visible.
+Run `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` on a clean Windows user/VM before treating GitHub Release distribution as fully proven. After that, proceed with history filter expansion. Keep the card-tab study sheet behavior as a regression gate: a user must be able to write their own reading while the selected card's full study sheet stays visible.

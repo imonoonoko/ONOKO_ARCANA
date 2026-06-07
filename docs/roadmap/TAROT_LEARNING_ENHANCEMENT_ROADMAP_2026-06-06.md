@@ -52,7 +52,7 @@ This protects the original ONOKO ARCANA idea: the app is a study companion, not 
 
 ## Roadmap
 
-Implementation note 2026-06-07: Phase L1 Card Study Sheet, Phase L2, the minimal Phase L3 Recall Practice slice, Slot Interpretation Drill, the first Phase L4 due-card slice, and the card-tab full study sheet beside the user's note are implemented. Study Lens clickthrough, card-specific history review filter, note-vs-study-sheet comparison, card sheet open from selected cards or Study Lens, keyword recall, upright/reversed practice, selected-card slot interpretation, hard/ok/easy confidence saving, separate learning data export/import/clear, first-launch learning guidance, after-save next actions, and a minimal due-card cue are verified in `reports/web-app-smoke-20260607-011915.json`. Visual evidence: `reports/ui-visual-audit-20260607-012023/report.json`, `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`, `reports/onoko-arcana-settings-20260607-011915.png`, and `reports/onoko-arcana-first-launch-20260607-011915.png`.
+Implementation note 2026-06-07: Phase L1 Card Study Sheet, Phase L2, the minimal Phase L3 Recall Practice slice, Slot Interpretation Drill, the first Phase L4 due-card slice, and the card-tab full study sheet beside the user's note are implemented. Study Lens clickthrough, card-specific history review filter, spread/note history filters, note-vs-study-sheet comparison, card sheet open from selected cards or Study Lens, keyword recall, upright/reversed practice, selected-card slot interpretation, hard/ok/easy confidence saving, separate learning data export/import/clear, first-launch learning guidance, after-save next actions, and a minimal due-card cue are verified in `reports/web-app-smoke-20260607-061029.json`. Visual evidence: `reports/ui-visual-audit-20260607-061249/report.json`, `reports/onoko-arcana-card-tab-study-sheet-20260607-0120.png`, `reports/onoko-arcana-settings-20260607-061029.png`, and `reports/onoko-arcana-first-launch-20260607-061029.png`.
 
 ### Phase L1: Study Content Foundation
 
@@ -184,19 +184,20 @@ Acceptance:
 
 ## Recommended Next Implementation Slice
 
-Build **Package Settings Local Data Check + History Filter Expansion** next.
+Build **History Filter Follow-up + Spread Tutor Requirements** next.
 
 Why:
 
 - The first-launch, recall, settings, due-card loop, Card Study Sheet, and Slot Interpretation Drill now exist.
 - Learning attempts now include both `keyword_recall` and `slot_interpretation`, so the user needs better ways to find study evidence later.
-- Package smoke is green, but the settings wording for local-only data and recovery should be checked in the packaged app before wider handoff.
+- Package smoke is green, but clean Windows installer manual smoke remains external-environment pending.
+- The first history filter expansion now covers card, spread, and note presence, so the next filter decision should be smaller: question text and saved date only if the inspector remains readable.
 - This keeps the core ONOKO rule intact: the app prompts observation, reflection, and recall before showing deeper study-sheet text.
 
 Implementation outline:
 
-1. Open packaged settings and confirm the local data wording, backup path, and recovery wording are clear.
-2. Add the next history filter slice in this order: spread, note presence, question text, saved date.
+1. Keep `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` pending until a clean Windows user/VM is available.
+2. Decide whether to add question text and saved date filters as the next narrow history filter slice.
 3. Keep card filter as the default fast path and avoid turning Study Lens into a broad dashboard.
 4. Run static check, web smoke, keyboard smoke, visual audit, Electron smoke, package smoke, and update `docs/design/GUI_OPTIMIZATION_KANBAN_2026-06-06.md`.
 

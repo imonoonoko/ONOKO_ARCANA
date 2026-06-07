@@ -29,7 +29,7 @@ Updated: 2026-06-07
 
 | card | why now | proof needed |
 | --- | --- | --- |
-| GUI-FILTER-SEARCH-001 | 履歴が学習素材として増えるため、カード以外の spread/date/question/note filter が必要になる。 | Filter smoke, screenshot |
+| GUI-FILTER-SEARCH-002 | spread/note filter が入ったため、次は問いテキストと保存日filterを入れるか、右パネルの密度を見て判断する。 | Filter smoke, screenshot, visual audit issue 0 |
 | GUI-MOBILE-REVIEW-001 | Inspector がタブ化されたため、モバイル幅でタブと復習導線を継続確認する。 | Mobile screenshot, visual audit issue 0 |
 | GUI-LOCAL-PRIVACY-001 | 学習履歴、スロット練習、復習予定が増えたため、package版でも保存場所と復旧導線が読める必要がある。 | Package smoke, settings screenshot |
 
@@ -46,7 +46,7 @@ Updated: 2026-06-07
 | GUI-RECALL-PRACTICE-001 | implementation | STUDY | 検証済み | P1 | 学習シートを見る前にカードのキーワードや逆位置傾向を自分で入力し、答え合わせ後に hard/ok/easy の手応えを保存できる。 | `../../reports/web-app-smoke-20260607-011915.json`, `../../tests/fixtures/learning/learning-valid-v1.json` | スロット解釈 drill は検証済み。7日/14日 interval は fixture 追加後に扱う。 |  |  | 2026-06-07 |
 | GUI-SLOT-DRILL-001 | implementation | STUDY | 検証済み | P1 | Card Study Sheet 内で、選択中のカード + スプレッド位置 + 正逆の組み合わせを自分の言葉で書き、解説と比べて hard/ok/easy を保存できる。 | `../../reports/web-app-smoke-20260607-011915.json`, `../../reports/ui-visual-audit-20260607-012023/report.json`, `../../reports/web-app-check-20260607-011909.json`, `../../tests/fixtures/learning/learning-valid-v1.json` | 後続は spread tutor と履歴 filter で、保存済みスロット練習を探しやすくする。 |  |  | 2026-06-07 |
 | GUI-FIRST-LAUNCH-001 | design | POLISH | 検証済み | P1 | 初回起動時に、問いを書く、スプレッドを選ぶ、カードを引く、保存して復習する流れが迷わず見える。 | `../../reports/onoko-arcana-first-launch-20260606-194424.png`, `../../reports/web-app-smoke-20260606-194424.json`, `../../reports/ui-visual-audit-20260606-194648/report.json` | 実使用メモから文言だけを磨く。 |  |  | 2026-06-06 |
-| GUI-FILTER-SEARCH-001 | implementation | READING | 未着手 | P1 | 履歴をカード、スプレッド、問い、保存日、メモ有無で絞り込み、復習対象をすぐ見つけられる。 | Filter smoke, screenshot | まずカード別 filter だけを実装し、他条件は後続に分ける。 |  |  | 2026-06-06 |
+| GUI-FILTER-SEARCH-001 | implementation | READING | 検証済み | P1 | 履歴をカード、スプレッド、メモ有無で絞り込み、復習対象をすぐ見つけられる。 | `../../reports/web-app-smoke-20260607-061029.json` | 次は問いテキスト、保存日filterを小スライスで検討する。 |  |  | 2026-06-07 |
 | GUI-A11Y-LEARNING-001 | implementation | A11Y | 検証済み | P1 | 学習レンズ、履歴 filter、比較 UI、Card Study Sheet、Slot Interpretation Drill、想起練習、settings がキーボードだけで操作でき、フォーカス位置が見える。 | `../../reports/keyboard-focus-smoke-20260607-012201.json`, `../../reports/web-app-smoke-20260607-011915.json` | 追加 filter 時に focus order を再検査する。 |  |  | 2026-06-07 |
 | GUI-MOBILE-REVIEW-001 | design | UI TABLE | 検証済み | P1 | モバイル幅で、卓、選択カード、メモ、学習シート、履歴復習が縦に自然につながり、横スクロールが出ない。 | `../../reports/ui-visual-audit-20260607-012023/mobile-relationship-line.png`, `../../reports/ui-visual-audit-20260607-012023/report.json` | Card review filter 実装後に mobile screenshot を追加する。 |  |  | 2026-06-07 |
 | GUI-PROGRESS-SIGNAL-001 | design | STUDY | 検証済み | P2 | 学習進捗は大きなダッシュボードではなく、既出数、未出カード、想起/スロット練習回数、次に復習するカードだけを静かに表示する。 | `../../reports/web-app-smoke-20260606-203136.json`, `../../reports/ui-visual-audit-20260606-203150/report.json` | 7日/14日 interval を入れる場合は fixture を先に追加する。 |  |  | 2026-06-06 |

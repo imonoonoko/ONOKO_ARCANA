@@ -20,7 +20,7 @@ Updated: 2026-06-07
 | Learning loop | 初回導線 -> 自分の読みを書く -> 同じカードの学習シートを参照する -> 保存 -> 履歴で見返す -> 学習シート前に想起練習する -> スロット解釈を練習する -> due 復習に戻る |
 | Persistence | `localStorage` history v1 + learning v1 draft |
 | Data portability | history JSON export / import + learning JSON export / import / clear |
-| Latest proof | `reports/web-app-check-20260607-034851.json`, `reports/web-app-smoke-20260607-034852.json`, `reports/electron-app-smoke-20260607-034921.json`, `reports/electron-package-smoke-20260607-034938.json`, `reports/keyboard-focus-smoke-20260607-034852.json`, `reports/ui-visual-audit-20260607-034852/report.json`, `dist/release-artifacts/onoko-arcana-v0.1.2-local.zip.sha256` |
+| Latest proof | `reports/web-app-check-20260607-061238.json`, `reports/web-app-smoke-20260607-061029.json`, `reports/keyboard-focus-smoke-20260607-061239.json`, `reports/ui-visual-audit-20260607-061249/report.json`, `reports/electron-app-smoke-20260607-061249.json`, `reports/electron-package-smoke-20260607-061337.json`, `reports/onoko-arcana-installer-smoke-20260607-052003.json`, CI `27072878818` success |
 
 ## 2. 製品ゴール
 
@@ -99,7 +99,7 @@ Status: Web-only gate complete / deeper a11y remains
 
 ### Phase C: Desktop Packaging
 
-Status: Verified for GitHub public preview package v0.1.2
+Status: Verified for GitHub public preview installer v0.1.3 and post-release support hardening
 
 目的は、開発用HTMLから、実際にローカルで起動しやすいデスクトップアプリへ進めることである。
 
@@ -110,12 +110,15 @@ Status: Verified for GitHub public preview package v0.1.2
 | app icon | P1 | Verified: `imagegen` 生成の透明 PNG と Windows `.ico` を採用し、Electron window/taskbar 用に `AppUserModelID` も設定 |
 | Desktop shortcut helper | P1 | Verified: `CREATE_DESKTOP_SHORTCUT.ps1` が `ONOKO ARCANA.lnk` を作成/更新し、`IconLocation` に `onoko-arcana-app-icon-v1.ico` を設定 |
 | 保存場所の説明 | P1 | Verified: `README.md`, `web-app/README.md` |
-| package smoke | P1 | Verified: `reports/electron-package-smoke-20260607-034938.json` |
+| package smoke | P1 | Verified: `reports/electron-package-smoke-20260607-061337.json` |
+| NSIS installer | P1 | Verified: `onoko-arcana-v0.1.3-setup.exe` をGitHub Releaseの主導線にし、CI/tagでsetup.exe、fallback zip、SHA256を配布 |
+| Release/support settings | P1 | Verified: Settings に最新版Release、公式Repo、Security、License、未署名/自動更新なし、更新前backup cueを追加し、Web/Electron/package/installer smokeで確認 |
+| External link allowlist | P1 | Verified: Electron外部リンクは `https://github.com/imonoonoko/ONOKO_ARCANA` 配下のみ許可 |
 
 保留:
 
 - Auto update は v1.0 前には必須ではない。
-- GitHub Release public preview は `v0.1.2` で実施。署名installer、MSIX、store distribution は別ゲートで判断する。
+- GitHub Release public preview は `v0.1.3` でunsigned installer主導線まで実施済み。code signing、MSIX、store distribution は別ゲートで判断する。
 
 ### Phase D: Review And Study Mode
 
@@ -230,6 +233,8 @@ Status: Hold
 | Web smoke gate | 読み、保存、履歴、import/export変更時 | `scripts/smoke_web_app.cjs` |
 | Electron smoke gate | shell、保存、packaging関連変更時 | `scripts/smoke_electron_app.cjs` |
 | Package smoke gate | local package作成後、配布/保存導線変更時 | `scripts/smoke_electron_package.cjs` |
+| Installer smoke gate | installer作成後、Release主導線、icon、packaged resource、Release/support settings変更時 | `scripts/smoke_electron_installer_app.cjs` |
+| Manual installer gate | GitHub Release昇格、installer config、署名、uninstall、実ショートカット表示変更時 | `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` |
 | Visual gate | UI、CSS、HUD asset、layout変更時 | `scripts/audit_web_ui_visual.cjs` |
 | Workflow gate | 複数工程の実装/検証/文書更新時 | `.workflow/<slug>/final-report.md` |
 
@@ -240,6 +245,8 @@ Status: Hold
 | 履歴データ破損 | ユーザーの学習記録を失う | export/import、schema note、migration policy、削除確認 |
 | UI過密 | ONOKO感より読みにくさが勝つ | visual audit、低解像度確認、右パネル肥大化の抑制 |
 | Electron配布で保存場所が不明 | 実使用時にバックアップできない | READMEに保存/復元/バックアップ方針を明記済み。export JSONを正式backup経路にする |
+| Release版ユーザーが最新版/License/Supportへ戻れない | 古いinstallerや権利誤解が残る | Settingsにlatest Release、Repo、Security、License、未署名/自動更新なし、backup cueを表示し、smokeで固定 |
+| 未署名installerの実環境ブロック | SmartScreen/AV/企業ポリシーで導入できない | fallback zipを維持し、clean Windows user/VMでmanual installer smokeを実行する |
 | UE表現への回帰 | MVP完成が遅れる | UEはArchived、Web/Electron本線の完了条件を優先 |
 | 小アルカナ追加の爆発 | asset数とQAが大幅増加 | Expansion Gateまで着手しない |
 
@@ -247,16 +254,16 @@ Status: Hold
 
 次に進める順序は次の通り。
 
-1. settings を package版で確認し、ローカル保存場所/復旧導線の見え方を固める。
-2. スプレッド、メモ有無、問い、日付の順で履歴filterを追加する。
+1. `docs/release/INSTALLER_MANUAL_SMOKE_CHECKLIST.md` は clean Windows user/VM が用意できるまで manual pending として残す。SmartScreen、実ショートカットicon、uninstall、fallback zipはまだ外部環境未確認。
+2. 履歴filterはカード、スプレッド、メモ有無まで実装済み。次に進めるなら問いテキストと保存日filterを小スライスで追加する。
 3. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
 4. 7日/14日 interval を入れる場合は learning fixture と due smoke を先に増やす。
-5. 外部配布する場合のみ、署名installer、`.ico`、auto updateを別スコープで定義する。
+5. code signing、MSIX、Store、auto updateは、manual installer smokeと実ユーザー反応後に別スコープで定義する。
 6. 小アルカナ拡張は、復習filterと配布判断が安定してから再評価する。
 
 ## 8. 完了チェックポイント
 
-この全体ロードマップは、Web/Electron-only 完了ゲートを 2026-06-04 時点で通過し、local package/schema/fixture hardening gateを 2026-06-05 時点で通過した。2026-06-06 時点では、カード別復習、Card Study Sheet、Recall Practice、Slot Interpretation Drill、settings learning data controls、初回導線、保存後アクション、最小 due card queue が検証済み。v1.0全体では、package版settings目視確認、履歴filter拡張、Spread Tutor要件、配布polishが残る。
+この全体ロードマップは、Web/Electron-only 完了ゲートを 2026-06-04 時点で通過し、local package/schema/fixture hardening gateを 2026-06-05 時点で通過した。2026-06-06 時点では、カード別復習、Card Study Sheet、Recall Practice、Slot Interpretation Drill、settings learning data controls、初回導線、保存後アクション、最小 due card queue が検証済み。2026-06-07 時点では、GitHub Release `v0.1.3` のunsigned installer配布、自動installer/package smoke、Release/support settings、Electron外部リンクallowlist、CI `27072878818` が検証済みで、clean Windows manual installer smoke は未実施である。同日、履歴filterはカード、スプレッド、メモ有無までWeb smokeで検証済み。v1.0全体では、manual installer smoke、問い/日付filter判断、Spread Tutor要件、配布polishが残る。
 
 完了時点の判断:
 
@@ -279,6 +286,14 @@ Status: Hold
 - `reports/keyboard-focus-smoke-20260606-194648.json`
 - `reports/ui-visual-audit-20260606-194648/report.json`
 - `reports/onoko-arcana-first-launch-20260606-194424.png`
+- `reports/web-app-check-20260607-061238.json`
+- `reports/web-app-smoke-20260607-061029.json`
+- `reports/keyboard-focus-smoke-20260607-061239.json`
+- `reports/ui-visual-audit-20260607-061249/report.json`
+- `reports/electron-app-smoke-20260607-061249.json`
+- `reports/electron-package-smoke-20260607-061337.json`
+- `reports/onoko-arcana-installer-smoke-20260607-052003.json`
+- GitHub Actions CI `27072878818`
 
 ロードマップ完了条件:
 

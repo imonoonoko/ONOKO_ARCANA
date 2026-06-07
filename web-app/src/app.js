@@ -12,8 +12,22 @@ const assetLicenseUrl = "https://github.com/imonoonoko/ONOKO_ARCANA/blob/main/do
 const maxHistoryItems = 48;
 const maxLearningAttempts = 128;
 const learningPromptTypes = ["keyword_recall", "slot_interpretation"];
+const cardIndex = new Map(cards.map((card, index) => [card.id, { card, index }]));
+const spreadIndex = new Map(spreads.map((spread) => [spread.id, spread]));
 let historyReadFailed = false;
 let learningReadFailed = false;
+
+function getCard(cardId) {
+  return cardIndex.get(cardId)?.card || null;
+}
+
+function getCardIndex(cardId) {
+  return cardIndex.get(cardId)?.index ?? -1;
+}
+
+function getSpread(spreadId) {
+  return spreadIndex.get(spreadId) || null;
+}
 
 function blankSlotDrill(status = "") {
   return {
@@ -38,9 +52,12 @@ const state = {
   reviewedHistoryKey: null,
   afterSaveKey: null,
   historyCardFilter: null,
+  historySpreadFilter: "",
+  historyNoteFilter: "all",
   inspectorTab: "history",
   studySheetOpen: false,
   studySheetCardId: null,
+  studySheetSource: "selection",
   settingsOpen: false,
   settingsStatus: "",
   settings: {
@@ -157,7 +174,7 @@ function moveInspectorTab(currentTab, offset) {
 }
 
 function currentSpread() {
-  return spreads.find((spread) => spread.id === state.spreadId) || spreads[0];
+  return getSpread(state.spreadId) || spreads[0];
 }
 
 function readHistory() {
@@ -200,7 +217,7 @@ function validLearningAttempt(attempt) {
     typeof attempt === "object" &&
     typeof attempt.attemptedAt === "string" &&
     typeof attempt.cardId === "string" &&
-    cards.some((card) => card.id === attempt.cardId) &&
+    cardIndex.has(attempt.cardId) &&
     (attempt.orientation === "upright" || attempt.orientation === "reversed") &&
     learningPromptTypes.includes(attempt.promptType) &&
     typeof attempt.answer === "string" &&
@@ -318,8 +335,10 @@ function importedLearningFromPayload(payload) {
   if (!source || typeof source !== "object" || !Array.isArray(source.attempts)) {
     throw new Error("学習データが見つかりません。");
   }
-  const valid = source.attempts.filter(validLearningAttempt).map((attempt) => {
-    const card = cards.find((candidate) => candidate.id === attempt.cardId);
+  const valid = [];
+  source.attempts.forEach((attempt) => {
+    if (!validLearningAttempt(attempt)) return;
+    const card = getCard(attempt.cardId);
     const normalized = {
       attemptedAt: attempt.attemptedAt,
       cardId: attempt.cardId,
@@ -334,7 +353,7 @@ function importedLearningFromPayload(payload) {
     ["spreadId", "spreadLabel", "slotKey", "slotLabel", "slotPrompt"].forEach((field) => {
       if (typeof attempt[field] === "string") normalized[field] = attempt[field];
     });
-    return normalized;
+    valid.push(normalized);
   });
   return {
     attempts: valid,
@@ -393,17 +412,18 @@ function validImportedReading(item) {
   if (typeof item.savedAt !== "string" || !item.savedAt.trim()) return false;
   if (typeof item.spreadLabel !== "string" || !item.spreadLabel.trim()) return false;
   if (typeof item.summary !== "string" || !item.summary.trim()) return false;
-  const spread = spreads.find((candidate) => candidate.id === item.spreadId);
+  const spread = getSpread(item.spreadId);
   if (!spread) return false;
   if (!Array.isArray(item.cards) || item.cards.length === 0 || item.cards.length > spread.slots.length) return false;
+  const spreadSlotKeys = new Set(spread.slots.map((slot) => slot.key));
   return item.cards.every((entry) => (
     entry &&
     typeof entry === "object" &&
     typeof entry.cardId === "string" &&
-    cards.some((card) => card.id === entry.cardId) &&
+    cardIndex.has(entry.cardId) &&
     typeof entry.reversed === "boolean" &&
     typeof entry.slotKey === "string" &&
-    spread.slots.some((slot) => slot.key === entry.slotKey) &&
+    spreadSlotKeys.has(entry.slotKey) &&
     (!("note" in entry) || typeof entry.note === "string")
   ));
 }
@@ -471,6 +491,7 @@ function drawSpread() {
   state.afterSaveKey = null;
   state.studySheetOpen = false;
   state.studySheetCardId = null;
+  state.studySheetSource = "selection";
   state.inspectorTab = "card";
   state.slotDrill = blankSlotDrill();
   els.noteStatus.textContent = "";
@@ -497,6 +518,7 @@ function resetTable() {
   state.afterSaveKey = null;
   state.studySheetOpen = false;
   state.studySheetCardId = null;
+  state.studySheetSource = "selection";
   state.inspectorTab = "card";
   state.slotDrill = blankSlotDrill();
   els.noteStatus.textContent = "";
@@ -584,7 +606,7 @@ function recallKeywords(card, orientation) {
 }
 
 function nextRecallCardId(currentCardId) {
-  const currentIndex = cards.findIndex((card) => card.id === currentCardId);
+  const currentIndex = getCardIndex(currentCardId);
   const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % cards.length : 0;
   return cards[nextIndex].id;
 }
@@ -611,7 +633,7 @@ function learningDueSummary(learningState, now = new Date()) {
   const latestByPrompt = new Map();
   learningState.attempts.forEach((attempt) => {
     const attemptedAt = validDate(attempt.attemptedAt);
-    const card = cards.find((candidate) => candidate.id === attempt.cardId);
+    const card = getCard(attempt.cardId);
     if (!attemptedAt || !card) return;
     const promptKey = [card.id, attempt.orientation, attempt.promptType].join("||");
     const current = latestByPrompt.get(promptKey);
@@ -625,11 +647,24 @@ function learningDueSummary(learningState, now = new Date()) {
     return { ...item, dueAt };
   }).filter((item) => item.dueAt);
   const sortItems = (a, b) => a.dueAt - b.dueAt || a.card.number.localeCompare(b.card.number);
+  const sortedItems = items.sort(sortItems);
+  const due = [];
+  const upcoming = [];
+  let hardCount = 0;
+
+  sortedItems.forEach((item) => {
+    if (item.attempt.confidence === "hard") hardCount += 1;
+    if (item.dueAt <= now) {
+      due.push(item);
+    } else {
+      upcoming.push(item);
+    }
+  });
 
   return {
-    due: items.filter((item) => item.dueAt <= now).sort(sortItems),
-    upcoming: items.filter((item) => item.dueAt > now).sort(sortItems),
-    hardCount: items.filter((item) => item.attempt.confidence === "hard").length,
+    due,
+    upcoming,
+    hardCount,
     totalTracked: items.length
   };
 }
@@ -645,17 +680,32 @@ function shortDateTimeCopy(date) {
 
 function cardForHistoryEntry(entry) {
   if (!entry || typeof entry.cardId !== "string") return null;
-  return cards.find((candidate) => candidate.id === entry.cardId) || null;
+  return getCard(entry.cardId);
 }
 
 function historyItemHasCard(item, cardId) {
   return Boolean(item && Array.isArray(item.cards) && item.cards.some((entry) => entry.cardId === cardId));
 }
 
-function historyRowsForFilter(history, cardId) {
-  return history
-    .map((item, index) => ({ item, index }))
-    .filter(({ item }) => !cardId || historyItemHasCard(item, cardId));
+function historyItemHasNote(item) {
+  if (!item || !Array.isArray(item.cards)) return false;
+  return item.cards.some((entry) => typeof entry.note === "string" && entry.note.trim().length > 0);
+}
+
+function historyRowsForFilter(history, filters = {}) {
+  const cardId = filters.cardId || null;
+  const spreadId = filters.spreadId || "";
+  const noteFilter = filters.noteFilter || "all";
+  const rows = [];
+  history.forEach((item, index) => {
+    if (cardId && !historyItemHasCard(item, cardId)) return;
+    if (spreadId && item.spreadId !== spreadId) return;
+    const hasNote = noteFilter === "all" ? false : historyItemHasNote(item);
+    if (noteFilter === "with" && !hasNote) return;
+    if (noteFilter === "without" && hasNote) return;
+    rows.push({ item, index });
+  });
+  return rows;
 }
 
 function renderSpreadMini(spread) {
@@ -788,10 +838,10 @@ function renderProgress() {
 function activeStudySheetContext() {
   const selected = selectedSlot();
   const explicitCard = state.studySheetCardId
-    ? cards.find((candidate) => candidate.id === state.studySheetCardId)
+    ? getCard(state.studySheetCardId)
     : null;
   const card = explicitCard || selected?.card || null;
-  const selectedMatches = Boolean(card && selected?.card?.id === card.id);
+  const selectedMatches = Boolean(card && selected?.card?.id === card.id && state.studySheetSource !== "lens");
   return {
     card,
     selected,
@@ -1050,9 +1100,10 @@ function renderCardStudySheet() {
 }
 
 function openStudySheet(cardId) {
-  const card = cards.find((candidate) => candidate.id === cardId);
+  const card = getCard(cardId);
   if (!card) return;
   state.studySheetCardId = card.id;
+  state.studySheetSource = "lens";
   state.studySheetOpen = true;
   state.inspectorTab = "study";
   render();
@@ -1061,6 +1112,8 @@ function openStudySheet(cardId) {
 function toggleStudySheet() {
   const { card } = activeStudySheetContext();
   if (!card) return;
+  state.studySheetCardId = null;
+  state.studySheetSource = "selection";
   state.studySheetOpen = !state.studySheetOpen;
   state.inspectorTab = "study";
   render();
@@ -1155,7 +1208,7 @@ function renderFirstLaunchGuide(history) {
 
 function firstHistoryCardId(item) {
   const entry = Array.isArray(item?.cards)
-    ? item.cards.find((candidate) => candidate && cards.some((card) => card.id === candidate.cardId))
+    ? item.cards.find((candidate) => candidate && getCard(candidate.cardId))
     : null;
   return entry?.cardId || cards[0].id;
 }
@@ -1223,7 +1276,7 @@ function renderHistoryReview(history) {
     return;
   }
 
-  const spread = spreads.find((candidate) => candidate.id === item.spreadId);
+  const spread = getSpread(item.spreadId);
   const cardRows = item.cards.map((entry, index) => {
     const note = typeof entry.note === "string" ? entry.note.trim() : "";
     const orientation = entry.reversed ? "逆位置" : "正位置";
@@ -1286,7 +1339,7 @@ function studyStats(history) {
     if (!item || !Array.isArray(item.cards)) return;
     item.cards.forEach((entry) => {
       if (!entry || typeof entry.cardId !== "string") return;
-      const card = cards.find((candidate) => candidate.id === entry.cardId);
+      const card = getCard(entry.cardId);
       if (!card) return;
       const current = byCard.get(card.id) || {
         card,
@@ -1325,7 +1378,7 @@ function studyStats(history) {
 
 function recommendedRecallCard(stats) {
   if (state.historyCardFilter) {
-    const filteredCard = cards.find((card) => card.id === state.historyCardFilter);
+    const filteredCard = getCard(state.historyCardFilter);
     if (filteredCard) return filteredCard;
   }
   if (stats.recentFocus?.card) return stats.recentFocus.card;
@@ -1373,7 +1426,7 @@ function renderDueReviewCue(dueSummary) {
 }
 
 function beginRecallPractice(cardId) {
-  const card = cards.find((candidate) => candidate.id === cardId) || cards[0];
+  const card = getCard(cardId) || cards[0];
   state.inspectorTab = "study";
   state.recallPractice = {
     cardId: card.id,
@@ -1405,7 +1458,7 @@ function revealRecallGuide() {
 
 function saveRecallAttempt(confidence) {
   if (!["hard", "ok", "easy"].includes(confidence)) return;
-  const card = cards.find((candidate) => candidate.id === state.recallPractice.cardId);
+  const card = getCard(state.recallPractice.cardId);
   const answer = state.recallPractice.answer.trim();
   if (!card || !answer || !state.recallPractice.revealed) return;
   const learningState = readLearningState();
@@ -1437,7 +1490,7 @@ function saveRecallAttempt(confidence) {
 function renderRecallPractice(stats, learningState) {
   const suggestedCard = recommendedRecallCard(stats);
   const activeCard = state.recallPractice.cardId
-    ? cards.find((card) => card.id === state.recallPractice.cardId)
+    ? getCard(state.recallPractice.cardId)
     : null;
   const latestAttempt = learningState.attempts[0];
   const latestCopy = state.recallPractice.status || (latestAttempt
@@ -1616,22 +1669,107 @@ function renderStudyLens(history) {
   bindStudyLensActions();
 }
 
+function noteFilterLabel(value) {
+  if (value === "with") return "メモあり";
+  if (value === "without") return "メモなし";
+  return "すべて";
+}
+
+function activeHistoryFilterCount(card, spreadId, noteFilter) {
+  return [
+    Boolean(card),
+    Boolean(spreadId),
+    noteFilter && noteFilter !== "all"
+  ].filter(Boolean).length;
+}
+
 function renderHistoryFilterBar(card, matchCount) {
-  if (!card) return "";
+  const spreadId = state.historySpreadFilter || "";
+  const noteFilter = state.historyNoteFilter || "all";
+  const activeCount = activeHistoryFilterCount(card, spreadId, noteFilter);
+  if (!activeCount) {
+    return `
+      <div class="history-filter-panel" aria-label="履歴フィルター">
+        <div class="history-filter-controls">
+          <label>
+            <span>スプレッド</span>
+            <select data-history-spread-filter>
+              <option value="">すべて</option>
+              ${spreads.map((spread) => `<option value="${escapeText(spread.id)}">${escapeText(spread.label)}</option>`).join("")}
+            </select>
+          </label>
+          <label>
+            <span>メモ</span>
+            <select data-history-note-filter>
+              <option value="all">すべて</option>
+              <option value="with">メモあり</option>
+              <option value="without">メモなし</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    `;
+  }
+  const spread = spreadId ? getSpread(spreadId) : null;
+  const labels = [];
+  if (card) labels.push(`カード: ${cardLabel(card)}`);
+  if (spread) labels.push(`スプレッド: ${spread.label}`);
+  if (noteFilter !== "all") labels.push(`メモ: ${noteFilterLabel(noteFilter)}`);
   return `
-    <div class="history-filter-bar" role="status">
-      <span>
-        <b>カード別復習</b>
-        ${escapeText(cardLabel(card))} / ${matchCount}件
-      </span>
-      <button class="history-filter-clear" type="button" data-clear-history-filter>全履歴</button>
+    <div class="history-filter-panel" aria-label="履歴フィルター">
+      <div class="history-filter-controls">
+        <label>
+          <span>スプレッド</span>
+          <select data-history-spread-filter>
+            <option value="">すべて</option>
+            ${spreads.map((candidate) => `<option value="${escapeText(candidate.id)}" ${candidate.id === spreadId ? "selected" : ""}>${escapeText(candidate.label)}</option>`).join("")}
+          </select>
+        </label>
+        <label>
+          <span>メモ</span>
+          <select data-history-note-filter>
+            <option value="all" ${noteFilter === "all" ? "selected" : ""}>すべて</option>
+            <option value="with" ${noteFilter === "with" ? "selected" : ""}>メモあり</option>
+            <option value="without" ${noteFilter === "without" ? "selected" : ""}>メモなし</option>
+          </select>
+        </label>
+      </div>
+      <div class="history-filter-bar" role="status">
+        <span>
+          <b>${card ? "カード別復習" : "履歴フィルター"}</b>
+          ${escapeText(labels.join(" / "))} / ${matchCount}件
+        </span>
+        <button class="history-filter-clear" type="button" data-clear-history-filter>全履歴</button>
+      </div>
     </div>
   `;
 }
 
-function bindHistoryFilterClear() {
+function bindHistoryFilterControls() {
+  const spreadSelect = els.historyFilterBar?.querySelector("[data-history-spread-filter]");
+  if (spreadSelect) {
+    spreadSelect.value = state.historySpreadFilter || "";
+    spreadSelect.addEventListener("change", () => {
+      state.historySpreadFilter = spreadSelect.value;
+      state.reviewedHistoryKey = null;
+      state.inspectorTab = "history";
+      renderHistory();
+    });
+  }
+  const noteSelect = els.historyFilterBar?.querySelector("[data-history-note-filter]");
+  if (noteSelect) {
+    noteSelect.value = state.historyNoteFilter || "all";
+    noteSelect.addEventListener("change", () => {
+      state.historyNoteFilter = noteSelect.value || "all";
+      state.reviewedHistoryKey = null;
+      state.inspectorTab = "history";
+      renderHistory();
+    });
+  }
   els.historyFilterBar?.querySelector("[data-clear-history-filter]")?.addEventListener("click", () => {
     state.historyCardFilter = null;
+    state.historySpreadFilter = "";
+    state.historyNoteFilter = "all";
     state.reviewedHistoryKey = null;
     state.inspectorTab = "history";
     renderHistory();
@@ -1691,7 +1829,7 @@ function closeSettings() {
 }
 
 function selectHistoryCardFilter(cardId) {
-  const card = cards.find((candidate) => candidate.id === cardId);
+  const card = getCard(cardId);
   if (!card) return;
   const history = readHistory();
   state.historyCardFilter = card.id;
@@ -1712,22 +1850,31 @@ function renderHistory() {
   els.historySection?.classList.toggle("is-empty-history", !historyReadFailed && history.length === 0);
 
   let activeFilterCard = state.historyCardFilter
-    ? cards.find((card) => card.id === state.historyCardFilter)
+    ? getCard(state.historyCardFilter)
     : null;
   if (state.historyCardFilter && !activeFilterCard) {
     state.historyCardFilter = null;
     activeFilterCard = null;
   }
-  const visibleRows = historyRowsForFilter(history, activeFilterCard?.id || null);
+  const visibleRows = historyRowsForFilter(history, {
+    cardId: activeFilterCard?.id || null,
+    spreadId: state.historySpreadFilter || "",
+    noteFilter: state.historyNoteFilter || "all"
+  });
   const visibleHistory = visibleRows.map(({ item }) => item);
   if (state.reviewedHistoryKey && !visibleHistory.some((item) => readingIdentity(item) === state.reviewedHistoryKey)) {
     state.reviewedHistoryKey = null;
   }
   if (els.historyFilterBar) {
     els.historyFilterBar.innerHTML = renderHistoryFilterBar(activeFilterCard, visibleRows.length);
-    bindHistoryFilterClear();
+    bindHistoryFilterControls();
   }
-  els.historySection?.classList.toggle("is-filtered", Boolean(activeFilterCard));
+  const hasActiveHistoryFilter = activeHistoryFilterCount(
+    activeFilterCard,
+    state.historySpreadFilter,
+    state.historyNoteFilter
+  ) > 0;
+  els.historySection?.classList.toggle("is-filtered", hasActiveHistoryFilter);
   els.historySection?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
   els.studyPanel?.classList.toggle("is-filtered", Boolean(activeFilterCard));
   els.studyPanel?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
@@ -1747,6 +1894,8 @@ function renderHistory() {
   }
   if (!history.length) {
     state.historyCardFilter = null;
+    state.historySpreadFilter = "";
+    state.historyNoteFilter = "all";
     if (els.historyFilterBar) els.historyFilterBar.innerHTML = "";
     els.historySection?.classList.remove("is-filtered");
     els.historySection?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
@@ -1758,7 +1907,7 @@ function renderHistory() {
 
   if (!visibleRows.length) {
     els.historyList.innerHTML = `
-      <p class="empty">このカードを含む保存済みリーディングはまだありません。次の観測候補として引いた時に保存すると、ここに集まります。</p>
+      <p class="empty">条件に合う保存済みリーディングはまだありません。フィルターを外すか、次の読みを保存してください。</p>
     `;
     renderHistoryReview(visibleHistory);
     return;
@@ -1766,7 +1915,7 @@ function renderHistory() {
 
   els.historyList.innerHTML = `
     ${visibleRows.map(({ item, index }) => `
-    <div class="history-row ${readingIdentity(item) === state.reviewedHistoryKey ? "is-active" : ""}" data-history-card-ids="${escapeText((Array.isArray(item.cards) ? item.cards : []).map((entry) => entry.cardId).join(" "))}">
+    <div class="history-row ${readingIdentity(item) === state.reviewedHistoryKey ? "is-active" : ""}" data-history-card-ids="${escapeText((Array.isArray(item.cards) ? item.cards : []).map((entry) => entry.cardId).join(" "))}" data-history-spread-id="${escapeText(item.spreadId || "")}" data-history-has-note="${historyItemHasNote(item) ? "true" : "false"}">
       <button class="history-item" type="button" data-history-index="${index}" aria-label="${escapeText(`${item.spreadLabel} ${item.savedAt} を復元`)}">
         <b>${escapeText(item.spreadLabel)} / ${escapeText(item.savedAt)}</b>
         <span>${escapeText(item.summary)}${item.question ? ` / ${escapeText(item.question)}` : ""}</span>
@@ -1868,11 +2017,11 @@ function saveReading() {
 function restoreHistory(index) {
   const item = readHistory()[index];
   if (!item) return;
-  const spread = spreads.find((candidate) => candidate.id === item.spreadId);
+  const spread = getSpread(item.spreadId);
   if (!spread) return;
   state.spreadId = spread.id;
   state.drawn = item.cards.map((entry) => {
-    const card = cards.find((candidate) => candidate.id === entry.cardId);
+    const card = getCard(entry.cardId);
     return card ? { ...card, reversed: entry.reversed } : null;
   }).filter(Boolean);
   state.revealedCount = state.drawn.length;
@@ -1883,6 +2032,7 @@ function restoreHistory(index) {
   state.afterSaveKey = null;
   state.studySheetOpen = false;
   state.studySheetCardId = null;
+  state.studySheetSource = "selection";
   state.inspectorTab = "card";
   state.slotDrill = blankSlotDrill();
   els.questionInput.value = item.question || "";

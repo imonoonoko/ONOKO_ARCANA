@@ -275,6 +275,13 @@ async function runDesktop(browser, id) {
 
   await page.setInputFiles("#importHistoryInput", exportPath);
   await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "3");
+  await page.click("#resetButton");
+  await page.click('[data-spread-id="one_card"]');
+  await page.fill("#questionInput", "メモなし履歴も後で探せるか");
+  await page.click("#drawButton");
+  await reveal(page, 1);
+  await page.click("#saveReadingButton");
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "4");
 
   await openInspectorTab(page, "study");
   await page.waitForSelector("[data-study-card-id]");
@@ -307,6 +314,57 @@ async function runDesktop(browser, id) {
   const studyFilterClearState = await page.evaluate(() => ({
     historyItems: document.querySelectorAll(".history-item").length,
     filterVisible: Boolean(document.querySelector(".history-filter-bar"))
+  }));
+
+  await page.selectOption("[data-history-spread-filter]", "relationship_line");
+  await page.waitForFunction(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return rows.length > 0 && rows.every((row) => row.dataset.historySpreadId === "relationship_line");
+  });
+  const spreadFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector("#historyFilterBar")?.textContent,
+      historyItems: rows.length,
+      allRowsMatch: rows.length > 0 && rows.every((row) => row.dataset.historySpreadId === "relationship_line"),
+      reviewActive: Boolean(document.querySelector("#historyReview [data-review-active='true']"))
+    };
+  });
+  await page.selectOption("[data-history-note-filter]", "with");
+  await page.waitForFunction(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return rows.length > 0 && rows.every((row) => row.dataset.historyHasNote === "true");
+  });
+  const noteWithFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector("#historyFilterBar")?.textContent,
+      historyItems: rows.length,
+      allRowsMatch: rows.length > 0 && rows.every((row) => row.dataset.historyHasNote === "true")
+    };
+  });
+  await page.selectOption("[data-history-spread-filter]", "");
+  await page.selectOption("[data-history-note-filter]", "without");
+  await page.waitForFunction(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return rows.length === 1 && rows.every((row) => row.dataset.historyHasNote === "false");
+  });
+  const noteWithoutFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector("#historyFilterBar")?.textContent,
+      historyItems: rows.length,
+      allRowsMatch: rows.length === 1 && rows.every((row) => row.dataset.historyHasNote === "false"),
+      rowText: document.querySelector(".history-row")?.textContent
+    };
+  });
+  await page.click("[data-clear-history-filter]");
+  await page.waitForFunction(() => document.querySelectorAll(".history-item").length === 4 && !document.querySelector(".history-filter-bar"));
+  const expandedFilterClearState = await page.evaluate(() => ({
+    historyItems: document.querySelectorAll(".history-item").length,
+    filterVisible: Boolean(document.querySelector(".history-filter-bar")),
+    spreadValue: document.querySelector("[data-history-spread-filter]")?.value,
+    noteValue: document.querySelector("[data-history-note-filter]")?.value
   }));
 
   await openInspectorTab(page, "study");
@@ -460,7 +518,7 @@ async function runDesktop(browser, id) {
   }));
 
   await openInspectorTab(page, "history");
-  await page.click('[data-history-index="0"]');
+  await page.locator('[data-history-spread-id="celtic_cross"] [data-history-index]').first().click();
   await page.waitForFunction(() => Boolean(document.querySelector("#historyReview [data-review-active='true']")));
   await openInspectorTab(page, "history");
   const reviewState = await page.evaluate(() => ({
@@ -474,7 +532,7 @@ async function runDesktop(browser, id) {
   const deleteDialogPromise = page.waitForEvent("dialog").then((dialog) => dialog.accept());
   await page.click('[data-history-delete-index="0"]');
   await deleteDialogPromise;
-  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "2");
+  await page.waitForFunction(() => document.querySelector("#statSaved")?.textContent === "3");
   const deleteState = await page.evaluate(() => ({
     saved: document.querySelector("#statSaved")?.textContent,
     historyItems: document.querySelectorAll(".history-item").length,
@@ -525,6 +583,10 @@ async function runDesktop(browser, id) {
     slotDrillSavedState,
     studyFilterState,
     studyFilterClearState,
+    spreadFilterState,
+    noteWithFilterState,
+    noteWithoutFilterState,
+    expandedFilterClearState,
     studyLensSheetState,
     recallStartState,
     recallBeforeAnswerState,
@@ -680,8 +742,24 @@ async function runMobile(browser, id) {
     desktop.studyFilterState.reviewText.includes("自分の読み") &&
     desktop.studyFilterState.reviewText.includes("学習シート") &&
     desktop.studyFilterState.allRowsMatch === true &&
-    desktop.studyFilterClearState.historyItems === 3 &&
+    desktop.studyFilterClearState.historyItems === 4 &&
     desktop.studyFilterClearState.filterVisible === false &&
+    desktop.spreadFilterState.filterText.includes("スプレッド") &&
+    desktop.spreadFilterState.filterText.includes("関係性ライン") &&
+    desktop.spreadFilterState.historyItems > 0 &&
+    desktop.spreadFilterState.allRowsMatch === true &&
+    desktop.spreadFilterState.reviewActive === false &&
+    desktop.noteWithFilterState.filterText.includes("メモあり") &&
+    desktop.noteWithFilterState.historyItems > 0 &&
+    desktop.noteWithFilterState.allRowsMatch === true &&
+    desktop.noteWithoutFilterState.filterText.includes("メモなし") &&
+    desktop.noteWithoutFilterState.historyItems === 1 &&
+    desktop.noteWithoutFilterState.allRowsMatch === true &&
+    desktop.noteWithoutFilterState.rowText.includes("メモなし履歴") &&
+    desktop.expandedFilterClearState.historyItems === 4 &&
+    desktop.expandedFilterClearState.filterVisible === false &&
+    desktop.expandedFilterClearState.spreadValue === "" &&
+    desktop.expandedFilterClearState.noteValue === "all" &&
     desktop.studyLensSheetState.openCardId === desktop.studyLensSheetState.cardId &&
     desktop.studyLensSheetState.text.includes("学習レンズから選択") &&
     desktop.studyLensSheetState.text.includes("正位置") &&
@@ -706,7 +784,7 @@ async function runMobile(browser, id) {
     desktop.recallSavedState.text.includes("練習結果を保存しました") &&
     desktop.settingsOpenState.dialogVisible === true &&
     desktop.settingsOpenState.title.includes("設定とバックアップ") &&
-    desktop.settingsOpenState.historyCount === "3" &&
+    desktop.settingsOpenState.historyCount === "4" &&
     desktop.settingsOpenState.learningCount === "2" &&
     desktop.settingsOpenState.historyExportDisabled === false &&
     desktop.settingsOpenState.learningExportDisabled === false &&
@@ -749,9 +827,9 @@ async function runMobile(browser, id) {
     desktop.reviewState.reviewActive === true &&
     desktop.reviewState.reviewRows === 10 &&
     desktop.reviewState.reviewText.includes("復習ノート") &&
-    desktop.deleteState.saved === "2" &&
-    desktop.deleteState.historyItems === 2 &&
-    desktop.deleteState.historyDeleteButtons === 2 &&
+    desktop.deleteState.saved === "3" &&
+    desktop.deleteState.historyItems === 3 &&
+    desktop.deleteState.historyDeleteButtons === 3 &&
     desktop.deleteState.exportDisabled === false &&
     desktop.deleteState.clearDisabled === false &&
     desktop.deleteState.noteStatus.includes("削除しました") &&

@@ -1,0 +1,32 @@
+{
+  "workflow": "onoko-arcana-installer-release-20260607",
+  "status": "complete",
+  "approval": {
+    "publishRelease": "completed",
+    "destructiveOps": "not_requested",
+    "signingSecrets": "not_available"
+  },
+  "packets": [
+    {
+      "id": "requirements",
+      "status": "completed"
+    },
+    {
+      "id": "implementation",
+      "status": "completed"
+    },
+    {
+      "id": "verification",
+      "status": "completed"
+    },
+    {
+      "id": "docs-release",
+      "status": "completed"
+    }
+  ],
+  "verification": {
+    "local": "passed",
+    "ci": "passed",
+    "release": "published"
+  }
+}

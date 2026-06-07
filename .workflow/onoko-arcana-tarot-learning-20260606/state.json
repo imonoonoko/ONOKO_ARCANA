@@ -1,0 +1,39 @@
+{
+  "id": "onoko-arcana-tarot-learning-20260606",
+  "updated": "2026-06-06",
+  "status": "verified-slice-complete",
+  "active_lane": "web-electron-2d",
+  "completed_packets": [
+    "requirements-and-research",
+    "card-specific-review",
+    "note-vs-guide-compare",
+    "recall-practice",
+    "learning-schema-draft",
+    "settings-learning-data-controls",
+    "first-launch-empty-state",
+    "after-save-next-actions",
+    "minimal-due-card-queue",
+    "card-study-sheet-info-density",
+    "slot-interpretation-drill",
+    "gui-optimization-kanban",
+    "verification"
+  ],
+  "latest_evidence": {
+    "static_check": "reports/web-app-check-20260606-203719.json",
+    "web_smoke": "reports/web-app-smoke-20260606-203136.json",
+    "electron_smoke": "reports/electron-app-smoke-20260606-203227.json",
+    "visual_audit": "reports/ui-visual-audit-20260606-203150/report.json",
+    "keyboard_smoke": "reports/keyboard-focus-smoke-20260606-203220.json",
+    "package_smoke": "reports/electron-package-smoke-20260606-203245.json",
+    "recall_screenshot": "reports/onoko-arcana-recall-practice-20260606-1403-recall.png",
+    "settings_screenshot": "reports/onoko-arcana-settings-20260606-203136.png",
+    "first_launch_screenshot": "reports/onoko-arcana-first-launch-20260606-203136.png",
+    "card_study_sheet_screenshots": "reports/ui-visual-audit-20260606-203150/",
+    "learning_export": "reports/onoko-arcana-learning-export-20260606-203136.json"
+  },
+  "next_packets": [
+    "package-settings-local-data-check",
+    "history-filter-expansion",
+    "spread-tutor-requirements"
+  ]
+}
