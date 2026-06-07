@@ -7,7 +7,9 @@
 - ONOKO ARCANA v1.x は Web/Electron の 2D 占い卓として完成させる。
 - 現行本体は `web-app/index.html`、Electron shell は `web-app/electron/main.cjs`。
 - 入口文書は `plan.md`、`docs/roadmap/ONOKO_ARCANA_OVERALL_ROADMAP_2026-06-04.md`、`docs/implementation/IMPLEMENTATION_KANBAN.md`、`docs/design/DESIGN_KANBAN.md`。
-- 現在の公開基準は GitHub Release `v0.1.2` public preview。次の実装順は、公開後フィードバック収集、GitHub Release/BOOTH向け説明整備、署名installer/MSIX検討、小アルカナ判断ゲート。
+- 現在の公開基準は GitHub Release `v0.1.3` public preview。主導線は unsigned NSIS installer、fallback は local zip。
+- clean Windows user/VM での manual installer smoke は未完了ゲートとして残す。
+- ローカルで進める次順は、復習UIの過密化抑制、Spread Tutor / Story Synthesis の要件整理、公開後フィードバック収集であり、署名installer/MSIX/Store/小アルカナは別ゲートまで進めない。
 - 作業前は `python scripts/check_web_app.py` を実行し、変更内容に応じて Web smoke、Electron smoke、visual audit、package smoke、release artifact smoke を通す。
 
 ## Web/Electron環境

@@ -306,8 +306,58 @@ async function runDesktop(browser, id) {
   await page.waitForFunction(() => !document.querySelector(".history-filter-bar"));
   const studyFilterClearState = await page.evaluate(() => ({
     historyItems: document.querySelectorAll(".history-item").length,
-    filterVisible: Boolean(document.querySelector(".history-filter-bar"))
+    filterVisible: Boolean(document.querySelector(".history-filter-bar")),
+    controlsVisible: Boolean(document.querySelector("[data-history-spread-filter]"))
   }));
+
+  await page.waitForSelector("[data-history-spread-filter]");
+  await page.selectOption("[data-history-spread-filter]", "celtic_cross");
+  await page.waitForFunction(() => document.querySelector(".history-filter-bar")?.textContent.includes("スプレッド"));
+  const spreadFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector(".history-filter-bar")?.textContent,
+      historyItems: document.querySelectorAll(".history-item").length,
+      allRowsMatch: rows.length > 0 && rows.every((row) => row.dataset.historySpreadId === "celtic_cross")
+    };
+  });
+
+  await page.selectOption("[data-history-note-filter]", "with");
+  await page.waitForFunction(() => document.querySelector(".history-filter-bar")?.textContent.includes("メモあり"));
+  const noteFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector(".history-filter-bar")?.textContent,
+      historyItems: document.querySelectorAll(".history-item").length,
+      allRowsMatch: rows.length > 0 && rows.every((row) => row.dataset.historyHasNote === "true")
+    };
+  });
+
+  await page.fill("[data-history-query-filter]", "ONOKO");
+  await page.dispatchEvent("[data-history-query-filter]", "change");
+  await page.waitForFunction(() => document.querySelector(".history-filter-bar")?.textContent.includes("ONOKO"));
+  const queryFilterState = await page.evaluate(() => ({
+    filterText: document.querySelector(".history-filter-bar")?.textContent,
+    historyItems: document.querySelectorAll(".history-item").length,
+    historyText: document.querySelector("#historyList")?.textContent
+  }));
+
+  await page.click("[data-clear-history-filter]");
+  await page.waitForFunction(() => !document.querySelector(".history-filter-bar"));
+  await page.fill("[data-history-date-filter]", "2026-06-05");
+  await page.dispatchEvent("[data-history-date-filter]", "change");
+  await page.waitForFunction(() => document.querySelector(".history-filter-bar")?.textContent.includes("2026-06-05"));
+  const dateFilterState = await page.evaluate(() => {
+    const rows = Array.from(document.querySelectorAll(".history-row"));
+    return {
+      filterText: document.querySelector(".history-filter-bar")?.textContent,
+      historyItems: document.querySelectorAll(".history-item").length,
+      allRowsMatch: rows.length > 0 && rows.every((row) => row.dataset.historySavedDate === "2026-06-05")
+    };
+  });
+
+  await page.click("[data-clear-history-filter]");
+  await page.waitForFunction(() => !document.querySelector(".history-filter-bar"));
 
   await openInspectorTab(page, "study");
   const inactiveStudySheetCard = await page.evaluate(({ selectedCardId, filterCardId }) => {
@@ -525,6 +575,10 @@ async function runDesktop(browser, id) {
     slotDrillSavedState,
     studyFilterState,
     studyFilterClearState,
+    spreadFilterState,
+    noteFilterState,
+    queryFilterState,
+    dateFilterState,
     studyLensSheetState,
     recallStartState,
     recallBeforeAnswerState,
@@ -682,6 +736,19 @@ async function runMobile(browser, id) {
     desktop.studyFilterState.allRowsMatch === true &&
     desktop.studyFilterClearState.historyItems === 3 &&
     desktop.studyFilterClearState.filterVisible === false &&
+    desktop.studyFilterClearState.controlsVisible === true &&
+    desktop.spreadFilterState.filterText.includes("ケルト十字") &&
+    desktop.spreadFilterState.historyItems === 1 &&
+    desktop.spreadFilterState.allRowsMatch === true &&
+    desktop.noteFilterState.filterText.includes("メモあり") &&
+    desktop.noteFilterState.historyItems === 1 &&
+    desktop.noteFilterState.allRowsMatch === true &&
+    desktop.queryFilterState.filterText.includes("ONOKO") &&
+    desktop.queryFilterState.historyItems === 1 &&
+    desktop.queryFilterState.historyText.includes("ONOKOアプリ") &&
+    desktop.dateFilterState.filterText.includes("2026-06-05") &&
+    desktop.dateFilterState.historyItems === 1 &&
+    desktop.dateFilterState.allRowsMatch === true &&
     desktop.studyLensSheetState.openCardId === desktop.studyLensSheetState.cardId &&
     desktop.studyLensSheetState.text.includes("学習レンズから選択") &&
     desktop.studyLensSheetState.text.includes("正位置") &&
