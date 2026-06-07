@@ -2116,6 +2116,47 @@ a.button {
   align-items: stretch;
 }
 
+.history-filter-panel {
+  display: grid;
+  gap: 7px;
+}
+
+.history-filter-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.history-filter-controls label {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.history-filter-controls span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.history-filter-controls select,
+.history-filter-controls input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(67, 168, 255, 0.28);
+  border-radius: var(--radius);
+  padding: 6px 7px;
+  color: var(--text);
+  background: rgba(3, 10, 18, 0.86);
+  font: inherit;
+  font-size: 11px;
+}
+
+.history-filter-controls select:focus-visible,
+.history-filter-controls input:focus-visible {
+  outline: 2px solid rgba(67, 168, 255, 0.72);
+  outline-offset: 2px;
+}
+
 .history-filter-bar {
   display: flex;
   align-items: center;

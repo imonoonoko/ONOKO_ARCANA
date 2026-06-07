@@ -52,6 +52,10 @@ const state = {
   reviewedHistoryKey: null,
   afterSaveKey: null,
   historyCardFilter: null,
+  historySpreadFilter: "",
+  historyNoteFilter: "all",
+  historyQueryFilter: "",
+  historyDateFilter: "",
   inspectorTab: "history",
   studySheetOpen: false,
   studySheetCardId: null,
@@ -681,10 +685,52 @@ function historyItemHasCard(item, cardId) {
   return Boolean(item && Array.isArray(item.cards) && item.cards.some((entry) => entry.cardId === cardId));
 }
 
-function historyRowsForFilter(history, cardId) {
+function historyItemHasNote(item) {
+  if (!item || !Array.isArray(item.cards)) return false;
+  return item.cards.some((entry) => typeof entry.note === "string" && entry.note.trim().length > 0);
+}
+
+function historyItemSavedDate(item) {
+  const date = validDate(item?.savedAt);
+  return date ? date.toISOString().slice(0, 10) : "";
+}
+
+function historySearchText(item) {
+  const cardText = Array.isArray(item?.cards)
+    ? item.cards.map((entry) => {
+      const card = cardForHistoryEntry(entry);
+      return [
+        entry.cardId,
+        card ? cardLabel(card) : "",
+        entry.slotLabel,
+        entry.note
+      ].filter(Boolean).join(" ");
+    }).join(" ")
+    : "";
+  return [
+    item?.question,
+    item?.summary,
+    item?.spreadLabel,
+    item?.savedAt,
+    cardText
+  ].filter(Boolean).join(" ").toLocaleLowerCase("ja-JP");
+}
+
+function historyRowsForFilter(history, filters = {}) {
+  const cardId = filters.cardId || null;
+  const spreadId = filters.spreadId || "";
+  const noteFilter = filters.noteFilter || "all";
+  const query = typeof filters.query === "string" ? filters.query.trim().toLocaleLowerCase("ja-JP") : "";
+  const savedDate = filters.savedDate || "";
   const rows = [];
   history.forEach((item, index) => {
     if (cardId && !historyItemHasCard(item, cardId)) return;
+    if (spreadId && item?.spreadId !== spreadId) return;
+    const hasNote = noteFilter === "all" ? false : historyItemHasNote(item);
+    if (noteFilter === "with" && !hasNote) return;
+    if (noteFilter === "without" && hasNote) return;
+    if (query && !historySearchText(item).includes(query)) return;
+    if (savedDate && historyItemSavedDate(item) !== savedDate) return;
     rows.push({ item, index });
   });
   return rows;
@@ -1648,22 +1694,127 @@ function renderStudyLens(history) {
   bindStudyLensActions();
 }
 
-function renderHistoryFilterBar(card, matchCount) {
-  if (!card) return "";
+function noteFilterLabel(value) {
+  if (value === "with") return "メモあり";
+  if (value === "without") return "メモなし";
+  return "すべて";
+}
+
+function activeHistoryFilterCount(card, spreadId, noteFilter, query, savedDate) {
+  return [
+    Boolean(card),
+    Boolean(spreadId),
+    noteFilter && noteFilter !== "all",
+    Boolean(query),
+    Boolean(savedDate)
+  ].filter(Boolean).length;
+}
+
+function renderHistoryFilterControls(spreadId, noteFilter, query, savedDate) {
   return `
-    <div class="history-filter-bar" role="status">
-      <span>
-        <b>カード別復習</b>
-        ${escapeText(cardLabel(card))} / ${matchCount}件
-      </span>
-      <button class="history-filter-clear" type="button" data-clear-history-filter>全履歴</button>
+    <div class="history-filter-controls">
+      <label>
+        <span>スプレッド</span>
+        <select data-history-spread-filter>
+          <option value="">すべて</option>
+          ${spreads.map((spread) => `<option value="${escapeText(spread.id)}" ${spread.id === spreadId ? "selected" : ""}>${escapeText(spread.label)}</option>`).join("")}
+        </select>
+      </label>
+      <label>
+        <span>メモ</span>
+        <select data-history-note-filter>
+          <option value="all" ${noteFilter === "all" ? "selected" : ""}>すべて</option>
+          <option value="with" ${noteFilter === "with" ? "selected" : ""}>メモあり</option>
+          <option value="without" ${noteFilter === "without" ? "selected" : ""}>メモなし</option>
+        </select>
+      </label>
+      <label>
+        <span>検索</span>
+        <input type="search" value="${escapeText(query)}" data-history-query-filter placeholder="キーワード">
+      </label>
+      <label>
+        <span>日付</span>
+        <input type="date" value="${escapeText(savedDate)}" data-history-date-filter>
+      </label>
     </div>
   `;
 }
 
-function bindHistoryFilterClear() {
+function renderHistoryFilterBar(card, matchCount) {
+  const spreadId = state.historySpreadFilter || "";
+  const noteFilter = state.historyNoteFilter || "all";
+  const query = state.historyQueryFilter || "";
+  const savedDate = state.historyDateFilter || "";
+  const activeCount = activeHistoryFilterCount(card, spreadId, noteFilter, query, savedDate);
+  const controls = renderHistoryFilterControls(spreadId, noteFilter, query, savedDate);
+  if (!activeCount) {
+    return `<div class="history-filter-panel" aria-label="履歴フィルター">${controls}</div>`;
+  }
+  const spread = spreadId ? getSpread(spreadId) : null;
+  const labels = [];
+  if (card) labels.push(`カード: ${cardLabel(card)}`);
+  if (spread) labels.push(`スプレッド: ${spread.label}`);
+  if (noteFilter !== "all") labels.push(`メモ: ${noteFilterLabel(noteFilter)}`);
+  if (query) labels.push(`検索: ${query}`);
+  if (savedDate) labels.push(`日付: ${savedDate}`);
+  return `
+    <div class="history-filter-panel" aria-label="履歴フィルター">
+      ${controls}
+      <div class="history-filter-bar" role="status">
+        <span>
+          <b>${activeCount === 1 && card ? "カード別復習" : "履歴フィルター"}</b>
+          ${escapeText(labels.join(" / "))} / ${matchCount}件
+        </span>
+        <button class="history-filter-clear" type="button" data-clear-history-filter>全履歴</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindHistoryFilterControls() {
+  const rerenderHistoryFilter = () => {
+    state.reviewedHistoryKey = null;
+    state.inspectorTab = "history";
+    renderHistory();
+  };
+  const spreadSelect = els.historyFilterBar?.querySelector("[data-history-spread-filter]");
+  if (spreadSelect) {
+    spreadSelect.value = state.historySpreadFilter || "";
+    spreadSelect.addEventListener("change", () => {
+      state.historySpreadFilter = spreadSelect.value;
+      rerenderHistoryFilter();
+    });
+  }
+  const noteSelect = els.historyFilterBar?.querySelector("[data-history-note-filter]");
+  if (noteSelect) {
+    noteSelect.value = state.historyNoteFilter || "all";
+    noteSelect.addEventListener("change", () => {
+      state.historyNoteFilter = noteSelect.value || "all";
+      rerenderHistoryFilter();
+    });
+  }
+  const queryInput = els.historyFilterBar?.querySelector("[data-history-query-filter]");
+  if (queryInput) {
+    queryInput.value = state.historyQueryFilter || "";
+    queryInput.addEventListener("change", () => {
+      state.historyQueryFilter = queryInput.value.trim();
+      rerenderHistoryFilter();
+    });
+  }
+  const dateInput = els.historyFilterBar?.querySelector("[data-history-date-filter]");
+  if (dateInput) {
+    dateInput.value = state.historyDateFilter || "";
+    dateInput.addEventListener("change", () => {
+      state.historyDateFilter = dateInput.value;
+      rerenderHistoryFilter();
+    });
+  }
   els.historyFilterBar?.querySelector("[data-clear-history-filter]")?.addEventListener("click", () => {
     state.historyCardFilter = null;
+    state.historySpreadFilter = "";
+    state.historyNoteFilter = "all";
+    state.historyQueryFilter = "";
+    state.historyDateFilter = "";
     state.reviewedHistoryKey = null;
     state.inspectorTab = "history";
     renderHistory();
@@ -1750,16 +1901,29 @@ function renderHistory() {
     state.historyCardFilter = null;
     activeFilterCard = null;
   }
-  const visibleRows = historyRowsForFilter(history, activeFilterCard?.id || null);
+  const activeFilterCount = activeHistoryFilterCount(
+    activeFilterCard,
+    state.historySpreadFilter || "",
+    state.historyNoteFilter || "all",
+    state.historyQueryFilter || "",
+    state.historyDateFilter || ""
+  );
+  const visibleRows = historyRowsForFilter(history, {
+    cardId: activeFilterCard?.id || null,
+    spreadId: state.historySpreadFilter || "",
+    noteFilter: state.historyNoteFilter || "all",
+    query: state.historyQueryFilter || "",
+    savedDate: state.historyDateFilter || ""
+  });
   const visibleHistory = visibleRows.map(({ item }) => item);
   if (state.reviewedHistoryKey && !visibleHistory.some((item) => readingIdentity(item) === state.reviewedHistoryKey)) {
     state.reviewedHistoryKey = null;
   }
   if (els.historyFilterBar) {
     els.historyFilterBar.innerHTML = renderHistoryFilterBar(activeFilterCard, visibleRows.length);
-    bindHistoryFilterClear();
+    bindHistoryFilterControls();
   }
-  els.historySection?.classList.toggle("is-filtered", Boolean(activeFilterCard));
+  els.historySection?.classList.toggle("is-filtered", activeFilterCount > 0);
   els.historySection?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
   els.studyPanel?.classList.toggle("is-filtered", Boolean(activeFilterCard));
   els.studyPanel?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
@@ -1779,6 +1943,10 @@ function renderHistory() {
   }
   if (!history.length) {
     state.historyCardFilter = null;
+    state.historySpreadFilter = "";
+    state.historyNoteFilter = "all";
+    state.historyQueryFilter = "";
+    state.historyDateFilter = "";
     if (els.historyFilterBar) els.historyFilterBar.innerHTML = "";
     els.historySection?.classList.remove("is-filtered");
     els.historySection?.classList.toggle("is-recall-active", Boolean(state.recallPractice.cardId));
@@ -1790,7 +1958,7 @@ function renderHistory() {
 
   if (!visibleRows.length) {
     els.historyList.innerHTML = `
-      <p class="empty">このカードを含む保存済みリーディングはまだありません。次の観測候補として引いた時に保存すると、ここに集まります。</p>
+      <p class="empty">条件に合う保存済みリーディングはまだありません。条件を変えるか、次の読みを保存してください。</p>
     `;
     renderHistoryReview(visibleHistory);
     return;
@@ -1798,7 +1966,7 @@ function renderHistory() {
 
   els.historyList.innerHTML = `
     ${visibleRows.map(({ item, index }) => `
-    <div class="history-row ${readingIdentity(item) === state.reviewedHistoryKey ? "is-active" : ""}" data-history-card-ids="${escapeText((Array.isArray(item.cards) ? item.cards : []).map((entry) => entry.cardId).join(" "))}">
+    <div class="history-row ${readingIdentity(item) === state.reviewedHistoryKey ? "is-active" : ""}" data-history-card-ids="${escapeText((Array.isArray(item.cards) ? item.cards : []).map((entry) => entry.cardId).join(" "))}" data-history-spread-id="${escapeText(item.spreadId || "")}" data-history-saved-date="${escapeText(historyItemSavedDate(item))}" data-history-has-note="${historyItemHasNote(item) ? "true" : "false"}">
       <button class="history-item" type="button" data-history-index="${index}" aria-label="${escapeText(`${item.spreadLabel} ${item.savedAt} を復元`)}">
         <b>${escapeText(item.spreadLabel)} / ${escapeText(item.savedAt)}</b>
         <span>${escapeText(item.summary)}${item.question ? ` / ${escapeText(item.question)}` : ""}</span>
@@ -1957,6 +2125,11 @@ function clearHistory() {
   state.reviewedHistoryKey = null;
   state.afterSaveKey = null;
   state.restoredAt = null;
+  state.historyCardFilter = null;
+  state.historySpreadFilter = "";
+  state.historyNoteFilter = "all";
+  state.historyQueryFilter = "";
+  state.historyDateFilter = "";
   state.inspectorTab = "history";
   els.noteStatus.textContent = "履歴を全消去しました";
   state.settingsStatus = els.noteStatus.textContent;

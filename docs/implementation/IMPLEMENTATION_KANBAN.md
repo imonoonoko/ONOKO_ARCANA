@@ -125,16 +125,16 @@ npm run smoke:package
 |---|---|---|---|---|---|
 | Study sheet beside note | Verified | P0 | 現行 MVP の核として、ノート入力中にカードタブでフル学習シートを参照できる | Card Study Sheet 拡張時は card/study 両方の表示を smoke する | `reports/web-app-smoke-20260607-011915.json` |
 | Reading history | Verified | P0 | 保存済み一覧、要約、復習ノートを表示 | filter/比較へ拡張 | Screenshot |
-| Review mode | Verified | P1 | 履歴1件を復習ノートで読み、カード別filter時は自分の読みと学習シート要点を比較できる | スプレッド/日付/問い別filterは後続 | `reports/web-app-smoke-20260607-011915.json` |
+| Review mode | Verified | P1 | 履歴1件を復習ノートで読み、カード/スプレッド/メモ/問い/日付filter時も復習対象を絞れる | filter追加時は復習ノートと履歴一覧の同期をsmokeする | `reports/web-app-smoke-20260607-011915.json` |
 | Study lens | Verified | P1 | 履歴から保存数、メモ数、既出/未出カード、よく出るカード、次の観測候補、想起練習入口を自動表示 | 情報密度と初回導線を調整 | `reports/web-app-smoke-20260606-140227.json`, `reports/ui-visual-audit-20260606-140228/report.json` |
-| Card review filter | Verified | P1 | Study Lens のカード名から、そのカードを含む保存履歴だけに絞って復習できる | スプレッド/日付/問い別filterは後続 | `reports/web-app-smoke-20260606-140227.json`, `reports/onoko-arcana-card-review-compare-20260606-1342-compare-visible.png` |
+| Card review filter | Verified | P1 | Study Lens のカード名から、そのカードを含む保存履歴だけに絞って復習できる | 複合filter追加時はカード別復習表示を維持 | `reports/web-app-smoke-20260606-140227.json`, `reports/onoko-arcana-card-review-compare-20260606-1342-compare-visible.png` |
 | Note vs study sheet compare | Verified | P1 | カード別復習中に、保存済みの自分の読み、学習シート要点、スロットpromptを同じ履歴カード内で比較できる | 比較結果の分析は spaced review 後に分ける | `reports/web-app-smoke-20260607-011915.json` |
 | Card Study Sheet | Verified | P1 | 選択カードまたは Study Lens から、正位置、逆位置、象徴、誤読しやすい点、内省質問を折りたたみシートとして開ける | 歴史メモとカード系譜は後続 content fixture | `reports/web-app-smoke-20260606-203136.json`, `reports/ui-visual-audit-20260606-203150/report.json`, `reports/web-app-check-20260606-203719.json` |
 | Recall Practice | Verified | P1 | 学習シートを見る前にカードのキーワードや逆位置傾向を想起し、学習シートと比べて hard/ok/easy を learning state に保存できる | 7日/14日 interval は後続 | `reports/web-app-smoke-20260607-011915.json`, `tests/fixtures/learning/learning-valid-v1.json` |
-| Slot Interpretation Drill | Verified | P1 | Study Sheet のカードが卓上選択カードと一致する時、カード + スロット + 正逆の解釈を自分で書いてから解説と比べ、hard/ok/easy を保存できる | spread tutor と履歴 filter で探しやすくする | `reports/web-app-smoke-20260607-011915.json`, `reports/ui-visual-audit-20260607-012023/report.json`, `tests/fixtures/learning/learning-valid-v1.json` |
+| Slot Interpretation Drill | Verified | P1 | Study Sheet のカードが卓上選択カードと一致する時、カード + スロット + 正逆の解釈を自分で書いてから解説と比べ、hard/ok/easy を保存できる | Spread Tutor側で練習対象を探しやすくする | `reports/web-app-smoke-20260607-011915.json`, `reports/ui-visual-audit-20260607-012023/report.json`, `tests/fixtures/learning/learning-valid-v1.json` |
 | Due card queue | Verified | P1 | 最新 attempt の confidence から今日復習すべきカード数と due cue を Study Lens に表示し、対象カードの想起練習へ戻れる | 7日/14日 interval と fixture は後続 | `reports/web-app-smoke-20260606-203136.json`, `reports/ui-visual-audit-20260606-203150/report.json` |
-| Search / filter | Backlog | P2 | 未実装 | スプレッド、カード、日付、キーワードで絞る | Search smoke |
-| Study progress | Verified | P2 | 学習レンズで引いた回数、メモ数、未出カード、想起/スロット練習回数、次の復習数を表示し、compact 表示設定を settings で切り替えられる | 履歴 filter 追加時に情報密度を再確認 | `reports/web-app-smoke-20260606-203136.json` |
+| Search / filter | Verified | P2 | 履歴をカード、スプレッド、メモ有無、問い/キーワード、日付で絞れる | filter追加時は組み合わせ条件とfocus orderを再検査 | `scripts/smoke_web_app.cjs` |
+| Study progress | Verified | P2 | 学習レンズで引いた回数、メモ数、未出カード、想起/スロット練習回数、次の復習数を表示し、compact 表示設定を settings で切り替えられる | 復習UIの過密化を抑制 | `reports/web-app-smoke-20260606-203136.json` |
 
 ## ELECTRON / DISTRIBUTION
 
@@ -168,11 +168,11 @@ npm run smoke:package
 
 ## 次に進める順序
 
-1. settings を package版で開き、ローカル保存場所/復旧導線の見え方を目視確認する。
-2. スプレッド、メモ有無、問い、日付の順で履歴filterを追加する。
-3. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
+1. 復習UIの過密化を抑え、履歴filter、学習レンズ、想起練習が同時に出る状態の視認性を確認する。
+2. Spread Tutor と Story Synthesis の要件を、学習UIの密度を増やしすぎない形で定義する。
+3. clean Windows user/VM で installer manual smoke を実施し、SmartScreen、実ショートカット表示、uninstall、fallback zipを確認する。
 4. 7日/14日 interval を入れる場合は learning fixture と due smoke を先に増やす。
-5. 外部配布する場合だけinstaller、`.ico`、署名、auto updateを別スコープで定義する。
+5. 外部配布する場合だけ署名、auto update、MSIX/Storeを別スコープで定義する。
 
 ## 完了報告に含めるもの
 
